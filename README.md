@@ -26,13 +26,22 @@ https://github.com/ShahanaFarooqui/RTL
 ---
 ## Getting inbound liquidity
 
-open a channel to exchange/merchant accepting Lightning, make a LN payment, and withdraw on-chain
-
-### zigzag.io
+Open a channel to exchange/merchant accepting Lightning, make a LN payment, and withdraw on-chain
 
 ### LightningTo.me
+Opens a channel for free funded with 2 000 000 satoshis.
+
+### [Bitrefill](https://www.bitrefill.com/buy/lightning-channel/lightning/?hl=en)
+pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
+
+### Tippin.me
+Tip yourself via LN and withdraw onchain.
+
+### zigzag.io
+An exchange that accepts Lighnting payments
 
 ### [LNTrustChain](https://www.youtube.com/watch?v=89TSOayiqtA&feature=youtu.be)
+Find out on twitter who holds the torch.
 
 ### Reduce the routing fees for more inbound channels:
 
@@ -43,6 +52,8 @@ the default is:
 
 ---
 ## Managing channels
+
+Rebalance your channels regularly to keep the inbound liquidity.
 
 ### rebalance-lnd
 
