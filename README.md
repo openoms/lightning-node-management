@@ -45,7 +45,7 @@ Find out on twitter who holds the torch.
 
 ### Reduce the routing fees for more inbound channels:
 
-```lncli updatechanpolicy 500 0.000001 144```
+```lncli updatechanpolicy 0 0.000001 144```
 
 the default is:  
  ```lncli updatechanpolicy 1000 0.000001 144```
@@ -71,3 +71,5 @@ A curated list of awesome Lightning Network resources, apps, and libraries
 and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
 
 * https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393
+
+* Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
