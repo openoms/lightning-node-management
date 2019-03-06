@@ -24,26 +24,37 @@ https://medium.com/coinmonks/introducing-rtl-a-web-ui-for-lnd-d0bb0d937e91
 https://github.com/ShahanaFarooqui/RTL
 
 ---
-## Getting inbound liquidity
+## Get inbound liquidity
 
 Open a channel to exchange/merchant accepting Lightning, make a LN payment, and withdraw on-chain
 
 ### LightningTo.me
-Opens a channel for free funded with 2 000 000 satoshis.
+Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
 
-### [Bitrefill](https://www.bitrefill.com/buy/lightning-channel/lightning/?hl=en)
+### [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
+Open a channel and register on the website to have a matching inbound channel back. 
+Recommended channel size: Between 500,000 satoshis (~$20) and 16,500,000 satoshis (~$600).
+
+### [Bitrefill.com](https://www.bitrefill.com/buy/lightning-channel/lightning/?hl=en)
 pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
 ### Tippin.me
 Tip yourself via LN and withdraw onchain.
 
 ### zigzag.io
-An exchange that accepts Lighnting payments
+An exchange that accepts Lightning payments
+
+## Pass around Lightning Torches
 
 ### [LNTrustChain](https://www.youtube.com/watch?v=89TSOayiqtA&feature=youtu.be)
 Find out on twitter who holds the torch.
+every participant adds 10000 satoshis
 
-### Reduce the routing fees for more inbound channels:
+### [LNTinyTorch](http://lntinytorch.com/)
+Every participant adds 1 satoshi
+
+
+## Reduce the routing fees for more inbound channels
 
 ```lncli updatechanpolicy 0 0.000001 144```
 
@@ -73,3 +84,5 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 * https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393
 
 * Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
+
+* A list about How to get Channel Liquidity fast? https://github.com/rootzoll/raspiblitz/issues/395
