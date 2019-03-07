@@ -5,7 +5,8 @@
 ### lndash
 
 lndash is a simple read-only web dashboard for lnd - Lightning Network Daemon.  
-Demonstration: https://lightninglayer.com/  
+Demonstration: https://lightninglayer.com/ 
+
 Features:
 
 * Peer view
@@ -86,3 +87,5 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 * Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
 
 * A list about How to get Channel Liquidity fast? https://github.com/rootzoll/raspiblitz/issues/395
+
+* https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels
