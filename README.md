@@ -4,14 +4,14 @@
 
 Open a channel to exchange/merchant accepting Lightning, make a LN payment, and withdraw on-chain
 
-### LightningTo.me
+### [LightningTo.me](LightningTo.me)
 Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]** https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  
 Will reciprocate channels over 2 000 000 sats.
 
-### Tippin.me
+### [Tippin.me](Tippin.me)
 Tip yourself via LN and withdraw onchain.
 
 ### [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
@@ -26,7 +26,7 @@ Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_c
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
-### zigzag.io
+### [zigzag.io](zigzag.io)
 An exchange that accepts Lightning payments
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
@@ -47,7 +47,7 @@ every participant adds 10000 satoshis
 Every participant adds 1 satoshi
 
 
-## Reduce the routing fees for more inbound channels
+## Reduce the routing fees for receive more inbound channels
 
 https://api.lightning.community/#updatechannelpolicy
 
@@ -60,6 +60,14 @@ There are two fee components:
 
 the default is:  
  `lncli updatechanpolicy 1000 0.000001 144`
+
+---
+## Managing channels
+
+Rebalance your channels regularly to keep the ability to accept payments.
+
+### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
+Using this pyhton script you can easily rebalance individual channels of your lnd node.
 
 ---
 
@@ -101,17 +109,6 @@ Features:
 ### [Spark wallet for C-Lightning](https://github.com/shesek/spark-wallet)
 
 Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or through mobile and desktop apps (for Android, Linux, macOS and Windows). It is currently oriented for technically advanced users and is not an all-in-one package, but rather a "remote control" interface for a c-lightning node that has to be managed separately.
-
----
-## Managing channels
-
-Rebalance your channels regularly to keep the inbound liquidity.
-
-### rebalance-lnd  
-Using this script you can easily rebalance individual channels of your lnd node.
-
-https://github.com/C-Otto/rebalance-lnd
-
 
 ---
 ## Resources:
