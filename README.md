@@ -1,45 +1,5 @@
 # Lightning Node Management
 
-## Monitoring software
-
-### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
-
-RTL is a web UI for Lightning Network Daemon.  
-https://medium.com/coinmonks/introducing-rtl-a-web-ui-for-lnd-d0bb0d937e91
-
-
-### [ZeusLN](https://zeusln.app/)
-
-A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS.
-
-###  [Joule](https://lightningjoule.com/)
-
-Bring the power of lightning to the web with in-browser payments and identity, all with your own node.   
-https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9
-
-### [Zap](https://zap.jackmallers.com/)
-
-A lightning wallet for desktop and iOS.
-
-
-### [lndash](https://github.com/djmelik/lndash)
-
-lndash is a simple read-only web dashboard for lnd - Lightning Network Daemon.  
-Demonstration: https://lightninglayer.com/ 
-
-Features:
-
-* Peer view
-* Channel view
-* Forwarding Events (routed payments) view
-* Looking Glass Tool (route/path lookup)
-* Lightning Network Graph
-
-### Spark wallet for C-Lightning(https://github.com/shesek/spark-wallet)
-
-Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or through mobile and desktop apps (for Android, Linux, macOS and Windows). It is currently oriented for technically advanced users and is not an all-in-one package, but rather a "remote control" interface for a c-lightning node that has to be managed separately.
-
----
 ## Get inbound liquidity
 
 Open a channel to exchange/merchant accepting Lightning, make a LN payment, and withdraw on-chain
@@ -47,17 +7,24 @@ Open a channel to exchange/merchant accepting Lightning, make a LN payment, and 
 ### LightningTo.me
 Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
 
+### Nodes which connect back:
+* **stackingsats [NODL] [TFTC] [RHR]** https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  
+Will reciprocate channels over 2 000 000 sats.
+
+### Tippin.me
+Tip yourself via LN and withdraw onchain.
+
 ### [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
 
 Request inbound capacity for small fee
 
-Recommended channel size: Between 500,000 satoshis (~$20) and 16,500,000 satoshis (~$600).
+Recommended channel size: Between 500,000 satoshis and 16,500,000 satoshis.
+
+### [LNBIG.com](https://lnbig.com/#/open-channel)
+Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_com
 
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
-
-### Tippin.me
-Tip yourself via LN and withdraw onchain.
 
 ### zigzag.io
 An exchange that accepts Lightning payments
@@ -95,12 +62,52 @@ the default is:
  `lncli updatechanpolicy 1000 0.000001 144`
 
 ---
+
+## Monitoring software
+
+### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
+
+RTL is a web UI for Lightning Network Daemon.  
+https://medium.com/coinmonks/introducing-rtl-a-web-ui-for-lnd-d0bb0d937e91
+
+
+### [ZeusLN](https://zeusln.app/)
+
+A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS.
+
+###  [Joule](https://lightningjoule.com/)
+
+Bring the power of lightning to the web with in-browser payments and identity, all with your own node.   
+https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9
+
+### [Zap](https://zap.jackmallers.com/)
+
+A lightning wallet for desktop and iOS.
+
+
+### [lndash](https://github.com/djmelik/lndash)
+
+lndash is a simple read-only web dashboard for lnd - Lightning Network Daemon.  
+Demonstration: https://lightninglayer.com/ 
+
+Features:
+
+* Peer view
+* Channel view
+* Forwarding Events (routed payments) view
+* Looking Glass Tool (route/path lookup)
+* Lightning Network Graph
+
+### [Spark wallet for C-Lightning](https://github.com/shesek/spark-wallet)
+
+Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or through mobile and desktop apps (for Android, Linux, macOS and Windows). It is currently oriented for technically advanced users and is not an all-in-one package, but rather a "remote control" interface for a c-lightning node that has to be managed separately.
+
+---
 ## Managing channels
 
 Rebalance your channels regularly to keep the inbound liquidity.
 
-### rebalance-lnd
-
+### rebalance-lnd  
 Using this script you can easily rebalance individual channels of your lnd node.
 
 https://github.com/C-Otto/rebalance-lnd
@@ -108,6 +115,12 @@ https://github.com/C-Otto/rebalance-lnd
 
 ---
 ## Resources:
+
+* A conceptual review of the Lightning Network: https://dev.lightning.community/overview/index.html#lightning-network
+
+* gRPC API reference documentation for LND
+https://api.lightning.community
+
 * https://github.com/bcongdon/awesome-lightning-network  
 A curated list of awesome Lightning Network resources, apps, and libraries
 
@@ -123,3 +136,4 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 * https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels
 
 * https://en.wikipedia.org/wiki/Dijkstra's_algorithm
+
