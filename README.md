@@ -4,17 +4,21 @@
 
 To be able to receive payments on the Lightning Network a node needs:
 - "inbound liquidity" which means that some satoshis need to be on the side of the other peer in a channel. The max amount of the incoming payment is determined by the highest incoming liquidity of a single  channel (not additive between channels).
-- a channel to a well connected node or a direct channel to the paying peer to make sure there is a possible payment route.
+- a channel to a well connected node or a direct channel from the paying peer to make sure there is a possible payment route.
 
 More details here in this conceptual review of the Lightning Network: https://dev.lightning.community/overview/index.html#lightning-network
 
 To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
 
-There are many services providing inbound liquidity:
+There are also many services providing inbound liquidity:
 
 ### Nodes which connect back:
-* **stackingsats [NODL] [TFTC] [RHR]** https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  
+* **stackingsats [NODL] [TFTC] [RHR]**  
+https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  
 Will reciprocate channels over 2 000 000 sats.
+
+### [LNBIG.com](https://lnbig.com/#/open-channel)
+Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_com
 
 ### [LightningTo.me](LightningTo.me)
 Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
@@ -23,22 +27,16 @@ Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channel
 Tip yourself via LN and withdraw onchain.
 
 ### [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
-
-Request inbound capacity for small fee
-
-Recommended channel size: Between 500,000 satoshis and 16,500,000 satoshis.
-
-### [LNBIG.com](https://lnbig.com/#/open-channel)
-Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_com
+Request inbound capacity for a small fee
+Recommended channel size: Between 500 000 and 16 500 000 satoshis.
 
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
-pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
+Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
 ### [zigzag.io](zigzag.io)
 An exchange that accepts Lightning payments.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
-
 Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps. 
 
 In the current iteration of the Loop software, only off-chain to on-chain swaps are supported, where the Loop client sends funds off-chain in exchange for the funds back on-chain. This is called a Loop Out.
