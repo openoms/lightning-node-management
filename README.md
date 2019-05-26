@@ -2,14 +2,22 @@
 
 ## Get inbound liquidity
 
-Open a channel to exchange/merchant accepting Lightning, make a LN payment, and withdraw on-chain
+To be able to receive payments on the Lightning Network a node needs:
+- "inbound liquidity" which means that some satoshis need to be on the side of the other peer in a channel. The max amount of the incoming payment is determined by the highest incoming liquidity of a single  channel (not additive between channels).
+- a channel to a well connected node or a direct channel to the paying peer to make sure there is a possible payment route.
 
-### [LightningTo.me](LightningTo.me)
-Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
+More details here in this conceptual review of the Lightning Network: https://dev.lightning.community/overview/index.html#lightning-network
+
+To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
+
+There are many services providing inbound liquidity:
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]** https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  
 Will reciprocate channels over 2 000 000 sats.
+
+### [LightningTo.me](LightningTo.me)
+Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
 
 ### [Tippin.me](Tippin.me)
 Tip yourself via LN and withdraw onchain.
@@ -27,7 +35,7 @@ Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_c
 pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
 ### [zigzag.io](zigzag.io)
-An exchange that accepts Lightning payments
+An exchange that accepts Lightning payments.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
 
