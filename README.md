@@ -8,15 +8,12 @@ To be able to receive payments on the Lightning Network a node needs:
 - a channel to a well connected node or a direct channel from the paying peer to make sure there is a possible payment route.
 
  ## Peer Connections
-- to open a channel to any node the peer connection needs to be established first.
- - The publicly accessible nodes can be connected to automatically.
+- Too open a channel to any node the peer connection needs to be established first.
+- The publicly accessible nodes can be connected to automatically.
 - If a node is not publicly accessible the peer connection needs to be initiated manually even if the other peer would want to open a channel
 
-More details here in this conceptual review of the Lightning Network: https://dev.lightning.community/overview/index.html#lightning-network
-
 ## Tor nodes
-Tor is an anonymizing network designed to hide the participant`s IP adresses. Somewhat similar to using a VPN with multiple hops.   
-Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
+Tor is an anonymizing network designed to hide the participant`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
 
 - A Lightning node behind Tor can connect and open a channel to any other node. 
 - The nodes running on clearnet are not able to see behind Tor.
@@ -25,7 +22,6 @@ Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
 
 
 ## Get inbound liquidity
-
 
 To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
 
