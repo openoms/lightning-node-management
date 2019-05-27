@@ -33,10 +33,10 @@ Will reciprocate channels over 2 000 000 sats.
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
 Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_com
 
-### [LightningTo.me](LightningTo.me)
+### [LightningTo.me](https://lightningto.me/)
 Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
 
-### [Tippin.me](Tippin.me)
+### [Tippin.me](https://tippin.me/)
 Tip yourself via LN and withdraw onchain.
 
 ### [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
@@ -46,7 +46,7 @@ Recommended channel size: Between 500 000 and 16 500 000 satoshis.
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
-### [zigzag.io](zigzag.io)
+### [zigzag.io](https://zigzag.io/#/)
 An exchange that accepts Lightning payments.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
