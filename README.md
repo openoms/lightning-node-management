@@ -1,16 +1,33 @@
 # Lightning Node Management
 
-## Get inbound liquidity
+## Receiving payments
 
 To be able to receive payments on the Lightning Network a node needs:
-- "inbound liquidity" which means that some satoshis need to be on the side of the other peer in a channel. The max amount of the incoming payment is determined by the highest incoming liquidity of a single  channel (not additive between channels).
+- "inbound liquidity" which means that some satoshis need to be on the side of the other peer in a channel. 
+- The max amount of the incoming payment is determined by the highest incoming liquidity of a single  channel (not additive between channels).
 - a channel to a well connected node or a direct channel from the paying peer to make sure there is a possible payment route.
+
+ ## Peer Connections
+- to open a channel to any node the peer connection needs to be established first.
+ - The publicly accessible nodes can be connected to automatically.
+- If a node is not publicly accessible the peer connection needs to be initiated manually even if the other peer would want to open a channel
 
 More details here in this conceptual review of the Lightning Network: https://dev.lightning.community/overview/index.html#lightning-network
 
-To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
+## Tor nodes
+Tor is an anonymizing network designed to hide the participant`s IP adresses. Somewhat similar to using a VPN with multiple hops.   
+Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
 
-There are also many services providing inbound liquidity:
+- A Lightning node behind Tor can connect and open a channel to any other node. 
+- The nodes running on clearnet are not able to see behind Tor.
+- The clearnet node needs to be added as a peer first by the Tor node to be able to open a channel. 
+- Once the channel is established the connection will persist, but might take some more time to come back online after either peer restarts.
+
+
+## Get inbound liquidity
+
+
+To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]**  
@@ -53,7 +70,7 @@ every participant adds 10000 satoshis
 Every participant adds 1 satoshi
 
 
-## Reduce the routing fees for receive more inbound channels
+## Reduce the routing fees to receive more inbound channels
 
 https://api.lightning.community/#updatechannelpolicy
 
@@ -124,17 +141,17 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 * gRPC API reference documentation for LND
 https://api.lightning.community
 
-* https://github.com/bcongdon/awesome-lightning-network  
-A curated list of awesome Lightning Network resources, apps, and libraries
-
 * Elaine Ou - Bootstrapping and maintaining a Lightning node [38 mins video](https://www.youtube.com/watch?v=qX4Z3JY1094)
 and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
 
-* https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393
-
 * Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
 
+* https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393
+
 * A list about How to get Channel Liquidity fast? https://github.com/rootzoll/raspiblitz/issues/395
+
+* A curated list of awesome Lightning Network resources, apps, and libraries https://github.com/bcongdon/awesome-lightning-network  
+
 
 * https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels
 
