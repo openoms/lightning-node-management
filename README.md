@@ -8,9 +8,19 @@ To be able to receive payments on the Lightning Network a node needs:
 - a channel to a well connected node or a direct channel from the paying peer to make sure there is a possible payment route.
 
  ## Peer Connections
-- Too open a channel to any node the peer connection needs to be established first.
+- To open a channel to any node the peer connection needs to be established first.
 - The publicly accessible nodes can be connected to automatically.
 - If a node is not publicly accessible the peer connection needs to be initiated manually even if the other peer would want to open a channel
+
+## Channel size and choosing a peer: 
+
+- There is no hard number, but in general it is recommended to avoid opening channels  below 200K-500K sats.
+- https://1ml.com/statistics shows the average channel size on the network:   
+0.028 BTC = 2 800 000 satoshis on 2019 May 28.
+- The max amount of the available payment made or routed is determined by the highest liquidity of a single channel (not additive between channels).
+- One big channel to a well connected and stable node is more useful than many small ones. Choose a node you know or one from the list: https://1ml.com/node?order=nodeconnectednodecount
+- it is beneficial to connect to nodes where the operator can be contacted in case of a problem.
+- a too small channel will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state of the channel (the funds in the channel can be cheated out).
 
 ## Tor nodes
 Tor is an anonymizing network designed to hide the participant`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
@@ -19,6 +29,23 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 - The nodes running on clearnet are not able to see behind Tor.
 - The clearnet node needs to be added as a peer first by the Tor node to be able to open a channel. 
 - Once the channel is established the connection will persist, but might take some more time to come back online after either peer restarts.
+
+## Lightning Network routing fees
+
+Lightning fees are related to the amount routed.
+There are two fee components:
+* base fee (base_fee_msat). The default is 1000 millisat, which means 1 satoshi fee per every routed payment.
+* proportional fee (fee_rate) which is set to the minimum by default in lnd: 0.000001. This means there is an additional 1 sat charged for every million satoshis in the routed payment.
+
+To change routing fees of your node use the command:
+https://api.lightning.community/#updatechannelpolicy
+
+For example can reduce the base fee to 100 with this command:  
+`lncli updatechanpolicy 100 0.000001 144`  
+This will result in more payments routed as this route will become cheaper.
+
+the default setting is:  
+`lncli updatechanpolicy 1000 0.000001 144`
 
 
 ## Get inbound liquidity
@@ -46,7 +73,7 @@ Recommended channel size: Between 500 000 and 16 500 000 satoshis.
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
-### [zigzag.io](https://zigzag.io/#/)
+### [ZigZag.io](https://zigzag.io/#/)
 An exchange that accepts Lightning payments.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
@@ -64,21 +91,6 @@ every participant adds 10000 satoshis
 
 ### [LNTinyTorch](http://lntinytorch.com/)
 Every participant adds 1 satoshi
-
-
-## Reduce the routing fees to receive more inbound channels
-
-https://api.lightning.community/#updatechannelpolicy
-
-Lightning fees are related to the amount routed.
-There are two fee components:
-* base fee (base_fee_msat). The default is 1000 millisat, which means 1 satoshi fee per every routed payment.
-* proportional fee (fee_rate) which is set to the minimum by default in lnd: 0.000001. This means there is an additional 1 sat charged for every million satoshis in the routed payment.
-
-`lncli updatechanpolicy 0 0.000001 144`
-
-the default is:  
- `lncli updatechanpolicy 1000 0.000001 144`
 
 ---
 ## Managing channels
@@ -152,4 +164,5 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 * https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels
 
 * https://en.wikipedia.org/wiki/Dijkstra's_algorithm
+
 
