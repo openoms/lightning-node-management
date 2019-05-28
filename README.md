@@ -19,8 +19,8 @@ To be able to receive payments on the Lightning Network a node needs:
 0.028 BTC = 2 800 000 satoshis on 2019 May 28.
 - The max amount of the available payment made or routed is determined by the highest liquidity of a single channel (not additive between channels).
 - One big channel to a well connected and stable node is more useful than many small ones. Choose a node you know or one from the list: https://1ml.com/node?order=nodeconnectednodecount
-- it is beneficial to connect to nodes where the operator can be contacted in case of a problem.
-- a too small channel will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state of the channel (the funds in the channel can be cheated out).
+- It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
+- A too small channel will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
 
 ## Tor nodes
 Tor is an anonymizing network designed to hide the participant`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
@@ -32,10 +32,12 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 
 ## Lightning Network routing fees
 
-Lightning fees are related to the amount routed.
+Unlike with on-chain transactions (where the fee is paid for the bytes the transaction takes up in a block) Lightning Network fees are related to the amount routed.
 There are two fee components:
 * base fee (base_fee_msat). The default is 1000 millisat, which means 1 satoshi fee per every routed payment.
 * proportional fee (fee_rate) which is set to the minimum by default in lnd: 0.000001. This means there is an additional 1 sat charged for every million satoshis in the routed payment.
+
+There is no fee in a direct channel between two peers.
 
 To change routing fees of your node use the command:
 https://api.lightning.community/#updatechannelpolicy
