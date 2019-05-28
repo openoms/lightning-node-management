@@ -22,6 +22,13 @@ To be able to receive payments on the Lightning Network a node needs:
 - It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
 - A too small channel will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
 
+## On-chain bitcoin fees
+- Opening or closing a Lightning channel is an on-chain bitcoin transaction with the same rules applied.
+- The confirmation time depends on the state of the bitcoin mempool (https://jochen-hoenicke.de/queue/#0,24h) and the sats/byte fee used (https://bitcoinfees.earn.com/).
+- Check https://whatthefee.io/ for the current estimation of confirmation time/fee.
+- Use a custom fee and choose the lowest number with a good chance for an acceptable confirmation time.
+- At least 141 bytes need to be covered by fees, but this number is often higher depending on the transaction inputs, script and signatures used.
+
 ## Tor nodes
 Tor is an anonymizing network designed to hide the participant`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
 
@@ -111,7 +118,6 @@ Using this pyhton script you can easily rebalance individual channels of your ln
 RTL is a web UI for Lightning Network Daemon.  
 https://medium.com/coinmonks/introducing-rtl-a-web-ui-for-lnd-d0bb0d937e91
 
-
 ### [ZeusLN](https://zeusln.app/)
 
 A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS.
@@ -124,7 +130,6 @@ https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extensio
 ### [Zap](https://zap.jackmallers.com/)
 
 A lightning wallet for desktop and iOS.
-
 
 ### [lndash](https://github.com/djmelik/lndash)
 
