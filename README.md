@@ -167,6 +167,7 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 
 * A curated list of awesome Lightning Network resources, apps, and libraries https://github.com/bcongdon/awesome-lightning-network  
 
+* Jameson Lopp's curated list of Lightning Network resources https://lightning.how
 
 * https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels
 
