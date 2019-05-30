@@ -37,6 +37,16 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 - The clearnet node needs to be added as a peer first by the Tor node to be able to open a channel. 
 - Once the channel is established the connection will persist, but might take some more time to come back online after either peer restarts.
 
+## Routing payments:
+
+- Imagine a node `B` in an `A`-`B`-`C` serial connection.
+- The channels of `B` are set up so  that there is inbound capacity from `A` and outgoing capacity to `C`.  
+- If `A` wants to pay `C` there will be 1 hop in the route.
+- Under the hood: `A` sends the satoshis to `B` (the routing node) which will pay to `C`.
+- The capacity of the channels do not change, only move.
+- The whole payment can only go through if they can send a hash image (a message) through from the other direction first. 
+- The process is all or nothing, the payment cannot get stuck en route.
+
 ## Lightning Network routing fees
 
 Unlike with on-chain transactions (where the fee is paid for the bytes the transaction takes up in a block) Lightning Network fees are related to the amount routed.
@@ -56,10 +66,9 @@ This will result in more payments routed as this route will become cheaper.
 the default setting is:  
 `lncli updatechanpolicy 1000 0.000001 144`
 
-
 ## Get inbound liquidity
 
-To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
+To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to well connected, table node. To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]**  
@@ -104,10 +113,13 @@ Every participant adds 1 satoshi
 ---
 ## Managing channels
 
-Rebalance your channels regularly to keep the ability to accept payments.
+The channels need to be balanced to keep the ability to accept and route payments.
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
-Using this pyhton script you can easily rebalance individual channels of your lnd node.
+Using this python script you can easily rebalance individual channels of your lnd node.
+
+### [lndmanage](https://github.com/bitromortac/lndmanage)
+lndmanage is a command line tool for advanced channel management of an LND node written in python.
 
 ---
 
