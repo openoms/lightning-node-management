@@ -10,17 +10,20 @@ To be able to receive payments on the Lightning Network a node needs:
  ## Peer Connections
 - To open a channel to any node the peer connection needs to be established first.
 - The publicly accessible nodes can be connected to automatically.
-- If a node is not publicly accessible the peer connection needs to be initiated manually even if the other peer would want to open a channel
+- If a node is not publicly accessible the peer connection needs to be initiated manually even if the other peer would want to open a channel.
 
 ## Channel size and choosing a peer: 
 
 - There is no hard number, but in general it is recommended to avoid opening channels  below 200K-500K sats.
 - https://1ml.com/statistics shows the average channel size on the network:   
 0.028 BTC = 2 800 000 satoshis on 2019 May 28.
+- A channel too small will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
 - The max amount of the available payment made or routed is determined by the highest liquidity of a single channel (not additive between channels).
-- One big channel to a well connected and stable node is more useful than many small ones. Choose a node you know or one from the list: https://1ml.com/node?order=nodeconnectednodecount
+- One big channel to a well connected and stable node is more useful than many small ones.
 - It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
-- A too small channel will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
+- Choose a node you know or one from the list: https://1ml.com/node?order=nodeconnectednodecount
+- Try a custom list of recommendations for your public node: https://moneni.com/nodematch
+
 
 ## On-chain bitcoin fees
 - Opening or closing a Lightning channel is an on-chain bitcoin transaction with the same rules applied.
@@ -36,6 +39,7 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 - The nodes running on clearnet are not able to see behind Tor.
 - The clearnet node needs to be added as a peer first by the Tor node to be able to open a channel. 
 - Once the channel is established the connection will persist, but might take some more time to come back online after either peer restarts.
+- If both nodes restart in the same time or the clearnet node`s IP address is changed while both offline the peers need to be added manually again.
 
 ## Routing payments:
 
