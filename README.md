@@ -70,6 +70,7 @@ This will result in more payments routed as this route will become cheaper.
 the default setting is:  
 `lncli updatechanpolicy 1000 0.000001 144`
 
+---
 ## Get inbound liquidity
 
 To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to well connected, table node. To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
@@ -198,4 +199,13 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 
 * https://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
+---
+## Forums:
 
+* A community managed group for the RaspiBlitz Lightning Node:
+https://t.me/raspiblitz  
+
+* LND Developer Slack. Find the invite link on: https://dev.lightning.community/
+
+* A subreddit for Bitcoin and Lightning developers to discuss technical topics: 
+https://www.reddit.com/r/lightningdevs   
