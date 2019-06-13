@@ -127,7 +127,11 @@ Every participant adds 1 satoshi
 ---
 ## Managing channels
 
-The channels need to be balanced to keep the ability to accept and route payments.
+The channels are best to be balanced with funds on each side to maximize the ability to accept and route payments.
+
+### [A method to create a balanced channel](BalancedChannelCreation.md)
+
+Open a dual funded, balanced channel with a trusted peer using the command line requiring only one on-chain transaction.
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 Using this python script you can easily rebalance individual channels of your lnd node.
