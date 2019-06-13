@@ -18,9 +18,11 @@ How to:
 - `B` opens a 2M sats channel to `A` with the command:   
 `lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000 --sat_per_byte 4`
 
-There should be no rush, so use a low fee for the on-chain tx (like 1-4 sats/byte).
+There should be no rush, so use a low fee for the on-chain tx.  Check https://whatthefee.io/ for the current mempool status. 
 
-This will result to have a balanced channel with 1M sats on each side.
+This will result to have a balanced channel with 1M sats on each side (minus the commit fee).
+
+!(a balanced channel shown in ZeusLN)[/images/balancedChannel.jpg]
 
 My node:  
 028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735
