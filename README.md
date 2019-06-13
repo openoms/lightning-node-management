@@ -73,7 +73,7 @@ the default setting is:
 ---
 ## Get inbound liquidity
 
-To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to well connected, table node. To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
+To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to well connected, stable node. To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]**  
