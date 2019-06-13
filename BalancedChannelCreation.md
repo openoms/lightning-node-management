@@ -10,7 +10,7 @@ Advantages:
 Requirements:
 * `A` has 1M sats outgoing liquidity.
 * `B` has 1M sats incoming liquidity + 2mil sats funds on-chain (trusted node).
-* `A` payment route for 1M sats between `A` and `B` .
+* A payment route for 1M sats between `A` and `B` .
 
 How to:
 * `B` sends and invoice to receive 1M sats from `A` .
