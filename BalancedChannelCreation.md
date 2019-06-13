@@ -22,12 +22,9 @@ How to:
 There should be no rush, so use a low fee for the on-chain tx. Check https://whatthefee.io/ for the current mempool status.
 
 This will result to have a balanced channel with 1M sats on each side (minus the commit fee).
+![a balanced channel shown in ZeusLN](balancedChannel.jpg)
 
-￼
-
-
-$
-
+---
 My node:
  028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735 
 
