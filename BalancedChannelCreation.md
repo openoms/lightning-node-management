@@ -25,7 +25,7 @@ This will result to have a balanced channel with 1M sats on each side (minus the
 ![a balanced channel shown in ZeusLN](balancedChannel.jpg)
 
 ---
-My node`s URI (public_key@Tor_address.onion):
+The URI of my node (public_key@Tor_address.onion):
 `028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735`
 
 1ml.com [link](https://1ml.com/node/028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe329930)
