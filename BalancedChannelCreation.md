@@ -1,5 +1,5 @@
 
-How to open a balanced channel with a trusted peer
+## How to open a balanced channel with a trusted peer
 
 Work towards having a 2million sats balanced channel open between `A` and `B` .
 
