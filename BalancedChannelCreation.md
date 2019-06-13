@@ -25,10 +25,10 @@ This will result to have a balanced channel with 1M sats on each side (minus the
 ![a balanced channel shown in ZeusLN](balancedChannel.jpg)
 
 ---
-My node:
- 028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735 
+My node`s URI (public_key@Tor_address.onion):
+`028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735`
 
 1ml.com [link](https://1ml.com/node/028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe329930)
 
 Can play the role of B with anyone.
-Happy to play the role of A with someone I had meaningful interaction on at least two communication channels: E.g.: https://t.me/raspiblitz , https://twitter.com/openoms , GitHub contributors, https://www.reddit.com/r/lightningdevs etc.
+Happy to play the role of A with someone I had meaningful interaction on at least two communication channels e.g.: https://t.me/raspiblitz , https://twitter.com/openoms , GitHub contributors, https://www.reddit.com/r/lightningdevs etc.
