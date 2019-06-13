@@ -16,7 +16,7 @@ How to:
 - `A` pays 1M sats to `B`.
 - make sure `A` and `B` are peers
 - `B` opens a 2M sats channel to `A` with the command:   
-`lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000`
+`lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000 --sat_per_byte 4`
 
 There should be no rush, so use a low fee for the on-chain tx (like 1-4 sats/byte).
 
