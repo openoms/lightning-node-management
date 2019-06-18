@@ -115,15 +115,6 @@ In the current iteration of the Loop software, only off-chain to on-chain swaps 
 
 https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference
 
-## Pass around Lightning Torches
-
-### [LNTrustChain - now finished](https://www.youtube.com/watch?v=89TSOayiqtA&feature=youtu.be)
-Find out on twitter who holds the torch.
-every participant adds 10000 satoshis
-
-### [LNTinyTorch](http://lntinytorch.com/)
-Every participant adds 1 satoshi
-
 ---
 ## Managing channels
 
@@ -159,7 +150,7 @@ https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extensio
 
 ### [Zap](https://zap.jackmallers.com/)
 
-A lightning wallet for desktop and iOS.
+A lightning wallet for desktop iOS
 
 ### [lndash](https://github.com/djmelik/lndash)
 
@@ -177,6 +168,14 @@ Features:
 ### [Spark wallet for C-Lightning](https://github.com/shesek/spark-wallet)
 
 Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or through mobile and desktop apps (for Android, Linux, macOS and Windows). It is currently oriented for technically advanced users and is not an all-in-one package, but rather a "remote control" interface for a c-lightning node that has to be managed separately.
+
+### Lightning network explorers
+
+* [1ml.com](https://1ml.com/)
+
+* [explore.casa](https://explore.casa/)
+
+* [explorer.acinq.co](https://explorer.acinq.co/)
 
 ---
 ## Resources:
