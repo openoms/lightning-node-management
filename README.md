@@ -141,7 +141,7 @@ lndmanage is a command line tool for advanced channel management of an LND node 
 ### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
 
 RTL is a web UI for Lightning Network Daemon.  
-https://medium.com/coinmonks/introducing-rtl-a-web-ui-for-lnd-d0bb0d937e91
+https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2
 
 ### [ZeusLN](https://zeusln.app/)
 
