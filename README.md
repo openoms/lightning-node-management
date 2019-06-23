@@ -70,6 +70,10 @@ This will result in more payments routed as this route will become cheaper.
 the default setting is:  
 `lncli updatechanpolicy 1000 0.000001 144`
 
+## Watchtowers
+
+* Read more and how to set one up [here](watchtower.md)
+
 ---
 ## Get inbound liquidity
 

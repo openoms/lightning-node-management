@@ -1,4 +1,4 @@
-# Set up a Watchtower and a Client on the Lightnig Network
+# Set up a Watchtower and a Client on the Lightning Network
 
 A watchtower monitors the bitcoin blockchain for any transaction attempting to steal from it\`s client by closing a channel with a previous, invalid state. If a breach is found the watchtower immediately broadcasts a punisher transaction moving all funds in the channel to it\`s client onchain wallet.
 
