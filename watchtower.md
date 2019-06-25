@@ -113,3 +113,6 @@ https://thebitcoinnews.com/watchtowers-are-coming-to-lightning/
 https://bitcoinops.org/en/newsletters/2019/06/19/
 
 Will O`Beirne shows in this article (and GitHub repo) how to demonstrate a breach and the actions of a watchtower on a simulated network: https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112
+
+SLP83 Conner Fromknecht – Bitcoin Lightning Watchtowers in depth
+https://stephanlivera.com/episode/83
