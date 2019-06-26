@@ -18,21 +18,21 @@ Run the commands in the node\`s terminal
 * insert the lines on the end of the file:
   ```
   [Watchtower]
-  watchtower.listen=0.0.0.0:8735
+  watchtower.listen=0.0.0.0:9911
   watchtower.active=1
   ```
     * The IP address `0.0.0.0` is used to accept connections from everywhere
-    * the port 8735 is chosen arbitrarily - can be any other unused port  
+    * the port 9911 is the default setting, but can be set to any other unused port  
 
 * allow the port through the firewall:  
-` # ufw allow 8735`  
+` # ufw allow 9911`  
 ` # ufw enable`
 
 * restart lnd
 
   `# systemctl restart lnd`
 
-* forward the port 8735 on the router
+* forward the port 9911 on the router
 
 * Check in the log if the service is working: 
 
@@ -47,7 +47,7 @@ Run the commands in the node\`s terminal
     2019-06-21 09:08:58.544 [INF] WTWR: Lookout started successfully
     2019-06-21 09:08:58.545 [INF] WTWR: Starting watchtower server
     2019-06-21 09:08:58.544 [INF] DISC: Attempting to bootstrap with: Authenticated Channel Graph
-    2019-06-21 09:08:58.545 [INF] CMGR: Server listening on 127.0.0.1:8735
+    2019-06-21 09:08:58.545 [INF] CMGR: Server listening on 127.0.0.1:9911
     2019-06-21 09:08:58.545 [INF] NTFN: New block epoch subscription
     2019-06-21 09:08:58.545 [INF] WTWR: Watchtower server started successfully
     2019-06-21 09:08:58.546 [INF] WTWR: Watchtower started successfully
@@ -58,8 +58,8 @@ Run the commands in the node\`s terminal
     Filter the relevant messages continuously with:  
    `# tail -n 1000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
-* Take note of the `node pubkey` and `host` address`:  
-    `$ lncli getinfo`
+* Take note of the `uris` which is in the format: `<watchtower-pubkey>@<host>:9911` :  
+    `$ lncli tower info`
 
 
 ## Set up the node to be monitored (the watchtower client)
@@ -69,10 +69,10 @@ Run the commands in the node\`s terminal
 * insert the lines on the end of the file:
   ```
   [Wtclient]
-  wtclient.private-tower-uris=<watchtower-pubkey>@<host>:8735
+  wtclient.private-tower-uris=<watchtower-pubkey>@<host>:9911
   ```
-    * Use the `node pubkey` noted previously as the `watchtower-pubkey`.  
-    * Use the clearnet IP address as the `host` even if the watchtower node is running behind Tor. Similar to when connecting a mobile application your node a dynamicDNS can be used as well.
+    * Use the URI noted previously as the `uris`.
+    * Use the clearnet IP address as the `host` even if the watchtower node is running behind Tor. Similar to when connecting a mobile application a dynamicDNS can be used as well.
 
 * Restart lnd
 
@@ -84,11 +84,11 @@ Run the commands in the node\`s terminal
 
     Sample log output:
     ```
-    2019-06-21 14:14:50.785 [DBG] WTCL: Sending Init to 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<watchtower-pubkey>:8735
-    2019-06-21 14:14:51.098 [DBG] WTCL: Received Init from 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<watchtower-pubkey>:8735
-    2019-06-21 14:14:51.105 [DBG] WTCL: Sending MsgCreateSession(blob_type=[FlagCommitOutputs|No-FlagReward], max_updates=1024 reward_base=0 reward_rate=0 sweep_fee_rate=12000) to 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<watchtower-pubkey>:8735
-    2019-06-21 14:14:51.299 [DBG] WTCL: Received MsgCreateSessionReply(code=0) from 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<watchtower-pubkey>:8735
-    2019-06-21 14:14:51.315 [DBG] WTCL: New session negotiated with 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<watchtower-pubkey>:8735, policy: (blob-type=10 max-updates=1024 reward-rate=0 sweep-fee-rate=12000)
+    2019-06-21 14:14:50.785 [DBG] WTCL: Sending Init to 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<host>:9911
+    2019-06-21 14:14:51.098 [DBG] WTCL: Received Init from 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<host>:9911
+    2019-06-21 14:14:51.105 [DBG] WTCL: Sending MsgCreateSession(blob_type=[FlagCommitOutputs|No-FlagReward], max_updates=1024 reward_base=0 reward_rate=0 sweep_fee_rate=12000) to 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<host>:9911
+    2019-06-21 14:14:51.299 [DBG] WTCL: Received MsgCreateSessionReply(code=0) from 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<host>:9911
+    2019-06-21 14:14:51.315 [DBG] WTCL: New session negotiated with 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<host>:9911, policy: (blob-type=10 max-updates=1024 reward-rate=0 sweep-fee-rate=12000)
     2019-06-21 14:14:51.320 [INF] WTCL: Acquired new session with id=02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f
     2019-06-21 14:14:51.322 [DBG] WTCL: Loaded next candidate session queue id=02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f
     2019-06-21 14:15:16.588 [INF] WTCL: Client stats: tasks(received=0 accepted=0 ineligible=0) sessions(acquired=1 exhausted=0)
@@ -106,7 +106,8 @@ Sit back and enjoy that now there is no way to cheat your node even if it goes o
 
 ---
 ## More info: 
-https://github.com/lightningnetwork/lnd/pull/3133
+Latest lnd release notes:
+https://github.com/lightningnetwork/lnd/releases
 
 https://thebitcoinnews.com/watchtowers-are-coming-to-lightning/
 
@@ -114,5 +115,6 @@ https://bitcoinops.org/en/newsletters/2019/06/19/
 
 Will O`Beirne shows in this article (and GitHub repo) how to demonstrate a breach and the actions of a watchtower on a simulated network: https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112
 
-SLP83 Conner Fromknecht – Bitcoin Lightning Watchtowers in depth
-https://stephanlivera.com/episode/83
+SLP83 Conner Fromknecht – Bitcoin Lightning Watchtowers in depth  
+podcast: https://stephanlivera.com/episode/83  
+transcript: http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/
