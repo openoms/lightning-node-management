@@ -36,7 +36,7 @@ Run the commands in the node\`s terminal
 
 * Check in the log if the service is working: 
 
-    `# tail -n 1000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`  
+    `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`  
 
     Sample log output:
 
@@ -56,10 +56,12 @@ Run the commands in the node\`s terminal
     ```
 
     Filter the relevant messages continuously with:  
-   `# tail -n 1000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
+   `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
-* Take note of the `uris` which is in the format: `<watchtower-pubkey>@<host>:9911` :  
+* Take note of the `pubkey` from:  
     `$ lncli tower info`
+
+    The watchtower\’s pubkey is distinct from the pubkey of the lnd node.
 
 
 ## Set up the node to be monitored (the watchtower client)
@@ -72,7 +74,7 @@ Run the commands in the node\`s terminal
   wtclient.private-tower-uris=<watchtower-pubkey>@<host>:9911
   ```
     * Use the URI noted previously as the `uris`.
-    * Use the clearnet IP address as the `host` even if the watchtower node is running behind Tor. Similar to when connecting a mobile application a dynamicDNS can be used as well.
+    * Use the clearnet IP address as the `host` even if the node is running behind Tor. Similar to when connecting a mobile application a dynamicDNS can be used as well.
 
 * Restart lnd
 
@@ -99,7 +101,7 @@ Run the commands in the node\`s terminal
     ```
 
     Filter the relevant messages continuously with:  
-   `# tail -n 1000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
+   `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
 
 
 Sit back and enjoy that now there is no way to cheat your node even if it goes offline!
