@@ -1,13 +1,11 @@
 # Set up a Watchtower and a Client on the Lightning Network
 
-A watchtower monitors the bitcoin blockchain for any transaction attempting to steal from it\`s client by closing a channel with a previous, invalid state. If a breach is found the watchtower immediately broadcasts a punisher transaction moving all funds in the channel to it\`s client onchain wallet.
+A watchtower monitors the bitcoin blockchain for any transaction attempting to steal from it\`s client by closing a channel with a previous, invalid state. If a breach is found the watchtower immediately broadcasts a punisher transaction moving all funds in the channel to the  on-chain wallet of it\`s client.
 
 If there are two nodes in your control from lnd v0.7.0 you can set them up to look out for each other. Best to be done with nodes in two separate physical location so any unexpected loss of contact can be covered for.
 
 ## Update lnd
-Check https://github.com/lightningnetwork/lnd/releases/ for the latest version. Update manually or use this [automated helper script](https://github.com/openoms/bitcoin-tutorials/blob/master/lnd.update.v0.7.0-beta-rc2.sh) to update lnd on a RaspiBlitz or a compatible system. To run the update use this command in the RaspiBlitz terminal:  
-
-`$ wget https://raw.githubusercontent.com/openoms/bitcoin-tutorials/master/lnd.update.v0.7.0-beta-rc2.sh && sudo bash lnd.update.v0.7.0-beta-rc2.sh`
+Check https://github.com/lightningnetwork/lnd/releases/ for the latest version and release notes. Update manually or use an [automated helper script](https://github.com/openoms/bitcoin-tutorials/tree/master/lnd.updates) to update lnd on a RaspiBlitz or a compatible system.
 
 ## Set up the Watchtower
 Run the commands in the node\`s terminal  
