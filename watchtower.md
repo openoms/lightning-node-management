@@ -104,6 +104,47 @@ Run the commands in the node\`s terminal
 Sit back and enjoy that now there is no way to cheat your node even when it is offline!
 
 ---
+
+## Setup for nodes behind Tor (not functional yet)
+
+Both nodes (the watchtower and the client) must be behind Tor to be able to communicate.
+
+add the lines to lnd.conf to watchtower and client respectively: 
+```
+[Watchtower]
+watchtower.active=1
+watchtower.externalip=uorbu2ucom46pcrx.onion:9911
+```
+
+```
+[Wtclient] 
+wtclient.private-tower-uris=033b6d3d94b331b3e5d336cc368584bac5600f0376d97f455fa53877faee443272@uorbu2ucom46pcrx.onion:9911
+```
+(use the Tor address of the lnd node 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@uorbu2ucom46pcrx.onion:9735):
+
+Edit the Tor config file of the watchtower:
+
+`sudo nano /etc/tor/torrc`
+
+tried to add the lines: 
+
+```
+# Hidden Service v2 for incoming LND WatchTower connections
+HiddenServiceDir /mnt/hdd/tor/lndWT9911
+HiddenServicePort 80 127.0.0.1:9911
+```
+
+```
+# Hidden Service v2 for incoming LND WatchTower connections
+HiddenServiceDir /mnt/hdd/tor/lndWT9911
+HiddenServicePort 9911 127.0.0.1:9911
+```
+
+restart Tor and lnd with systemctl.
+
+The Watchtower has started but not connecting.
+
+---
 ## More info: 
 https://github.com/lightningnetwork/lnd/blob/master/docs/watchtower.md
 
