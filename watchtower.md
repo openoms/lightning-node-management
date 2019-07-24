@@ -51,15 +51,19 @@ Run the commands in the node\`s terminal
     2019-06-21 09:08:58.546 [INF] WTWR: Watchtower started successfully
     2019-06-21 09:08:58.547 [INF] CHBU: Swapping old multi backup file from /home/bitcoin/.lnd/data/chain/bitcoin/mainnet/temp-dont-use.backup to /home/bitcoin/.lnd/data/chain/bitcoin/mainnet/channel.backup
     2019-06-21 09:08:58.575 [INF] DISC: Obtained 3 addrs to bootstrap network
+    2019-06-21 13:10:27.014 [INF] WTWR: Watchtower started successfully
+    2019-06-21 13:14:50.743 [INF] WTWR: Accepted incoming peer 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f@171.25.193.25:34413
+    2019-06-21 13:14:51.074 [INF] WTWR: Accepted session for 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f
+    2019-06-21 13:14:51.074 [INF] WTWR: Releasing incoming peer 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f@171.25.193.25:34413
     ```
 
-    Filter the relevant messages continuously with:  
-   `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
+    Filter the relevant messages continuously with (press CTRL+C to exit):  
+   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
 * Take note of the `pubkey` from:  
     `$ lncli tower info`
 
-    The watchtower\’s pubkey is distinct from the pubkey of the lnd node.
+    The watchtower\`s pubkey is distinct from the pubkey of the lnd node.
 
 
 ## Set up the node to be monitored (the watchtower client)
@@ -92,20 +96,17 @@ Run the commands in the node\`s terminal
     2019-06-21 14:14:51.320 [INF] WTCL: Acquired new session with id=02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f
     2019-06-21 14:14:51.322 [DBG] WTCL: Loaded next candidate session queue id=02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f
     2019-06-21 14:15:16.588 [INF] WTCL: Client stats: tasks(received=0 accepted=0 ineligible=0) sessions(acquired=1 exhausted=0)
-    2019-06-21 13:10:27.014 [INF] WTWR: Watchtower started successfully
-    2019-06-21 13:14:50.743 [INF] WTWR: Accepted incoming peer 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f@171.25.193.25:34413
-    2019-06-21 13:14:51.074 [INF] WTWR: Accepted session for 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f
-    2019-06-21 13:14:51.074 [INF] WTWR: Releasing incoming peer 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f@171.25.193.25:34413
     ```
 
-    Filter the relevant messages continuously with:  
-   `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
-
-
-Sit back and enjoy that now there is no way to cheat your node even if it goes offline!
+    Filter the relevant messages continuously with (press CTRL+C to exit):  
+   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`  
+   
+Sit back and enjoy that now there is no way to cheat your node even when it is offline!
 
 ---
 ## More info: 
+https://github.com/lightningnetwork/lnd/blob/master/docs/watchtower.md
+
 Latest lnd release notes:
 https://github.com/lightningnetwork/lnd/releases
 
