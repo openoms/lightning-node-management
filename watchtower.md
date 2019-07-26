@@ -5,7 +5,7 @@ A watchtower monitors the bitcoin blockchain for any transaction attempting to s
 If there are two nodes in your control from lnd v0.7.0 you can set them up to look out for each other. Best to be done with nodes in two separate physical location so any unexpected loss of contact can be covered for.
 
 ## Update lnd
-Check https://github.com/lightningnetwork/lnd/releases/ for the latest version and release notes. Update manually or use an [automated helper script](https://github.com/openoms/bitcoin-tutorials/tree/master/lnd.updates) to update lnd on a RaspiBlitz or a compatible system.
+Check https://github.com/lightningnetwork/lnd/releases/ for the latest version and release notes. Update [manually](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd)  or use an [automated helper script](https://github.com/openoms/bitcoin-tutorials/tree/master/lnd.updates) to update lnd on a RaspiBlitz or a compatible system.
 
 ## Set up the Watchtower
 Run the commands in the node\`s terminal  
@@ -16,8 +16,8 @@ Run the commands in the node\`s terminal
 * insert the lines on the end of the file:
   ```
   [Watchtower]
-  watchtower.listen=0.0.0.0:9911
   watchtower.active=1
+  watchtower.listen=0.0.0.0:9911
   ```
     * The IP address `0.0.0.0` is used to accept connections from everywhere
     * the port 9911 is the default setting, but can be set to any other unused port  
@@ -26,18 +26,15 @@ Run the commands in the node\`s terminal
 ` # ufw allow 9911`  
 ` # ufw enable`
 
-* restart lnd
-
+* restart lnd  
   `# systemctl restart lnd`
 
 * forward the port 9911 on the router
 
-* Check in the log if the service is working: 
-
-    `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`  
+* Check in the log if the service is working:  
+`# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`  
 
     Sample log output:
-
     ```
     2019-06-21 09:08:58.544 [INF] WTWR: Starting watchtower
     2019-06-21 09:08:58.544 [INF] WTWR: Starting lookout
@@ -75,15 +72,12 @@ Run the commands in the node\`s terminal
   [Wtclient]
   wtclient.private-tower-uris=<watchtower-pubkey>@<host>:9911
   ```
-    * Use the URI noted previously as the `uris`.
-    * Use the clearnet IP address as the `host` even if the node is running behind Tor. Similar to when connecting a mobile application a dynamicDNS can be used as well.
-
-* Restart lnd
-
+    * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
+    * For a clearnet client the `host` needs to be the clearnet IP (or dynamicDNS) of the watchtower even if the watchtower is running behind Tor. 
+* Restart lnd  
   `# systemctl restart lnd`
 
-* Check in the log if the service is working: 
-
+* Check in the log if the service is working:  
     `# tail -n 100 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`  
 
     Sample log output:
@@ -102,6 +96,68 @@ Run the commands in the node\`s terminal
    `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`  
    
 Sit back and enjoy that now there is no way to cheat your node even when it is offline!
+
+---
+
+## Setup for nodes behind Tor
+
+Both nodes (the watchtower and the client) must be behind Tor to be able to communicate.
+
+### Tor Watchtower setup
+
+* Change the lnd.conf:  
+  ` # nano /mnt/hdd/lnd/lnd.conf`
+* insert the lines on the end of the file: 
+    ```
+    [Watchtower]
+    watchtower.active=1
+    watchtower.listen=0.0.0.0:9911
+    watchtower.externalip=uorbu2ucom46pcrx.onion:9911
+    ```
+    The Tor address can be checked with: `$ lncli getinfo` (using my example here)
+
+
+
+* Edit the Tor config file of the watchtower:  
+    `sudo nano /etc/tor/torrc`
+
+    add the lines:
+    ```
+    # Hidden Service v3 for incoming LND WatchTower connections
+    HiddenServiceDir /mnt/hdd/tor/lndWT9911
+    HiddenServiceVersion 3
+    HiddenServicePort 9911 127.0.0.1:9911
+    ```
+
+* restart Tor and lnd with systemctl:  
+    `sudo systemctl restart tor`  
+    `sudo systemctl restart lnd`
+
+### Tor Watchtower Client setup    
+* Change the lnd.conf:  
+  ` # nano /mnt/hdd/lnd/lnd.conf`
+* insert the lines on the end of the file:   
+
+  ```
+    [Wtclient] 
+    wtclient.private-tower-uris=033b6d3d94b331b3e5d336cc368584bac5600f0376d97f455fa53877faee443272@uorbu2ucom46pcrx.onion:9911
+    ```
+    * The details of a test node are prefilled. Connections are welcome, but there are no guarantees for this service.
+    * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
+    * The host is the Tor address of the Watchtower node.
+
+* Filter the log continuously with (CTRL+C to exit):  
+   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WT`
+    
+    Example output on the client side: 
+
+    ```
+    2019-07-26 10:30:08.041 [INF] WTCL: Client stats: tasks(received=8 accepted=8 ineligible=0) sessions(acquired=0 exhausted=0)
+    2019-07-26 10:30:34.105 [DBG] WTCL: Processing backup(8fd5d5dc97fc6e52da36bd527357a9c87f2a2529379f9f50241e35ab0c95c404, 6315)
+    2019-07-26 10:30:34.106 [DBG] WTCL: SessionQueue(026d7b4f4fd7dcdb5a2acce00a8d1cca5bbaeb7e9d89a30ded7d4b62b7b50b3399) deciding to accept backup(8fd5d5dc97fc6e52da36bd527357a9c87f2a2529379f9f50241e35ab0c95c404, 6315) seqnum=0 pending=8 max-updates=1024
+    2019-07-26 10:30:34.108 [INF] WTCL: Queued backup(8fd5d5dc97fc6e52da36bd527357a9c87f2a2529379f9f50241e35ab0c95c404, 6315) successfully for session 026d7b4f4fd7dcdb5a2acce00a8d1cca5bbaeb7e9d89a30ded7d4b62b7b50b3399
+    2019-07-26 10:31:08.041 [INF] WTCL: Client stats: tasks(received=9 accepted=9 ineligible=0) sessions(acquired=0 exhausted=0)
+    ```
 
 ---
 ## More info: 
