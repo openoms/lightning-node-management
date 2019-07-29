@@ -94,7 +94,23 @@ Run the commands in the node\`s terminal
 
     Filter the relevant messages continuously with (press CTRL+C to exit):  
    `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`  
-   
+
+    To have more information in the log add the line to the lnd.conf file:
+    ```
+    debuglevel=WTWR=debug,WTCL=debug
+    ```
+    or run the command on the go:  
+    `lncli debuglevel --level=WTWR=debug,WTCL=debug`  
+
+   Sample result in the log:
+    ```
+    2019-07-29 15:26:51.386 [DBG] WTWR: Fetching block for (height=587633, hash=0000000000000000000b047fbe6d93c2af193249bdb864a99186914fc4b0b2c6)
+    2019-07-29 15:26:52.192 [DBG] WTWR: Scanning 3007 transaction in block (height=587633, hash=0000000000000000000b047fbe6d93c2af193249bdb864a99186914fc4b0b2c6) for breaches
+    2019-07-29 15:26:52.301 [DBG] WTWR: No breaches found in (height=587633, hash=0000000000000000000b047fbe6d93c2af193249bdb864a99186914fc4b0b2c6)
+    2019-07-29 15:34:17.877 [DBG] WTWR: Fetching block for (height=587634, hash=00000000000000000010615b2c0b3c32cb4ebcb7eb0bd452812f5c48d0edad0c)
+    2019-07-29 15:34:18.463 [DBG] WTWR: Scanning 2691 transaction in block (height=587634, hash=00000000000000000010615b2c0b3c32cb4ebcb7eb0bd452812f5c48d0edad0c) for breaches
+    2019-07-29 15:34:18.619 [DBG] WTWR: No breaches found in (height=587634, hash=00000000000000000010615b2c0b3c32cb4ebcb7eb0bd452812f5c48d0edad0c)
+    ```
 Sit back and enjoy that now there is no way to cheat your node even when it is offline!
 
 ---
