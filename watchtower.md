@@ -5,7 +5,7 @@ A watchtower monitors the bitcoin blockchain for any transaction attempting to s
 If there are two nodes in your control from lnd v0.7.0 you can set them up to look out for each other. Best to be done with nodes in two separate physical location so any unexpected loss of contact can be covered for.
 
 ## Update lnd
-Check https://github.com/lightningnetwork/lnd/releases/ for the latest version and release notes. Update [manually](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd)  or use an [automated helper script](https://github.com/openoms/bitcoin-tutorials/tree/master/lnd.updates) to update lnd on a RaspiBlitz or a compatible system.
+Check https://github.com/lightningnetwork/lnd/releases/ for the latest version and release notes. Update [manually](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd)  or use an [automated helper script](lnd.updates/README.md) to update lnd on a RaspiBlitz or a compatible system.
 
 ## Set up the Watchtower
 Run the commands in the node\`s terminal  
