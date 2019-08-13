@@ -85,13 +85,14 @@ https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b
 Will reciprocate channels over 2 000 000 sats.
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
-Free incoming channel with up to 4 000 000 sats from https://twitter.com/lnbig_com
+Free incoming channel with up to 5 000 000 sats from https://twitter.com/lnbig_com
 
-Route 100 000 sats through the LNBIG channel and another channel will be opened to you automatically:
-https://www.reddit.com/r/Bitcoin/comments/bx2q1j/do_not_miss_the_opportunity_lightning_inbound/
+Once there is higher balance on the side of your node an other incoming channel can be requested.
 
 ### [LightningTo.me](https://lightningto.me/)
-Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.
+Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.  
+Add their node as a peer if connecting from behind Tor:  
+`lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
 
 ### [Tippin.me](https://tippin.me/)
 Tip yourself via LN and withdraw on-chain.
@@ -128,19 +129,55 @@ The channels are best to be balanced with funds on each side to maximize the abi
 
 Open a dual funded, balanced channel with a trusted peer using the command line requiring only one on-chain transaction.
 
-### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
-Using this python script you can easily rebalance individual channels of your lnd node.
-* To use run in the terminal of the lnd node (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)): 
-```
-$ git clone https://github.com/C-Otto/rebalance-lnd
-$ cd rebalance-lnd
-$ pip install -r requirements.txt
-$ ./rebalance.py -t <channelID-where-to-move-sats> -f <channelID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>
-```
-
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 lndmanage is a command line tool for advanced channel management of an LND node written in python.
 
+* Install with:
+    
+    `$ virtualenv -p python3 ~/.venvs/lndmanage`  
+    `$ source ~/.venvs/lndmanage/bin/activate`  
+    `$ git clone https://github.com/bitromortac/lndmanage`  
+    `$ cd lndmanage`  
+    `$ sudo apt install pkg-config`  
+    `$ sudo apt-get install libfreetype6-dev`  
+    `$ sudo apt-get remove python-dev`  
+    `$ sudo apt-get install python3-dev`  
+    `$ pip install -r requirements.txt`  
+    `$ cp config_sample.ini config.ini`  
+    
+* Edit the config.ini for the RaspiBlitz:
+
+    `$ nano config.ini`
+
+* Fill in as follows:
+    ``` 
+    # network settings
+    [network]
+    lnd_grpc_host = 127.0.0.1:10009
+    # tls and admin macaroon can be found in .lnd folder
+    tls_cert_file = /home/admin/.lnd/tls.cert
+    admin_macaroon_file = /home/admin/.lnd/data/chain/bitcoin/mainnet/admin.macaroon
+
+    [logging]
+    loglevel = INFO
+    ```
+* To display the status of the channels:
+    
+    `$ source ~/.venvs/lndmanage/bin/activate`  
+    `$ ./lndmanage.py status`  
+    
+* Rebalance with:   
+    `$ ./lndmange.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 channel_id`
+
+### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
+Using this python script you can easily rebalance individual channels of your lnd node.
+* To use run in the terminal of the lnd node (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)): 
+    ```
+    $ git clone https://github.com/C-Otto/rebalance-lnd
+    $ cd rebalance-lnd
+    $ pip install -r requirements.txt
+    $ ./rebalance.py -t <channelID-where-to-move-sats> -f <channelID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>
+    ```
 ---
 
 ## Monitoring software
@@ -161,7 +198,7 @@ https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extensio
 
 ### [Zap](https://zap.jackmallers.com/)
 
-A lightning wallet for desktop iOS
+A lightning wallet for desktop, iOS and Android.
 
 ### [lndash](https://github.com/djmelik/lndash)
 
