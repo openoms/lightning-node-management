@@ -164,10 +164,11 @@ lndmanage is a command line tool for advanced channel management of an LND node 
 * To display the status of the channels:
     
     `$ source ~/.venvs/lndmanage/bin/activate`  
-    `$ ./lndmanage.py status`  
+    `$ ./lndmanage.py status` 
+    `$ ./lndmanage.py listchannels rebalance` 
     
 * Rebalance with:   
-    `$ ./lndmange.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 channel_id`
+    `$ ./lndmanage.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 channel_id`
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 Using this python script you can easily rebalance individual channels of your lnd node.
