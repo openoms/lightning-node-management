@@ -138,14 +138,10 @@ lndmanage is a command line tool for advanced channel management of an LND node 
     `$ source ~/.venvs/lndmanage/bin/activate`  
     `$ git clone https://github.com/bitromortac/lndmanage`  
     `$ cd lndmanage`  
-    `$ sudo apt install pkg-config`  
-    `$ sudo apt-get install libfreetype6-dev`  
-    `$ sudo apt-get remove python-dev`  
-    `$ sudo apt-get install python3-dev`  
+    `$ sudo apt install pkg-config libfreetype6-dev python3-dev`  
     `$ pip install -r requirements.txt`  
-    `$ cp config_sample.ini config.ini`  
-    
-* Edit the config.ini for the RaspiBlitz:
+       
+* Config.ini for the RaspiBlitz:
 
     `$ nano config.ini`
 
@@ -163,12 +159,13 @@ lndmanage is a command line tool for advanced channel management of an LND node 
     ```
 * To display the status of the channels:
     
-    `$ source ~/.venvs/lndmanage/bin/activate`  
-    `$ ./lndmanage.py status` 
+    `$ source ~/.venvs/lndmanage/bin/activate`
+    `$ cd lndmanage`  
+    `$ /lndmanage.py status`  
     `$ ./lndmanage.py listchannels rebalance` 
     
 * Rebalance with:   
-    `$ ./lndmanage.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 channel_id`
+    `$ ./lndmanage.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 CHANNEL_ID --reckless`
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 Using this python script you can easily rebalance individual channels of your lnd node.
