@@ -168,7 +168,7 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
 
 ### Tor Watchtower Client setup    
 * Change the lnd.conf:  
-  ` # nano /mnt/hdd/lnd/lnd.conf`
+  `# nano /mnt/hdd/lnd/lnd.conf`
 * insert the lines on the end of the file:   
 
   ```
@@ -180,7 +180,7 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
     * The host is watchtower's .onion address noted previously from: `# cat /mnt/hdd/tor/lndWT9911/hostname`
     
 * restart lnd with systemctl:  
-    `sudo systemctl restart lnd`
+    `# systemctl restart lnd`
 
 * Filter the log continuously with (CTRL+C to exit):  
    `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
