@@ -138,7 +138,7 @@ lndmanage is a command line tool for advanced channel management of an LND node 
     `$ source ~/.venvs/lndmanage/bin/activate`  
     `$ git clone https://github.com/bitromortac/lndmanage`  
     `$ cd lndmanage`  
-    `$ sudo apt install pkg-config libfreetype6-dev python3-dev`  
+    `$ sudo apt install pkg-config libfreetype6-dev python3-dev libatlas-base-dev`  
     `$ pip install -r requirements.txt`  
        
 * Config.ini for the RaspiBlitz:
@@ -189,14 +189,14 @@ https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2
 
 A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS.
 
+### [Zap](https://zap.jackmallers.com/)
+
+A lightning wallet for desktop, iOS and Android.
+
 ###  [Joule](https://lightningjoule.com/)
 
 Bring the power of lightning to the web with in-browser payments and identity, all with your own node.   
 https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9
-
-### [Zap](https://zap.jackmallers.com/)
-
-A lightning wallet for desktop, iOS and Android.
 
 ### [lndash](https://github.com/djmelik/lndash)
 
@@ -210,6 +210,17 @@ Features:
 * Forwarding Events (routed payments) view
 * Looking Glass Tool (route/path lookup)
 * Lightning Network Graph
+
+### [lntop](https://github.com/edouardparis/lntop)
+
+lntop is an interactive text-mode channels viewer for Unix systems.
+
+### [lnd-admin](https://github.com/janoside/lnd-admin)
+
+Admin web interface for LND, via gRPC. Built with Node.js, express, bootstrap-v4. Test at: https://lnd-admin.chaintools.io/
+
+### [lndmon](https://github.com/lightninglabs/lndmon)
+A drop-in monitoring solution for your lnd node using Prometheus and Grafana. https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html
 
 ### [Spark wallet for C-Lightning](https://github.com/shesek/spark-wallet)
 
