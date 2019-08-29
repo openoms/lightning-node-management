@@ -226,7 +226,9 @@ A drop-in monitoring solution for your lnd node using Prometheus and Grafana. ht
 
 Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or through mobile and desktop apps (for Android, Linux, macOS and Windows). It is currently oriented for technically advanced users and is not an all-in-one package, but rather a "remote control" interface for a c-lightning node that has to be managed separately.
 
-### Lightning network explorers
+---
+
+## Lightning network explorers
 
 * [1ml.com](https://1ml.com/)
 
@@ -234,6 +236,7 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 
 * [explorer.acinq.co](https://explorer.acinq.co/)
 
+* [ln.alhur.es](https://ln.alhur.es/)
 ---
 ## Resources:
 
