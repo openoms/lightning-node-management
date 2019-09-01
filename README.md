@@ -172,14 +172,14 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 Using this python script you can easily rebalance individual channels of your lnd node.
-* To use run in the terminal of the lnd node (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)): 
-    ```
-    $ git clone https://github.com/C-Otto/rebalance-lnd
-    $ cd rebalance-lnd
-    $ pip install -r requirements.txt
-    $ ./rebalance.py -t <channelID-where-to-move-sats> -f <channelID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>
-    ```
----
+* To install run in the terminal of the lnd node:  
+    `$ git clone https://github.com/C-Otto/rebalance-lnd`  
+    `$ cd rebalance-lnd`  
+    `$ pip install -r requirements.txt`  
+* Use with (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)):   
+    `$ ./rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
+    
+    ---
 
 ## Monitoring software
 
