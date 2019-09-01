@@ -4,20 +4,21 @@
 
 To be able to receive payments on the Lightning Network a node needs:
 - "inbound liquidity" which means that some satoshis need to be on the side of the other peer in a channel. 
-- The max amount of the incoming payment is determined by the highest incoming liquidity of a single  channel (not additive between channels).
 - a channel to a well connected node or a direct channel from the paying peer to make sure there is a possible payment route.
+
+The max amount of the incoming payment is determined by the highest incoming liquidity (AKA remote balance) of a single  channel (not additive between channels).
 
  ## Peer Connections
 - To open a channel to any node the peer connection needs to be established first.
 - The publicly accessible nodes can be connected to automatically.
-- If a node is not publicly accessible the peer connection needs to be initiated manually even if the other peer would want to open a channel.
+- If a node is not publicly accessible the peer connection needs to be initiated manually from that side even if the other peer is the one opening the channel.
 
 ## Channel size and choosing a peer: 
 
 - There is no hard number, but in general it is recommended to avoid opening channels  below 200K-500K sats.
 - https://1ml.com/statistics shows the average channel size on the network:   
 0.028 BTC = 2 800 000 satoshis on 2019 May 28.
-- A channel too small will result in being unable to close when fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
+- A channel too small will result in being unable to close when on-chain fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
 - The max amount of the available payment made or routed is determined by the highest liquidity of a single channel (not additive between channels).
 - One big channel to a well connected and stable node is more useful than many small ones.
 - It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
@@ -44,11 +45,11 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 ## Routing payments:
 
 - Imagine a node `B` in an `A`-`B`-`C` serial connection.
-- The channels of `B` are set up so  that there is inbound capacity from `A` and outgoing capacity to `C`.  
+- The channels of `B` are set up so  that there is inbound capacity (remote balance) from `A` and outgoing capacity (local balance) to `C`.  
 - If `A` wants to pay `C` there will be 1 hop in the route.
 - Under the hood: `A` sends the satoshis to `B` (the routing node) which will pay to `C`.
 - The capacity of the channels do not change, only move.
-- The whole payment can only go through if they can send a hash image (a message) through from the other direction first. 
+- The whole payment can only go through if they can send a hash image (a message) through from the other direction first.
 - The process is all or nothing, the payment cannot get stuck en route.
 
 ## Lightning Network routing fees
@@ -58,13 +59,13 @@ There are two fee components:
 * base fee (base_fee_msat). The default is 1000 millisat, which means 1 satoshi fee per every routed payment.
 * proportional fee (fee_rate) which is set to the minimum by default in lnd: 0.000001. This means there is an additional 1 sat charged for every million satoshis in the routed payment.
 
-There is no fee in a direct channel between two peers.
+There is no LN fee for payments in a direct channel between two peers.
 
 To change routing fees of your node use the command:
 https://api.lightning.community/#updatechannelpolicy
 
-For example can reduce the base fee to 100 with this command:  
-`lncli updatechanpolicy 100 0.000001 144`  
+For example can reduce the base fee to 500 with this command:  
+`lncli updatechanpolicy 100 0.0000005 144`  
 This will result in more payments routed as this route will become cheaper.
 
 the default setting is:  
@@ -77,7 +78,9 @@ the default setting is:
 ---
 ## Get inbound liquidity
 
-To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to well connected, stable node. To make liquidity on existing (outgoing) channels a payment can be made to a merchant or exchange accepting Lightning and receive the product or withdraw on-chain.
+To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to a well connected, stable node. 
+
+To make inbound liquidity (to be able to receive payments on a channel you opened) a payment can be sent to a merchant or exchange accepting Lightning and receive the product or receive the sats back on-chain.
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]**  
@@ -123,14 +126,14 @@ https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference
 ---
 ## Managing channels
 
-The channels are best to be balanced with funds on each side to maximize the ability to accept and route payments.
+The channels are best to be balanced with funds on each side to maximize the ability to route payments (allows bidirectional traffic).
 
 ### [A method to create a balanced channel](BalancedChannelCreation.md)
 
 Open a dual funded, balanced channel with a trusted peer using the command line requiring only one on-chain transaction.
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
-lndmanage is a command line tool for advanced channel management of an LND node written in python.
+lndmanage is a command-line tool for advanced channel management of an LND node written in python.
 
 * Install with:
     
