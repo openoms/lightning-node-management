@@ -141,7 +141,7 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     `$ source ~/.venvs/lndmanage/bin/activate`  
     `$ git clone https://github.com/bitromortac/lndmanage`  
     `$ cd lndmanage`  
-    `$ sudo apt install pkg-config libfreetype6-dev python3-dev libatlas-base-dev`  
+    `$ sudo apt install -y pkg-config libfreetype6-dev python3-dev libatlas-base-dev`  
     `$ pip install -r requirements.txt`  
        
 * Config.ini for the RaspiBlitz:
@@ -162,12 +162,12 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     ```
 * To display the status of the channels:
     
-    `$ source ~/.venvs/lndmanage/bin/activate`
+    `$ source ~/.venvs/lndmanage/bin/activate`  
     `$ cd lndmanage`  
-    `$ /lndmanage.py status`  
+    `$ ./lndmanage.py status`  
     `$ ./lndmanage.py listchannels rebalance` 
     
-* Rebalance with:   
+* Example rebalance command:   
     `$ ./lndmanage.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 CHANNEL_ID --reckless`
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
