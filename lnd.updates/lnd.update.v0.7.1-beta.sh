@@ -12,7 +12,7 @@ downloadDir="/home/admin/download"  # edit your download directory
 # check who signed the release in https://github.com/lightningnetwork/lnd/releases
 # olaoluwa
 PGPpkeys="https://keybase.io/roasbeef/pgp_keys.asc"
-PGPcheck="BD599672C804AF2770869A048B80CD2BB8BD8132"
+PGPcheck="9769140D255C759B1EB77B46A96387A57CAAE94D"
 
 # bitconner 
 # PGPpkeys="https://keybase.io/bitconner/pgp_keys.asc"
