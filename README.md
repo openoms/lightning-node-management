@@ -156,19 +156,27 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     # tls and admin macaroon can be found in .lnd folder
     tls_cert_file = /home/admin/.lnd/tls.cert
     admin_macaroon_file = /home/admin/.lnd/data/chain/bitcoin/mainnet/admin.macaroon
-
     [logging]
     loglevel = INFO
+    [annotations]
     ```
 * To display the status of the channels:
     
-    `$ source ~/.venvs/lndmanage/bin/activate`  
-    `$ cd lndmanage`  
+    `$ source ~/.venvs/lndmanage/bin/activate && cd lndmanage`  
     `$ ./lndmanage.py status`  
     `$ ./lndmanage.py listchannels rebalance` 
     
 * Example rebalance command:   
     `$ ./lndmanage.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 CHANNEL_ID --reckless`
+
+### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
+* Install with:  
+    `npm install -g balanceofsatoshis`
+* Add to path:  
+    `$ sudo bash -c "echo 'PATH=\$PATH:/usr/local/lib/nodejs/node-v10.16.0-linux-armv7l/bin/' >> /etc/profile"`  
+    `$ export PATH=PATH=$PATH:/usr/local/lib/nodejs/node-v10.16.0-linux-armv7l/bin/`
+* See how to use the rebalance command with:  
+    `bos help rebalance`
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 Using this python script you can easily rebalance individual channels of your lnd node.
