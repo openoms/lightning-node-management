@@ -16,25 +16,25 @@ The max amount of the incoming payment is determined by the highest incoming liq
 ## Channel size and choosing a peer: 
 
 - There is no hard number, but in general it is recommended to avoid opening channels  below 200K-500K sats.
-- https://1ml.com/statistics shows the average channel size on the network:   
+- <https://1ml.com/statistics> shows the average channel size on the network:   
 0.028 BTC = 2 800 000 satoshis on 2019 May 28.
 - A channel too small will result in being unable to close when on-chain fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
 - The max amount of the available payment made or routed is determined by the highest liquidity of a single channel (not additive between channels).
 - One big channel to a well connected and stable node is more useful than many small ones.
 - It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
-- Choose a node you know or one from the list: https://1ml.com/node?order=nodeconnectednodecount
-- Try a custom list of recommendations for your public node: https://moneni.com/nodematch
+- Choose a node you know or one from the list: <https://1ml.com/node?order=nodeconnectednodecount>
+- Try a custom list of recommendations for your public node: <https://moneni.com/nodematch>
 
 
 ## On-chain bitcoin fees
 - Opening or closing a Lightning channel is an on-chain bitcoin transaction with the same rules applied.
-- The confirmation time depends on the state of the bitcoin mempool (https://jochen-hoenicke.de/queue/#0,24h) and the sats/byte fee used (https://bitcoinfees.earn.com/).
-- Check https://whatthefee.io/ for the current estimation of confirmation time/fee.
+- The confirmation time depends on the state of the bitcoin mempool (<https://jochen-hoenicke.de/queue/#0,24h>) and the sats/byte fee used (<https://bitcoinfees.earn.com/>).
+- Check <https://whatthefee.io/> for the current estimation of confirmation time/fee.
 - Use a custom fee and choose the lowest number with a good chance for an acceptable confirmation time.
 - At least 141 bytes need to be covered by fees, but this number is often higher depending on the transaction inputs, script and signatures used.
 
 ## Tor nodes
-Tor is an anonymizing network designed to hide the participant`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: https://en.wikipedia.org/wiki/Tor_(anonymity_network)
+Tor is an anonymizing network designed to hide the participant`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: <https://en.wikipedia.org/wiki/Tor_(anonymity_network)>
 
 - A Lightning node behind Tor can connect and open a channel to any other node. 
 - The nodes running on clearnet are not able to see behind Tor.
@@ -62,7 +62,7 @@ There are two fee components:
 There is no LN fee for payments in a direct channel between two peers.
 
 To change routing fees of your node use the command:
-https://api.lightning.community/#updatechannelpolicy
+<https://api.lightning.community/#updatechannelpolicy>
 
 For example can reduce the base fee to 500 with this command:  
 `lncli updatechanpolicy 100 0.0000005 144`  
@@ -84,11 +84,11 @@ To make inbound liquidity (to be able to receive payments on a channel you opene
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]**  
-https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  
+<https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  >
 Will reciprocate channels over 2 000 000 sats.
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
-Free incoming channel with up to 5 000 000 sats from https://twitter.com/lnbig_com
+Free incoming channel with up to 5 000 000 sats from <https://twitter.com/lnbig_com>
 
 Once there is higher balance on the side of your node an other incoming channel can be requested.
 
@@ -121,7 +121,7 @@ Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on
 
 In the current iteration of the Loop software, only off-chain to on-chain swaps are supported, where the Loop client sends funds off-chain in exchange for the funds back on-chain. This is called a Loop Out.
 
-https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference
+<https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference>
 
 ---
 ## Managing channels
@@ -134,40 +134,16 @@ Open a dual funded, balanced channel with a trusted peer using the command line 
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 lndmanage is a command-line tool for advanced channel management of an LND node written in python.
-
 * Install with:
-    
-    `$ virtualenv -p python3 ~/.venvs/lndmanage`  
-    `$ source ~/.venvs/lndmanage/bin/activate`  
-    `$ git clone https://github.com/bitromortac/lndmanage`  
-    `$ cd lndmanage`  
-    `$ sudo apt install -y pkg-config libfreetype6-dev python3-dev libatlas-base-dev`  
-    `$ pip install -r requirements.txt`  
-       
-* Config.ini for the RaspiBlitz:
-
-    `$ nano config.ini`
-
-* Fill in as follows:
-    ``` 
-    # network settings
-    [network]
-    lnd_grpc_host = 127.0.0.1:10009
-    # tls and admin macaroon can be found in .lnd folder
-    tls_cert_file = /home/admin/.lnd/tls.cert
-    admin_macaroon_file = /home/admin/.lnd/data/chain/bitcoin/mainnet/admin.macaroon
-    [logging]
-    loglevel = INFO
-    [annotations]
-    ```
-* To display the status of the channels:
-    
-    `$ source ~/.venvs/lndmanage/bin/activate && cd lndmanage`  
-    `$ ./lndmanage.py status`  
-    `$ ./lndmanage.py listchannels rebalance` 
-    
+    `$ pip3 install lndmanage
+* Add to PATH:
+    `$ sudo bash -c "echo 'PATH=\$PATH:/home/admin/.local/bin/' >> /etc/profile"`
+    `$ export PATH=$PATH:/home/admin/.local/bin/'
+* To display the status of the channels: 
+    `$ lndmanage status`  
+    `$ lndmanage.py listchannels rebalance` 
 * Example rebalance command:   
-    `$ ./lndmanage.py rebalance --max-fee-sat 20 --max-fee-rate 0.00001 CHANNEL_ID --reckless`
+    `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
 
 ### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 * Install with:  
@@ -194,7 +170,7 @@ Using this python script you can easily rebalance individual channels of your ln
 ### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
 
 RTL is a web UI for Lightning Network Daemon.  
-https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2
+<https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2>
 
 ### [ZeusLN](https://zeusln.app/)
 
@@ -207,12 +183,12 @@ A lightning wallet for desktop, iOS and Android.
 ###  [Joule](https://lightningjoule.com/)
 
 Bring the power of lightning to the web with in-browser payments and identity, all with your own node.   
-https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9
+<https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9>
 
 ### [lndash](https://github.com/djmelik/lndash)
 
 lndash is a simple read-only web dashboard for lnd - Lightning Network Daemon.  
-Demonstration: https://lightninglayer.com/ 
+Demonstration: <https://lightninglayer.com/>
 
 Features:
 
@@ -231,7 +207,7 @@ lntop is an interactive text-mode channels viewer for Unix systems.
 Admin web interface for LND, via gRPC. Built with Node.js, express, bootstrap-v4. Test at: https://lnd-admin.chaintools.io/
 
 ### [lndmon](https://github.com/lightninglabs/lndmon)
-A drop-in monitoring solution for your lnd node using Prometheus and Grafana. https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html
+A drop-in monitoring solution for your lnd node using Prometheus and Grafana. <https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html>
 
 ### [Spark wallet for C-Lightning](https://github.com/shesek/spark-wallet)
 
@@ -251,35 +227,35 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 ---
 ## Resources:
 
-* A conceptual review of the Lightning Network: https://dev.lightning.community/overview/index.html#lightning-network
+* A conceptual review of the Lightning Network: <https://dev.lightning.community/overview/index.html#lightning-network>
 
 * gRPC API reference documentation for LND
-https://api.lightning.community
+<https://api.lightning.community>
 
 * Elaine Ou - Bootstrapping and maintaining a Lightning node [38 mins video](https://www.youtube.com/watch?v=qX4Z3JY1094)
 and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
 
 * Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
 
-* https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393
+* <https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393>
 
-* A list about How to get Channel Liquidity fast? https://github.com/rootzoll/raspiblitz/issues/395
+* A list about How to get Channel Liquidity fast? <https://github.com/rootzoll/raspiblitz/issues/395>
 
-* A curated list of awesome Lightning Network resources, apps, and libraries https://github.com/bcongdon/awesome-lightning-network  
+* A curated list of awesome Lightning Network resources, apps, and libraries <https://github.com/bcongdon/awesome-lightning-network  >
 
-* Jameson Lopp's curated list of Lightning Network resources https://lightning.how
+* Jameson Lopp's curated list of Lightning Network resources <https://lightning.how>
 
-* https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels
+* <https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels>
 
-* https://en.wikipedia.org/wiki/Dijkstra's_algorithm
+* Mathemathic principles behind routing: <https://en.wikipedia.org/wiki/Dijkstra's_algorithm>
 
 ---
 ## Forums:
 
 * A community managed group for the RaspiBlitz Lightning Node:
-https://t.me/raspiblitz  
+<https://t.me/raspiblitz  >
 
-* LND Developer Slack. Find the invite link on: https://dev.lightning.community/
+* LND Developer Slack. Find the invite link on: <https://dev.lightning.community/>
 
 * A subreddit for Bitcoin and Lightning developers to discuss technical topics: 
-https://www.reddit.com/r/lightningdevs   
+<https://www.reddit.com/r/lightningdevs   >
