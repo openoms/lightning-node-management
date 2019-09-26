@@ -134,12 +134,14 @@ Open a dual funded, balanced channel with a trusted peer using the command line 
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 lndmanage is a command-line tool for advanced channel management of an LND node written in python.
-* Install with:
-    `$ pip3 install lndmanage
+* Install with:  
+    `$ pip3 install lndmanage`
 * Add to PATH:
-    `$ sudo bash -c "echo 'PATH=\$PATH:/home/admin/.local/bin/' >> /etc/profile"`
-    `$ export PATH=$PATH:/home/admin/.local/bin/'
-* To display the status of the channels: 
+  ```bash
+  $ sudo bash -c "echo 'PATH=\$PATH:/home/admin/.local/bin/' >> /etc/profile"
+  $ export PATH=$PATH:/home/admin/.local/bin/
+  ```
+* To display the status of the channels:  
     `$ lndmanage status`  
     `$ lndmanage.py listchannels rebalance` 
 * Example rebalance command:   
