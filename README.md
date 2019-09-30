@@ -234,16 +234,11 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 * gRPC API reference documentation for LND
 <https://api.lightning.community>
 
-* Elaine Ou - Bootstrapping and maintaining a Lightning node [38 mins video](https://www.youtube.com/watch?v=qX4Z3JY1094)
-and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
-
-* Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
-
 * <https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393>
 
 * A list about How to get Channel Liquidity fast? <https://github.com/rootzoll/raspiblitz/issues/395>
 
-* A curated list of awesome Lightning Network resources, apps, and libraries <https://github.com/bcongdon/awesome-lightning-network  >
+* A curated list of awesome Lightning Network resources, apps, and libraries <https://github.com/bcongdon/awesome-lightning-network>
 
 * Jameson Lopp's curated list of Lightning Network resources <https://lightning.how>
 
@@ -251,13 +246,22 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 
 * Mathemathic principles behind routing: <https://en.wikipedia.org/wiki/Dijkstra's_algorithm>
 
+## Videos:
+* Elaine Ou - Bootstrapping and maintaining a Lightning node [38 mins video](https://www.youtube.com/watch?v=qX4Z3JY1094)
+and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
+
+* Alex Bosworth - Lightning channel Management [35 mins video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
+
+* [Chaincode Labs Lightning Seminar - Summer 2019](https://www.youtube.com/playlist?list=PLpLH33TRghT17_U3as2P3vHfAGL8pSOOY)
+
+* Collection of Alex Bosworth`s online presentations: <https://twitter.com/alexbosworth/status/1175091117668257792>
 ---
 ## Forums:
 
 * A community managed group for the RaspiBlitz Lightning Node:
-<https://t.me/raspiblitz  >
+<https://t.me/raspiblitz>
 
 * LND Developer Slack. Find the invite link on: <https://dev.lightning.community/>
 
 * A subreddit for Bitcoin and Lightning developers to discuss technical topics: 
-<https://www.reddit.com/r/lightningdevs   >
+<https://www.reddit.com/r/lightningdevs>
