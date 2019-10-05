@@ -140,10 +140,9 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
 
 * restart Tor and lnd with systemctl:  
     `# systemctl restart tor`  
-    `# systemctl restart tor@default`  
     `# systemctl restart lnd`
 
-* Take note of the watchtower's onion address by running:   
+* Take note of the watchtower's onion address by running:  
 `# cat /mnt/hdd/tor/lndWT9911/hostname`
 * Take note of the watchtower-pubkey by running  
 `$ lncli tower info`
@@ -175,7 +174,7 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
     [Wtclient]
     wtclient.private-tower-uris=0247ce2c7a3de7cc1890c9a34f1a707a08a27374da7140497f6f2db42e92738a30@zyqnk7s2gkyoflwili2dpeqfetxgcsdzhnizhlhnbvjbbaj7yq4ejfqd.onion:9911
     ```
-    * The details of a test node are prefilled. Connections are welcome, but there are no guarantee for this service to stay online.
+    * The details of a test node are prefilled. Connections are welcome, but there is no guarantee for this service to stay online.
     * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
     * The host is watchtower's .onion address noted previously from: `# cat /mnt/hdd/tor/lndWT9911/hostname`
     
