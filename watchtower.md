@@ -170,9 +170,9 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
   `# nano /mnt/hdd/lnd/lnd.conf`
 * insert the lines on the end of the file:   
 
-  ```
+    ```
     [Wtclient]
-    wtclient.private-tower-uris=0247ce2c7a3de7cc1890c9a34f1a707a08a27374da7140497f6f2db42e92738a30@zyqnk7s2gkyoflwili2dpeqfetxgcsdzhnizhlhnbvjbbaj7yq4ejfqd.onion:9911
+    wtclient.private-tower-uris=02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@zyqnk7s2gkyoflwili2dpeqfetxgcsdzhnizhlhnbvjbbaj7yq4ejfqd.onion:9911
     ```
     * The details of a test node are prefilled. Connections are welcome, but there is no guarantee for this service to stay online.
     * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
