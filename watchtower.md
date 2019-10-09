@@ -210,3 +210,5 @@ Will O`Beirne shows in this article (and GitHub repo) how to demonstrate a breac
 SLP83 Conner Fromknecht – Bitcoin Lightning Watchtowers in depth  
 podcast: https://stephanlivera.com/episode/83  
 transcript: http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/
+
+Check for some altruistic watchtowers and share your own: https://github.com/openoms/lightning-node-management/issues/4
