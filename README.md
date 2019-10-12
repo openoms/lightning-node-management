@@ -1,17 +1,19 @@
 # Lightning Node Management
 
+## Peer Connections and channels.
+- Peers are the nodes connected to each other through the internet (TCP/IP layer). 
+- A channel is a payment channel between two peers established on the Lightning Network.
+- To open a channel to any node the peer connection needs to be established first.
+- The publicly accessible nodes can be connected to automatically.
+- If a node is not publicly accessible the peer connection needs to be initiated manually from the non-public side even if the other peer is opening the channel.
+
 ## Receiving payments
 
 To be able to receive payments on the Lightning Network a node needs:
-- "inbound liquidity" which means that some satoshis need to be on the side of the other peer in a channel. 
+- "inbound liquidity" (aka remote balance) which means that some satoshis need to be on the side of the other peer in a channel. 
 - a channel to a well connected node or a direct channel from the paying peer to make sure there is a possible payment route.
 
-The max amount of the incoming payment is determined by the highest incoming liquidity (AKA remote balance) of a single  channel (not additive between channels).
-
- ## Peer Connections
-- To open a channel to any node the peer connection needs to be established first.
-- The publicly accessible nodes can be connected to automatically.
-- If a node is not publicly accessible the peer connection needs to be initiated manually from that side even if the other peer is the one opening the channel.
+The max amount of the incoming payment is determined by the highest inbound liquidity of a single  channel (not additive between channels).
 
 ## Channel size and choosing a peer: 
 
@@ -27,7 +29,7 @@ The max amount of the incoming payment is determined by the highest incoming liq
 
 
 ## On-chain bitcoin fees
-- Opening or closing a Lightning channel is an on-chain bitcoin transaction with the same rules applied.
+- Opening or closing a Lightning channel is an on-chain bitcoin transaction (settled on the blockchain)
 - The confirmation time depends on the state of the bitcoin mempool (<https://jochen-hoenicke.de/queue/#0,24h>) and the sats/byte fee used (<https://bitcoinfees.earn.com/>).
 - Check <https://whatthefee.io/> for the current estimation of confirmation time/fee.
 - Use a custom fee and choose the lowest number with a good chance for an acceptable confirmation time.
@@ -40,7 +42,7 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 - The nodes running on clearnet are not able to see behind Tor.
 - The clearnet node needs to be added as a peer first by the Tor node to be able to open a channel. 
 - Once the channel is established the connection will persist, but might take some more time to come back online after either peer restarts.
-- If both nodes restart in the same time or the clearnet node`s IP address is changed while both offline the peers need to be added manually again.
+- If both nodes restart in the same time or the clearnet node`s IP address is changed while both offline the peer connection need to be added manually again.
 
 ## Routing payments:
 
@@ -84,7 +86,7 @@ To make inbound liquidity (to be able to receive payments on a channel you opene
 
 ### Nodes which connect back:
 * **stackingsats [NODL] [TFTC] [RHR]**  
-<https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1  >
+<https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
 Will reciprocate channels over 2 000 000 sats.
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
