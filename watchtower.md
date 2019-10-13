@@ -172,7 +172,8 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
 
     ```
     [Wtclient]
-    wtclient.private-tower-uris=02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@zyqnk7s2gkyoflwili2dpeqfetxgcsdzhnizhlhnbvjbbaj7yq4ejfqd.onion:9911
+    wtclient.private-tower-uris=02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@xjyldrwmtxtutdqqhgvxvnykk4ophz6ygr3ci4gxnnt5wibl7k4g2vad.onion
+:9911
     ```
     * The details of a test node are prefilled. Connections are welcome, but there is no guarantee for this service to stay online.
     * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
