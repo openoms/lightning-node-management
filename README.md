@@ -1,6 +1,6 @@
 # Lightning Node Management
 
-## Peer Connections and channels.
+## Peer connections and channels.
 - Peers are the nodes connected to each other through the internet (TCP/IP layer). 
 - A channel is a payment channel between two peers established on the Lightning Network.
 - To open a channel to any node the peer connection needs to be established first.
