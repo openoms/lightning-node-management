@@ -59,15 +59,15 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 Unlike with on-chain transactions (where the fee is paid for the bytes the transaction takes up in a block) Lightning Network fees are related to the amount routed.
 There are two fee components:
 * base fee (base_fee_msat). The default is 1000 millisat, which means 1 satoshi fee per every routed payment.
-* proportional fee (fee_rate) which is set to the minimum by default in lnd: 0.000001. This means there is an additional 1 sat charged for every million satoshis in the routed payment.
+* proportional fee (fee_rate) which is by default in lnd: 0.000001. This means there is an additional 1 sat charged for every million satoshis in the routed payment.
 
 There is no LN fee for payments in a direct channel between two peers.
 
 To change routing fees of your node use the command:
 <https://api.lightning.community/#updatechannelpolicy>
 
-For example can reduce the base fee to 500 with this command:  
-`lncli updatechanpolicy 100 0.0000005 144`  
+For example can reduce the base fee to 500 msat with this command:  
+`lncli updatechanpolicy 500 0.000001 144`  
 This will result in more payments routed as this route will become cheaper.
 
 the default setting is:  
@@ -75,7 +75,7 @@ the default setting is:
 
 ## Watchtowers
 
-* Read more and how to set one up [here](watchtower.md)
+Read more and how to set one up [here](watchtower.md)
 
 ---
 ## Get inbound liquidity
@@ -136,15 +136,21 @@ Open a dual funded, balanced channel with a trusted peer using the command line 
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 lndmanage is a command-line tool for advanced channel management of an LND node written in python.
-* Install with:  
-    `$ pip3 install lndmanage`
-* Add to PATH:
-  ```bash
-  $ sudo bash -c "echo 'PATH=\$PATH:/home/admin/.local/bin/' >> /etc/profile"
-  $ export PATH=$PATH:/home/admin/.local/bin/
-  ```
-* To display the status of the channels:  
-    `$ lndmanage status`  
+* Install with: 
+    ```bash  
+    # activate virtual environment
+    sudo apt install -y python3-venv
+    python3 -m venv venv
+    source venv/bin/activate
+    # get dependencies
+    sudo apt install -y python3-dev
+    pip3 install wheel
+    pip3 instal matplotlib
+    python3 -m pip install lndmanage
+    ```
+* To display the status of the channels:
+    `$ source venv/bin/activate`
+    `(venv) $ lndmanage status`  
     `$ lndmanage.py listchannels rebalance` 
 * Example rebalance command:   
     `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
