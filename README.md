@@ -21,7 +21,7 @@ The max amount of the incoming payment is determined by the highest inbound liqu
 - <https://1ml.com/statistics> shows the average channel size on the network:   
 0.028 BTC = 2 800 000 satoshis on 2019 May 28.
 - A channel too small will result in being unable to close when on-chain fees are high. This will leave the channel vulnerable in a case, when the counterparty would try to close with a previous state (the funds in the channel can be cheated out).
-- The max amount of the available payment made or routed is determined by the highest liquidity of a single channel (not additive between channels).
+- The max size of the available payment made or routed is determined by the highest directional liquidity of a single channel (not additive between channels).
 - One big channel to a well connected and stable node is more useful than many small ones.
 - It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
 - Choose a node you know or one from the list: <https://1ml.com/node?order=nodeconnectednodecount>
@@ -149,11 +149,12 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     python3 -m pip install lndmanage
     ```
 * To display the status of the channels:
-    `$ source venv/bin/activate`
-    `(venv) $ lndmanage status`  
-    `$ lndmanage.py listchannels rebalance` 
+    ```bash 
+    $ source venv/bin/activate
+    (venv) $ lndmanage status  
+    (venv) $ lndmanage listchannels rebalance
 * Example rebalance command:   
-    `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
+    `$ (venv) lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
 
 ### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 * Install with:  
@@ -171,8 +172,8 @@ Using this python script you can easily rebalance individual channels of your ln
     `$ cd rebalance-lnd`  
     `$ pip install -r requirements.txt`  
 * Use with (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)):   
-    `$ ./rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
-    
+    `$ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
+
     ---
 
 ## Monitoring software
