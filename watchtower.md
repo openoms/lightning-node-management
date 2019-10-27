@@ -64,16 +64,31 @@ Run the commands in the node\`s terminal
 
 
 ## Set up the node to be monitored (the watchtower client)
-* Change the lnd.conf:  
-  ` # nano /mnt/hdd/lnd/lnd.conf`
+* [LND v0.8.0+] Register one or more watchtower(s):
+  * Change the lnd.conf:  
+    ` # nano /mnt/hdd/lnd/lnd.conf`
+  * insert the lines on the end of the file:
+    ```
+    [Wtclient]
+    wtclient.active=1
+    ```
+  Add a watchtower from the command line (can add multiple one-by-one):
+  ```
+  $ lncli wtclient add <watchtower-pubkey>@<host>:9911
+  ```
 
-* insert the lines on the end of the file:
-  ```
-  [Wtclient]
-  wtclient.private-tower-uris=<watchtower-pubkey>@<host>:9911
-  ```
-    * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
-    * For a clearnet client the `host` needs to be the clearnet IP (or dynamicDNS) of the watchtower even if the watchtower is running behind Tor. 
+* [LND <v0.8.0] Register a watchtower:
+  * Change the lnd.conf:  
+    ` # nano /mnt/hdd/lnd/lnd.conf`
+
+  * insert the lines on the end of the file:
+    ```
+    [Wtclient]
+    wtclient.private-tower-uris=<watchtower-pubkey>@<host>:9911
+    ```
+  * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
+  * For a clearnet client the `host` needs to be the clearnet IP (or dynamicDNS) of the watchtower even if the watchtower is running behind Tor. 
+
 * Restart lnd  
   `# systemctl restart lnd`
 
@@ -165,11 +180,27 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
     2019-08-20 11:27:28.729 [DBG] WTWR: No breaches found in (height=590941, hash=000000000000000000069b8d2739cb8736cc6a14927d760a7b7dfa47e1e5059e)
     ```
 
-### Tor Watchtower Client setup    
-* Change the lnd.conf:  
-  `# nano /mnt/hdd/lnd/lnd.conf`
-* insert the lines on the end of the file:   
+### Tor Watchtower Client setup
+* [LND v0.8.0+] Register one or more watchtower(s):
+  * Change the lnd.conf:  
+    ` # nano /mnt/hdd/lnd/lnd.conf`
+  * insert the lines on the end of the file:
+    ```
+    [Wtclient]
+    wtclient.active=1
+    ```
+  * Add a watchtower from the command line (can add multiple one-by-one):
+    ```
+    $ lncli wtclient add 02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@xjyldrwmtxtutdqqhgvxvnykk4ophz6ygr3ci4gxnnt5wibl7k4g2vad.onion:9911
+    ```
+    * The details of a test node are prefilled. Connections are welcome, but there is no guarantee for this service to stay online.
+    * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
+    * The host is watchtower's .onion address noted previously from: `# cat /mnt/hdd/tor/lndWT9911/hostname`
+* [LND <v0.8.0] Register a watchtower:
+  * Change the lnd.conf:  
+    ` # nano /mnt/hdd/lnd/lnd.conf`
 
+  * insert the lines on the end of the file:
     ```
     [Wtclient]
     wtclient.private-tower-uris=02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@xjyldrwmtxtutdqqhgvxvnykk4ophz6ygr3ci4gxnnt5wibl7k4g2vad.onion:9911
