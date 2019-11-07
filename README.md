@@ -132,7 +132,7 @@ Free incoming channel with up to 5 000 000 sats from <https://twitter.com/lnbig_
 
 Once there is higher balance on the side of your node an other incoming channel can be requested.
 
-the service is paid in routing fees:
+the service is paid in routing fees:  
 ![lnbig_fees](/images/lnbig_fees.png)
 
 It is important to increase our own fees for those channels so rebalancing or closure is paid for if payments are routed that way.
@@ -169,13 +169,17 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     pip3 install matplotlib
     python3 -m pip install lndmanage
     ```
-* To display the status of the channels:
+* Start the interactive mode (do this at every new start):
     ```bash 
     $ source venv/bin/activate
-    (venv) $ lndmanage status  
-    (venv) $ lndmanage listchannels rebalance
+    (venv) $ lndmanage 
+    ```
+* To display the status of the channels:
+    ```bash 
+    $ lndmanage status  
+    $ lndmanage listchannels rebalance
 * Example rebalance command:   
-    `$ (venv) lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
+    `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
 
 ### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 * Install with:  
