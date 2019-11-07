@@ -83,11 +83,6 @@ To make outbound liquidity (to be able to send payments) is easy, you just need 
 
 To make inbound liquidity (to be able to receive payments on a channel you opened) a payment can be sent to a merchant or exchange accepting Lightning and receive the product or receive the sats back on-chain.
 
-### Nodes which connect back:
-* **stackingsats [NODL] [TFTC] [RHR]**  
-<https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
-Will reciprocate channels over 2 000 000 sats.
-
 ### Non-custodial wallets
 Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
 * [Breez](https://breez.technology/)  
@@ -137,6 +132,14 @@ the service is paid in routing fees:
 
 It is important to increase our own fees for those channels so rebalancing or closure is paid for if payments are routed that way.
 Setting the fees for individual channels takes only one click in the [RTL app](#RTL---Ride-The-Lightning)
+
+### Nodes which connect back:
+* **stackingsats [TFTC] [NODL] [TOR]**  
+<https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
+Will reciprocate channels over 2 000 000 sats.  
+Keep in mind that channels fees can be changed by the peer arbitrarily.   
+Check the latest state in a Lightning Explorer:  
+https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1/channels
 
 ### [HodlHodl.com](https://HodlHodl.com)
 Now open for trades through Lightning.   Select the LN icon on the menu bar on the top.  
