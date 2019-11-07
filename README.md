@@ -66,19 +66,18 @@ There is no LN fee for payments in a direct channel between two peers.
 To change routing fees of your node use the command:
 <https://api.lightning.community/#updatechannelpolicy>
 
-For example can reduce the base fee to 500 msat with this command:  
-`lncli updatechanpolicy 500 0.000001 144`  
-This will result in more payments routed as this route will become cheaper.
+* Can reduce the base fee to 500 msat and increase the proportinal fee to 100ppm/0.01% with this command:  
+`$ lncli updatechanpolicy 500 0.0001 144`  
 
-the default setting is:  
-`lncli updatechanpolicy 1000 0.000001 144`
+* the default setting is (1 sat per payment + 1 ppm/0.0001%):  
+`$ lncli updatechanpolicy 1000 0.000001 144`
 
 ## Watchtowers
 
 Read more and how to set one up [here](watchtower.md)
 
 ---
-## Get inbound liquidity
+## Getting inbound liquidity
 
 To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to a well connected, stable node. 
 
@@ -89,18 +88,26 @@ To make inbound liquidity (to be able to receive payments on a channel you opene
 <https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
 Will reciprocate channels over 2 000 000 sats.
 
-### [LNBIG.com](https://lnbig.com/#/open-channel)
-Free incoming channel with up to 5 000 000 sats from <https://twitter.com/lnbig_com>
-
-Once there is higher balance on the side of your node an other incoming channel can be requested.
+### Non-custodial wallets
+Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
+* [Breez](https://breez.technology/)  
+A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.
+* [Zap](https://zap.jackmallers.com/)   
+Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
+* [Lightning App by Lightnning Labs](https://github.com/lightninglabs/lightning-app)  
+An easy-to-use cross platform lightning wallet
+### Custodial wallets
+Tip yourself via LN and benefit from the inbound liquidity created.
+The drawback is that you don`t control the seed of your custodial wallet.  
+Examples:  
+* [Tippin.me](https://tippin.me/)
+* [Wallet of Satoshi](https://www.walletofsatoshi.com/)
+* [Bluewallet](https://bluewallet.io/)
 
 ### [LightningTo.me](https://lightningto.me/)
 Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.  
 Add their node as a peer if connecting from behind Tor:  
-`lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
-
-### [Tippin.me](https://tippin.me/)
-Tip yourself via LN and withdraw on-chain.
+`$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
 
 ### [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
 Request inbound capacity for a small fee
@@ -109,21 +116,35 @@ Recommended channel size: Between 500 000 and 16 500 000 satoshis.
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
+### [Lightning Loop](https://github.com/lightninglabs/loop)
+Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps. 
+
+In the current iteration of the Loop software, two swap types are supported:
+
+* Loop In: off-chain to on-chain, where the Loop client sends funds off-chain in
+* Loop Out: on-chain to off-chain, where the Loop client sends funds to an on-chain address using an off-chain channel 
+
+
+<https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference>
+
+### [LNBIG.com](https://lnbig.com/#/open-channel)
+Free incoming channel with up to 5 000 000 sats from <https://twitter.com/lnbig_com>
+
+Once there is higher balance on the side of your node an other incoming channel can be requested.
+
+the service is paid in routing fees:
+![lnbig_fees](/images/lnbig_fees.png)
+
+It is important to increase our own fees for those channels so rebalancing or closure is paid for if payments are routed that way.
+Setting the fees for individual channels takes only one click in the [RTL app](#RTL---Ride-The-Lightning)
+
 ### [HodlHodl.com](https://HodlHodl.com)
 Now open for trades through Lightning.   Select the LN icon on the menu bar on the top.  
 See their [announcement on medium](
 https://medium.com/@hodlhodl/lightning-trades-available-on-hodl-hodl-mainnet-78a1f0b60a9f) for details.
 
-
 ### [ZigZag.io](https://zigzag.io/#/)
 An exchange that accepts Lightning payments.
-
-### [Lightning Loop](https://github.com/lightninglabs/loop)
-Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps. 
-
-In the current iteration of the Loop software, only off-chain to on-chain swaps are supported, where the Loop client sends funds off-chain in exchange for the funds back on-chain. This is called a Loop Out.
-
-<https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference>
 
 ---
 ## Managing channels
@@ -145,7 +166,7 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     # get dependencies
     sudo apt install -y python3-dev
     pip3 install wheel
-    pip3 instal matplotlib
+    pip3 install matplotlib
     python3 -m pip install lndmanage
     ```
 * To display the status of the channels:
@@ -180,16 +201,16 @@ Using this python script you can easily rebalance individual channels of your ln
 
 ### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
 
-RTL is a web UI for Lightning Network Daemon.  
+RTL is a web UI for Lightning Network Daemon. Aimed to be used on the local network. [HTTPS](https://github.com/openoms/bitcoin-tutorials/tree/master/nginx) or [Tor](https://github.com/Ride-The-Lightning/RTL/blob/master/docs/RTL_TOR_setup.md) connection method is available.  
 <https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2>
 
 ### [ZeusLN](https://zeusln.app/)
 
-A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS.
+A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS - connects through the REST API (port 8080 or [Tor](https://github.com/openoms/bitcoin-tutorials/blob/master/Zeus_to_RaspiBlitz_through_Tor.md))
 
 ### [Zap](https://zap.jackmallers.com/)
 
-A lightning wallet for desktop, iOS and Android.
+A lightning wallet for desktop, iOS and Android - can connect to your LND node remotely through the GRPC interface (port 10009)
 
 ###  [Joule](https://lightningjoule.com/)
 
