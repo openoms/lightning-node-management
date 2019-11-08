@@ -72,6 +72,11 @@ To change routing fees of your node use the command:
 * the default setting is (1 sat per payment + 1 ppm/0.0001%):  
 `$ lncli updatechanpolicy 1000 0.000001 144`
 
+It is important to increase the routing fee for any expensive channels so rebalancing or closure is paid for if payments are routed that way.
+Check the routing fees of the peers on [1ml.com](https://1ml.com/) or in [lndmanage](#lndmanage).
+
+Setting the fees for individual channels takes only one click in the [RTL app](#RTL---Ride-The-Lightning).
+
 ## Watchtowers
 
 Read more and how to set one up [here](watchtower.md)
@@ -130,9 +135,6 @@ Once there is higher balance on the side of your node an other incoming channel 
 the service is paid in routing fees:  
 ![lnbig_fees](/images/lnbig_fees.png)
 
-It is important to increase our own fees for those channels so rebalancing or closure is paid for if payments are routed that way.
-Setting the fees for individual channels takes only one click in the [RTL app](#RTL---Ride-The-Lightning)
-
 ### Nodes which connect back:
 * **stackingsats [TFTC] [NODL] [TOR]**  
 <https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
@@ -167,9 +169,8 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     python3 -m venv venv
     source venv/bin/activate
     # get dependencies
-    sudo apt install -y python3-dev
+    sudo apt install -y python3-dev libatlas-base-dev
     pip3 install wheel
-    pip3 install matplotlib
     python3 -m pip install lndmanage
     ```
 * Start the interactive mode (do this at every new start):
