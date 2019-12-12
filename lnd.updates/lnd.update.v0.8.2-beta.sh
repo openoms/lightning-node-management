@@ -1,13 +1,27 @@
+#!/bin/bash
+
 # LND Update Script
 
 # Download and run this script on the RaspiBlitz:
-# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.7.0-beta.sh && sudo bash lnd.update.v0.7.0-beta.sh
+# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.8.2-beta.sh && bash lnd.update.v0.8.2-beta.sh
 
-## based on https://github.com/Stadicus/guides/blob/master/raspibolt/raspibolt_40_lnd.md#lightning-lnd
-## see LND releases: https://github.com/lightningnetwork/lnd/releases
+# see LND releases: https://github.com/lightningnetwork/lnd/releases
 
-lndVersion="0.7.0-beta"  # the version you would like to be updated
+lndVersion="0.8.2-beta"  # the version you would like to be updated
 downloadDir="/home/admin/download"  # edit your download directory
+
+# check who signed the release in https://github.com/lightningnetwork/lnd/releases
+# olaoluwa
+PGPpkeys="https://keybase.io/roasbeef/pgp_keys.asc"
+PGPcheck="9769140D255C759B1EB77B46A96387A57CAAE94D"
+
+# bitconner 
+# PGPpkeys="https://keybase.io/bitconner/pgp_keys.asc"
+# PGPcheck="9C8D61868A7C492003B2744EE7D737B67FA592C7"
+
+# wpaulino
+# PGPpkeys="https://keybase.io/wpaulino/pgp_keys.asc"
+# PGPcheck="729E9D9D92C75A5FBFEEE057B5DD717BEF7CA5B1"
 
 echo "Detect CPU architecture ..." 
 isARM=$(uname -m | grep -c 'arm')
@@ -23,43 +37,38 @@ else
  echo "OK running on $(uname -m) architecture."
 fi
 
-# update the SHA256 checksum upon version change
+cd "${downloadDir}"
+
+# extract the SHA256 hash from the manifest file for the corresponding platform
+sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt
 if [ ${isARM} -eq 1 ] ; then
   lndOSversion="armv7"
-  lndSHA256="ac51d96ee9b57bfcab0b05dbcfcd9ce3bd42a216354c0972e97c1a1c86c2479a"
+  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi
 if [ ${isAARCH64} -eq 1 ] ; then
   lndOSversion="arm64"
-  lndSHA256="c995fa67d6b23e547723801de49817dda34188fba78d0fe8ae506774e54c0afd"
+  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi
 if [ ${isX86_64} -eq 1 ] ; then
   lndOSversion="amd64"
-  lndSHA256="c818c3a983167312f3bf2c84cb285212c5052131319caaef287a97541d2ff479"
+  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi 
 if [ ${isX86_32} -eq 1 ] ; then
   lndOSversion="386"
-  lndSHA256="47be6c3391fadbc5a169fa1dd6dd13031d759b3d42c71a2d556751746b705c48"
+  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi 
 echo ""
 echo "*** LND v${lndVersion} for ${lndOSversion} ***"
+echo "SHA256 hash: $lndSHA256"
+echo ""
 
-# olaoluwa
-PGPpkeys="https://keybase.io/roasbeef/pgp_keys.asc"
-PGPcheck="BD599672C804AF2770869A048B80CD2BB8BD8132"
-
-# bitconner 
-# PGPpkeys="https://keybase.io/bitconner/pgp_keys.asc"
-# PGPcheck="9C8D61868A7C492003B2744EE7D737B67FA592C7"
-
-# get LND resources
-cd "${downloadDir}"
+# get LND binary
 binaryName="lnd-linux-${lndOSversion}-v${lndVersion}.tar.gz"
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/${binaryName}
-sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt
+
+# check binary was not manipulated (checksum test)
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt.sig
 sudo -u admin wget -N -O "${downloadDir}/pgp_keys.asc" ${PGPpkeys}
-
-# check binary is was not manipulated (checksum test)
 binaryChecksum=$(sha256sum ${binaryName} | cut -d " " -f1)
 if [ "${binaryChecksum}" != "${lndSHA256}" ]; then
   echo "!!! FAIL !!! Downloaded LND BINARY not matching SHA256 checksum: ${lndSHA256}"
@@ -81,11 +90,11 @@ sleep 3
 verifyResult=$(gpg --verify manifest-v${lndVersion}.txt.sig 2>&1)
 goodSignature=$(echo ${verifyResult} | grep 'Good signature' -c)
 echo "goodSignature(${goodSignature})"
-correctKey=$(echo ${verifyResult} | tr -d " \t\n\r" | grep "${olaoluwaPGP}" -c)
+correctKey=$(echo ${verifyResult} | tr -d " \t\n\r" | grep "${GPGcheck}" -c)
 echo "correctKey(${correctKey})"
 if [ ${correctKey} -lt 1 ] || [ ${goodSignature} -lt 1 ]; then
   echo ""
-  echo "!!! BUILD FAILED --> LND PGP Verify not OK / signatute(${goodSignature}) verify(${correctKey})"
+  echo "!!! BUILD FAILED --> LND PGP Verify not OK / signature(${goodSignature}) verify(${correctKey})"
   exit 1
 fi
 
@@ -102,7 +111,11 @@ if [ ${#installed} -eq 0 ]; then
   exit 1
 fi
 
-sudo systemctl restart lnd
+sudo systemctl start lnd
 
+sleep 5
 echo ""
 echo "Installed ${installed}"
+
+sleep 10
+lncli unlock

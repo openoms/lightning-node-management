@@ -91,7 +91,8 @@ To make inbound liquidity (to be able to receive payments on a channel you opene
 ### Non-custodial wallets
 Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
 * [Breez](https://breez.technology/)  
-A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.
+A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.  
+Sending the funds out to a bitcoin address on-chain is currently free.
 * [Zap](https://zap.jackmallers.com/)   
 Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
 * [Lightning App by Lightnning Labs](https://github.com/lightninglabs/lightning-app)  
@@ -117,13 +118,11 @@ Recommended channel size: Between 500 000 and 16 500 000 satoshis.
 Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
-Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps. 
+Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps.
 
 In the current iteration of the Loop software, two swap types are supported:
 
-* Loop In: off-chain to on-chain, where the Loop client sends funds off-chain in
-* Loop Out: on-chain to off-chain, where the Loop client sends funds to an on-chain address using an off-chain channel 
-
+* Loop In: off-chain to on-chain. The Loop client sends funds paid on Lightning to a Bitcoin address.
 
 <https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference>
 
@@ -150,6 +149,15 @@ https://medium.com/@hodlhodl/lightning-trades-available-on-hodl-hodl-mainnet-78a
 
 ### [ZigZag.io](https://zigzag.io/#/)
 An exchange that accepts Lightning payments.
+
+## To up the Lightning balance
+
+### [RedShift](https://ion.radar.tech/redshift)
+Trustless transfers between the Lightning Network, the Bitcoin blockchain, and any supported digital asset (BTC and ETH so far).
+Send funds on-chain and receive on Lightning.
+
+### [Lightning Loop](https://github.com/lightninglabs/loop)
+* Loop Out: on-chain to off-chain, where the Loop client sends funds paid on-chain to an off-chain channel.
 
 ---
 ## Managing channels
