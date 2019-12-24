@@ -23,7 +23,7 @@ Run the commands in the node\`s terminal
     * The IP address `0.0.0.0` is used to accept connections from everywhere (default setting)
 
 * allow the port through the firewall:  
-` # ufw allow 9911`  
+` # ufw allow 9911 comment "watchtower"`  
 ` # ufw enable`
 
 * restart lnd  
@@ -211,6 +211,28 @@ Both nodes (the watchtower and the client) must be behind Tor to be able to comm
     
 * restart lnd with systemctl:  
     `# systemctl restart lnd`
+    
+* Check which watchtowers are listening:  
+    `$ lncli wtclient towers`
+    
+    Example output:
+    
+    ```
+
+    {
+            "towers": [
+                    {
+                            "pubkey": "02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82",
+                            "addresses": [
+                                    "xjyldrwmtxtutdqqhgvxvnykk4ophz6ygr3ci4gxnnt5wibl7k4g2vad.onion:9911"
+                            ],
+                           "active_session_candidate": true,
+                            "num_sessions": 0,
+                            "sessions": []
+                   }
+            ]
+    }
+    ```
 
 * Filter the log continuously with (CTRL+C to exit):  
    `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
