@@ -95,7 +95,7 @@ A mobile wallet which creates a 1 million sats incoming channel automatically, s
 Sending the funds out to a bitcoin address on-chain is currently free.
 * [Zap](https://zap.jackmallers.com/)   
 Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
-* [Lightning App by Lightnning Labs](https://github.com/lightninglabs/lightning-app)  
+* [Lightning App by Lightning Labs](https://github.com/lightninglabs/lightning-app)  
 An easy-to-use cross platform lightning wallet
 ### Custodial wallets
 Tip yourself via LN and benefit from the inbound liquidity created.
@@ -150,7 +150,7 @@ https://medium.com/@hodlhodl/lightning-trades-available-on-hodl-hodl-mainnet-78a
 ### [ZigZag.io](https://zigzag.io/#/)
 An exchange that accepts Lightning payments.
 
-## To up the Lightning balance
+## To top up the Lightning balance
 
 ### [RedShift](https://ion.radar.tech/redshift)
 Trustless transfers between the Lightning Network, the Bitcoin blockchain, and any supported digital asset (BTC and ETH so far).
