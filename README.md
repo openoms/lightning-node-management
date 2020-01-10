@@ -1,6 +1,6 @@
 # Lightning Node Management
 
-## Peer connections and channels.
+## Peer connections and channels
 - Peers are the nodes connected to each other through the internet (TCP/IP layer). 
 - A channel is a payment channel between two peers established on the Lightning Network.
 - To open a channel to any node the peer connection needs to be established first.
@@ -15,7 +15,7 @@ To be able to receive payments on the Lightning Network a node needs:
 
 The max amount of the incoming payment is determined by the highest inbound liquidity of a single  channel (not additive between channels).
 
-## Channel size and choosing a peer: 
+## Channel size and choosing a peer 
 
 - There is no hard number, but in general it is recommended to avoid opening channels  below 200K-500K sats.
 - <https://1ml.com/statistics> shows the average channel size on the network:   
@@ -26,7 +26,6 @@ The max amount of the incoming payment is determined by the highest inbound liqu
 - It is beneficial to connect to nodes where the operator can be contacted in case of a problem.
 - Choose a node you know or one from the list: <https://1ml.com/node?order=nodeconnectednodecount>
 - Try a custom list of recommendations for your public node: <https://moneni.com/nodematch>
-
 
 ## On-chain bitcoin fees
 - Opening or closing a Lightning channel is an on-chain bitcoin transaction (settled on the blockchain)
@@ -150,6 +149,12 @@ https://medium.com/@hodlhodl/lightning-trades-available-on-hodl-hodl-mainnet-78a
 ### [ZigZag.io](https://zigzag.io/#/)
 An exchange that accepts Lightning payments.
 
+### [t.me/LNswapBot - A Telegram bot](https://t.me/LNswapBot)
+Swap on-chain coins to Lightning Network and vice versa! For less then $0.01 fee! 
+
+### [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
+List of exchange services to make coin swaps LN <-> onchain & more
+
 ## To top up the Lightning balance
 
 ### [RedShift](https://ion.radar.tech/redshift)
@@ -163,10 +168,6 @@ Send funds on-chain and receive on Lightning.
 ## Managing channels
 
 The channels are best to be balanced with funds on each side to maximize the ability to route payments (allows bidirectional traffic).
-
-### [A method to create a balanced channel](BalancedChannelCreation.md)
-
-Open a dual funded, balanced channel with a trusted peer using the command line requiring only one on-chain transaction.
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 lndmanage is a command-line tool for advanced channel management of an LND node written in python.
@@ -211,7 +212,11 @@ Using this python script you can easily rebalance individual channels of your ln
 * Use with (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)):   
     `$ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
 
-    ---
+### [A method to create a balanced channel](BalancedChannelCreation.md)
+
+Open a dual funded, balanced channel with a trusted peer using the command line requiring an Lightning and an on-chain transaction.
+
+---
 
 ## Monitoring software
 
