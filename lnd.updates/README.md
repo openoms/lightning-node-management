@@ -11,23 +11,27 @@ clean RaspiBlitz SDcard image is used to access the LND database.
 Before updating it is most recommended to make a full backup
 of the LND directory.  
 **This is not be restored after LND is successfully restarted!**
+
 * Run this line in the RaspiBlitz terminal to use the built-in script:
+
     ```bash
-    $ /home/admin/config.scripts/lnd.rescue.sh backup`
+    $ /home/admin/config.scripts/lnd.rescue.sh backup
     ```
-    
+
     More info about this process in the
     [FAQ](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
 
 ### [Update LND to v0.9.0-beta-RC1](lnd.update.v0.9.0-beta-rc1.sh)
 
 * Run this line in the RaspiBlitz terminal to update:  
+
     ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.9.0-beta-rc1.sh && bash lnd.update.v0.9.0-beta-rc1.sh`
+    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.9.0-beta-rc1.sh && bash lnd.update.v0.9.0-beta-rc1.sh
     ```
 
 ### [Update LND to v0.8.2-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.8.2-beta.sh)
 * Run this line in the RaspiBlitz terminal to update:  
+
     ```bash
     $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.8.2-beta.sh && bash lnd.update.v0.8.2-beta.sh
     ```
@@ -35,6 +39,7 @@ of the LND directory.
 ### [Update LND to v0.8.0-beta](lnd.update.v0.8.0-beta.sh)
 
 * Run this line in the RaspiBlitz terminal to update:  
+
     ```bash
     $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.8.0-beta.sh && bash lnd.update.v0.8.0-beta.sh
     ```
@@ -42,12 +47,15 @@ of the LND directory.
 ### [Update LND to v0.7.1-beta](lnd.update.v0.7.1-beta.sh)
 
 * Run this line in the RaspiBlitz terminal to update:
+
     ```bash
     $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.7.1-beta.sh && bash lnd.update.v0.7.1-beta.sh
     ```
 
 ### [Build LND from source](lnd.from.source.sh)
+
 * Download and run this script on the RaspiBlitz:  
+
     ```bash
     $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh && bash lnd.from.source.sh
     ```
