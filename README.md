@@ -91,7 +91,7 @@ To make inbound liquidity (to be able to receive payments on a channel you opene
 Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
 * [Breez](https://breez.technology/)  
 A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.  
-Sending the funds out to a bitcoin address on-chain is currently free.
+Sending the funds out to a bitcoin address on-chain costs 0.5% with [Boltz](https://boltz.exchange/)
 * [Zap](https://zap.jackmallers.com/)   
 Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
 * [Lightning App by Lightning Labs](https://github.com/lightninglabs/lightning-app)  
@@ -121,7 +121,11 @@ Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on
 
 In the current iteration of the Loop software, two swap types are supported:
 
-* Loop In: off-chain to on-chain. The Loop client sends funds paid on Lightning to a Bitcoin address.
+* Loop Out: off-chain to on-chain. The Loop client sends funds paid on Lightning to a Bitcoin address.
+
+* Loop In: on-chain to off-chain. The Loop client sends funds paid on-chain to a Lightning channel.
+
+* Max swap amount: 4 200 000 sats
 
 <https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference>
 
@@ -155,6 +159,9 @@ Swap on-chain coins to Lightning Network and vice versa! For less then $0.01 fee
 ### [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
 List of exchange services to make coin swaps LN <-> onchain & more
 
+### [Boltz](https://boltz.exchange/)
+Fee: 0.5% both ways
+
 ## To top up the Lightning balance
 
 ### [RedShift](https://ion.radar.tech/redshift)
@@ -162,7 +169,11 @@ Trustless transfers between the Lightning Network, the Bitcoin blockchain, and a
 Send funds on-chain and receive on Lightning.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
-* Loop Out: on-chain to off-chain, where the Loop client sends funds paid on-chain to an off-chain channel.
+* Loop In: on-chain to off-chain, where the Loop client sends funds paid on-chain to an off-chain channel.
+
+### [golightning.club](https://golightning.club/)
+Send on-chain and receive bitcoin over Lightning!
+Up to 1000000 satoshi / 0.01 BTC.
 
 ---
 ## Managing channels
