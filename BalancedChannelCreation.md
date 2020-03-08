@@ -1,7 +1,23 @@
+# Methods to create a balanced channel with a trusted peer
+
+## Trusted swap
+Perform a trusted onchain to offchain swap.
+
+Advantage:
+* creates bidirectional liquidity on both sides.
+* paying a peer on a direct LN channel is free.
+
+How to:
+
+* Open a channel to a trusted peer
+* Once the channel is confirmed pay an invoice provided py the peer (use half of the channel capacity to end up with a perfectly balanced channel) - this payment is free
+* Send the peer an onchain address to pay back the amount of the invoice (use a low network-fee)
 
 ## How to open a balanced channel with a trusted peer
 
-Work towards having a 2million sats balanced channel open between `A` and `B` .
+Open a dual funded, balanced channel with a trusted peer using the command line requiring an Lightning and an on-chain transaction.
+
+Find below how to create a 2million sats balanced channel between the nodes `A` and `B` .
 
 Advantages:
 * Only one on-chain tx required (cheaper)
@@ -28,7 +44,7 @@ This will result to have a balanced channel with 1M sats on each side (minus the
 The URI of my node (public_key@Tor_address.onion):
 `028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735`
 
-1ml.com [link](https://1ml.com/node/028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe329930)
+1ml.com [link](https://1ml.com/node/028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993)
 
 Can play the role of B with anyone.
 Happy to play the role of A with someone I had meaningful interaction on at least two communication channels e.g.: https://t.me/raspiblitz , https://twitter.com/openoms , GitHub contributors, https://www.reddit.com/r/lightningdevs etc.

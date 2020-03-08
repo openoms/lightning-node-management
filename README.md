@@ -223,9 +223,11 @@ Using this python script you can easily rebalance individual channels of your ln
 * Use with (more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)):   
     `$ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
 
-### [A method to create a balanced channel](BalancedChannelCreation.md)
+### [Methods to create a balanced channel with a trusted peer](BalancedChannelCreation.md)
 
-Open a dual funded, balanced channel with a trusted peer using the command line requiring an Lightning and an on-chain transaction.
+* Perform a trusted onchain to offchain swap.
+
+* Open a dual funded, balanced channel with a trusted peer using the command line requiring an Lightning and an on-chain transaction.
 
 ---
 
