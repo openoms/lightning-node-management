@@ -127,7 +127,7 @@ In the current iteration of the Loop software, two swap types are supported:
 
 * Max swap amount: 4 200 000 sats
 
-<https://lightning.engineering/loop/index.html#lightning-loop-grpc-api-reference>
+<https://lightning.engineering/loopapi>
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
 Free incoming channel with up to 5 000 000 sats from <https://twitter.com/lnbig_com>
