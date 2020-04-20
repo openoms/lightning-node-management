@@ -127,7 +127,20 @@ In the current iteration of the Loop software, two swap types are supported:
 
 * Max swap amount: 4 200 000 sats
 
-<https://lightning.engineering/loopapi>
+* Example usage for lowest cost (leads to longer confirmation time and higher failure rate - adjust the numbers accordingly):  
+`loop out --conf_target value 25 --max_swap_routing_fee 500 4200000 [addr]`
+
+    ```
+     loop out [command options] amt [addr]
+
+    # --channel value               the 8-byte compact channel ID of the channel to loop out (default: 0)
+    # --addr value                  the optional address that the looped out funds should be sent to, if let blank the funds will go to lnd's wallet
+    # --amt value                   the amount in satoshis to loop out (default: 0)
+    # --conf_target value           the number of blocks from the swap initiation height that the on-chain HTLC should be swept within (default: 6)
+    # --max_swap_routing_fee value  the max off-chain swap routing fee in satoshis, if let blank a default max fee will be used (default: 0)
+    # --fast                        Indicate you want to swap immediately, paying potentially a higher fee. If not set the swap server might choose to wait up to 30 minutes before publishing the swap HTLC on-chain, to save on chain fees. Not setting this flag might result in a lower swap fee.
+    ```
+    <https://lightning.engineering/loopapi>
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
 Free incoming channel with up to 5 000 000 sats from <https://twitter.com/lnbig_com>
@@ -139,7 +152,7 @@ the service is paid in routing fees:
 
 ### Nodes which connect back:
 * **stackingsats [TFTC] [NODL] [TOR]**  
-<https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
+<https://1ml.com/node/02d419c9af624d0eg7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
 Will reciprocate channels over 2 000 000 sats.  
 Keep in mind that channels fees can be changed by the peer arbitrarily.   
 Check the latest state in a Lightning Explorer:  
