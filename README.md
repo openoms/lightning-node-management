@@ -127,8 +127,8 @@ In the current iteration of the Loop software, two swap types are supported:
 
 * Max swap amount: 4 200 000 sats
 
-* Example usage for lowest cost (leads to longer confirmation time and higher failure rate - adjust the numbers accordingly):  
-`loop out --conf_target value 25 --max_swap_routing_fee 500 4200000 [addr]`
+* Example usage for lowest cost (leads to longer confirmation time (estimation for 25 blocks) and higher failure rate (max routing fee 500 sats) - adjust the numbers accordingly):  
+`loop out --conf_target 25 --max_swap_routing_fee 500 4200000 [optional external address]`
 
     ```
      loop out [command options] amt [addr]
