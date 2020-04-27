@@ -219,11 +219,10 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
     `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
 
 ### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
-* Install with:  
-    `npm install -g balanceofsatoshis`
-* Add to path:  
-    `$ sudo bash -c "echo 'PATH=\$PATH:/usr/local/lib/nodejs/node-v10.16.0-linux-armv7l/bin/' >> /etc/profile"`  
-    `$ export PATH=PATH=$PATH:/usr/local/lib/nodejs/node-v10.16.0-linux-armv7l/bin/`
+A feature rich tool to work with LND balances. Has an experimental feature to connect to a personal Telegram bot
+and notify about the node activity.
+* [Install instructions for the RaspiBlitz](https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602)  
+ 
 * See how to use the rebalance command with:  
     `bos help rebalance`
 
