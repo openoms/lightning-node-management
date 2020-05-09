@@ -258,6 +258,10 @@ A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android 
 
 A lightning wallet for desktop, iOS and Android - can connect to your LND node remotely through the GRPC interface (port 10009)
 
+### [ThunderHub](https://www.thunderhub.io/)
+An LND Lightning Node Manager in your Browser.
+* [Install instructions on the RaspiBlitz](https://gist.github.com/openoms/8ba963915c786ce01892f2c9fa2707bc)
+
 ###  [Joule](https://lightningjoule.com/)
 
 Bring the power of lightning to the web with in-browser payments and identity, all with your own node.   
