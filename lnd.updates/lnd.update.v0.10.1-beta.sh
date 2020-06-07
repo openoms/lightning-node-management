@@ -72,7 +72,7 @@ sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/
 
 # check binary was not manipulated (checksum test)
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt.sig
-sudo -u admin wget -N -O "${downloadDir}/pgp_keys.asc" ${PGPpkeys}
+sudo -u admin wget --no-check-certificate -N -O "${downloadDir}/pgp_keys.asc" ${PGPpkeys}
 binaryChecksum=$(sha256sum ${binaryName} | cut -d " " -f1)
 if [ "${binaryChecksum}" != "${lndSHA256}" ]; then
   echo "!!! FAIL !!! Downloaded LND BINARY not matching SHA256 checksum: ${lndSHA256}"
