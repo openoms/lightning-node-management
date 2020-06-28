@@ -2,9 +2,9 @@
 
 Requires:
 * LND 24 words seed (+ passphrase if used)
-* useful to know the funedd addresses
-* use a dedicated, secure operating system eg. Tails
-* save online pages to disk and open in a new browser window:
+* useful to know the funded addresses
+* use a dedicated, secure operating system eg. [Tails](https://tails.boum.org/)
+* save online pages to disk and open in a new browser window
 
 ### Open https://guggero.github.io/cryptography-toolkit/#!/aezeed
 
@@ -30,7 +30,7 @@ Requires:
 
 Follow: https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/
 
-When importing the private keys use:
+When importing the private keys use the prefix:
 * `p2wpkh:` before the private keys of `bc1...` addresses
 * `p2wpkh-p2sh:` before the private keys of `3...` adddresses
 
