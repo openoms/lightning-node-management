@@ -19,6 +19,10 @@ echo ""
 echo "repo=${repo}"
 echo "up to the commit=${commit}"
 echo ""
+
+# check if Go is installed and display version
+/home/admin/config.scripts/bonus.go.sh on
+
 # stop service
 sudo systemctl stop lnd
 
