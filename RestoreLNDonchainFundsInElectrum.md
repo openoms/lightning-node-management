@@ -1,5 +1,10 @@
 ## Restore the onchain funds from an LND wallet in Electrum Wallet
 
+Only do this if you understand the process.  
+Never enter secrets into online webpages.  
+Avoid browser windows with extensions.  
+The Tor Browser is a good start (aim to use it offline).
+
 Requires:
 * LND 24 words seed (+ passphrase if used)
 * useful to know the funded addresses
@@ -35,3 +40,46 @@ When importing the private keys use the prefix:
 * `p2wpkh-p2sh:` before the private keys of `3...` adddresses
 
 Done. Once the Electrum Server finished scanning the funds should appear.
+
+---
+
+## Import the onchain part of the LND wallet to Electrum Wallet
+This is not a recommended way to manage the funds from the LND wallet, it is better be used as watch-only.  
+Restoring from the seed in Electrum does not affect the offchain funds in channels.  
+There is no guarantee that the change outputs from Electrum will appear in LND and vice versa.
+
+Only do this if you understand the process.  
+Never enter secrets into online webpages.  
+Avoid browser windows with extensions.  
+The Tor Browser is a good start (aim to use it offline).
+
+Requires:
+* LND 24 words seed (+ passphrase if used)
+* use a dedicated, secure operating system eg. [Tails](https://tails.boum.org/)
+* save online pages to disk and open in a new browser window
+
+### Open https://guggero.github.io/cryptography-toolkit/#!/aezeed
+
+* under `Decode mnemonic`
+
+    enter the 24 words seed (+ passphrase if used)
+
+* copy the `HD node root key base58` for BTC (Bitcoin, Native SegWit, BIP84) or BTC (Bitcoin, SegWit, BIP49)
+
+### Open https://iancoleman.io/bip39/
+
+* enter the `HD node root key base58` to
+`BIP32 Root Key`
+
+* under `Derivation Path`
+
+    * Select the tab `BIP84` for bc1.. addresses.
+    * Select `BIP49` for 3.. addresses. 
+
+* Import the `Account Extended Public key` to Electrum for a watch only wallet.  
+See: https://bitcoinelectrum.com/creating-a-watch-only-wallet/
+
+* Import the `Account Extended Private Key` to Electrum for a hot wallet (not recommended).
+
+
+
