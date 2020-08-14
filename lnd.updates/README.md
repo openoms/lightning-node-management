@@ -21,18 +21,18 @@ of the LND directory.
     More info about this process in the
     [FAQ](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
 
-### [Update LND to v0.11.0-beta.rc2](lnd.update.v0.11.0-beta.rc2.sh)
-* Run this line in the RaspiBlitz terminal to update:  
+### [Update LND to v0.11.0-beta.rc4](lnd.update.v0.11.0-beta.rc4.sh)
+* Run in the RaspiBlitz terminal to update:  
 
     ```bash
     # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.0-beta.rc2.sh 
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.0-beta.rc4.sh 
     # run
-    bash lnd.update.v0.11.0-beta.rc2.sh
+    bash lnd.update.v0.11.0-beta.rc4.sh
     ```
 
 ### [Update LND to v0.10.1-beta](lnd.update.v0.10.1-beta.sh)
-* Run this line in the RaspiBlitz terminal to update:  
+* Run in the RaspiBlitz terminal to update:  
 
     ```bash
     # download
