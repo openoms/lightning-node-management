@@ -82,4 +82,24 @@ See: https://bitcoinelectrum.com/creating-a-watch-only-wallet/
 * Import the `Account Extended Private Key` to Electrum for a hot wallet (not recommended).
 
 
+---
 
+Alternatively watch this video:  
+https://light-tube.eu/?latest=Latest&search=How+to+import+your+lighting+wallet+into+Electrum
+
+Showing the use of:
+
+https://github.com/guggero/chantools
+
+```
+showrootkey
+
+This command converts the 24 word lnd aezeed phrase and password to the BIP32 HD root key that is used as the rootkey parameter in other commands of this tool.
+
+Example command:
+
+chantools showrootkey
+```
+Convert the xpub to zpub with this small pyhton script:
+
+https://gist.github.com/freenancial/d82fec076c13158fd34d1c4300b2b300
