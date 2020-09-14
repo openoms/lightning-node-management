@@ -13,6 +13,8 @@ How to:
 * Once the channel is confirmed pay an invoice provided py the peer (use half of the channel capacity to end up with a perfectly balanced channel) - this payment is free
 * Send the peer an onchain address to pay back the amount of the invoice (use a low network-fee)
 
+---
+
 ## How to open a balanced channel with a trusted peer
 
 Open a dual funded, balanced channel with a trusted peer using the command line requiring an Lightning and an on-chain transaction.
@@ -33,7 +35,7 @@ How to:
 * `A` pays 1M sats to `B` .
 * make sure A and B are peers
 * `B` opens a 2M sats channel to A with the command:  
- `lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000 --sat_per_byte 4` 
+ `lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000 --sat_per_byte 2` 
 
 There should be no rush, so use a low fee for the on-chain tx. Check https://whatthefee.io/ for the current mempool status or use the `--conf_target 10` option for automatic fee estimation to aim to have the channel confirmed in ~10 blocks.
 
@@ -41,10 +43,14 @@ This will result to have a balanced channel with 1M sats on each side (minus the
 ![a balanced channel shown in ZeusLN](/images/balancedChannel.jpg)
 
 ---
-The URI of my node (public_key@Tor_address.onion):
-`028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993@ddrw66yjyrcc5ryk.onion:9735`
 
-1ml.com [link](https://1ml.com/node/028a2cb8d51e44d7d7e108c2e80a98cc069145e05a6d2025cf554bd8866fe32993)
+## The cost of liquidity 
 
-Can play the role of B with anyone.
-Happy to play the role of A with someone I had meaningful interaction on at least two communication channels e.g.: https://t.me/raspiblitz , https://twitter.com/openoms , GitHub contributors, https://www.reddit.com/r/lightningdevs etc.
+Providing liquidity on the Lightning Network comes with transaction costs, opportunity and hot wallet risks.   
+Liquidity is neither abundant nor free.  
+Asking other node operators for inbound liquidity is asking a favour.  
+A suggestion (example) for pricing liquidity could be:
+* Make minimum 1M sats channels.
+* Pay the provider 0.02% = 2000 ppm sats for allocating funds to the channel to cover the miner fees (of open and close + risk of force closure).
+* agree in a set routing fee (for example 100 ppm)
+* agree in a duration for the channel to be kept open for (for example minimum a month)
