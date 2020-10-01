@@ -12,9 +12,9 @@ maxpendingchannels=5
 alias=ALIAS
 color=COLOR
 nat=false
-minchansize=2000000
+minchansize=1000000
 protocol.wumbo-channels=1 
-bitcoin.feerate=2200
+bitcoin.feerate=100
 
 # RPC open to all connections on Port 10009
 rpclisten=0.0.0.0:10009
