@@ -1,8 +1,7 @@
 ## Create inbound liquidity
+Pay with Lightning and receive onchain.
 
-To make outbound liquidity (to be able to send payments) is easy, you just need to open a channel to a well connected, stable node. 
-
-To make inbound liquidity (to be able to receive payments on a channel you opened) a payment can be sent to a merchant or exchange accepting Lightning and receive the product or receive the sats back on-chain.
+To create inbound liquidity (to be able to receive payments on a channel you opened) a payment can be sent to a merchant or exchange accepting Lightning and receive the product or receive the sats back on-chain.
 
 ### Non-custodial wallets
 Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
@@ -60,6 +59,9 @@ Swap on-chain coins to Lightning Network and vice versa! For less then $0.01 fee
 ### [Boltz](https://boltz.exchange/)
 Fee: 0.5% both ways
 
+### [Bitfinex]([bitfinex.com](https://www.bitfinex.com/))
+A non-KYC exchange supporting Lightning deposits (free) and withdrawals (100 sats). Withdrawal onchain costs a fixed 40000 sats.
+
 ### [FixedFloat](https://fixedfloat.com/)
 Lightning cryptocurrency exchange
 Fee: 0.5 - 1% both ways
@@ -91,24 +93,3 @@ the service is paid in routing fees:
 
 ### [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
 List of exchange services to make coin swaps LN <-> onchain & more
-
-### Nodes which connect back:
-* **stackingsats [TFTC] [NODL] [TOR]**  
-<https://1ml.com/node/02d419c9af624d0eg7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1>  
-Will reciprocate channels over 2 000 000 sats.  
-Keep in mind that channels fees can be changed by the peer arbitrarily.   
-Check the latest state in a Lightning Explorer:  
-https://1ml.com/node/02d419c9af624d0e7a7c90a60b9ffa35f4934973a9d7d3b4175cc3cc28b7ffcde1/channels
-
-## To top up the Lightning balance
-
-### [RedShift](https://ion.radar.tech/redshift)
-Trustless transfers between the Lightning Network, the Bitcoin blockchain, and any supported digital asset (BTC and ETH so far).
-Send funds on-chain and receive on Lightning.
-
-### [Lightning Loop](https://github.com/lightninglabs/loop)
-* Loop In: on-chain to off-chain, where the Loop client sends funds paid on-chain to an off-chain channel.
-
-### [golightning.club](https://golightning.club/)
-Send on-chain and receive bitcoin over Lightning!
-Up to 1000000 satoshi / 0.01 BTC.

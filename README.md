@@ -82,7 +82,12 @@ Read more and how to set one up [here](watchtower.md).
 
 ---
 ## Create Inbound Liquidity
+Pay with Lightning and receive onchain.  
 See the a list of recommendations [here](CreateInboundLiquidity.md).
+
+## Create Outbound Liquidity
+Simply open channels or pay onchain and receive on Lightning.  
+See the a list of recommendations [here](CreateOuboundLiquidity.md).
 
 ---
 ## Manage channels
