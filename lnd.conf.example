@@ -9,11 +9,15 @@
 [Application Options]
 debuglevel=debug
 maxpendingchannels=5
+# up to 32 UTF-8 characters
 alias=ALIAS
+# choose from: https://www.color-hex.com/
 color=COLOR
 nat=false
 minchansize=1000000
 protocol.wumbo-channels=1 
+accept-keysend=true
+sync-freelist=true
 bitcoin.feerate=100
 
 # RPC open to all connections on Port 10009
