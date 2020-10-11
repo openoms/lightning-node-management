@@ -3,6 +3,9 @@
 Link to the Bos Score list (updated daily):  
 https://nodes.lightning.computer/availability/v1/btc.json
 
+A sortable version:  
+https://lightningwiki.net/bos/
+
 ![https://lightning.engineering/posts/2019-11-07-routing-guide-2/](/images/BosScore4.png)
 
 ![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning](/images/BosScore1.png)  
