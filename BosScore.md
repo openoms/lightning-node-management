@@ -15,7 +15,7 @@ https://lightningwiki.net/bos/
 ## Resources
 
 Articles:  
-https://lightning.engineering/posts/2019-11-07-routing-guide-2/
+https://lightning.engineering/posts/2019-11-07-routing-guide-2/  
 https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning 
 
 Videos:  
