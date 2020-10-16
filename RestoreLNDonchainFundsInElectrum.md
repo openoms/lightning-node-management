@@ -100,6 +100,6 @@ Example command:
 
 chantools showrootkey
 ```
-Convert the xpub to zpub with this small pyhton script:
+Convert the xpub to zpub with this small python script:
 
 https://gist.github.com/freenancial/d82fec076c13158fd34d1c4300b2b300
