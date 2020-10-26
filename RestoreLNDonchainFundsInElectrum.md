@@ -29,7 +29,7 @@ Requires:
     * Select the tab `BIP84` for bc1.. addresses.
     * Select `BIP49` for 3.. addresses. 
 
-* Copy the private keys for the known or all addresses.
+* Copy the private keys for the known or all addresses (`Account Extended Private Key`).
 
 ### Open Electrum Wallet
 
