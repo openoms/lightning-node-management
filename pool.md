@@ -1,8 +1,6 @@
 # Pool usage notes
 
-Read the notes on usage with examples:   
-* https://pool.lightning.engineering/
-* https://github.com/lightninglabs/pool
+Read through the [documentation](https://pool.lightning.engineering/) and the [resources below](#resources).
 
 The install script for the RaspiBlitz is [in this PR](https://github.com/rootzoll/raspiblitz/pull/1739):
 ```
@@ -50,3 +48,15 @@ List the `fee_rate_sat_per_kw` of your order with:
 ```
 $ pool orders list | grep fee_rate_sat_per_kw
 ```
+
+## Resources
+
+* Documentation: https://pool.lightning.engineering/
+
+* Source code: https://github.com/lightninglabs/pool
+
+* Pool release thread from @roasbeef : <https://twitter.com/roasbeef/status/1323299990916063232>
+
+* Technical Deep Dive blogpost: <https://lightning.engineering/posts/2020-11-02-pool-deep-dive/>
+
+* Whitepaper:  <https://lightning.engineering/lightning-pool-whitepaper.pdf>
