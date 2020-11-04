@@ -14,7 +14,7 @@ bash bonus.pool.sh on
 
 ## ratings
 
-Generally nodes listed in the [Bos Score list](BosScore.md) are used to fill the asks, called `TIER_1` in the ratings:
+By default nodes listed in the [Bos Score list](BosScore.md) are used to fill the bids, called `TIER_1` in the ratings:
 
 Check for a rating of a node:
 ```
@@ -34,6 +34,13 @@ $ pool auction ratings $(lncli getinfo | grep "identity" | cut -d '"' -f4)
 	]
 }
 ```
+
+A channel buyer (Taker) can specify a bid to accept all tiers with `--min_node_tier 0`
+
+   ```
+   --min_node_tier value          the min node tier this bid should be matched with, tier 1 nodes are considered 'good', if set to tier 0, then all nodes will be considered regardless of 'quality' (default: 0)
+   ```
+
 
 ## nextbatchinfo
 
