@@ -4,6 +4,7 @@ https://github.com/guggero/chantools#compactdb
 
 * Run the following commands in the RaspiBlitz terminal  
   See the comments for what each command does.
+
 ```
 # install Go
 /home/admin/config.scripts/bonus.go.sh on
