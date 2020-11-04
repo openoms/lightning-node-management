@@ -14,28 +14,27 @@ bash bonus.pool.sh on
 
 ## ratings
 
-By default nodes listed in the [Bos Score list](BosScore.md) are used to fill the bids, called `TIER_1` in the ratings:
+By default nodes listed in the [Bos Score list](BosScore.md) are used to fill the bids, called `TIER_1` in the ratings.
 
-Check for a rating of a node:
-```
-pool auction ratings [NODE_PUBKEY]
-```
+* Check for a rating of a public node:
+	```
+	pool auction ratings [NODE_PUBKEY]
+	```
 
-The check own node rating:
+* The check the rating of the local node:
+	```
+	$ pool auction ratings $(lncli getinfo | grep "identity" | cut -d '"' -f4)
+	{
+		"node_ratings": [
+			{
+				"node_pubkey": "REDACTED_NODE_PUBKEY",
+				"node_tier": "TIER_1"
+			}
+		]
+	}
+	```
 
-```
-$ pool auction ratings $(lncli getinfo | grep "identity" | cut -d '"' -f4)
-{
-	"node_ratings": [
-		{
-			"node_pubkey": "REDACTED_NODE_PUBKEY",
-			"node_tier": "TIER_1"
-		}
-	]
-}
-```
-
-A channel buyer (Taker) can specify a bid to accept all tiers with `--min_node_tier 0`
+* A channel buyer (Taker) can specify a bid to accept all tiers with `--min_node_tier 0`
 
    ```
    --min_node_tier value          the min node tier this bid should be matched with, tier 1 nodes are considered 'good', if set to tier 0, then all nodes will be considered regardless of 'quality' (default: 0)
@@ -44,12 +43,12 @@ A channel buyer (Taker) can specify a bid to accept all tiers with `--min_node_t
 
 ## nextbatchinfo
 
-`$ pool auction nextbatchinfo`
-
 Shows:
 * `fee_rate_sat_per_kw`: what the target fee rate cut off will be
 
 * `clear_timestamp`: the blockheight of the next marker clearing attempt 
+
+`$ pool auction nextbatchinfo`
 
 Example:
 ```
