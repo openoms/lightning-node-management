@@ -68,6 +68,8 @@ $ pool orders list | grep fee_rate_sat_per_kw
 
 * Unofficial curated info on Twitter: https://twitter.com/LightningPool
 
+* Lightning Wiki page: https://lightningwiki.net/index.php/Lightning_Pool
+
 * Pool release thread from @roasbeef : <https://twitter.com/roasbeef/status/1323299990916063232>
 
 * Technical Deep Dive blogpost: <https://lightning.engineering/posts/2020-11-02-pool-deep-dive/>
