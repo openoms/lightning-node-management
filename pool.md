@@ -2,7 +2,9 @@
 
 Read through the [documentation](https://pool.lightning.engineering/) and the [resources below](#resources).
 
-The install script for the RaspiBlitz is [in this PR](https://github.com/rootzoll/raspiblitz/pull/1739):
+Follow https://twitter.com/LightningPool for an (unofficial) list of past batches and curated content.
+
+The Pool install script for the RaspiBlitz is [in this PR](https://github.com/rootzoll/raspiblitz/pull/1739):
 ```
 # download
 wget https://raw.githubusercontent.com/openoms/raspiblitz/pool/home.admin/config.scripts/bonus.pool.sh
@@ -34,17 +36,26 @@ $ pool auction ratings $(lncli getinfo | grep "identity" | cut -d '"' -f4)
 ```
 
 ## nextbatchinfo
-gives you an idea of when the next marker clearing attempt is in addition to what the target fee rate cut off will be
+
+`$ pool auction nextbatchinfo`
+
+Shows:
+* `fee_rate_sat_per_kw`: what the target fee rate cut off will be
+
+* `clear_timestamp`: the blockheight of the next marker clearing attempt 
+
+Example:
 ```
 {
-        "conf_target": 30,
-        "fee_rate_sat_per_kw": "26541",
-        "clear_timestamp": "1604359217"
+	"conf_target": 35,
+	"fee_rate_sat_per_kw": "27714",
+	"clear_timestamp": "1604406782"
 }
+
 ```
 For your order to be included in the next batch the `fee_rate_sat_per_kw` should be above the cut off value.
 
-List the `fee_rate_sat_per_kw` of your order with:
+List the `fee_rate_sat_per_kw` of your orders with:
 ```
 $ pool orders list | grep fee_rate_sat_per_kw
 ```
@@ -54,6 +65,8 @@ $ pool orders list | grep fee_rate_sat_per_kw
 * Documentation: https://pool.lightning.engineering/
 
 * Source code: https://github.com/lightninglabs/pool
+
+* Unofficial curated info on Twitter: https://twitter.com/LightningPool
 
 * Pool release thread from @roasbeef : <https://twitter.com/roasbeef/status/1323299990916063232>
 
