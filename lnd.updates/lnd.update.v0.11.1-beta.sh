@@ -102,7 +102,7 @@ sudo systemctl stop lnd
 
 # install
 sudo -u admin tar -xzf ${binaryName}
-sudo install -m 0755 -o root -g root -t /usr/local/bin lnd-linux-${lndOSversion}-v${lndVersion}/*
+sudo install -m 0755 -o root -g root -t /usr/local/bin lnd-linux-${OSversion}-v${lndVersion}/*
 sleep 3
 installed=$(sudo -u admin lnd --version)
 if [ ${#installed} -eq 0 ]; then

@@ -1,0 +1,81 @@
+ bash l.sh
+Detect CPU architecture ...
+OK running on x86_64 architecture.
+--2020-11-04 16:51:33--  https://github.com/lightninglabs/lightning-terminal/releases/download/v0.3.0-alpha/manifest-v0.3.0-alpha.txt
+Resolving github.com (github.com)... 140.82.121.4
+Connecting to github.com (github.com)|140.82.121.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/252564593/b866dd80-1db4-11eb-8706-691e054d8320?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T164936Z&X-Amz-Expires=300&X-Amz-Signature=9746c4fdcd40a87ff103fcca4e1fe7d415af7b1410ca77f35a0d38ca3d52cfac&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=252564593&response-content-disposition=attachment%3B%20filename%3Dmanifest-v0.3.0-alpha.txt&response-content-type=application%2Foctet-stream [following]
+--2020-11-04 16:51:33--  https://github-production-release-asset-2e65be.s3.amazonaws.com/252564593/b866dd80-1db4-11eb-8706-691e054d8320?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T164936Z&X-Amz-Expires=300&X-Amz-Signature=9746c4fdcd40a87ff103fcca4e1fe7d415af7b1410ca77f35a0d38ca3d52cfac&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=252564593&response-content-disposition=attachment%3B%20filename%3Dmanifest-v0.3.0-alpha.txt&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.103.108
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.103.108|:443... connected.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘manifest-v0.3.0-alpha.txt’ not modified on server. Omitting download.
+
+
+*** LiT v0.3.0-alpha for amd64 ***
+SHA256 hash: 3c745db11821f3221dfce90846ffe6b94d1f6400dffd67ff682a50e6bdb1a85d
+
+# get LiT binary
+--2020-11-04 16:51:34--  https://github.com/lightninglabs/lightning-terminal/releases/download/v0.3.0-alpha/lightning-terminal-linux-amd64-v0.3.0-alpha.tar.gz
+Resolving github.com (github.com)... 140.82.121.4
+Connecting to github.com (github.com)|140.82.121.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/252564593/ad13b200-1db4-11eb-93f4-b9edd7c5bcea?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T164938Z&X-Amz-Expires=300&X-Amz-Signature=60c6e4ac4791ff2867d87f83cb0f57a76a666f1718461f46a373b401f42f8424&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=252564593&response-content-disposition=attachment%3B%20filename%3Dlightning-terminal-linux-amd64-v0.3.0-alpha.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2020-11-04 16:51:35--  https://github-production-release-asset-2e65be.s3.amazonaws.com/252564593/ad13b200-1db4-11eb-93f4-b9edd7c5bcea?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T164938Z&X-Amz-Expires=300&X-Amz-Signature=60c6e4ac4791ff2867d87f83cb0f57a76a666f1718461f46a373b401f42f8424&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=252564593&response-content-disposition=attachment%3B%20filename%3Dlightning-terminal-linux-amd64-v0.3.0-alpha.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.17.76
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.17.76|:443... connected.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘lightning-terminal-linux-amd64-v0.3.0-alpha.tar.gz’ not modified on server. Omitting download.
+
+# check binary was not manipulated (checksum test)
+--2020-11-04 16:51:36--  https://github.com/lightninglabs/lightning-terminal/releases/download/v0.3.0-alpha/manifest-v0.3.0-alpha.txt.asc
+Resolving github.com (github.com)... 140.82.121.4
+Connecting to github.com (github.com)|140.82.121.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/252564593/b8ff7400-1db4-11eb-8adb-a20809ab97b9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T164944Z&X-Amz-Expires=300&X-Amz-Signature=dda1e0ff68fb283b85c33df0bfefc180fe321bff5568feea7b2225e702329712&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=252564593&response-content-disposition=attachment%3B%20filename%3Dmanifest-v0.3.0-alpha.txt.asc&response-content-type=application%2Foctet-stream [following]
+--2020-11-04 16:51:37--  https://github-production-release-asset-2e65be.s3.amazonaws.com/252564593/b8ff7400-1db4-11eb-8adb-a20809ab97b9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T164944Z&X-Amz-Expires=300&X-Amz-Signature=dda1e0ff68fb283b85c33df0bfefc180fe321bff5568feea7b2225e702329712&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=252564593&response-content-disposition=attachment%3B%20filename%3Dmanifest-v0.3.0-alpha.txt.asc&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.17.76
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.17.76|:443... connected.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘manifest-v0.3.0-alpha.txt.asc’ not modified on server. Omitting download.
+
+WARNING: timestamping does nothing in combination with -O. See the manual
+for details.
+
+--2020-11-04 16:51:37--  https://keybase.io/guggero/pgp_keys.asc
+Resolving keybase.io (keybase.io)... 52.20.78.116, 52.55.68.50
+Connecting to keybase.io (keybase.io)|52.20.78.116|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8156 (8.0K) [text/plain]
+Saving to: ‘/home/s/Downloads/pgp_keys.asc’
+
+/home/s/Downloads/pgp_keys.asc                       100%[=====================================================================================================================>]   7.96K  --.-KB/s    in 0s      
+
+2020-11-04 16:51:39 (101 MB/s) - ‘/home/s/Downloads/pgp_keys.asc’ saved [8156/8156]
+
+# check gpg finger print
+gpg: WARNING: no command supplied.  Trying to guess what you mean ...
+pub   rsa4096 2018-05-02 [SC] [expires: 2034-04-28]
+      F4FC70F07310028424EFC20A8E4256593F177720
+uid           Oliver Gugger <gugger@gmail.com>
+sub   rsa4096 2018-05-02 [E] [expires: 2034-04-28]
+sub   rsa4096 2019-09-25 [E] [expires: 2021-09-24]
+sub   rsa2048 2019-09-25 [S] [expires: 2021-09-24]
+sub   rsa2048 2019-09-25 [A] [expires: 2021-09-24]
+
+!!! BUILD WARNING --> LiT PGP author not as expected
+Should contain PGP: 6E01EEC9656903B0542B8F1003DB6322267C373B
+PRESS ENTER to TAKE THE RISK if you think all is OK
+
+gpg: key 8E4256593F177720: 1 signature not checked due to a missing key
+gpg: DBG: locking for '/home/s/.gnupg/pubring.kbx.lock' done via O_EXCL
+gpg: key 8E4256593F177720: "Oliver Gugger <gugger@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+goodSignature(1)
+correctKey(1)
+install: cannot stat 'lightning-terminal-linux--v0.3.0-alpha/*': No such file or directory
+l.sh: line 110: lit: command not found
+
+!!! BUILD FAILED --> Was not able to install LiT

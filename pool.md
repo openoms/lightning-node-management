@@ -12,6 +12,16 @@ wget https://raw.githubusercontent.com/openoms/raspiblitz/pool/home.admin/config
 bash bonus.pool.sh on
 ```
 
+## logs
+
+Monitor the pool logs in:
+`/home/pool/.pool/logs/mainnet/poold.log`
+
+Example:  
+```
+tail -f -n 1000 /home/pool/.pool/logs/mainnet/poold.log
+```
+
 ## ratings
 
 By default nodes listed in the [Bos Score list](BosScore.md) are used to fill the bids, called `TIER_1` in the ratings.
