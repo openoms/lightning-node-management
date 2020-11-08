@@ -8,6 +8,8 @@ The Pool install script for the RaspiBlitz is [in this PR](https://github.com/ro
 ```
 # download
 wget https://raw.githubusercontent.com/openoms/raspiblitz/pool/home.admin/config.scripts/bonus.pool.sh
+# inspect the script
+cat bonus.pool.sh
 # install
 bash bonus.pool.sh on
 ```

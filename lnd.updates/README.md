@@ -26,7 +26,9 @@ of the LND directory.
 
     ```bash
     # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.1-beta.sh 
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.1-beta.sh
+    # look through the script
+    cat lnd.update.v0.11.1-beta.sh
     # run
     bash lnd.update.v0.11.1-beta.sh
     ```
@@ -36,74 +38,24 @@ of the LND directory.
 
     ```bash
     # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.0-beta.sh 
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.0-beta.sh
+    # inspect the script
+    cat lnd.update.v0.11.0-beta.sh
     # run
     bash lnd.update.v0.11.0-beta.sh
     ```
 
-### [Update LND to v0.10.1-beta](lnd.update.v0.10.1-beta.sh)
-* Run in the RaspiBlitz terminal to update:  
-
-    ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.10.1-beta.sh 
-    # run
-    bash lnd.update.v0.10.1-beta.sh
-    ```
-
-### [Update LND to v0.10.0-beta](lnd.update.v0.10.0-beta.sh)
-
-* Run this line in the RaspiBlitz terminal to update:  
-
-    ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.10.0-beta.sh && bash lnd.update.v0.10.0-beta.sh
-    ```
-   
-### [Update LND to v0.9.2-beta](lnd.update.v0.9.2-beta.sh)
-
-* Run this line in the RaspiBlitz terminal to update:  
-
-    ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.9.2-beta.sh && bash lnd.update.v0.9.2-beta.sh
-    ```
-
-### [Update LND to v0.9.0-beta](lnd.update.v0.9.0-beta.sh)
-
-* Run this line in the RaspiBlitz terminal to update:  
-
-    ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.9.0-beta.sh && bash lnd.update.v0.9.0-beta.sh
-    ```
-
-### [Update LND to v0.8.2-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.8.2-beta.sh)
-* Run this line in the RaspiBlitz terminal to update:  
-
-    ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.8.2-beta.sh && bash lnd.update.v0.8.2-beta.sh
-    ```
-
-### [Update LND to v0.8.0-beta](lnd.update.v0.8.0-beta.sh)
-
-* Run this line in the RaspiBlitz terminal to update:  
-
-    ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.8.0-beta.sh && bash lnd.update.v0.8.0-beta.sh
-    ```
-
-### [Update LND to v0.7.1-beta](lnd.update.v0.7.1-beta.sh)
-
-* Run this line in the RaspiBlitz terminal to update:
-
-    ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.7.1-beta.sh && bash lnd.update.v0.7.1-beta.sh
-    ```
-
-### [Build LND from source](lnd.from.source.sh)
+### [Build LND from the source](lnd.from.source.sh)
 
 * Download and run this script on the RaspiBlitz:  
 
     ```bash
-    $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh && bash lnd.from.source.sh
+    # download
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh 
+    # inspect the script
+    cat lnd.update.v0.11.0-beta.sh
+    # run
+    bash lnd.from.source.sh
     ```
 
 * Will ask for the commit to checkout from.  
