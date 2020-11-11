@@ -1,7 +1,9 @@
 # Bos Score
 
-Link to the Bos Score list (updated daily):  
+Link to the Bos Score list:  
 https://nodes.lightning.computer/availability/v1/btc.json
+* updated daily
+* nodes are displayed in alphabetical order according to the pubkey.
 
 A sortable version:  
 https://lightningwiki.net/bos/
