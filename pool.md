@@ -16,7 +16,6 @@ cat bonus.pool.sh
 bash bonus.pool.sh on
 ```
 
-
 ## clearing_price_rate
 The uniform clearing price rate in parts per billion of the batch.
 It equals to the lowest included bid rate in the batch.
@@ -100,6 +99,9 @@ prev_batch_id=$(pool auc s --batch_id $prev_batch_id|jq -r '.prev_batch_id') && 
 prev_batch_id=$(pool auc s --batch_id $prev_batch_id|jq -r '.prev_batch_id') && pool auc s --batch_id $prev_batch_id|jq -r '.clearing_price_rate'
 ```
 
+Search the txid of a batch on http://1ml.com after it is confirmed (channels opened and published) to see the details of the channels and peers involved.
+https://twitter.com/openoms/status/1326482404224229376
+
 ## logs
 
 Monitor the pool logs in:
@@ -123,6 +125,8 @@ tail -f -n 1000 /home/pool/.pool/logs/mainnet/poold.log
 * Lightning Wiki page: https://lightningwiki.net/index.php/Lightning_Pool
 
 * Pool release thread from @roasbeef : <https://twitter.com/roasbeef/status/1323299990916063232>
+
+* LNmarkets newletter about Pool: https://lnmarkets.substack.com/p/15-november-9th-2020
 
 * Technical Deep Dive blogpost: <https://lightning.engineering/posts/2020-11-02-pool-deep-dive/>
 
