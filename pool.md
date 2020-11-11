@@ -24,8 +24,8 @@ It equals to the lowest included bid rate in the batch.
 Returns the current Node Tier of a node, along with other
 information.
 
-
 By default nodes listed in the [Bos Score list](BosScore.md) are used to fill the bids, called `TIER_1` in the ratings.
+They are shortlisted according to: up time, inbound capacity, history, channel updates, ability to actively route (via probing).
 
 * Check for a rating of a public node:
 	```
