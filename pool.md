@@ -35,7 +35,7 @@ By default nodes listed in the [Bos Score list](BosScore.md) are used to fill th
 
 * The check the rating of the local node:
 	```
-	$ pool auction ratings $(lncli getinfo | grep "identity" | cut -d '"' -f4)
+	$ pool auc r $(lncli getinfo|grep "identity"|cut -d'"' -f4)
 	{
 		"node_ratings": [
 			{
@@ -76,6 +76,24 @@ For your order to be included in the next batch the `fee_rate_sat_per_kw` should
 List the `fee_rate_sat_per_kw` of your orders with:
 ```
 $ pool orders list | grep fee_rate_sat_per_kw
+```
+
+## auction snapshot
+Return information about a prior cleared auction batch
+
+last batch info:  
+`$ pool auction snapshot`
+
+query the prior batches recursively:
+```
+# get the previous batch id
+prev_batch_id=$(pool auc s|grep "prev_batch_id"|cut -d'"' -f4)
+
+# show the prior batch (just repeat the line to show the past batches)
+prev_batch_id=$(pool auc s --batch_id $prev_batch_id|grep "prev_batch_id"|cut -d'"' -f4) && pool auc s --batch_id $prev_batch_id
+
+# show only the clearing price of the prior batch recursively:
+prev_batch_id=$(pool auc s --batch_id $prev_batch_id|grep "prev_batch_id"|cut -d'"' -f4) && pool auc s --batch_id $prev_batch_id|grep "clearing_price_rate"|cut -d' ' -f2|cut -d',' -f1
 ```
 
 ## Resources
