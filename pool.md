@@ -1,7 +1,5 @@
 # Pool usage notes
 
-
-
 Read through the [documentation](https://pool.lightning.engineering/) and the [resources below](#resources).
 
 The best place to search for commands and keywords: https://lightning.engineering/poolapi
@@ -18,17 +16,15 @@ cat bonus.pool.sh
 bash bonus.pool.sh on
 ```
 
-## logs
 
-Monitor the pool logs in:
-`/home/pool/.pool/logs/mainnet/poold.log`
-
-Example:  
-```
-tail -f -n 1000 /home/pool/.pool/logs/mainnet/poold.log
-```
+## clearing_price_rate
+The uniform clearing price rate in parts per billion of the batch.
+It equals to the lowest included bid rate in the batch.
 
 ## ratings
+Returns the current Node Tier of a node, along with other
+information.
+
 
 By default nodes listed in the [Bos Score list](BosScore.md) are used to fill the bids, called `TIER_1` in the ratings.
 
@@ -58,6 +54,7 @@ By default nodes listed in the [Bos Score list](BosScore.md) are used to fill th
 
 
 ## nextbatchinfo
+Returns information about the next batch the auctioneer will perform.
 
 Shows:
 * `fee_rate_sat_per_kw`: what the target fee rate cut off will be
@@ -83,7 +80,10 @@ $ pool orders list | grep fee_rate_sat_per_kw
 ```
 
 ## auction snapshot
-Return information about a prior cleared auction batch
+Returns information about a prior batch such as the clearing
+price and the set of orders included in the batch. The
+prev_batch_id field can be used to explore prior batches in the
+sequence, similar to a block chain.
 
 last batch info:  
 `$ pool auction snapshot`
@@ -91,13 +91,23 @@ last batch info:
 query the prior batches recursively:
 ```
 # get the previous batch id
-prev_batch_id=$(pool auc s|grep "prev_batch_id"|cut -d'"' -f4)
+prev_batch_id=$(pool auc s |jq -r '.prev_batch_id')
 
 # show the prior batch (just repeat the line to show the past batches)
-prev_batch_id=$(pool auc s --batch_id $prev_batch_id|grep "prev_batch_id"|cut -d'"' -f4) && pool auc s --batch_id $prev_batch_id
+prev_batch_id=$(pool auc s --batch_id $prev_batch_id|jq -r '.prev_batch_id') && pool auc s --batch_id $prev_batch_id
 
 # show only the clearing price of the prior batch recursively:
-prev_batch_id=$(pool auc s --batch_id $prev_batch_id|grep "prev_batch_id"|cut -d'"' -f4) && pool auc s --batch_id $prev_batch_id|grep "clearing_price_rate"|cut -d' ' -f2|cut -d',' -f1
+prev_batch_id=$(pool auc s --batch_id $prev_batch_id|jq -r '.prev_batch_id') && pool auc s --batch_id $prev_batch_id|jq -r '.clearing_price_rate'
+```
+
+## logs
+
+Monitor the pool logs in:
+`/home/pool/.pool/logs/mainnet/poold.log`
+
+Example:  
+```
+tail -f -n 1000 /home/pool/.pool/logs/mainnet/poold.log
 ```
 
 ## Resources
