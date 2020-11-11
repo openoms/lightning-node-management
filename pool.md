@@ -1,6 +1,10 @@
 # Pool usage notes
 
+
+
 Read through the [documentation](https://pool.lightning.engineering/) and the [resources below](#resources).
+
+The best place to search for commands and keywords: https://lightning.engineering/poolapi
 
 Follow https://twitter.com/LightningPool for an (unofficial) list of past batches and curated content.
 
@@ -101,6 +105,8 @@ prev_batch_id=$(pool auc s --batch_id $prev_batch_id|grep "prev_batch_id"|cut -d
 * Documentation: https://pool.lightning.engineering/
 
 * Source code: https://github.com/lightninglabs/pool
+
+* API reference: https://lightning.engineering/poolapi
 
 * Unofficial curated info on Twitter: https://twitter.com/LightningPool
 
