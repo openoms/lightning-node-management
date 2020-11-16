@@ -1,3 +1,5 @@
+# Manage the LND onchain funds in Electrum Wallet
+
 ## Restore the onchain funds from an LND wallet in Electrum Wallet
 
 Only do this if you understand the process.  
