@@ -1,10 +1,10 @@
-# Example configuration for lnd.
-#
-# Based on:
-# https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf
-# https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf
+# lnd.conf example
+Based on:  
+* https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf  
+* https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf
 
-# lnd configuration
+```
+# Example configuration for lnd.
 
 [Application Options]
 debuglevel=debug
@@ -47,3 +47,4 @@ wtclient.active=1
 
 [Watchtower]
 watchtower.active=1
+```
