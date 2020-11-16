@@ -54,6 +54,7 @@ Tor is an anonymizing network designed to hide the participant`s IP adress. Some
 - The process is all or nothing, the payment cannot get stuck en route.
 
 ## Lightning Network routing fees
+### Advanced and automated fee settings: [fees.md](fees.md)
 
 Unlike with on-chain transactions (where the fee is paid for the bytes the transaction takes up in a block) Lightning Network fees are related to the amount routed.
 There are two fee components:
@@ -78,16 +79,16 @@ Setting the fees for individual channels takes only one click in the [RTL app](#
 
 ## Watchtowers
 
-Read more and how to set one up [here](watchtower.md).
+Read more and how to set one up [watchtower.md](watchtower.md).
 
 ---
 ## Create Inbound Liquidity
 Pay with Lightning and receive onchain.  
-See the a list of recommendations [here](CreateInboundLiquidity.md).
+See the a list of recommendations [CreateInboundLiquidity.md](CreateInboundLiquidity.md)
 
 ## Create Outbound Liquidity
 Simply open channels or pay onchain and receive on Lightning.  
-See the a list of recommendations [here](CreateOuboundLiquidity.md).
+See the a list of recommendations [CreateOuboundLiquidity.md](CreateOuboundLiquidity.md)
 
 ---
 ## Manage channels
@@ -202,11 +203,13 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 
 * [1ml.com](https://1ml.com/)
 
+* [ln.alhur.es](https://ln.alhur.es/)
+
 * [explore.casa](https://explore.casa/)
 
 * [explorer.acinq.co](https://explorer.acinq.co/)
 
-* [ln.alhur.es](https://ln.alhur.es/)
+
 ---
 ## Resources:
 
