@@ -20,6 +20,10 @@ Examples:
 * [Wallet of Satoshi](https://www.walletofsatoshi.com/)
 * [Bluewallet](https://bluewallet.io/)
 
+### [Lightning Pool](https://pool.lightning.engineering/)
+Buy incoming channels on a permissionless marketplace: https://pool.lightning.engineering/
+Usage notes: [pool.md](pool.md)
+
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
 Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps.
 
@@ -52,9 +56,6 @@ Fee: 0.5%
 
 ### [Sats4Likes](https://kriptode.com/satsforlikes/index.html)
 Post an advert and pay satoshis for incoming channels.
-
-### [t.me/LNswapBot - A Telegram bot](https://t.me/LNswapBot)
-Swap on-chain coins to Lightning Network and vice versa! For less then $0.01 fee! 
 
 ### [Boltz](https://boltz.exchange/)
 Fee: 0.5% both ways
