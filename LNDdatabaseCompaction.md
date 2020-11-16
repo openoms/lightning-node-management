@@ -6,6 +6,11 @@ https://github.com/guggero/chantools#compactdb
   See the comments for what each command does.
 
 ```
+# check the size of channel.db
+sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
+# example output (over 1GB started to cause issues)
+# 1.0G	/mnt/hdd/lnd/data/graph/mainnet/channel.db
+
 # install Go
 /home/admin/config.scripts/bonus.go.sh on
 
@@ -43,9 +48,17 @@ mv /mnt/hdd/lnd/data/graph/mainnet/channel.db \
 mv /mnt/hdd/lnd/data/graph/mainnet/compacted.db \
    /mnt/hdd/lnd/data/graph/mainnet/channel.db  
 
+# check the size of channel.db
+du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
+# example output:
+# 912M	/mnt/hdd/lnd/data/graph/mainnet/channel.db
+
+# exit the bitcoin user to admin
+exit
+
 # start lnd
 sudo systemctl start lnd
 
-# unlock the database
+# unlock the wallet
 lncli unlock
 ```
