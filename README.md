@@ -88,7 +88,7 @@ See the a list of recommendations [CreateInboundLiquidity.md](CreateInboundLiqui
 
 ## Create Outbound Liquidity
 Simply open channels or pay onchain and receive on Lightning.  
-See the a list of recommendations [CreateOuboundLiquidity.md](CreateOuboundLiquidity.md)
+See the a list of recommendations [CreateOutboundLiquidity.md](CreateOutboundLiquidity.md)
 
 ---
 ## Manage channels
