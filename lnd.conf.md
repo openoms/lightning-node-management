@@ -1,6 +1,7 @@
 # lnd.conf example
 Based on:  
-* https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf  
+* https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf
+* https://github.com/alexbosworth/run-lnd#install-lnd    
 * https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf
 
 Path to edit on the RaspiBlitz:
@@ -29,12 +30,21 @@ minchansize=1000000
 protocol.wumbo-channels=1 
 accept-keysend=true
 
-# make the lnd restart faster
-sync-freelist=true
-
-# default fees for now channels (does not affect existing ones)
+# default fees for new channels (does not affect existing ones)
 bitcoin.feerate=100
 bitcoin.basefee=1
+
+# Avoid historical graph data sync
+ignore-historical-gossip-filters=1
+# Avoid slow startup time
+sync-freelist=1
+# Avoid high startup overhead
+stagger-initial-reconnect=1
+
+# Delete and recreate RPC TLS certificate when details change or cert expires
+tlsautorefresh=1
+# Do not include IPs in the RPC TLS certificate
+tlsdisableautofill=1
 
 # RPC open to all connections on Port 10009
 rpclisten=0.0.0.0:10009
