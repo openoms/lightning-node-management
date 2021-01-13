@@ -82,6 +82,10 @@ Setting the fees for individual channels takes only one click in the [RTL app](#
 Read more and how to set one up [watchtower.md](watchtower.md).
 
 ---
+
+## Liquidity
+Read the basic ideas from Alex Bosworth: <https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md>
+
 ## Create Inbound Liquidity
 Pay with Lightning and receive onchain.  
 See the a list of recommendations [CreateInboundLiquidity.md](CreateInboundLiquidity.md)
@@ -94,6 +98,14 @@ See the a list of recommendations [CreateOutboundLiquidity.md](CreateOutboundLiq
 ## Manage channels
 
 The channels are best to be balanced with funds on each side to maximize the ability to route payments (allows bidirectional traffic).
+
+### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
+A feature rich tool to work with LND balances. Has an experimental feature to connect to a personal Telegram bot
+and notify about the node activity.
+* [Install instructions for the RaspiBlitz](https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602)  
+ 
+* See how to use the rebalance command with:  
+    `bos help rebalance`
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 lndmanage is a command-line tool for advanced channel management of an LND node written in python.
@@ -120,14 +132,6 @@ lndmanage is a command-line tool for advanced channel management of an LND node 
 * Example rebalance command:   
     `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
 
-### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
-A feature rich tool to work with LND balances. Has an experimental feature to connect to a personal Telegram bot
-and notify about the node activity.
-* [Install instructions for the RaspiBlitz](https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602)  
- 
-* See how to use the rebalance command with:  
-    `bos help rebalance`
-
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 Using this python script you can easily rebalance individual channels of your lnd node.
 * To install run in the terminal of the lnd node:  
@@ -152,6 +156,10 @@ Using this python script you can easily rebalance individual channels of your ln
 RTL is a web UI for Lightning Network Daemon. Aimed to be used on the local network. [HTTPS](https://github.com/openoms/bitcoin-tutorials/tree/master/nginx) or [Tor](https://github.com/Ride-The-Lightning/RTL/blob/master/docs/RTL_TOR_setup.md) connection method is available.  
 <https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2>
 
+### [ThunderHub](https://www.thunderhub.io/)
+An LND Lightning Node Manager in your Browser.
+* [Install instructions on the RaspiBlitz](https://gist.github.com/openoms/8ba963915c786ce01892f2c9fa2707bc)
+
 ### [ZeusLN](https://zeusln.app/)
 
 A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android and iOS - connects through the REST API (port 8080 or [Tor](https://github.com/openoms/bitcoin-tutorials/blob/master/Zeus_to_RaspiBlitz_through_Tor.md))
@@ -159,10 +167,6 @@ A mobile Bitcoin app for Lightning Network Daemon (lnd) node operators. Android 
 ### [Zap](https://zap.jackmallers.com/)
 
 A lightning wallet for desktop, iOS and Android - can connect to your LND node remotely through the GRPC interface (port 10009)
-
-### [ThunderHub](https://www.thunderhub.io/)
-An LND Lightning Node Manager in your Browser.
-* [Install instructions on the RaspiBlitz](https://gist.github.com/openoms/8ba963915c786ce01892f2c9fa2707bc)
 
 ###  [Joule](https://lightningjoule.com/)
 
@@ -211,7 +215,7 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 
 
 ---
-## Resources:
+## Resources
 
 * A conceptual review of the Lightning Network: <https://dev.lightning.community/overview/index.html#lightning-network>
 
@@ -219,6 +223,10 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 <https://api.lightning.community>
 
 * <https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393>
+
+* https://lightningwiki.net
+
+* https://satbase.org
 
 * A list about How to get Channel Liquidity fast? <https://github.com/rootzoll/raspiblitz/issues/395>
 
@@ -230,7 +238,7 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 
 * Mathemathic principles behind routing: <https://en.wikipedia.org/wiki/Dijkstra's_algorithm>
 
-## Videos:
+## Videos
 * Elaine Ou - Bootstrapping and maintaining a Lightning node [38 mins video](https://www.youtube.com/watch?v=qX4Z3JY1094)
 and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
 
@@ -240,7 +248,7 @@ and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrappin
 
 * Collection of Alex Bosworth`s online presentations: <https://twitter.com/alexbosworth/status/1175091117668257792>
 ---
-## Forums:
+## Forums
 
 * A community managed group for the RaspiBlitz Lightning Node:
 <https://t.me/raspiblitz>
