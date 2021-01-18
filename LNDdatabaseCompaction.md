@@ -11,29 +11,17 @@ sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
 # example output (over 1GB started to cause issues)
 # 1.0G	/mnt/hdd/lnd/data/graph/mainnet/channel.db
 
-# install Go
-/home/admin/config.scripts/bonus.go.sh on
+# install chantools 
+# download, inspect and run the install script
+wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/bonus.chantools.sh
+cat bonus.chantools.sh
+bash bonus.chantools.sh on
 
 # stop lnd
 sudo systemctl stop lnd
 
 # change to the home directory of the bitcoin user
 sudo su - bitcoin
-
-# get the Go paths
-source /etc/profile
-
-# download and install chantools from source
-git clone https://github.com/guggero/chantools.git
-cd chantools
-
-# TODO: use the matching binary according to the running environment
-# for RaspiBlitz up to 1.6.x or RaspiBolt:
-# specify the 32 bit environment for make install
-CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=7 make install
-
-# set PATH for the user (include in ~/.bashrc to make persist for the next login)
-PATH=$PATH:/home/bitcoin/go/bin/
 
 # run the compacting
 chantools compactdb --sourcedb /mnt/hdd/lnd/data/graph/mainnet/channel.db \
