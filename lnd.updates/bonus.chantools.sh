@@ -8,7 +8,7 @@
 
 # see https://github.com/guggero/chantools/releases
 
-pinnedVersion="0.8.1" # the version you would like to be updated
+pinnedVersion="0.7.1" # the version you would like to be updated
 downloadDir="/home/admin/download"  # edit your download directory
 PGPpkeys="https://keybase.io/guggero/pgp_keys.asc"
 PGPcheck="4FC70F07310028424EFC20A8E4256593F177720"
