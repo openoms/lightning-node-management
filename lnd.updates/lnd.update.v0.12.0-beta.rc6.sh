@@ -3,15 +3,15 @@
 # LND Update Script
 
 # Download and run this script on the RaspiBlitz:
-# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.0-beta.rc5.sh && bash lnd.update.v0.12.0-beta.rc5.sh
+# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.0-beta.rc6.sh && bash lnd.update.v0.12.0-beta.rc6.sh
 
 # see LND releases: https://github.com/lightningnetwork/lnd/releases
 
-lndVersion="0.12.0-beta.rc5" # the version you would like to be updated
+lndVersion="0.12.0-beta.rc6" # the version you would like to be updated
 downloadDir="/home/admin/download"  # edit your download directory
 
 # check who signed the release in https://github.com/lightningnetwork/lnd/releases
-# olaoluwa
+PGPsigner="roasbeef"
 PGPpkeys="https://keybase.io/roasbeef/pgp_keys.asc"
 PGPcheck="E4D85299674B2D31FAA1892E372CBD7633C61696"
 
@@ -36,36 +36,34 @@ else
   echo "OK running on $(uname -m) architecture."
 fi
 
-cd "${downloadDir}"
-
-# extract the SHA256 hash from the manifest file for the corresponding platform
-sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt
-
 # get the lndSHA256 for the corresponding platform from manifest file
 if [ ${isARM} -eq 1 ] ; then
   lndOSversion="armv7"
-  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi
 if [ ${isAARCH64} -eq 1 ] ; then
   lndOSversion="arm64"
-  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi
 if [ ${isX86_64} -eq 1 ] ; then
   lndOSversion="amd64"
-  lndSHA256=$(grep -i "linux-$lndOSversion" manifest-v$lndVersion.txt | cut -d " " -f1)
 fi
+binaryName="lnd-linux-${lndOSversion}-v${lndVersion}.tar.gz"
 
-echo ""
+cd "${downloadDir}"
+# extract the SHA256 hash from the manifest file for the corresponding platform
+sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-${PGPsigner}-v${lndVersion}.txt.asc
+
+# get the lndSHA256 for the corresponding platform from manifest file
+lndSHA256=$(grep -i $binaryName manifest-${PGPsigner}-v${lndVersion}.txt.asc | cut -d " " -f1)
+
+echo 
 echo "*** LND v${lndVersion} for ${lndOSversion} ***"
 echo "SHA256 hash: $lndSHA256"
-echo ""
+echo 
 
 # get LND binary
-binaryName="lnd-linux-${lndOSversion}-v${lndVersion}.tar.gz"
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/${binaryName}
 
 # check binary was not manipulated (checksum test)
-sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt.sig
 sudo -u admin wget --no-check-certificate -N -O "${downloadDir}/pgp_keys.asc" ${PGPpkeys}
 binaryChecksum=$(sha256sum ${binaryName} | cut -d " " -f1)
 if [ "${binaryChecksum}" != "${lndSHA256}" ]; then
@@ -85,7 +83,7 @@ if [ ${fingerprint} -lt 1 ]; then
 fi
 gpg --import ./pgp_keys.asc
 sleep 3
-verifyResult=$(gpg --verify manifest-v${lndVersion}.txt.sig 2>&1)
+verifyResult=$(gpg --verify manifest-${PGPsigner}-v${lndVersion}.txt.asc 2>&1)
 goodSignature=$(echo ${verifyResult} | grep 'Good signature' -c)
 echo "goodSignature(${goodSignature})"
 correctKey=$(echo ${verifyResult} | tr -d " \t\n\r" | grep "${GPGcheck}" -c)
