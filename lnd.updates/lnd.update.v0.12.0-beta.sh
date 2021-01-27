@@ -3,11 +3,11 @@
 # LND Update Script
 
 # Download and run this script on the RaspiBlitz:
-# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.0-beta.rc6.sh && bash lnd.update.v0.12.0-beta.rc6.sh
+# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.0-beta.sh && bash lnd.update.v0.12.0-beta.sh
 
 # see LND releases: https://github.com/lightningnetwork/lnd/releases
 
-lndVersion="0.12.0-beta.rc6" # the version you would like to be updated
+lndVersion="0.12.0-beta" # the version you would like to be updated
 downloadDir="/home/admin/download"  # edit your download directory
 
 # check who signed the release in https://github.com/lightningnetwork/lnd/releases
@@ -108,10 +108,14 @@ if [ ${#installed} -eq 0 ]; then
 fi
 
 sudo systemctl start lnd
-
 sleep 5
-echo ""
+echo
 echo "Installed ${installed}"
+
+# check and restart circuitbreaker
+if [ $(sudo systemctl status circuitbreaker | grep -c active) -gt 0 ];then
+  sudo systemctl restart circuitbreaker
+fi
 
 sleep 15
 lncli unlock
