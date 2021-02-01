@@ -1,16 +1,47 @@
 ## Compact the LND database (channel.db)
 
+An over 1GB `channel.db` file does not work on 32bit systems: https://github.com/lightningnetwork/lnd/issues/4811
+
+```
+# check the size of channel.db
+sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
+# example output
+# 1.0G	/mnt/hdd/lnd/data/graph/mainnet/channel.db
+```
+### Auto-compact on restart
+Since LND v0.12.0 can set `db.bolt.auto-compact=true` in the `lnd.conf`.  
+* To edit:  
+  `sudo nano /mnt/hdd/lnd/lnd.conf`
+* insert the following (can leave out the comments):
+   ```
+   [bolt]
+   # Whether the databases used within lnd should automatically be compacted on
+   # every startup (and if the database has the configured minimum age). This is
+   # disabled by default because it requires additional disk space to be available
+   # during the compaction that is freed afterwards. In general compaction leads to
+   # smaller database files.
+   db.bolt.auto-compact=true
+   # How long ago the last compaction of a database file must be for it to be
+   # considered for auto compaction again. Can be set to 0 to compact on every
+   # startup. (default: 168h)
+   # db.bolt.auto-compact-min-age=0
+   ```
+* restart lnd:  
+`sudo systemctl restart lnd`
+* monitor the process (can take several minutes):
+`sudo tail -fn 30 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`
+* might want to disable the auto-compact in `lnd.conf` and only activate on-demand to avoid long startup times:
+   ```
+   db.bolt.auto-compact=false
+   ```
+   
+### Compacting with Channels Tools
 https://github.com/guggero/chantools#compactdb
 
 * Run the following commands in the RaspiBlitz terminal  
   See the comments for what each command does.
 
 ```
-# check the size of channel.db
-sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
-# example output (over 1GB started to cause issues)
-# 1.0G	/mnt/hdd/lnd/data/graph/mainnet/channel.db
-
 # install chantools 
 # download, inspect and run the install script
 wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/bonus.chantools.sh
