@@ -132,7 +132,7 @@ if [ "$1" = "1" ] || [ "$1" = "on" ]; then
   sudo sed -i "s/^chantools=.*/chantools=on/g" /mnt/hdd/raspiblitz.conf
 
   echo
-  echo "Installed ${installed}"
+  echo "# Installed ${installed}"
   echo "
 # Channel Tools is a command line tool.
 # Type: 'sudo su - bitcoin' in the command line to switch to the bitcoin user.
