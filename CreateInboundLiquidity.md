@@ -60,9 +60,9 @@ Post an advert and pay satoshis for incoming channels.
 ### [Boltz](https://boltz.exchange/)
 Fee: 0.5% both ways
 
-### [Bitfinex]([bitfinex.com](https://www.bitfinex.com/))
-A non-KYC exchange supporting Lightning deposits (free) and withdrawals (100 sats). Withdrawal onchain costs a fixed 40000 sats.
-
+### [Bitfinex](https://bitfinex.com)
+A non-KYC (if not used for fiat) exchange supporting Lightning deposits (free) and withdrawals (100 sats). Withdrawal onchain costs a fixed 40000 sats.
+Find it's nodes at https://ln.bitfinex.com/
 ### [FixedFloat](https://fixedfloat.com/)
 Lightning cryptocurrency exchange
 Fee: 0.5 - 1% both ways
