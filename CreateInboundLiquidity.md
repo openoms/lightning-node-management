@@ -3,6 +3,8 @@ Pay with Lightning and receive onchain.
 
 To create inbound liquidity (to be able to receive payments on a channel you opened) a payment can be sent to a merchant or exchange accepting Lightning and receive the product or receive the sats back on-chain.
 
+To pay for various gift cards with lightning check out [Bitrefill (referral link)](https://www.bitrefill.com/buy/?code=XapbJJd8).
+
 ### Non-custodial wallets
 Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
 * [Breez](https://breez.technology/)  
@@ -14,7 +16,7 @@ Run a Lightning Node on Android, iOS or desktop. Channels are managed manually o
 An easy-to-use cross platform lightning wallet
 ### Custodial wallets
 Tip yourself via LN and benefit from the inbound liquidity created.
-The drawback is that you don`t control the seed of your custodial wallet.  
+The drawback is that you don't control the seed of your custodial wallet.  
 Examples:  
 * [Tippin.me](https://tippin.me/)
 * [Wallet of Satoshi](https://www.walletofsatoshi.com/)
