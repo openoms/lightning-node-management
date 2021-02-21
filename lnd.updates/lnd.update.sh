@@ -126,9 +126,14 @@ sleep 5
 echo
 echo "# Installed ${installed}"
 
-echo "# check and restart the circuitbreaker.service"
+echo "# Check for the circuitbreaker.service"
 if [ $(sudo systemctl status circuitbreaker | grep -c active) -gt 0 ];then
+  echo "# restart the circuitbreaker.service"
   sudo systemctl restart circuitbreaker
+else
+  echo "# circuitbreaker not running"
+  echo "# Install with:"
+  echo "'config.scripts/bonus.circuitbreaker.sh on'"
 fi
 
 sleep 15
