@@ -6,7 +6,7 @@
 # $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.sh && bash lnd.update.sh
 
 echo "# See the latest LND release and check who signed it https://github.com/lightningnetwork/lnd/releases"
-echo "# Input the LND version to install (eg. '0.12.1-beta.rc1'):"
+echo "# Input the LND version to install (eg. '0.12.1-beta.rc6'):"
 read lndVersion
 
 downloadDir="/home/admin/download/lnd"  # edit your download directory
@@ -60,10 +60,12 @@ rm -rf "${downloadDir}"
 mkdir -p "${downloadDir}"
 cd "${downloadDir}"
 # extract the SHA256 hash from the manifest file for the corresponding platform
-sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-${PGPsigner}-v${lndVersion}.txt.asc || exit 1
+sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-${PGPsigner}-v${lndVersion}.sig || exit 1
+
+sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-v${lndVersion}.txt || exit 1
 
 # get the lndSHA256 for the corresponding platform from manifest file
-lndSHA256=$(grep -i $binaryName manifest-${PGPsigner}-v${lndVersion}.txt.asc | cut -d " " -f1)
+lndSHA256=$(grep -i $binaryName manifest-v${lndVersion}.txt | cut -d " " -f1)
 
 echo 
 echo "*** LND v${lndVersion} for ${lndOSversion} ***"
@@ -93,7 +95,7 @@ if [ ${fingerprint} -lt 1 ]; then
 fi
 gpg --import ./pgp_keys.asc  || exit 1
 sleep 3
-verifyResult=$(gpg --verify manifest-${PGPsigner}-v${lndVersion}.txt.asc 2>&1)
+verifyResult=$(gpg --verify manifest-${PGPsigner}-v${lndVersion}.sig manifest-v${lndVersion}.txt 2>&1)
 goodSignature=$(echo ${verifyResult} | grep 'Good signature' -c)
 echo "goodSignature(${goodSignature})"
 correctKey=$(echo ${verifyResult} | tr -d " \t\n\r" | grep "${GPGcheck}" -c)
