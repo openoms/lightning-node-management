@@ -42,6 +42,17 @@ of the LND directory.
     # Input the PGP key fingerprint to check against (eg. '9C8D61868A7C492003B2744EE7D737B67FA592C7'):
     9C8D61868A7C492003B2744EE7D737B67FA592C7
     ```
+### [Update LND to v0.12.1-beta](lnd.update.v0.12.1-beta.sh)
+* Run in the RaspiBlitz terminal to update:  
+
+    ```bash
+    # download
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.1-beta.sh
+    # look through the script
+    cat lnd.update.v0.12.1-beta.sh
+    # run
+    bash lnd.update.v0.12.1-beta.sh
+    ```
 ### [Update LND to v0.12.0-beta](lnd.update.v0.12.0-beta.sh)
 * Run in the RaspiBlitz terminal to update:  
 
