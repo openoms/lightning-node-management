@@ -101,10 +101,11 @@ if [ ${correctKey} -lt 1 ] || [ ${goodSignature} -lt 1 ]; then
   exit 1
 fi
 
-echo
-echo "# Stopping the lnd.service..."
-sudo systemctl stop lnd
-
+if [ $(systemctl status lnd | grep -c active) -gt 0 ];then
+  echo
+  echo "# Stopping the lnd.service..."
+  sudo systemctl stop lnd
+fi
 echo "# Install lnd-linux-${lndOSversion}-v${lndVersion}..." 
 tar -xzf ${binaryName}
 sudo install -m 0755 -o root -g root -t /usr/local/bin lnd-linux-${lndOSversion}-v${lndVersion}/*
@@ -115,14 +116,16 @@ if [ ${#installed} -eq 0 ]; then
   echo "!!! BUILD FAILED --> Was not able to install LND"
   exit 1
 fi
-echo "# Starting the lnd.service"
-sudo systemctl start lnd
-sleep 5
+if [ -f /etc/systemd/system/lnd.service ];then
+  echo "# Starting the lnd.service"
+  sudo systemctl start lnd
+  sleep 5
+fi
 echo
 echo "# Installed ${installed}"
 
 echo "# Check for the circuitbreaker.service"
-if [ $(sudo systemctl status circuitbreaker | grep -c active) -gt 0 ];then
+if [ $(systemctl status circuitbreaker | grep -c active) -gt 0 ];then
   echo "# restart the circuitbreaker.service"
   sudo systemctl restart circuitbreaker
 else
@@ -131,5 +134,5 @@ else
   echo "'config.scripts/bonus.circuitbreaker.sh on'"
 fi
 
-sleep 15
-lncli unlock
+echo "# unlock the LND wallet with:"
+echo "'lncli unlock'"
