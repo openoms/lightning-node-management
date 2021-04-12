@@ -5,6 +5,11 @@
 * [Create inbound liquidity](createinboundliquidity.md)
 * [Create outbound liquidity](createoutboundliquidity.md)
 
+## Node Types
+* [Merchant](nodetype.merchant.md)
+* [Spending](nodetype.routing.md)
+* [Routing](nodetype.routing.md)
+
 ## Advanced Tools
 * [Methods to create a balanced channel with a trusted peer](balancedchannelcreation.md)
 * [Pool usage notes](pool.md)

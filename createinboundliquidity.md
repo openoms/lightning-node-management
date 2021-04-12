@@ -16,19 +16,18 @@ Run a separate LN node on your phone or desktop where you can move some funds, s
 
   Sending the funds out to a bitcoin address on-chain costs 0.5% with [Boltz](https://boltz.exchange/)
 
-* [Zap](https://zap.jackmallers.com/)   
+* [Phoenix](https://phoenix.acinq.co/)   
 
   Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
 
-* [Lightning App by Lightning Labs](https://github.com/lightninglabs/lightning-app)  
+* [Muun Wallet](https://muun.com/)  
 
   An easy-to-use cross platform lightning wallet
 
-  **Custodial wallets**
+## Custodial wallets
+Pay yourself via LN and benefit from the inbound liquidity created.
 
-  Tip yourself via LN and benefit from the inbound liquidity created.
-
-  The drawback is that you don't control the seed of your custodial wallet.  
+The drawback is that you don't control the keys of your custodial wallet.  
 
   Examples:  
 
@@ -65,6 +64,9 @@ In the current iteration of the Loop software, two swap types are supported:
 
   [https://lightning.engineering/loopapi](https://lightning.engineering/loopapi)
 
+
+## [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
+Pay for incoming channels.
 ## [ChainMarket](https://chainmarket.etleneum.com/)
 
 A Lightning to onchain swap market with batched transactions. Fee: 0.5%
@@ -105,15 +107,8 @@ Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
 ## [LNBIG.com](https://lnbig.com/#/open-channel)
 
-Free incoming channel with up to 5 000 000 sats from [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
-
-Once there is higher balance on the side of your node an other incoming channel can be requested.
-
-the service is paid in routing fees:
-
-![lnbig\_fees](.gitbook/assets/lnbig_fees.png)
+Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
 
 ## [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
 
 List of exchange services to make coin swaps LN &lt;-&gt; onchain & more
-
