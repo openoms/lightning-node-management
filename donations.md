@@ -1,6 +1,6 @@
 # Donations
 
-* LNURL-pay with lntxbot: [https://lntxbot.bigsun.xyz/@openoms](mailto:https://lntxbot.bigsun.xyz/@openoms)
+* LNURL-pay with lntxbot: [lntxbot.bigsun.xyz/@openoms](https://lntxbot.bigsun.xyz/@openoms)
 
   ![https://lntxbot.bigsun.xyz/@openoms](.gitbook/assets/qrcode.lntxbot.png)
 
