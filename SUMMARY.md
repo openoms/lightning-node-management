@@ -6,7 +6,7 @@
 
 ## Node Types
 * [Merchant](nodetype.merchant.md)
-* [Spending](nodetype.routing.md)
+* [Spending](nodetype.spending.md)
 * [Routing](nodetype.routing.md)
 
 ## Advanced Tools

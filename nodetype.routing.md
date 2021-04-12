@@ -19,7 +19,6 @@ Aimed for forwading payments successfully while generating profit.
 * graetly affects the [reputation of the routing node](bossscore.md)
 
 ### Management
-
 * autorebalancing (cronjobs are useful)
 * create inbound and outbound liquidity as required
 * balance between multiple nodes
@@ -32,12 +31,11 @@ Aimed for forwading payments successfully while generating profit.
 * explore the many [tools available](README.md#manage-channels)
 
 ### Strategies
-
 #### Connect clusters and big payment processors
 * bidirectional traffic 
 * fees are low 
 * highly competitive (lots of liquidity is in private channels)
- 
+
 #### Provide liquidity to merchants
 * high incoming liquidity required
 * fees can be set to moderate - high
@@ -50,7 +48,6 @@ Aimed for forwading payments successfully while generating profit.
 * offline public channels lead to payment failures and affecting the routing node's reputation)
 
 #### Sell incoming liquidity
-
 * [LOOP](https://1ml.com/node/021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d)
 * [Bitfinex](https://ln.bitfinex.com/)
 * set high fees due to unidirectional traffic and the quick drain of inbound capacity
