@@ -1,6 +1,5 @@
 # Table of contents
 
-## Lightning Node Management
 * [Overview](README.md)
 * [Create inbound liquidity](createinboundliquidity.md)
 * [Create outbound liquidity](createoutboundliquidity.md)
