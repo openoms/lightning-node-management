@@ -1,15 +1,18 @@
 # lnd.conf example
-Based on:  
-* https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf
-* https://github.com/alexbosworth/run-lnd#install-lnd    
-* https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf
+
+Based on:
+
+* [https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
+* [https://github.com/alexbosworth/run-lnd\#install-lnd](https://github.com/alexbosworth/run-lnd#install-lnd)    
+* [https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf](https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf)
 
 Path to edit on the RaspiBlitz:
-```
+
+```text
 sudo nano /mnt/hdd/lnd/lnd.conf
 ```
 
-```
+```text
 # Example configuration for lnd.
 
 [Application Options]
@@ -136,6 +139,8 @@ tor.password=PASSWORD_B
 ```
 
 LND needs to be restarted to use the new settings.
-```
+
+```text
 sudo systemctl restart lnd
 ```
+

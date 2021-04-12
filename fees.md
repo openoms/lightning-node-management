@@ -3,7 +3,8 @@
 ## [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 
 `$ bos fees --help`
-```
+
+```text
 USAGE
   bos fees 
   List out fee rates, fix problems with routing policies, set out fees
@@ -16,13 +17,13 @@ USAGE
 OPTIONS
   --node <node_name>         Node to find record on                    optional      
   --set-fee-rate <rate>      Forward fee in parts per million          optional      
-  --to <peer>                Peer public key or alias to set fees      optional    
-```     
+  --to <peer>                Peer public key or alias to set fees      optional
+```
 
 ## [charge-lnd](https://github.com/accumulator/charge-lnd)
+
 Set channel fees based on policy.  
 This script matches your open channels against a number of customizable criteria and applies a channel policy based on the matching section.
-
 
 ## [LND fees manager](https://gitlab.com/nolith/lndfeesmanager)
 
@@ -30,9 +31,10 @@ lndfeesmanager is a simple software that aims to balance LN channels using a dyn
 When a channel is unbalanced it will update the fees.
 
 If the balance is mostly local, fees will be decresed to incentivate routing.  
-If the balance is mostly remote, fees will be increased to disincentivate   routing.  
+If the balance is mostly remote, fees will be increased to disincentivate routing.  
 If the channel is balanced, a medium fee will be set.
 
 ## More reading
 
-* An article with useful formulas: http://satbase.org/routing-fees/
+* An article with useful formulas: [http://satbase.org/routing-fees/](http://satbase.org/routing-fees/)
+
