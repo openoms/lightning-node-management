@@ -108,9 +108,12 @@ A feature rich tool to work with LND balances. Has an experimental feature to co
 * [Install instructions for the RaspiBlitz](https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602)
 * See how to use the rebalance command with: `bos help rebalance`
 
+### [CLBOSS The C-Lightning Node Manager](https://github.com/ZmnSCPxj/clboss)
+
+An automated manager for C-Lightning forwarding nodes.
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 
-lndmanage is a command-line tool for advanced channel management of an LND node written in python.
+A command-line tool for advanced channel management of an LND node written in python.
 
 * Install with: 
 
@@ -159,6 +162,7 @@ Using this python script you can easily rebalance individual channels of your ln
 * Use with \(more options in the [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)\):   
 
     `$ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
+
 
 ### [Methods to create a balanced channel with a trusted peer](balancedchannelcreation.md)
 
