@@ -1,24 +1,23 @@
 # Spending node
-
 Aimed for spending bitcoin cheaply and privately.
-
-### Liquidity
-* mostly local
 
 ### Capital requirement
 * low
 * depends on spending plan and available funds
 * allows to use up unmixed funds without creating change
 
-### Channels
+### Channels and peers
 * one channel to a well connected, capitalized and high uptime node is a good start, see the [Bos list ](bosscore.md) to pick a peer
 * use private channels to avoid publishing the node and the funding transactions
 * offline private channels don't damage the reliability of the network
 
+### Liquidity
+* mostly local
+
 ### Uptime
 * not a factor (spend only when online)
 
-### Management: 
+### Management
 * close depleted channels 
 * [can refill via LN](createoutboundliquidity.md)
 * starting a new node often improves the onchain privacy
