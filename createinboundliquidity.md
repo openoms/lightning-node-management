@@ -109,7 +109,8 @@ Free incoming channel with up to 5 000 000 sats from [https://twitter.com/lnbig\
 
 Once there is higher balance on the side of your node an other incoming channel can be requested.
 
-the service is paid in routing fees:  
+the service is paid in routing fees:
+
 ![lnbig\_fees](.gitbook/assets/lnbig_fees.png)
 
 ## [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)

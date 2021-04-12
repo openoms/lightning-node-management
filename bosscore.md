@@ -4,15 +4,17 @@ Link to the Bos Score list:
 [https://nodes.lightning.computer/availability/v1/btc.json](https://nodes.lightning.computer/availability/v1/btc.json)
 
 * updated daily
-* nodes are displayed in alphabetical order according to the pubkey.
+* nodes are displayed in alphabetical order according to the pubkey
 
 A sortable version:  
 [https://lightningwiki.net/bos/](https://lightningwiki.net/bos/)
 
 ![https://lightning.engineering/posts/2019-11-07-routing-guide-2/](.gitbook/assets/BosScore4.png)
 
-![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning](.gitbook/assets/BosScore1.png)  
-![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](.gitbook/assets/BosScore2.png)  
+![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning](.gitbook/assets/BosScore1.png)
+
+![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](.gitbook/assets/BosScore2.png)
+
 ![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](.gitbook/assets/BosScore3.png)
 
 ## Resources
