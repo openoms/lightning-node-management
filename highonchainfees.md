@@ -29,9 +29,9 @@ Recommendations to get ready for a high fee environment beforehand.
       `bos open` and `bos fund`
       * [C-lightning CLI](https://lightning.readthedocs.io/lightning-fundchannel_start.7.html#)  
       `lightningcli fundchannel_start id amount [feerate announce close_to push_msat]`
-
-## Do not leave channel opens pending for more than 2016 blocks (~2 weeks)
-Pending channels will become "stale" after two weeks - the peer will forget about the funding transaction, so the channel will never become online.
+  * avoid opening public and private (unannounced) channels in the same batch - defeats the purpose of not announcing channels in the gossip
+## Do not leave a channel open pending for more than 2016 blocks (~2 weeks)
+A pending channel will become "stale" after 2016 blocks - the peer will forget about the funding transaction, so the channel will never become online.
 - the only option left to unlock the funds from the multisig will be an (expensive) force close.
 
 * Use CPFP (never RBF)
@@ -66,7 +66,7 @@ Pending channels will become "stale" after two weeks - the peer will forget abou
 * If using [watchtowers](watchtower.md) need to set the  
 `wtclient.sweep-fee-rate=` in the [lnd.conf](https://github.com/lightningnetwork/lnd/blob/a36c95f7325d3941306ac4dfff0f2363fbb8e66d/sample-lnd.conf#L857)  
 to a sat/byte level where it can confirm within the CSV delay in case a breach transaction is broadcasted by the peer while the node is offline.
-* The CSV delay can be set to longer with  
+* The CSV delay can be set to be longer with:  
 `lncli updatechanpolicy`
 
 ## Future improvements 
