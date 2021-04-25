@@ -18,6 +18,7 @@
 * [Set up a Watchtower and a Client on the Lightning Network](watchtower.md)
 
 ## Technicals
+* [High onchain fee environment](highonchainfees.md)
 * [Compact the LND database \(channel.db\)](lnddatabasecompaction.md)
 * [Manage the LND onchain funds in Electrum Wallet](restorelndonchainfundsinelectrum.md)
 * [Automated LND update scripts for the RaspiBlitz](lnd.updates.md)
