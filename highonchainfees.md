@@ -7,13 +7,12 @@ Recommendations to get ready for a high fee environment beforehand.
 * Open channels during low fee times strategically (weekends)
 * Close inactive and unreliable channels early during low fee times
 * Minimise downtime and instability if running a routing node
-* Use private (unannounced) channels as a [spending node](nodetype.spending.md) so downtimes won't make the peer force-close
-
+* Use private (unannounced) channels as a [spending node](nodetype.spending.md) so downtimes won't make the peer force-close  
 #### Wallet management
 * Funding from a single sig wallet is cheaper
 * Prepare a selection of good size UTXOs for minimal cost channel opens
   * consolidate (beware of privacy implications)
-  * a well funded and long running JoinMarket Maker wallet will have different sizes of coinjoined outputs available
+  * a well funded and long running JoinMarket Maker wallet will have different sizes of coinjoined outputs available  
 #### Configuration
 * Activate Anchor Commitments
   * affects only the new channels opened when both peers support anchors
@@ -21,7 +20,7 @@ Recommendations to get ready for a high fee environment beforehand.
   * available since [LND v0.12.0](https://github.com/lightningnetwork/lnd/releases/tag/v0.12.0-beta)
   * aimed to be active by default from LND v0.13
   * will need one UTXO per channel in the onchain wallet of LND to pay the closing fee with CPFP - these are not reserved in the wallet yet
-* Set the `minchansize` in [lnd.conf](https://github.com/lightningnetwork/lnd/blob/260ea9b842ddd80fbea1df5516f557e3081f743f/sample-lnd.conf#L248) (eg. avoid <500k channels on a routing node)
+* Set the `minchansize` in [lnd.conf](https://github.com/lightningnetwork/lnd/blob/260ea9b842ddd80fbea1df5516f557e3081f743f/sample-lnd.conf#L248) (eg. avoid <500k channels on a routing node)  
 ## Routing fees and balances
 * All nodes: 
   * the channel balance will appear to be smaller as the commitment reserve will be higher
@@ -80,6 +79,7 @@ to a sat/byte level where it can confirm within the CSV delay in case a breach t
 * Taproot - can save on sending to the multisig (~26 byte from the min 140 bytes)
 * Taproot - funding from multisig wallets will be the same cost as from single sig wallets
 * ELTOO - multiparty channels and channel factories
+
 ## References
 * [What is CPFP?](https://bitcoinops.org/en/topics/cpfp/)
 * [Can a channel be closed while the funding tx is still stuck in the mempool?](https://bitcoin.stackexchange.com/questions/102180/can-a-channel-be-closed-while-the-funding-tx-is-still-stuck-in-the-mempool)
