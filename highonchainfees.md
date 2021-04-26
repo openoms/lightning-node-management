@@ -1,8 +1,9 @@
 # High onchain fee enviroment 
 Notes on using the Lightning Network when miner fees are high.
 
-## Preparation
-Recommendations to get ready for a high fee environment beforehand.  
+### Preparation
+Recommendations to get ready for a high fee environment beforehand.
+
 #### Channel management
 * Open channels during low fee times strategically (weekends)
 * Close inactive and unreliable channels early during low fee times
@@ -14,6 +15,7 @@ Recommendations to get ready for a high fee environment beforehand.
 * Prepare a selection of good size UTXOs for minimal cost channel opens
   * consolidate (beware of privacy implications)
   * a well funded and long running JoinMarket Maker wallet will have different sizes of coinjoined outputs available
+ 
 #### Configuration
 * Activate Anchor Commitments
   * affects only the new channels opened when both peers support anchors
@@ -22,7 +24,8 @@ Recommendations to get ready for a high fee environment beforehand.
   * aimed to be active by default from LND v0.13
   * will need one UTXO per channel in the onchain wallet of LND to pay the closing fee with CPFP - these are not reserved in the wallet yet
 * Set the `minchansize` in [lnd.conf](https://github.com/lightningnetwork/lnd/blob/260ea9b842ddd80fbea1df5516f557e3081f743f/sample-lnd.conf#L248) (eg. avoid <500k channels on a routing node)
-## Routing fees and balances
+* 
+### Routing fees and balances
 * All nodes: 
   * the channel balance will appear to be smaller as the commitment reserve will be higher
   * offchain transaction fees will also increase (remains to be proportional to the payment amount)
@@ -36,7 +39,7 @@ Recommendations to get ready for a high fee environment beforehand.
 * Submarine Swaps get more expensive (requires on-chain transactions)
 * Overall channels will get out of balance quicker
 
-## Opening channels
+### Opening channels
 * Include a change output to be able to use CPFP to bump the fee of the channel open transaction
 * Batch opens
   * the biggest saving is when using 1 input to open multiple channels
@@ -47,7 +50,8 @@ Recommendations to get ready for a high fee environment beforehand.
       * [C-lightning CLI](https://lightning.readthedocs.io/lightning-fundchannel_start.7.html#)  
       `lightningcli fundchannel_start id amount [feerate announce close_to push_msat]`
   * avoid opening public and private (unannounced) channels in the same batch - defeats the purpose of not announcing channels in the gossip
-## Do not leave a channel open pending for more than 2016 blocks (~2 weeks)
+
+#### Do not leave a channel open pending for more than 2016 blocks (~2 weeks)
 A pending channel will become "stale" after 2016 blocks - the peer will forget about the funding transaction, so the channel will never become online.
 - the only option left to unlock the funds from the multisig will be an (expensive) force close.
 
@@ -57,7 +61,7 @@ A pending channel will become "stale" after 2016 blocks - the peer will forget a
     Lightningwiki.net article:  https://lightningwiki.net/index.php/Bumping_fee_for_lightning_channel_open
 * Can cancel the transaction by spending it to a change address [in Electrum](restorelndonchainfundsinelectrum.md#manage-the-lnd-onchain-funds-in-electrum-wallet)
 
-## Closing channels
+### Closing channels
 * Aim for a cooperative close if must 
   * can use CPFP from the receiving wallet if a pending ccooperative close is stuck in the mempool with a low fee
 * Run the channel close command again if the transaction has been removed from the mempool  
@@ -67,19 +71,20 @@ A pending channel will become "stale" after 2016 blocks - the peer will forget a
   * Long inactive channels are a liability - especially if was online last at low miner fee period
 * Avoid and prevent force closes by minimizing downtime and instability as a routing node
 
-## Watchtowers
+### Watchtowers
 * If using [watchtowers](watchtower.md) need to set the  
 `wtclient.sweep-fee-rate=` in the [lnd.conf](https://github.com/lightningnetwork/lnd/blob/a36c95f7325d3941306ac4dfff0f2363fbb8e66d/sample-lnd.conf#L857)  
 to a sat/byte level where it can confirm within the CSV delay in case a breach transaction is broadcasted by the peer while the node is offline.
 * The CSV delay can be set to be longer with:  
 `lncli updatechanpolicy`
 
-## Future improvements 
+### Future improvements 
 * Anchor commitments by default (affects only new channels and both peers need to support the feature)
 * Splicing and dual funding - extend the channel capacity in a single transaction
 * Taproot - can save on sending to the multisig (~26 byte from the min 140 bytes)
 * Taproot - funding from multisig wallets will be the same cost as from single sig wallets
 * ELTOO - multiparty channels and channel factories
-## References
+
+### References
 * [What is CPFP?](https://bitcoinops.org/en/topics/cpfp/)
 * [Can a channel be closed while the funding tx is still stuck in the mempool?](https://bitcoin.stackexchange.com/questions/102180/can-a-channel-be-closed-while-the-funding-tx-is-still-stuck-in-the-mempool)

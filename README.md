@@ -38,6 +38,7 @@ The max amount of the incoming payment is determined by the highest inbound liqu
 * Check [https://whatthefee.io/](https://whatthefee.io/) for the current estimation of confirmation time/fee.
 * Use a custom fee and choose the lowest number with a good chance for an acceptable confirmation time.
 * At least 141 bytes need to be covered by fees, but this number is often higher depending on the transaction inputs, script and signatures used.
+* Learn what to do in a [high onchain fee environment](highonchainfees.md)
 
 ## Tor nodes
 
