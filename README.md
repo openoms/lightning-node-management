@@ -1,7 +1,6 @@
 # Lightning Node Management
 
 ## Peer connections and channels
-
 * Peers are the nodes connected to each other through the internet \(TCP/IP layer\). 
 * A channel is a payment channel between two peers established on the Lightning Network.
 * To open a channel to any node the peer connection needs to be established first.
@@ -9,7 +8,6 @@
 * If a node is not publicly accessible the peer connection needs to be initiated manually from the non-public side even if the other peer is opening the channel.
 
 ## Receiving payments
-
 To be able to receive payments on the Lightning Network a node needs:
 
 * "inbound liquidity" \(aka remote balance\) which means that some satoshis need to be on the side of the other peer in a channel. 
@@ -18,7 +16,6 @@ To be able to receive payments on the Lightning Network a node needs:
 The max amount of the incoming payment is determined by the highest inbound liquidity of a single channel \(not additive between channels\).
 
 ## Channel size and choosing a peer
-
 * There is no hard number, but in general it is recommended to avoid opening channels  below 200K-500K sats.
 * [https://1ml.com/statistics](https://1ml.com/statistics) shows the average channel size on the network:   
 
@@ -32,7 +29,6 @@ The max amount of the incoming payment is determined by the highest inbound liqu
 * Try a custom list of recommendations for your public node: [https://moneni.com/nodematch](https://moneni.com/nodematch)
 
 ## On-chain bitcoin fees
-
 * Opening or closing a Lightning channel is an on-chain bitcoin transaction \(settled on the blockchain\)
 * The confirmation time depends on the state of the bitcoin mempool \([https://jochen-hoenicke.de/queue/\#0,24h](https://jochen-hoenicke.de/queue/#0,24h)\) and the sats/byte fee used \([https://bitcoinfees.earn.com/](https://bitcoinfees.earn.com/)\).
 * Check [https://whatthefee.io/](https://whatthefee.io/) for the current estimation of confirmation time/fee.
@@ -41,7 +37,6 @@ The max amount of the incoming payment is determined by the highest inbound liqu
 * Learn what to do in a [high onchain fee environment](highonchainfees.md)
 
 ## Tor nodes
-
 Tor is an anonymizing network designed to hide the participant\`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: [https://en.wikipedia.org/wiki/Tor\_\(anonymity\_network\)](https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29)
 
 * A Lightning node behind Tor can connect and open a channel to any other node. 
@@ -50,8 +45,7 @@ Tor is an anonymizing network designed to hide the participant\`s IP adress. Som
 * Once the channel is established the connection will persist, but might take some more time to come back online after either peer restarts.
 * If both nodes restart in the same time or the clearnet node\`s IP address is changed while both offline the peer connection need to be added manually again.
 
-## Routing payments:
-
+## Routing payments
 * Imagine a node `B` in an `A`-`B`-`C` serial connection.
 * The channels of `B` are set up so  that there is inbound capacity \(remote balance\) from `A` and outgoing capacity \(local balance\) to `C`.  
 * If `A` wants to pay `C` there will be 1 hop in the route.
@@ -60,8 +54,17 @@ Tor is an anonymizing network designed to hide the participant\`s IP adress. Som
 * The whole payment can only go through if they can send a hash image \(a message\) through from the other direction first.
 * The process is all or nothing, the payment cannot get stuck en route.
 
-## Lightning Network routing fees
+## Private channel
+* better to be called an "unannounced" channel
+* won't be advertised in the channel graph (network gossip)
+* more useful to send payments
+* to receive payments need to have route hint included in the invoice:
+  `lncli addinvoice <amount> --private`
+* the route hint is the identifier of the funding transaction (exposes the channel to the anyone knowing the invoice)
+* possible to receive keysend payments if the route hint is known
+* does not route payments (unless used in parallel with a public channel to the same node - aka shadow liquidity)
 
+## Lightning Network routing fees
 ### Advanced and automated fee settings: [fees.md](fees.md)
 
 Unlike with on-chain transactions \(where the fee is paid for the bytes the transaction takes up in a block\) Lightning Network fees are related to the amount routed. There are two fee components:
