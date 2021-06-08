@@ -58,7 +58,7 @@ Tor is an anonymizing network designed to hide the participant\`s IP adress. Som
 * better to be called an "unannounced" channel
 * won't be advertised in the channel graph (network gossip)
 * more useful to send payments
-* to receive payments need to have route hint included in the invoice:
+* to receive payments need to have a route hint included in the invoice:  
   `lncli addinvoice <amount> --private`
 * the route hint is the identifier of the funding transaction (exposes the channel to the anyone knowing the invoice)
 * possible to receive keysend payments if the route hint is known
@@ -252,7 +252,12 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 * Jameson Lopp's curated list of Lightning Network resources  
 [lightning.how](https://lightning.how)
 * [wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels](https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels)
+
+### Routing
 * [blog.lightning.engineering/posts/2018/05/30/routing.html](https://blog.lightning.engineering/posts/2018/05/30/routing.html)
+* [diyhpl.us/wiki/transcripts/chaincode-labs/2018-10-22-alex-bosworth-channel-management/](https://diyhpl.us/wiki/transcripts/chaincode-labs/2018-10-22-alex-bosworth-channel-management/)
+* [diyhpl.us/wiki/transcripts/lightning-hack-day/2021-03-27-alex-bosworth-lightning-routing/](https://diyhpl.us/wiki/transcripts/lightning-hack-day/2021-03-27-alex-bosworth-lightning-routing/)
+
 ## Videos
 
 * Elaine Ou - Bootstrapping and maintaining a Lightning node [38 mins video](https://www.youtube.com/watch?v=qX4Z3JY1094) and [slides](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
@@ -269,4 +274,10 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
   [dev.lightning.community/](https://dev.lightning.community/)
 * A subreddit for Bitcoin and Lightning developers to discuss technical topics:  
   [www.reddit.com/r/lightningdevs](https://www.reddit.com/r/lightningdevs)
+
+## Learning
+
+https://github.com/lnbook/lnbook  
+https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars
+https://github.com/chaincodelabs/lightning-curriculum
 
