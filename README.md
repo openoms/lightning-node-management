@@ -231,9 +231,9 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 ## Lightning network explorers
 
 * [1ml.com](https://1ml.com/)
-* [ln.alhur.es](https://ln.alhur.es/)
-* [explore.casa](https://explore.casa/)
 * [explorer.acinq.co](https://explorer.acinq.co/)
+* [amboss.space](https://amboss.space/)
+* [ln.fiatjaf.com](https://ln.fiatjaf.com)
 
 ## Resources
 * LND Builder's Guide Best Practices  
