@@ -2,7 +2,7 @@
 # Lightning-connect
 - [Remote connection formats summary table](#remote-connection-formats-summary-table)
 - [LND](#lnd)
-  - [RPC:](#rpc)
+  - [RPC](#rpc)
   - [LNDconnect](#lndconnect)
   - [Balance of Satoshis](#balance-of-satoshis)
   - [BTCPayserver](#btcpayserver)
@@ -17,48 +17,53 @@
 
 ## Remote connection formats summary table
 
-| LND | prefix  |  div | server | div | access | div | access | div |
+| LND | prefix | d | server | d | access | d | access | d |
 --- | --- | --- | --- | --- | --- | --- | --- | ---
-|lndconnect|lndconnect://| | host:port |?|macaroon=${base64 macaroon}|&|cert=${base64 cert}|
-|bos||{ |"socket": "host:port"|,|"macaroon": "base64 .macaroon value"|,| "cert": "base64 tls.cert value" |}|
-|BTCPayServer|type=lnd-rest|;|https://mylnd:8080/|;|macaroon=abef263adfe...|;|certthumbprint=abef263adfe...|
+|lndconnect|lndconnect://|| host:port |?|macaroon=${base64 macaroon}|&|cert=${base64 cert}|
+|bos||{|"socket": "host:port"|,|"macaroon": "base64 .macaroon value"|,| "cert": "base64 tls.cert value"|}|
+|BTCPay|type=lnd-rest|;|https://mylnd:8080/|;|macaroon=abef263adfe...|;|certthumbprint=abef263adfe...|
 
 
-| C-lightning | prefix | div | server | div | access |
+| C-lightning | prefix | d | server | d | access |
 --- | --- | --- | --- | --- | ---
 |Spark Wallet / Sparko|||URL| ? | access-key=accessKey|
-| BTCPay unix socket | type=clightning|;|server=unix://root/.lightning/lightning-rpc|
-| BTCPay TCP | type=clightning|;|server=tcp://1.1.1.1:27743/|
-| BTCPay Charge | type=clightning|;|server=https://charge:8080/|;| api-token=myapitoken...|
-|C-lightning REST| || URL | ?| hex_macaroon|
+| BTCPay unix socket|type=clightning|;|server=unix://root/.lightning/lightning-rpc|
+| BTCPay TCP|type=clightning|;|server=tcp://1.1.1.1:27743/|
+| BTCPay Charge| type=clightning|;|server=https://charge:8080/|;| api-token=myapitoken...|
+|C-lightning REST||| URL | ? | hex_macaroon|
 
-| Eclair | prefix | div | server | div | access |
+| Eclair | prefix | d | server | d | access |
 --- | --- | --- | --- | --- | ---
-|BTCPayServer|type=eclair|;|server=https://eclair:8080/| ;| password=eclairpassword...
+|BTCPay|type=eclair|;|server=https://eclair:8080/|;| password=eclairpassword...|
 
 
 ## LND
 
-### RPC:
+### RPC
+
 * lncli
 ```
 lncli --rpcserver=IP_ADDRESS:GRPC_PORT --tlscertpath=./../tls.cert --macaroonpath=./../admin.macaroon
 ```
+
 * Suez  
   https://github.com/prusnak/suez
+
 ```
 poetry run ./suez --client-args=--rpcserver=IP_ADDRESS:GRPC_PORT --client-args=--tlscertpath=./../tls.cert --client-args=--macaroonpath=./../admin.macaroon
 ```
 
 ### LNDconnect
 * Specification  
-https://github.com/LN-Zap/lndconnect/blob/master/lnd_connect_uri.md
+<https://github.com/LN-Zap/lndconnect/blob/master/lnd_connect_uri.md>
 
 ```
 lndconnect://<host>:<port>?[cert=<base64url DER certifcate>&]macaroon=<base64url macaroon>
 ```
-* implementation
-https://github.com/rootzoll/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh#L194
+
+* implementation  
+<https://github.com/rootzoll/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh#L194>
+
 ```
 # generate data parts
 macaroon=$(sudo base64 /mnt/hdd/app-data/lnd/data/chain/${network}/${chain}net/admin.macaroon | tr -d '=' | tr '/+' '_-' | tr -d '\n')
@@ -77,7 +82,9 @@ https://github.com/alexbosworth/balanceofsatoshis#saved-nodes
 ```
 ~/.bos/YOUR_NODE_NAME/credentials.json
 ```
+
 * with base64 values
+
 ```
 {
 "cert": "base64 tls.cert value",
@@ -90,6 +97,7 @@ base64 ~/.lnd/tls.cert | tr -d '\n'
 # For `macaroon`
 base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 ```
+
 * with path
 ```
 {
@@ -106,14 +114,17 @@ base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 type=lnd-rest;server=https://mylnd:8080/;macaroon=abef263adfe...
 type=lnd-rest;server=https://mylnd:8080/;macaroon=abef263adfe...;certthumbprint=abef263adfe...
 ```
+
 * macaroon
 ```
 xxd -plain /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 ```
+
 * certthumbprint:
 ```
 openssl x509 -noout -fingerprint -sha256 -in /root/.lnd/tls.cert | sed -e 's/.*=//;s/://g'
 ```
+
 * optional:
 ```  
 allowinsecure=true
@@ -124,7 +135,10 @@ allowinsecure=true
 ### Spark Wallet  
 https://github.com/shesek/spark-wallet  
 ### Sparko
-https://github.com/fiatjaf/sparko
+https://github.com/fiatjaf/sparko  
+Currently only works with a CA signed certificate.  
+See: <https://github.com/shesek/spark-wallet/blob/master/doc/tls.md#add-as-trusted-certificate-to-android>
+
 
 * Simply:
 ```
@@ -132,12 +146,14 @@ URL?access-key=accessKey
 ```
 the `accessKey` has macaroon-like permissions
 
+
 ### C-lightning REST (with Zeus)
 https://github.com/Ride-The-Lightning/c-lightning-REST/
 * No standard yet, but needs:
 ```
 URL?hex_macaroon
 ```
+
 * generate the `hex_macaroon`:
 ```
 xxd -plain /home/bitcoin/c-lightning-REST/certs/access.macaroon | tr -d '\n'
