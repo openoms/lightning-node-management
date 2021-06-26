@@ -17,24 +17,24 @@
 
 ## Remote connection formats summary table
 
-| LND | prefix | d | server | d | access | d | access | d |
+|LND | prefix | d | server | d | auth | d | tls | d|
 --- | --- | --- | --- | --- | --- | --- | --- | ---
-|lndconnect|lndconnect://|| host:port |?|macaroon=${base64 macaroon}|&|cert=${base64 cert}|
-|bos||{|"socket": "host:port"|,|"macaroon": "base64 .macaroon value"|,| "cert": "base64 tls.cert value"|}|
-|BTCPay|type=lnd-rest|;|https://mylnd:8080/|;|macaroon=abef263adfe...|;|certthumbprint=abef263adfe...|
+|lndconnect | lndconnect:// || grpc_host:10009 |?| macaroon=base64_macaroon |&| cert=base64_cert|
+|BoS ||{| "socket": "grpc_host:10009" |,| "macaroon": "base64_macaroon" |,| "cert": "base64_cert" |}|
+|BTCPay | type=lnd-rest |;| https://rest_host:8080/ |;| macaroon=hex_macaroon |;|certthumbprint=hex_cert|
 
 
-| C-lightning | prefix | d | server | d | access |
---- | --- | --- | --- | --- | ---
-|Spark Wallet / Sparko|||URL| ? | access-key=accessKey|
-| BTCPay unix socket|type=clightning|;|server=unix://root/.lightning/lightning-rpc|
-| BTCPay TCP|type=clightning|;|server=tcp://1.1.1.1:27743/|
-| BTCPay Charge| type=clightning|;|server=https://charge:8080/|;| api-token=myapitoken...|
-|C-lightning REST||| URL | ? | hex_macaroon|
+|C-lightning | prefix | d | server | d | auth | d | tls|
+--- | --- | --- | --- | --- | --- | --- | ---
+|Spark Wallet / Sparko ||| spark_rpc_host | ? | access-key=accessKey|
+|BTCPay unix socket | type=clightning |;| server=unix://home/user/.lightning/lightning-rpc|
+|BTCPay TCP| type=clightning |;| server=tcp://tcp_host:27743/|
+|BTCPay Charge | type=clightning |;| server=https://charge_host:8080/ |;| api-token=myapitoken...|
+|C-lightning REST ||| rest_host | ? | hex_macaroon|
 
-| Eclair | prefix | d | server | d | access |
---- | --- | --- | --- | --- | ---
-|BTCPay|type=eclair|;|server=https://eclair:8080/|;| password=eclairpassword...|
+|Eclair | prefix | d   | server | d   | auth | d   | tls|
+---     | ---    | --- | ---    | --- | ---  | --- | ---
+|BTCPay |type=eclair |;| server=https://eclair_host:8080/ |;| password=eclairpassword...|
 
 
 ## LND
@@ -194,29 +194,28 @@ string="desired content or $(command output)"
 qrencode -t ANSIUTF8 "$string"
 ```
 
-* base64 tls.cert
+* base64_macaroon
 ```
-base64 ~/.lnd/tls.cert | tr -d '\n'
+base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 ```
 
-* generate a hex macaroon:
+* hex_macaroon:
 ```
 xxd -plain /home/bitcoin/c-lightning-REST/certs/access.macaroon | tr -d '\n'
 ```
 
-* base64 macaroon
+* base64_cert
 ```
-base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
+base64 ~/.lnd/tls.cert | tr -d '\n'
+```
+* certthumbprint:
+```
+openssl x509 -noout -fingerprint -sha256 -in /root/.lnd/tls.cert | sed -e 's/.*=//;s/://g'
 ```
 
 * inspect a `tls.cert`
 ```
 openssl x509 -in /mnt/hdd/lnd/tls.cert -noout -text
-```
-
-* certthumbprint:
-```
-openssl x509 -noout -fingerprint -sha256 -in /root/.lnd/tls.cert | sed -e 's/.*=//;s/://g'
 ```
 
 * display a Tor Hidden Service  
