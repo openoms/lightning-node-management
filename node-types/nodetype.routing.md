@@ -1,72 +1,71 @@
-# Routing
+# Enrutamiento
 
-Aimed for forwading payments successfully while generating profit.
+Destinado a redireccionar pagos y generar beneficios.
 
-## Capital requirement
+## Requerimientos de capital
 
-* high
+* alto
 
-## Channels and peers
+## Canales y nodos
 
-* numerous \(~10+\) big channels to [well connected nodes](../advanced-tools/bosscore.md)
-* connect to the network edge to get usage
-* aim to connect node clusters \(isolated groups\)
+* se requiere gran cantidad de canales (~ 10 +) con buena capacidad a [nodos "bien conectados"](../advanced-tools/bosscore.md)
+* debe conectarse en una "frontera de red" (network edge) para optimizar el uso
+* tiene como objetivo conectar clústeres de nodos (grupos aislados)
 
-## Liquidity
+## Liquidez
 
-* balanced between local and remote overall
-* individual channels should be able to forward payments in both directions
+* en general, equilibrado entre local y remoto
+* cada canal debe poder reenviar pagos en ambas direcciones
 
-## Uptime
+## Disponibilidad (Uptime)
 
-* aim to be perfect
-* offline routing nodes with many public channels are causing networkwide payment failures
-* graetly affects the [reputation of the routing node](https://github.com/openoms/lightning-node-management/tree/04d605ae69f3630c0eaeedc43eda95c6ff5d1ee3/bossscore.md)
+* alta, debe ser "perfecta"
+* los nodos de enrutamiento desconectados, con muchos canales públicos, ocasionan fallas en toda la red
+* afecta gravemente la [reputación del nodo](../advanced-tools/bossscore.md)
 
-## Management
+## Administración
 
-* autorebalancing \(cronjobs are useful\)
-* create inbound and outbound liquidity as required
-* balance between multiple nodes
-* close inactive channels
-* open to directions where liquidity is required
-* use Lightning Pool bids and asks
-* batch channel opens to save on miner fees 
-* fund channels from external wallets
-* close to external addresses to reduce the hot wallet risk
-* explore the many [tools available](../#manage-channels)
+* auto-rebalanceo (los cronjobs son útiles)
+* crear liquidez entrante y saliente según sea necesario
+* balancear múltiples nodos
+* cerrar canales inactivos
+* abierto en direcciones donde se requiere liquidez
+* utilizar Lightning Pool (bids y asks)
+* abrir canales en lotes para ahorrar en costos de mineria
+* financiar canales desde billeteras externas
+* cerrado a direcciones externas para reducir el riesgo de "billetera en linea"
+* explorar [herramientas disponibles](../README.md#manage-channels)
 
-## Strategies
+## Estrategias
 
-### Connect clusters and big payment processors
+### Conectar clústeres y grandes procesadores de pagos
 
-* bidirectional traffic 
-* fees are low 
-* highly competitive \(lots of liquidity is in private channels\)
+* tráfico bidireccional
+* las tarifas son bajas
+* altamente competitivo (mucha liquidez está en canales privados)
 
-### Provide liquidity to merchants
+### Proporcionar liquidez a comercios
 
-* high incoming liquidity required
-* fees can be set to moderate - high
-* selling channels via Lightning Pool often falls into this category
+* alta liquidez entrante requerida
+* las tarifas pueden ser moderadas y altas
+* a menudo, en esta categoría, entra vender canales a través de Lightning Pool
 
-### Payment hub for small nodes
+### Hub de pagos para nodos pequeños
 
-* fees can be left to be low 
-* traffic is mostly outgoing
-* should encourage the usage of private channels 
-* offline public channels lead to payment failures and affecting the routing node's reputation\)
+* las tarifas pueden ser bajas
+* el tráfico es saliente principalmente
+* fomenta el uso de canales privados
+* los canales públicos desconectados provocan fallos en los pagos y afectan la reputación del nodo
 
-### Sell incoming liquidity
+### Vender liquidez entrante
 
 * [LOOP](https://1ml.com/node/021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d)
 * [Bitfinex](https://ln.bitfinex.com/)
-* set high fees due to unidirectional traffic and the quick drain of inbound capacity
-* not all LN supporting exchanges are connectable and need individual evaluation about the direction of traffic
+* establecer tarifas altas ya que el tráfico es unidireccional y a que la capacidad de entrada se drena rápidamente
+* no todas las LN que soportan los "exchanges" son conectables y necesitan revisión individual sobre la dirección del tráfico
 
-## Examples
+## Ejemplos
 
-* [Self hosted on dedicated hardware](https://github.com/bavarianledger/bitcoin-nodes)
-* Custom system on enterprise hardware focused on uptime and redundancy
-* Hosted on a VPS \(higher risk\)
-
+* [Nodo auto-hospedado en hardware dedicado](https://github.com/bavarianledger/bitcoin-nodes)
+* Sistema a la medida en hardware empresarial centrado en alta disponibilidad y redundancia
+* Alojado en un VPS (mayor riesgo)
