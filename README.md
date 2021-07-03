@@ -94,7 +94,6 @@ En caso de que se enruten pagos a través de un canal "costoso" es importante au
 Configurar costos para canales individuales solo requiere un clic en el [app RTL](./#RTL---Ride-The-Lightning).
 
 ## Watchtowers
-
 Leer más sobre cómo configurar uno en [watchtower.md](herramientas-avanzadas/watchtower.md).
 
 ## Liquidez
@@ -154,6 +153,7 @@ Es una herramienta de consola, escrita en python, para la administración avanza
     $ lndmanage status
     $ lndmanage listchannels rebalance
   ```
+
 
 * Ejemplo de rebalanceo:
 
@@ -263,15 +263,12 @@ Spark es una billetera minimalista para c-lightning. Es accesible a través de l
 * [lightningwiki.net](https://lightningwiki.net)
 * [satbase.org](https://satbase.org)
 * Lista de ¿Cómo obtener liquidez rápidamente?
-
   [github.com/rootzoll/raspiblitz/issues/395](https://github.com/rootzoll/raspiblitz/issues/395)
 
 * Lista de recursos, aplicaciones y librerias Lightning
-
   [github.com/bcongdon/awesome-lightning-network](https://github.com/bcongdon/awesome-lightning-network)
 
 * Lista de recursos de Lightning de Jameson Lopp
-
   [lightning.how](https://lightning.how)
 
 * [wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels](https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels)
@@ -288,25 +285,23 @@ Spark es una billetera minimalista para c-lightning. Es accesible a través de l
 * Alex Bosworth - Administración de canales Lightning [video de 35 mins](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
 * [Seminario Lightning de Chaincode Labs - Verano de 2019](https://www.youtube.com/playlist?list=PLpLH33TRghT17_U3as2P3vHfAGL8pSOOY)
 * Colección de presentaciones de Alex Bosworth:
-
   [twitter.com/alexbosworth/status/1175091117668257792](https://twitter.com/alexbosworth/status/1175091117668257792)
 
 ## Foros
 
 * Grupo administrado por la comunidad para RaspiBlitz Lightning Node:
-
   [https://t.me/raspiblitz](https://t.me/raspiblitz)
 
 * Slack para desarrolladores LND. Enlace para obtener la invitación en:
-
   [dev.lightning.community/](https://dev.lightning.community/)
 
 * Subreddit técnico para desarrolladores de Bitcoin y Lightning:
-
   [www.reddit.com/r/lightningdevs](https://www.reddit.com/r/lightningdevs)
 
 ## Aprende
 
-[https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
-[https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars) [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
-
+* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
+* [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars) [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
+* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
+* [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars)
+* [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)

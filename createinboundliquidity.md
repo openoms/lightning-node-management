@@ -39,6 +39,7 @@ Ejemplos:
 
 ## [Lightning Pool](https://pool.lightning.engineering/)
 
+
 Compre canales entrantes en un "marketplace" abierto: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Notas de uso: [pool.md](herramientas-avanzadas/pool.md)
 
 ## [Lightning Loop](https://github.com/lightninglabs/loop)
@@ -95,6 +96,7 @@ Exchange que acepta pagos Lightning. Max 4M satoshis. Comisión ~ 2%
 
 ## [LightningTo.me](https://lightningto.me/)
 
+
 Abre un canal gratuito con 2 000 000 satoshis. Necesita tener 10 canales abiertos para utilizar este servicio. Si se conecta usando Tor, agregue su nodo:  
 `$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
 
@@ -113,4 +115,3 @@ Permite comprar canales de entrada [https://twitter.com/lnbig\_com](https://twit
 ## [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
 
 Lista de servicios que permiten cambiar entre Lightning &lt;-&gt; on-chain
-

@@ -1,4 +1,4 @@
-# Table of contents
+# Tabla de contenido
 
 * [General](README.md)
 * [Crear liquidez entrante](createinboundliquidity.md)
@@ -30,4 +30,3 @@
 ## Donar
 
 * [Donaciones](donar/donations.md)
-

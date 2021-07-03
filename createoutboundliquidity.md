@@ -21,4 +21,3 @@ Loop In: de on-chain a off-chain, donde el cliente envía los fondos on-chain a 
 Transferencias "trustless" entre Lightning Network, la blockchain Bitcoin y cualquier crypto soportada \(BTC y ETH hasta el momento\). Envíe fondos on-chain y reciba en Lightning.
 
 ## Ver mas servicios en: [CreateInboundLiquidity.md](createinboundliquidity.md)
-
