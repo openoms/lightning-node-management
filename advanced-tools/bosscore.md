@@ -9,13 +9,13 @@ Link to the Bos Score list:
 A sortable version:  
 [https://lightningwiki.net/bos/](https://lightningwiki.net/bos/)
 
-![https://lightning.engineering/posts/2019-11-07-routing-guide-2/](.gitbook/assets/BosScore4.png)
+![https://lightning.engineering/posts/2019-11-07-routing-guide-2/](../.gitbook/assets/BosScore4.png)
 
-![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning](.gitbook/assets/BosScore1.png)
+![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning](../.gitbook/assets/BosScore1.png)
 
-![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](.gitbook/assets/BosScore2.png)
+![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](../.gitbook/assets/BosScore2.png)
 
-![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](.gitbook/assets/BosScore3.png)
+![https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning ](../.gitbook/assets/BosScore3.png)
 
 ## Resources
 

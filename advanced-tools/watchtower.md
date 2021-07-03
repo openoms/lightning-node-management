@@ -6,7 +6,7 @@ If there are two nodes in your control from lnd v0.7.0 you can set them up to lo
 
 ## Update lnd
 
-Check [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/) for the latest version and release notes. Update [manually](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) or use an [automated helper script](lnd.updates.md) to update lnd on a RaspiBlitz or a compatible system.
+Check [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/) for the latest version and release notes. Update [manually](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) or use an [automated helper script](../technicals/lnd.updates.md) to update lnd on a RaspiBlitz or a compatible system.
 
 ## Set up the Watchtower
 

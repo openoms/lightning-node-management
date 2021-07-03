@@ -37,15 +37,15 @@ How to:
 * `B` sends and invoice to receive 1M sats from `A` .
 * `A` pays 1M sats to `B` .
 * make sure A and B are peers
-* `B` opens a 2M sats channel to A with the command:  
+* `B` opens a 2M sats channel to A with the command:
 
-  `lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000 --sat_per_byte 2` 
+  `lncli openchannel <nodeID_of_A> --local_amt 2000000 --push_amt 1000000 --sat_per_byte 2`
 
 There should be no rush, so use a low fee for the on-chain tx. Check [https://whatthefee.io/](https://whatthefee.io/) for the current mempool status or use the `--conf_target 10` option for automatic fee estimation to aim to have the channel confirmed in ~10 blocks.
 
-This will result to have a balanced channel with 1M sats on each side \(minus the commit fee\). 
+This will result to have a balanced channel with 1M sats on each side \(minus the commit fee\).
 
-![a balanced channel shown in ZeusLN](.gitbook/assets/balancedChannel%20%281%29.jpg)
+![a balanced channel shown in ZeusLN](../.gitbook/assets/balancedChannel%20%281%29.jpg)
 
 ## The cost of liquidity
 
