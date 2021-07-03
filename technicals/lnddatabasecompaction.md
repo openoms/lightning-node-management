@@ -1,23 +1,23 @@
-# Compact the LND database \(channel.db\)
+# Compactar la base de datos LND \(channel.db\)
 
-An over 1GB `channel.db` file does not work on 32bit systems: [https://github.com/lightningnetwork/lnd/issues/4811](https://github.com/lightningnetwork/lnd/issues/4811)
+Un archivo `channel.db` de más de 1 GB no funciona en sistemas de 32 bits: [https://github.com/lightningnetwork/lnd/issues/4811](https://github.com/lightningnetwork/lnd/issues/4811)
 
 ```text
-# check the size of channel.db
+# verifique el tamaño del archivo channel.db
 sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
-# example output
+# resultado de ejemplo
 # 1.0G    /mnt/hdd/lnd/data/graph/mainnet/channel.db
 ```
 
-## Auto-compact on restart
+## Auto-compactar al reiniciar
 
-Since LND v0.12.0 can set `db.bolt.auto-compact=true` in the `lnd.conf`.
+Desde LND v0.12.0 se puede configurar `db.bolt.auto-compact=true` en el `lnd.conf`.
 
-* To edit:  
+* Para editar:  
 
   `sudo nano /mnt/hdd/lnd/lnd.conf`
 
-* insert the following \(can leave out the comments\):
+* inserte lo siguiente \(puede descartar los comentarios\):
 
   ```text
    [bolt]
@@ -33,71 +33,70 @@ Since LND v0.12.0 can set `db.bolt.auto-compact=true` in the `lnd.conf`.
    # db.bolt.auto-compact-min-age=0
   ```
 
-* restart lnd:  
+* reinicie lnd:  
 
   `sudo systemctl restart lnd`
 
-* monitor the process \(can take several minutes\):
+* monitoree el proceso \(puede tomar varios minutos\):
 
   `sudo tail -fn 30 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`
 
-* might want to disable the auto-compact in `lnd.conf` and only activate on-demand to avoid long startup times:
+* Es posible deshabilitar el auto-compactado en `lnd.conf` y activarlo bajo demanda para evitar tiempos de inicio prolongados:
 
   ```text
    db.bolt.auto-compact=false
   ```
 
-## Compacting with Channels Tools
+## Compactar con Channels Tools
 
 [https://github.com/guggero/chantools\#compactdb](https://github.com/guggero/chantools#compactdb)
 
-* Run the following commands in the RaspiBlitz terminal  
+* Ejecute los siguientes comandos en la terminal RaspiBlitz  
 
-  See the comments for what each command does.
+  Vea los comentarios para verificar lo que hace cada comando.
 
 ```text
-# install chantools 
-# download, inspect and run the install script
+# instale chantools
+# descargar, inspeccionar y ejecutar el script de instalación
 wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/bonus.chantools.sh
 cat bonus.chantools.sh
 bash bonus.chantools.sh on
 
-# stop lnd
+# pare lnd
 sudo systemctl stop lnd
 
-# change to the home directory of the bitcoin user
+# cambiar al directorio de inicio del usuario bitcoin
 sudo su - bitcoin
 
-# run the compacting
+# ejecutar la compactación
 chantools compactdb --sourcedb /mnt/hdd/lnd/data/graph/mainnet/channel.db \
                 --destdb /mnt/hdd/lnd/data/graph/mainnet/compacted.db
 
-# check the size of the compacted.db 
-# (the first compacting will have the biggest effect)
+# verifique el tamaño de compacted.db
+# (la primera compactación tendrá el mayor efecto)
 du -h /mnt/hdd/lnd/data/graph/mainnet/compacted.db
-# example output:
+# ejemplo:
 # 730M /mnt/hdd/lnd/data/graph/mainnet/compacted.db
 
-# make sure lnd is not runnning (needs sudo)
+# asegúrese que lnd no esté ejecutandose (necesita sudo)
 exit
 sudo systemctl stop lnd
 sudo su - bitcoin
 
-# backup the original database
+# haga un backup de la base de datos original
 mv /mnt/hdd/lnd/data/graph/mainnet/channel.db \
    /mnt/hdd/lnd/data/graph/mainnet/uncompacted.db   
 
-# move the compacted database in place of the old
+# mover la base de datos compactada en lugar de la antigua
 mv /mnt/hdd/lnd/data/graph/mainnet/compacted.db \
    /mnt/hdd/lnd/data/graph/mainnet/channel.db  
 
-# exit the bitcoin user to admin
+# Salir del usuario de bitcoin a admin
 exit
 
-# start lnd
+# iniciar lnd
 sudo systemctl start lnd
 
-# unlock the wallet
+# desbloquear la billetera
 lncli unlock
 ```
-

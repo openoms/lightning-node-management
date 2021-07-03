@@ -1,98 +1,97 @@
-# Manage the LND onchain funds in Electrum Wallet
+# Administre los fondos LND on-chain en Electrum
 
-## Restore the onchain funds from an LND wallet in Electrum Wallet
+## Restaurar los fondos on-chain de una billetera LND en una billetera Electrum
 
-Only do this if you understand the process.  
-Never enter secrets into online webpages.  
-Avoid browser windows with extensions.  
-The Tor Browser is a good start \(aim to use it offline\).
+Solo haga esto si comprende el proceso.
+Nunca ingrese "secrets" en páginas web.
+Evite las ventanas del navegador con extensiones habilitadas.
+El navegador Tor es un buen comienzo \(intente usarlo sin conexión\).
 
-Requires:
+Requiere:
 
-* LND 24 words seed \(+ passphrase if used\)
-* useful to know the funded addresses
-* use a dedicated, secure operating system eg. [Tails](https://tails.boum.org/)
-* save online pages to disk and open in a new browser window
+* 24 palabras semilla de LND \(+ la contraseña si se usa\)
+* es útil conocer las direcciones con fondos
+* use un sistema operativo seguro y dedicado, por ejemplo. [Tails](https://tails.boum.org/)
+* guarde las páginas en el disco y ábralas en una nueva ventana del navegador
 
-### Open [https://guggero.github.io/cryptography-toolkit/\#!/aezeed](https://guggero.github.io/cryptography-toolkit/#!/aezeed)
+### Abrir [https://guggero.github.io/cryptography-toolkit/\#!/aezeed](https://guggero.github.io/cryptography-toolkit/#!/aezeed)
 
-* under `Decode mnemonic`
+* en `Decode mnemonic`
 
-  enter the 24 words seed \(+ passphrase if used\)
+  ingrese la semilla de 24 palabras \(+ contraseña si se usa\)
 
-* copy the `HD node root key base58`
+* copiar la `HD node root key base58`
 
-### Open [https://iancoleman.io/bip39/](https://iancoleman.io/bip39/)
+### Abrir [https://iancoleman.io/bip39/](https://iancoleman.io/bip39/)
 
-* enter the `HD node root key base58` to `BIP32 Root Key`
-* under `Derivation Path`
-  * Select the tab `BIP84` for bc1.. addresses.
-  * Select `BIP49` for 3.. addresses. 
-* Copy the private keys for the known or all addresses \(`Account Extended Private Key`\).
+* ingrese la `HD node root key base58` en `BIP32 Root Key`
+* en `Derivation Path`
+  * Seleccione la pestaña `BIP84` para obtener las direcciones que empiezan por bc1.
+  * Seleccione `BIP49` para obtener las direcciones que empiezan por 3.
+* Copie las claves privadas de las direcciones conocidas o de todas \(`Account Extended Private Key`\).
 
-### Open Electrum Wallet
+### Abra Electrum
 
-Follow: [https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/](https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/)
+Siga los pasos de: [https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/](https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/)
 
-When importing the private keys use the prefix:
+Al importar las claves privadas use el prefijo:
 
-* `p2wpkh:` before the private keys of `bc1...` addresses
-* `p2wpkh-p2sh:` before the private keys of `3...` adddresses
+* `p2wpkh:` antes de las claves privadas de las direcciones `bc1...`
+* `p2wpkh-p2sh:` antes de las claves privadas de las direcciones `3...`
 
-Done. Once the Electrum Server finished scanning the funds should appear.
+Listo. Una vez que el servidor Electrum termine de escanear las direcciones, deberían aparecer los fondos.
 
-## Import the onchain part of the LND wallet to Electrum Wallet
+## Importe la parte on-chain de la billetera LND en Electrum
 
-This is not a recommended way to manage the funds from the LND wallet, it is better be used as watch-only.  
-Restoring from the seed in Electrum does not affect the offchain funds in channels.  
-There is no guarantee that the change outputs from Electrum will appear in LND and vice versa.
+Esta no es una forma recomendada de administrar los fondos de la billetera LND, es mejor usarla como solo lectura.
+Restaurar desde una semilla en Electrum no afecta los fondos off-chain en los canales.
+No hay garantía de que las "change outputs" de Electrum aparezcan en LND y viceversa.
 
-Only do this if you understand the process.  
-Never enter secrets into online webpages.  
-Avoid browser windows with extensions.  
-The Tor Browser is a good start \(aim to use it offline\).
+Solo haga esto si comprende el proceso.
+Nunca ingrese "secrets" en páginas web.
+Evite las ventanas del navegador con extensiones habilitadas.
+El navegador Tor es un buen comienzo \(intente usarlo sin conexión\).
 
-Requires:
+Requiere:
 
-* LND 24 words seed \(+ passphrase if used\)
-* use a dedicated, secure operating system eg. [Tails](https://tails.boum.org/)
-* save online pages to disk and open in a new browser window
+* 24 palabras semilla de LND \(+ la contraseña si se usa\)
+* use un sistema operativo seguro y dedicado, por ejemplo. [Tails](https://tails.boum.org/)
+* guarde las páginas en el disco y ábralas en una nueva ventana del navegador
 
-### Open [https://guggero.github.io/cryptography-toolkit/\#!/aezeed](https://guggero.github.io/cryptography-toolkit/#!/aezeed)
+### Abra [https://guggero.github.io/cryptography-toolkit/\#!/aezeed](https://guggero.github.io/cryptography-toolkit/#!/aezeed)
 
-* under `Decode mnemonic`
+* en `Decode mnemonic`
 
-  enter the 24 words seed \(+ passphrase if used\)
+  ingrese la semilla de 24 palabras \(+ contraseña si se usa\)
 
-* copy the `HD node root key base58` for BTC \(Bitcoin, Native SegWit, BIP84\) or BTC \(Bitcoin, SegWit, BIP49\)
+* copiar la `HD node root key base58` para BTC \(Bitcoin, Native SegWit, BIP84\) o BTC \(Bitcoin, SegWit, BIP49\)
 
-### Open [https://iancoleman.io/bip39/](https://iancoleman.io/bip39/)
+### Abra [https://iancoleman.io/bip39/](https://iancoleman.io/bip39/)
 
-* enter the `HD node root key base58` to `BIP32 Root Key`
-* under `Derivation Path`
-  * Select the tab `BIP84` for bc1.. addresses.
-  * Select `BIP49` for 3.. addresses. 
-* Import the `Account Extended Public key` to Electrum for a watch only wallet. See: [https://bitcoinelectrum.com/creating-a-watch-only-wallet/](https://bitcoinelectrum.com/creating-a-watch-only-wallet/)
-* Import the `Account Extended Private Key` to Electrum for a hot wallet \(not recommended\).
+* ingrese la `HD node root key base58` en `BIP32 Root Key`
+* en `Derivation Path`
+  * Seleccione la pestaña `BIP84` para obtener las direcciones que empiezan por bc1.
+  * Seleccione `BIP49` para obtener las direcciones que empiezan por 3.
+* Importe la `Account Extended Public key` a Electrum para una billetera de solo lectura. Ver: [https://bitcoinelectrum.com/creating-a-watch-only-wallet/](https://bitcoinelectrum.com/creating-a-watch-only-wallet/)
+* Importe la `Account Extended Private Key` a Electrum para una billetera con todas las capacidades \(no recomendado\).
 
-Alternatively watch this video:  
+Alternativamente, mira este video:  
 [https://light-tube.eu/?latest=Latest&search=How+to+import+your+lighting+wallet+into+Electrum](https://light-tube.eu/?latest=Latest&search=How+to+import+your+lighting+wallet+into+Electrum)
 
-Showing the use of:
+Mostrando el uso de:
 
 [https://github.com/guggero/chantools](https://github.com/guggero/chantools)
 
 ```text
 showrootkey
 
-This command converts the 24 word lnd aezeed phrase and password to the BIP32 HD root key that is used as the rootkey parameter in other commands of this tool.
+Este comando convierte las 24 palabras y la contraseña de lnd aezeed a BIP32 HD root key que se utiliza como parámetro rootkey en otros comandos de esta herramienta.
 
-Example command:
+Ejemplo:
 
 chantools showrootkey
 ```
 
-Convert the xpub to zpub with this small python script:
+Convierta el xpub a zpub con este script de Python:
 
 [https://gist.github.com/freenancial/d82fec076c13158fd34d1c4300b2b300](https://gist.github.com/freenancial/d82fec076c13158fd34d1c4300b2b300)
-

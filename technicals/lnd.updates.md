@@ -1,37 +1,37 @@
-# Automated LND update scripts for the RaspiBlitz
+# Scripts de actualización automatizada de LND para RaspiBlitz
 
-Check for the latest official release and notes: [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/)
+Verifique la versión y notas oficiales más recientes en: [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/)
 
-**WARNING for every major version update: After the migration the LND database will be only compatible with that new version and above.**  
-This means that the update script needs to be run each time when a clean RaspiBlitz SDcard image is used to access the LND database.
+** ADVERTENCIA para cada actualización de la versión principal: después de la migración la base de datos LND solo será compatible con esa nueva versión y/o superior.**
+Esto significa que el script de actualización debe ejecutarse cada vez que se utiliza una imagen RaspiBlitz desde cero para acceder a la base de datos LND.
 
 ## Backup
 
-Before updating it is most recommended to make a full backup of the LND directory.  
-**This is not be restored after LND is successfully restarted!**
+Antes de actualizar, se recomienda realizar una copia de seguridad completa del directorio LND.
+**¡No restaurará después de que LND se reinicie con éxito!**
 
-* Run this line in the RaspiBlitz terminal to use the built-in script:
+* Ejecute lo siguiente en la terminal RaspiBlitz :
 
   ```bash
     $ /home/admin/config.scripts/lnd.rescue.sh backup
   ```
 
-  More info about this process in the [FAQ](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
+  Más información sobre este proceso en las [preguntas frecuentes](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
 
-## [Update LND to a chosen version](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.sh)
+## [Actualice LND a una versión especifica](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.sh)
 
-* Run in the RaspiBlitz terminal to use:
+* Para usar, ejecute en la terminal RaspiBlitz lo siguiente:
 
   ```bash
-    # download
+    # descargar
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.sh
-    # look through the script
+    # revisar el script
     cat lnd.update.sh
-    # run
+    # ejecutar
     bash lnd.update.sh
   ```
 
-* asks about the parameters every time then downloads and verifies accordingly:
+* consulte los parámetros cada vez, luego descargue y verifique:
 
   ```bash
     $ bash lnd.update.sh
@@ -43,70 +43,69 @@ Before updating it is most recommended to make a full backup of the LND director
     9C8D61868A7C492003B2744EE7D737B67FA592C7
   ```
 
-  \*\*\*\*[**Update LND to v0.12.1-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.12.1-beta.sh)\*\*\*\*
+  \*\*\*\*[**Actualice LND a v0.12.1-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.12.1-beta.sh)\*\*\*\*
 
-* Run in the RaspiBlitz terminal to update:
+* Para actualizar, ejecute en la terminal RaspiBlitz lo siguiente:
 
   ```bash
-    # download
+    # descargar
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.1-beta.sh
-    # look through the script
+    # revisar el script
     cat lnd.update.v0.12.1-beta.sh
-    # run
+    # ejecutar
     bash lnd.update.v0.12.1-beta.sh
   ```
 
-  \*\*\*\*[**Update LND to v0.12.0-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.12.0-beta.sh)\*\*\*\*
+  \*\*\*\*[**Actualice LND a v0.12.0-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.12.0-beta.sh)\*\*\*\*
 
-* Run in the RaspiBlitz terminal to update:
+* Para actualizar, ejecute en la terminal RaspiBlitz lo siguiente:
 
   ```bash
-    # download
+    # descargar
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.0-beta.sh
-    # look through the script
+    # revisar el script
     cat lnd.update.v0.12.0-beta.sh
-    # run
+    # ejecutar
     bash lnd.update.v0.12.0-beta.sh
   ```
 
-  \*\*\*\*[**Update LND to v0.11.1-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.11.1-beta.sh)\*\*\*\*
+  \*\*\*\*[**Actualice LND a v0.11.1-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.11.1-beta.sh)\*\*\*\*
 
-* Run in the RaspiBlitz terminal to update:
+* Para actualizar, ejecute en la terminal RaspiBlitz lo siguiente:
 
   ```bash
-    # download
+    # descargar
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.1-beta.sh
-    # look through the script
+    # revisar el script
     cat lnd.update.v0.11.1-beta.sh
-    # run
+    # ejecutar
     bash lnd.update.v0.11.1-beta.sh
   ```
 
-## [Update LND to v0.11.0-beta](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.11.0-beta.sh)
+## [Actualice LND a v0.11.0-beta](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.11.0-beta.sh)
 
-* Run in the RaspiBlitz terminal to update:
+* Para actualizar, ejecute en la terminal RaspiBlitz lo siguiente:
 
   ```bash
-    # download
+    # descargar
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.0-beta.sh
     # inspect the script
     cat lnd.update.v0.11.0-beta.sh
-    # run
+    # ejecutar
     bash lnd.update.v0.11.0-beta.sh
   ```
 
-## [Build LND from the source](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.from.source.sh)
+## [Construya LND desde la fuente](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.from.source.sh)
 
-* Download and run this script on the RaspiBlitz:
+* Descargue y ejecute este script en RaspiBlitz:
 
   ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh 
+    # descargar
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh
     # inspect the script
     cat lnd.update.v0.11.0-beta.sh
-    # run
+    # ejecutar
     bash lnd.from.source.sh
   ```
 
-* Will ask for the commit to checkout from. Choose a commit ID from this list: [https://github.com/lightningnetwork/lnd/commits/master](https://github.com/lightningnetwork/lnd/commits/master)
-
+* Solicitará el commit para descargar. Elija un ID de commit de esta lista: [https://github.com/lightningnetwork/lnd/commits/master](https://github.com/lightningnetwork/lnd/commits/master)
