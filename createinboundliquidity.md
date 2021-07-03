@@ -39,7 +39,7 @@ Ejemplos:
 
 ## [Lightning Pool](https://pool.lightning.engineering/)
 
-Compre canales entrantes en un "marketplace" abierto: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Notas de uso: [pool.md](pool.md)
+Compre canales entrantes en un "marketplace" abierto: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Notas de uso: [pool.md](advanced-tools/pool.md)
 
 ## [Lightning Loop](https://github.com/lightninglabs/loop)
 

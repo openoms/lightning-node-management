@@ -38,7 +38,7 @@ La cantidad máxima permitida para un pago está determinada por la "liquidez en
 * Verificar [https://whatthefee.io/](https://whatthefee.io/) para obtener una estimación de confirmación de acuerdo al tiempo/costo.
 * Use un costo personalizado y elija el número más bajo de acuerdo a un tiempo de confirmación aceptable.
 * Los costos pagados deben cubrir al menos 141 bytes, sin embargo, este número suele ser mayor dependiendo de las entradas (en la transacción), "script" y cantidad de firmas.
-* Aprenda qué hacer en un [entorno de costos "on-chain" altos](highonchainfees.md)
+* Aprenda qué hacer en un [entorno de costos "on-chain" altos](technicals/highonchainfees.md)
 
 ## Nodos Tor
 
@@ -75,7 +75,7 @@ Tor es una red "anonimizada" diseñada para ocultar la dirección IP de los part
 
 ## Costos de enrutamiento de la red Lightning
 
-### Configuración avanzada y automatizada de costos: [fees.md](fees.md)
+### Configuración avanzada y automatizada de costos: [fees.md](advanced-tools/fees.md)
 
 A diferencia de las transacciones "on-chain" \(donde los costos de transacción se pagan por los bytes que ocupa la transacción en un bloque \), los costos en la red Lightning están relacionados con la cantidad enrutada. Hay dos componentes de tarifa:
 
@@ -95,7 +95,7 @@ Configurar costos para canales individuales solo requiere un clic en el [app RTL
 
 ## Watchtowers
 
-Leer más sobre cómo configurar uno en [watchtower.md](watchtower.md).
+Leer más sobre cómo configurar uno en [watchtower.md](advanced-tools/watchtower.md).
 
 ## Liquidez
 
@@ -179,7 +179,7 @@ Este script de Python permite reequilibrar fácilmente los canales individuales 
     $ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>
   ```
 
-### [Métodos para crear un canal balanceado con un nodo de confianza](balancedchannelcreation.md)
+### [Métodos para crear un canal balanceado con un nodo de confianza](advanced-tools/balancedchannelcreation.md)
 
 * Realice un intercambio de confianza entre "on-chain" y "off-chain".
 * Abra un canal balanceado y con doble financiación con un nodo de confianza utilizando el comando que requiere una transacción Lightning y una "on-chain".
