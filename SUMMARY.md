@@ -1,33 +1,32 @@
-# Table of contents
+# Tabla de contenido
 
-* [Overview](README.md)
-* [Create inbound liquidity](createinboundliquidity.md)
-* [Create outbound liquidity](createoutboundliquidity.md)
+* [General](README.md)
+* [Crear liquidez entrante](createinboundliquidity.md)
+* [Crear liquidez saliente](createoutboundliquidity.md)
 
-## Node Types
+## Tipos de nodo
 
-* [Merchant](node-types/nodetype.merchant.md)
-* [Spending](node-types/nodetype.spending.md)
-* [Routing](node-types/nodetype.routing.md)
+* [Comercio](nodetype.merchant.md)
+* [Gasto](nodetype.spending.md)
+* [Enrutamiento](nodetype.routing.md)
 
-## Advanced Tools
+## Herramientas avanzadas
 
-* [Methods to create a balanced channel with a trusted peer](advanced-tools/balancedchannelcreation.md)
-* [Pool usage notes](advanced-tools/pool.md)
-* [Bos Score](advanced-tools/bosscore.md)
-* [lnd.conf example](advanced-tools/lnd.conf.md)
-* [Advanced and automated fee settings](advanced-tools/fees.md)
-* [Set up a Watchtower and a Client on the Lightning Network](advanced-tools/watchtower.md)
+* [Métodos para crear un canal balanceado con un nodo de confianza](balancedchannelcreation.md)
+* [Notas de uso de Lightning Pool](pool.md)
+* [Bos Score](bosscore.md)
+* [Ejemplo lnd.conf](lnd.conf.md)
+* [Configuración avanzada y automatizada de costos](fees.md)
+* [Configurar un Watchtower y un Cliente en la red Lightning](watchtower.md)
 
-## Technicals
+## Técnicas
 
-* [High onchain fee environment](technicals/highonchainfees.md)
-* [Compact the LND database \(channel.db\)](technicals/lnddatabasecompaction.md)
-* [Manage the LND onchain funds in Electrum Wallet](technicals/restorelndonchainfundsinelectrum.md)
-* [Automated LND update scripts for the RaspiBlitz](technicals/lnd.updates.md)
-* [Connecting to a lightning node remotely](technicals/lightning.connect.md)
+* [Entorno de altos costos on-chain](highonchainfees.md)
+* [Compactar la base de datos LND \(channel.db\)](lnddatabasecompaction.md)
+* [Administre los fondos LND on-chain en Electrum](restorelndonchainfundsinelectrum.md)
+* [Scripts de actualización automatizada de LND para RaspiBlitz](lnd.updates.md)
+* [Conectarse a un nodo Lightning de forma remota](lightning.connect.md)
 
-## Donate
+## Donar
 
-* [Donations](donate/donations.md)
-
+* [Donaciones](donations.md)
