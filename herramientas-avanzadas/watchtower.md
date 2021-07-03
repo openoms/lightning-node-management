@@ -1,39 +1,40 @@
-# Set up a Watchtower and a Client on the Lightning Network
+# Configurar un Watchtower y un Cliente en la red Lightning
 
-A watchtower monitors the bitcoin blockchain for any transaction attempting to steal from it\`s client by closing a channel with a previous, invalid state. If a breach is found the watchtower immediately broadcasts a punisher transaction moving all funds in the channel to the on-chain wallet of it\`s client.
+Un watchtower monitorea la blockchain de bitcoin para detectar transacciones que intenten robarle cerrando un canal con un estado anterior inválido. Si se encuentra una infracción el watchtower transmite inmediatamente una transacción de castigo que mueve todos los fondos del canal a una billetera on-chain.
 
-If there are two nodes in your control from lnd v0.7.0 you can set them up to look out for each other. Best to be done with nodes in two separate physical location so any unexpected loss of contact can be covered for.
+Si hay dos nodos bajo su control desde lnd v0.7.0, puede configurarlos para que se vigilen entre sí. Es mejor hacerlo con nodos en dos ubicaciones físicas separadas para reducir el riesgo de pérdida de conexión.
 
-## Update lnd
+## Actualizar lnd
 
-Check [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/) for the latest version and release notes. Update [manually](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) or use an [automated helper script](../technicals/lnd.updates.md) to update lnd on a RaspiBlitz or a compatible system.
+Ver [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/) para obtener la última versión y sus notas correspondientes. Actualice [manualmente](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) o use un [script automatizado](../tecnicas/lnd.updates.md) para actualizar lnd en un RaspiBlitz o un sistema compatible.
 
-## Set up the Watchtower
+## Configurar el Watchtower
 
-Run the commands in the node\`s terminal  
-`#` stands for `$ sudo`
+Ejecute los siguientes comandos en la terminal del nodo
 
-* Change the lnd.conf:  
+`#` significa `$ sudo`
+
+* Edite el lnd.conf:
 
   `# nano /mnt/hdd/lnd/lnd.conf`
 
-* insert the lines on the end of the file:
+* inserte las siguientes líneas al final del archivo:
 
   ```text
   [Watchtower]
   watchtower.active=1
   ```
 
-  * the watchtower listens on the port 9911 by default, but can be set to any other unused port with: `watchtower.listen=0.0.0.0:PORT` in the config file.
-  * The IP address `0.0.0.0` is used to accept connections from everywhere \(default setting\)
+  * de forma predeterminada el watchtower escucha en el puerto 9911 pero se puede configurar en cualquier otro utilizando `watchtower.listen = 0.0.0.0: PORT` en el archivo de configuración.
+  * La dirección IP `0.0.0.0` se usa para aceptar conexiones desde cualquier lugar \(configuración predeterminada\)
 
-* allow the port through the firewall: `# ufw allow 9911 comment "watchtower"` `# ufw enable`
-* restart lnd `# systemctl restart lnd`
-* forward the port 9911 on the router
-* Check in the log if the service is working:  
+* habilite el puerto a través del firewall: `# ufw allow 9911 comment "watchtower"` `# ufw enable`
+* reinicie lnd `# systemctl restart lnd`
+* redireccione el puerto 9911 en el router
+* Verifique en el log si el servicio está funcionando:  
   `# tail -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`
 
-  Sample log output:
+  Ejemplo del log:
 
   ```text
     2019-06-21 09:08:58.544 [INF] WTWR: Starting watchtower
@@ -54,41 +55,41 @@ Run the commands in the node\`s terminal
     2019-06-21 13:14:51.074 [INF] WTWR: Releasing incoming peer 02b5792e533ad17fc77db13093ad84ea304c5069018f97083e3a8c6a2eac95a63f@171.25.193.25:34413
   ```
 
-  Filter the relevant messages continuously with \(press CTRL+C to exit\):  
+  Filtre los mensajes relevantes con \(presione CTRL+C para salir\):  
   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
-* Take note of the `pubkey` from:  
+* Consulte el `pubkey` con:  
   `$ lncli tower info`
 
-  The watchtower\`s pubkey is distinct from the pubkey of the lnd node.
+  El pubkey del watchtower es distinto del pubkey del nodo lnd.
 
-## Set up the node to be monitored \(the watchtower client\)
+## Configurar el nodo a monitorear \(el cliente watchtower\)
 
-* \[LND v0.8.0+\] Register one or more watchtower\(s\):
-  * Change the lnd.conf:  
+* \[LND v0.8.0+\] Registre uno o mas watchtower\(s\):
+  * Edite lnd.conf:
 
     `# nano /mnt/hdd/lnd/lnd.conf`
 
-  * insert the lines on the end of the file:
+  * inserte las siguientes líneas al final del archivo:
 
     ```text
     [Wtclient]
     wtclient.active=1
     ```
 
-    Add a watchtower from the command line \(can add multiple one-by-one\):
+    Agregue un watchtower desde la consola \(puede agregar varios, uno por uno\):
 
     ```text
     $ lncli wtclient add <watchtower-pubkey>@<host>:9911
     ```
 
-  * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
-  * For a clearnet client the `host` needs to be the clearnet IP \(or dynamicDNS\) of the watchtower even if the watchtower is running behind Tor. 
-* Restart lnd `# systemctl restart lnd`
-* Check in the log if the service is working:  
+  * Use el `watchtower-pubkey` anotado anteriormente con `$ lncli tower info`.
+  * Para un cliente clearnet, el `host` debe ser la IP clearnet \(o dynamicDNS\) del watchtower, incluso si este se ejecuta a través de Tor.
+* Reinicie lnd `# systemctl restart lnd`
+* Verifique en el log si el servicio está funcionando:  
   `# tail -n 100 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`
 
-  Sample log output:
+  Ejemplo del log:
 
   ```text
     2019-06-21 14:14:50.785 [DBG] WTCL: Sending Init to 02a4c564af0f33795b438e8d76d2b5057c3dcd1115be144c3fc05e7c8c65486f23@<host>:9911
@@ -101,19 +102,19 @@ Run the commands in the node\`s terminal
     2019-06-21 14:15:16.588 [INF] WTCL: Client stats: tasks(received=0 accepted=0 ineligible=0) sessions(acquired=1 exhausted=0)
   ```
 
-  Filter the relevant messages continuously with \(press CTRL+C to exit\):  
+  Filtre los mensajes relevantes con: \(presione CTRL+C para salir\):  
   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
 
-  To have more information in the log add the line to the lnd.conf file:
+  Para tener más información en el log, agregue la siguiente línea al archivo lnd.conf:
 
   ```text
     debuglevel=WTWR=debug,WTCL=debug
   ```
 
-  or run the command on the go:  
+  o ejecute el siguiente comando:  
   `lncli debuglevel --level=WTWR=debug,WTCL=debug`
 
-  Sample result in the log:
+  Ejemplo del log:
 
   ```text
     2019-07-29 15:26:51.386 [DBG] WTWR: Fetching block for (height=587633, hash=0000000000000000000b047fbe6d93c2af193249bdb864a99186914fc4b0b2c6)
@@ -124,29 +125,29 @@ Run the commands in the node\`s terminal
     2019-07-29 15:34:18.619 [DBG] WTWR: No breaches found in (height=587634, hash=00000000000000000010615b2c0b3c32cb4ebcb7eb0bd452812f5c48d0edad0c)
   ```
 
-  Sit back and enjoy that now there is no way to cheat your node even when it is offline!
+  ¡Siéntese y disfrute que ahora no hay forma de engañar a su nodo incluso cuando está desconectado!
 
-## Setup for nodes behind Tor
+## Configuración para nodos con Tor
 
-Both nodes \(the watchtower and the client\) must be behind Tor to be able to communicate.
+Ambos nodos \(el watchtower y el cliente lnd\) deben usar Tor para poder comunicarse.
 
-### Tor Watchtower setup
+### Configuración de Tor Watchtower
 
-* Change the lnd.conf:  
+* Edite lnd.conf:
 
   `# nano /mnt/hdd/lnd/lnd.conf`
 
-* insert the lines on the end of the file: 
+* inserte las siguientes líneas al final del archivo:
 
   ```text
     [Watchtower]
     watchtower.active=1
   ```
 
-* Edit the Tor config file of the watchtower:  
+* Edite el archivo de configuración de Tor del watchtower:  
   `# nano /etc/tor/torrc`
 
-  add the lines:
+  agregue las siguientes líneas:
 
   ```text
     # Hidden Service for incoming LND WatchTower connections
@@ -154,13 +155,13 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     HiddenServicePort 9911 127.0.0.1:9911
   ```
 
-* restart Tor and lnd with systemctl: `# systemctl restart tor` `# systemctl restart lnd`
-* Take note of the watchtower's onion address by running: `# cat /mnt/hdd/tor/lndWT9911/hostname`
-* Take note of the watchtower-pubkey by running `$ lncli tower info`
-* Filter the log continuously with \(CTRL+C to exit\):  
+* reinicie Tor y lnd con systemctl: `# systemctl restart tor` y `# systemctl restart lnd`
+* Consulte la dirección onion del watchtower ejecutando: `# cat /mnt/hdd/tor/lndWT9911/hostname`
+* Consulte el pubkey del watchtower \(`watchtower-pubkey`\) con `$ lncli tower info`
+* Filtre los mensajes relevantes con \(CTRL+C para salir\):  
   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
-  Example output on the watchtower side:
+  Ejemplo del log del watchtower:
 
   ```text
     2019-08-20 11:26:30.555 [INF] WTWR: Accepted incoming peer WTCLIENT_PUBKEY@127.0.0.1:57264
@@ -175,34 +176,34 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     2019-08-20 11:27:28.729 [DBG] WTWR: No breaches found in (height=590941, hash=000000000000000000069b8d2739cb8736cc6a14927d760a7b7dfa47e1e5059e)
   ```
 
-### Tor Watchtower Client setup
+### Configuración del cliente Tor Watchtower
 
-* \[LND v0.8.0+\] Register one or more watchtower\(s\):
-  * Change the lnd.conf:  
+* \[LND v0.8.0+\] Registre uno o mas watchtower\(s\):
+  * Edite lnd.conf:
 
     `# nano /mnt/hdd/lnd/lnd.conf`
 
-  * insert the lines on the end of the file:
+  * inserte las siguientes líneas al final del archivo:
 
     ```text
     [Wtclient]
     wtclient.active=1
     ```
 
-  * Add a watchtower from the command line \(can add multiple one-by-one\):
+  * Agregue un watchtower desde la consola \(puede agregar varios, uno por uno\):
 
     ```text
     $ lncli wtclient add 02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@xjyldrwmtxtutdqqhgvxvnykk4ophz6ygr3ci4gxnnt5wibl7k4g2vad.onion:9911
     ```
 
-    * The details of a test node are prefilled. Connections are welcome, but there is no guarantee for this service to stay online.
-    * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
-    * The host is watchtower's .onion address noted previously from: `# cat /mnt/hdd/tor/lndWT9911/hostname`
-* restart lnd with systemctl: `# systemctl restart lnd`
-* Check which watchtowers are listening:  
+    * Los detalles de un nodo de prueba están precargados. Recibe conexiones pero no hay garantía de que este servicio permanezca conectado.
+    * Utilice el `watchtower-pubkey` que se indicó anteriormente de `$ lncli tower info`.
+    * El host es la dirección .onion del watchtower anotada anteriormente de: `# cat /mnt/hdd/tor/lndWT9911/hostname`
+* reinicie lnd con systemctl: `# systemctl restart lnd`
+* Verifique qué watchtowers están escuchando:  
   `$ lncli wtclient towers`
 
-  Example output:
+  Ejemplo:
 
   ```text
     {
@@ -220,10 +221,10 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     }
   ```
 
-* Filter the log continuously with \(CTRL+C to exit\):  
+* Filtre los mensajes relevantes con \(CTRL+C para salir\):  
   `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTCL`
 
-  Example output on the client side:
+  Ejemplo del log del cliente:
 
   ```text
     2019-07-26 10:30:08.041 [INF] WTCL: Client stats: tasks(received=8 accepted=8 ineligible=0) sessions(acquired=0 exhausted=0)
@@ -233,21 +234,21 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     2019-07-26 10:31:08.041 [INF] WTCL: Client stats: tasks(received=9 accepted=9 ineligible=0) sessions(acquired=0 exhausted=0)
   ```
 
-## More info:
+## Más información:
 
 [https://github.com/lightningnetwork/lnd/blob/master/docs/watchtower.md](https://github.com/lightningnetwork/lnd/blob/master/docs/watchtower.md)
 
-Latest lnd release notes: [https://github.com/lightningnetwork/lnd/releases](https://github.com/lightningnetwork/lnd/releases)
+Últimas notas del release de lnd: [https://github.com/lightningnetwork/lnd/releases](https://github.com/lightningnetwork/lnd/releases)
 
 [https://thebitcoinnews.com/watchtowers-are-coming-to-lightning/](https://thebitcoinnews.com/watchtowers-are-coming-to-lightning/)
 
 [https://bitcoinops.org/en/newsletters/2019/06/19/](https://bitcoinops.org/en/newsletters/2019/06/19/)
 
-Will O\`Beirne shows in this article \(and GitHub repo\) how to demonstrate a breach and the actions of a watchtower on a simulated network: [https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112](https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112)
+Will O\`Beirne muestra en este artículo \(y el repositorio de GitHub\) cómo demostrar una infracción y las acciones de un watchtower en una red simulada: [https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112](https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112)
 
 SLP83 Conner Fromknecht – Bitcoin Lightning Watchtowers in depth  
 podcast: [https://stephanlivera.com/episode/83](https://stephanlivera.com/episode/83)  
-transcript: [http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/](http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/)
+transcripción: [http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/](http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/)
 
-Check for some altruistic watchtowers and share your own: [https://github.com/openoms/lightning-node-management/issues/4](https://github.com/openoms/lightning-node-management/issues/4)
+Busque algunos watchtowers altruistas y comparta los suyos: [https://github.com/openoms/lightning-node-management/issues/4](https://github.com/openoms/lightning-node-management/issues/4)
 
