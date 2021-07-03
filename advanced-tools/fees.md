@@ -1,4 +1,4 @@
-# Advanced and automated fee settings
+# Configuración avanzada y automatizada de costos
 
 ## [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 
@@ -6,7 +6,7 @@
 
 ```text
 USAGE
-  bos fees 
+  bos fees
   List out fee rates, fix problems with routing policies, set out fees
   When setting fee, if channels pending, will wait for confirm to set
   Set-fee-rate can use formulas: https://formulajs.info/functions/
@@ -22,19 +22,18 @@ OPTIONS
 
 ## [charge-lnd](https://github.com/accumulator/charge-lnd)
 
-Set channel fees based on policy.  
-This script matches your open channels against a number of customizable criteria and applies a channel policy based on the matching section.
+Establezca los costos de uso del canal según una política.
+Este script compara sus canales abiertos con una serie de criterios personalizables y aplica una política para el canal basado en dicha configuración.
 
 ## [LND fees manager](https://gitlab.com/nolith/lndfeesmanager)
 
-lndfeesmanager is a simple software that aims to balance LN channels using a dynamic fees.  
-When a channel is unbalanced it will update the fees.
+lndfeesmanager es un software cuyo objetivo es  equilibrar los canales LN mediante costos dinámicos.
+Cuando un canal está desbalanceado actualiza los costos.
 
-If the balance is mostly local, fees will be decresed to incentivate routing.  
-If the balance is mostly remote, fees will be increased to disincentivate routing.  
-If the channel is balanced, a medium fee will be set.
+Si el saldo es mayormente local, los costos se reducirán para incentivar el enrutamiento.
+Si el saldo es mayormente remoto, las tarifas se incrementarán para desincentivar el enrutamiento.
+Si el canal está equilibrado, se establecerá una tarifa media.
 
-## More reading
+## Información adicional
 
-* An article with useful formulas: [http://satbase.org/routing-fees/](http://satbase.org/routing-fees/)
-
+* Artículo con fórmulas útiles: [http://satbase.org/routing-fees/](http://satbase.org/routing-fees/)

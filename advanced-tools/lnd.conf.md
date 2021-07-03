@@ -1,19 +1,19 @@
-# lnd.conf example
+# Ejemplo lnd.conf
 
-Based on:
+Basado en:
 
 * [https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
 * [https://github.com/alexbosworth/run-lnd\#install-lnd](https://github.com/alexbosworth/run-lnd#install-lnd)    
 * [https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf](https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf)
 
-Path to edit on the RaspiBlitz:
+Ruta para editar en RaspiBlitz:
 
 ```text
 sudo nano /mnt/hdd/lnd/lnd.conf
 ```
 
 ```text
-# Example configuration for lnd.
+# Ejemplo de configuración para lnd.
 
 [Application Options]
 #################################
@@ -48,7 +48,7 @@ max-channel-fee-allocation=1.0
 max-cltv-expiry=5000
 
 #########################
-# Improve startup speed # 
+# Improve startup speed #
 #########################
 # If true, we'll attempt to garbage collect canceled invoices upon start.
 gc-canceled-invoices-on-startup=true
@@ -138,9 +138,8 @@ watchtower.active=1
 tor.password=PASSWORD_B
 ```
 
-LND needs to be restarted to use the new settings.
+Es necesario reiniciar LND para usar la nueva configuración.
 
 ```text
 sudo systemctl restart lnd
 ```
-
