@@ -45,7 +45,7 @@ There should be no rush, so use a low fee for the on-chain tx. Check [https://wh
 
 This will result to have a balanced channel with 1M sats on each side \(minus the commit fee\).
 
-![a balanced channel shown in ZeusLN](../.gitbook/assets/balancedChannel%20%281%29.jpg)
+![a balanced channel shown in ZeusLN](../.gitbook/assets/balancedChannel%20%281%29%20%281%29.jpg)
 
 ## The cost of liquidity
 
