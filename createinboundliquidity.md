@@ -10,26 +10,27 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 
 Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
 
-* [Breez](https://breez.technology/)  
+* [Breez](https://breez.technology/)
 
-  A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.  
+  A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.
 
   Sending the funds out to a bitcoin address on-chain costs 0.5% with [Boltz](https://boltz.exchange/)
 
-* [Phoenix](https://phoenix.acinq.co/)   
+* [Phoenix](https://phoenix.acinq.co/)
 
   Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
 
-* [Muun Wallet](https://muun.com/)  
+* [Muun Wallet](https://muun.com/)
 
   An easy-to-use cross platform lightning wallet
 
 ## Custodial wallets
+
 Pay yourself via LN and benefit from the inbound liquidity created.
 
-The drawback is that you don't control the keys of your custodial wallet.  
+The drawback is that you don't control the keys of your custodial wallet.
 
-  Examples:  
+Examples:
 
 * [Tippin.me](https://tippin.me/)
 * [Wallet of Satoshi](https://www.walletofsatoshi.com/)
@@ -37,7 +38,7 @@ The drawback is that you don't control the keys of your custodial wallet.
 
 ## [Lightning Pool](https://pool.lightning.engineering/)
 
-Buy incoming channels on a permissionless marketplace: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Usage notes: [pool.md](pool.md)
+Buy incoming channels on a permissionless marketplace: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Usage notes: [pool.md](advanced-tools/pool.md)
 
 ## [Lightning Loop](https://github.com/lightninglabs/loop)
 
@@ -64,9 +65,10 @@ In the current iteration of the Loop software, two swap types are supported:
 
   [https://lightning.engineering/loopapi](https://lightning.engineering/loopapi)
 
-
 ## [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
+
 Pay for incoming channels.
+
 ## [ChainMarket](https://chainmarket.etleneum.com/)
 
 A Lightning to onchain swap market with batched transactions. Fee: 0.5%
@@ -112,3 +114,4 @@ Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/
 ## [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
 
 List of exchange services to make coin swaps LN &lt;-&gt; onchain & more
+
