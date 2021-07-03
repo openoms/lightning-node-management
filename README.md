@@ -1,10 +1,10 @@
 # General
 
-## Conexiones (peer) y Canales
+## Conexiones \(peer\) y Canales
 
 * Los 'Peers' son nodos conectados entre si a través de internet \(TCP/IP\).
-* Un canal hace referencia a un "canal de pago" establecido entre dos nodos (peers) de la red Lightning.
-* Para abrir un canal primero se debe establecer una conexión entre nodos (peers).
+* Un canal hace referencia a un "canal de pago" establecido entre dos nodos \(peers\) de la red Lightning.
+* Para abrir un canal primero se debe establecer una conexión entre nodos \(peers\).
 * Se puede establecer una conexión automática con nodos de acceso público.
 * Si uno de los nodos no es de acceso público, la conexión entre las partes debe iniciarse manualmente desde el nodo privado, incluso si el nodo de acceso público está abriendo el canal.
 
@@ -15,14 +15,14 @@ Para poder recibir pagos en la red Lightning, un nodo necesita:
 * "liquidez entrante" \(balance remoto\), es decir, se requiren algunos satoshis en el otro lado del canal.
 * un canal a un nodo "bien conectado" o un canal directo desde el nodo que paga. Esto asegura que exista una ruta de pago viable.
 
-La cantidad máxima permitida para un pago está determinada por la "liquidez entrante" más alta de un canal en la ruta de pago \ (no es acumulable entre canales \).
+La cantidad máxima permitida para un pago está determinada por la "liquidez entrante" más alta de un canal en la ruta de pago  \(no es acumulable entre canales \).
 
-## Tamaño del canal y elección de nodos (peers)
+## Tamaño del canal y elección de nodos \(peers\)
 
 * No hay un número sugerido, pero en general se recomienda evitar la apertura de canales con menos 200K-500K sats.
 * [https://1ml.com/statistics](https://1ml.com/statistics) muestra el tamaño promedio por canal en la red:
 
-  0.028 BTC = 2 800 000 satoshis (28 Mayo 2019).
+  0.028 BTC = 2 800 000 satoshis \(28 Mayo 2019\).
 
 * Un canal demasiado pequeño podría resultar en que no se pueda cerrar cuando los costos por transacción "on-chain" estén altos. Esto dejará al canal vulnerable si la contraparte intenta cerrar con un estado previo \(los fondos en el canal podrían ser robados \).
 * El tamaño máximo del un pago directo o enrutado está determinado por la liquidez direccional más alta de un solo canal en la ruta de pago \(no acumulable entre canales \).
@@ -37,8 +37,8 @@ La cantidad máxima permitida para un pago está determinada por la "liquidez en
 * El tiempo de confirmación depende del estado de la "mempool" de bitcoin \([https://jochen-hoenicke.de/queue/\#0,24h](https://jochen-hoenicke.de/queue/#0,24h)\) y de los sats/byte usados para pagar los costos de transacción \([https://bitcoinfees.earn.com/](https://bitcoinfees.earn.com/)\).
 * Verificar [https://whatthefee.io/](https://whatthefee.io/) para obtener una estimación de confirmación de acuerdo al tiempo/costo.
 * Use un costo personalizado y elija el número más bajo de acuerdo a un tiempo de confirmación aceptable.
-* Los costos pagados deben cubrir al menos 141 bytes, sin embargo, este número suele ser mayor dependiendo de las entradas (en la transacción), "script" y cantidad de firmas.
-* Aprenda qué hacer en un [entorno de costos "on-chain" altos](technicals/highonchainfees.md)
+* Los costos pagados deben cubrir al menos 141 bytes, sin embargo, este número suele ser mayor dependiendo de las entradas \(en la transacción\), "script" y cantidad de firmas.
+* Aprenda qué hacer en un [entorno de costos "on-chain" altos](tecnicas/highonchainfees.md)
 
 ## Nodos Tor
 
@@ -54,7 +54,7 @@ Tor es una red "anonimizada" diseñada para ocultar la dirección IP de los part
 
 * Imagine un nodo `B` en una conexión en serie `A`-`B`-`C`.
 * Los canales de `B` están configurados para que haya capacidad de entrada \(balance remoto\) desde `A` y capacidad de salida \(balance local\) a `C`.
-* Si "A" quiere hacer un pago a "C", habrá 1 nodo intermedio (o 1 salto) en la ruta.
+* Si "A" quiere hacer un pago a "C", habrá 1 nodo intermedio \(o 1 salto\) en la ruta.
 * Internamente: `A` envía los satoshis a `B` \(nodo de enrutamiento\) y este pagará a `C`.
 * La capacidad de los canales no cambia, solo "se mueve".
 * El pago solo puede realizarse si se puede enviar una "imagen hash" \(un mensaje\) desde el destino.
@@ -65,17 +65,17 @@ Tor es una red "anonimizada" diseñada para ocultar la dirección IP de los part
 * mejor conocido como canal "no anunciado"
 * no será publicado en el "grafo de canales" \(red gossip\)
 * más útil para enviar pagos
-* para recibir pagos es necesario tener un "route hint" (pista de ruta) incluida en la factura:
+* para recibir pagos es necesario tener un "route hint" \(pista de ruta\) incluida en la factura:
 
   `lncli addinvoice <amount> --private`
 
 * el "route hint" es el identificador de la transacción de financiación \(expone el canal a cualquiera que conozca la factura\)
 * es posible recibir pagos "keysend" si se conoce el "route hint"
-* no enruta pagos (a menos que se use en paralelo con un canal público al mismo nodo, también conocido como liquidez en la sombra)
+* no enruta pagos \(a menos que se use en paralelo con un canal público al mismo nodo, también conocido como liquidez en la sombra\)
 
 ## Costos de enrutamiento de la red Lightning
 
-### Configuración avanzada y automatizada de costos: [fees.md](advanced-tools/fees.md)
+### Configuración avanzada y automatizada de costos: [fees.md](herramientas-avanzadas/fees.md)
 
 A diferencia de las transacciones "on-chain" \(donde los costos de transacción se pagan por los bytes que ocupa la transacción en un bloque \), los costos en la red Lightning están relacionados con la cantidad enrutada. Hay dos componentes de tarifa:
 
@@ -94,23 +94,19 @@ En caso de que se enruten pagos a través de un canal "costoso" es importante au
 Configurar costos para canales individuales solo requiere un clic en el [app RTL](./#RTL---Ride-The-Lightning).
 
 ## Watchtowers
-
-Leer más sobre cómo configurar uno en [watchtower.md](advanced-tools/watchtower.md).
+Leer más sobre cómo configurar uno en [watchtower.md](herramientas-avanzadas/watchtower.md).
 
 ## Liquidez
 
 Lea las ideas básicas de Alex Bosworth: [https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md](https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md)
 
-## Crear liquidez entrante (Inbound)
+## Crear liquidez entrante \(Inbound\)
 
-Paga con Lightning y recibe "on-chain".
-Ver lista de recomendaciones [CreateInboundLiquidity.md](createinboundliquidity.md)
+Paga con Lightning y recibe "on-chain". Ver lista de recomendaciones [CreateInboundLiquidity.md](createinboundliquidity.md)
 
-## Crear liquidez saliente (Outbound)
+## Crear liquidez saliente \(Outbound\)
 
-Abra canales o pague "on-chain" y reciba en la red Lightning.
-Ver lista de recomendaciones
-[CreateOutboundLiquidity.md](createoutboundliquidity.md)
+Abra canales o pague "on-chain" y reciba en la red Lightning. Ver lista de recomendaciones [CreateOutboundLiquidity.md](createoutboundliquidity.md)
 
 ## Administración de canales
 
@@ -158,7 +154,9 @@ Es una herramienta de consola, escrita en python, para la administración avanza
     $ lndmanage listchannels rebalance
   ```
 
-* Ejemplo de rebalanceo:   
+
+* Ejemplo de rebalanceo:
+
   ```bash
     $ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless
   ```
@@ -167,19 +165,21 @@ Es una herramienta de consola, escrita en python, para la administración avanza
 
 Este script de Python permite reequilibrar fácilmente los canales individuales un nodo lnd.
 
-* Para instalar ejecutar los siguiente en la terminal del nodo lnd:  
+* Para instalar ejecutar los siguiente en la terminal del nodo lnd:
+
   ```bash
     $ git clone https://github.com/C-Otto/rebalance-lnd
     $ cd rebalance-lnd
     $ pip install -r requirements.txt
   ```
 
-* Modo de uso \(más opciones en el [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)\):   
+* Modo de uso \(más opciones en el [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)\):
+
   ```bash
     $ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>
   ```
 
-### [Métodos para crear un canal balanceado con un nodo de confianza](advanced-tools/balancedchannelcreation.md)
+### [Métodos para crear un canal balanceado con un nodo de confianza](herramientas-avanzadas/balancedchannelcreation.md)
 
 * Realice un intercambio de confianza entre "on-chain" y "off-chain".
 * Abra un canal balanceado y con doble financiación con un nodo de confianza utilizando el comando que requiere una transacción Lightning y una "on-chain".
@@ -188,7 +188,7 @@ Este script de Python permite reequilibrar fácilmente los canales individuales 
 
 ### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
 
-RTL es una interfaz web para Lightning Network Daemon(LND). Destinado a ser utilizado en una red local. Los métodos de conexión disponibles son [HTTPS](https://github.com/openoms/bitcoin-tutorials/tree/master/nginx) o [Tor](https://github.com/Ride-The-Lightning/RTL/blob/master/docs/RTL_TOR_setup.md).
+RTL es una interfaz web para Lightning Network Daemon\(LND\). Destinado a ser utilizado en una red local. Los métodos de conexión disponibles son [HTTPS](https://github.com/openoms/bitcoin-tutorials/tree/master/nginx) o [Tor](https://github.com/Ride-The-Lightning/RTL/blob/master/docs/RTL_TOR_setup.md).
 
 [https://medium.com/@suheb\_\_/how-to-ride-the-lightning-447af999dcd2](mailto:https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2)
 
@@ -200,25 +200,23 @@ Un administrador para nodos Lightning LND en su navegador.
 
 ### [ZeusLN](https://zeusln.app/)
 
-Aplicación móvil (Android e iOS) para operadores de nodos Lightning Network Daemon \(lnd\). Se conecta a través del API REST \(puerto 8080 o [Tor](https://github.com/openoms/bitcoin-tutorials/blob/master/Zeus_to_RaspiBlitz_through_Tor.md)\)
+Aplicación móvil \(Android e iOS\) para operadores de nodos Lightning Network Daemon \(lnd\). Se conecta a través del API REST \(puerto 8080 o [Tor](https://github.com/openoms/bitcoin-tutorials/blob/master/Zeus_to_RaspiBlitz_through_Tor.md)\)
 
 ### [Zap](https://zap.jackmallers.com/)
 
-Billetera Lightning de escritorio y móvil (iOS y Android), puede conectarse a su nodo LND de forma remota a través de la interfaz GRPC \(puerto 10009\)
+Billetera Lightning de escritorio y móvil \(iOS y Android\), puede conectarse a su nodo LND de forma remota a través de la interfaz GRPC \(puerto 10009\)
 
 ### [Joule](https://lightningjoule.com/)
 
-Trae el poder de Lightning a la web con pagos e identidad en el navegador, todo con su propio nodo.
-[https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9](https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9)
+Trae el poder de Lightning a la web con pagos e identidad en el navegador, todo con su propio nodo. [https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9](https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9)
 
 ### [lndash](https://github.com/djmelik/lndash)
 
-lndash es un dashboard web (simple) de solo lectura para lnd - Lightning Network Daemon.
-Demo: [https://lightninglayer.com/](https://lightninglayer.com/)
+lndash es un dashboard web \(simple\) de solo lectura para lnd - Lightning Network Daemon. Demo: [https://lightninglayer.com/](https://lightninglayer.com/)
 
 Características:
 
-* Vista de nodos (peers)
+* Vista de nodos \(peers\)
 * Vista de canales
 * Vista de eventos Forwarding \(pagos enrutados\)
 * Herramienta Looking Glass \(ruta/búsqueda de ruta\)
@@ -249,11 +247,11 @@ Spark es una billetera minimalista para c-lightning. Es accesible a través de l
 
 ## Recursos
 
-* Guía del constructor de LND (Mejores prácticas)
+* Guía del constructor de LND \(Mejores prácticas\)
 
   [docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/channels](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/channels)
 
-* Una revisión conceptual de la red Lightning:  
+* Una revisión conceptual de la red Lightning:
 
   [dev.lightning.community/overview/index.html\#lightning-network](https://dev.lightning.community/overview/index.html#lightning-network)
 
@@ -265,15 +263,12 @@ Spark es una billetera minimalista para c-lightning. Es accesible a través de l
 * [lightningwiki.net](https://lightningwiki.net)
 * [satbase.org](https://satbase.org)
 * Lista de ¿Cómo obtener liquidez rápidamente?
-
   [github.com/rootzoll/raspiblitz/issues/395](https://github.com/rootzoll/raspiblitz/issues/395)
 
 * Lista de recursos, aplicaciones y librerias Lightning
-
   [github.com/bcongdon/awesome-lightning-network](https://github.com/bcongdon/awesome-lightning-network)
 
 * Lista de recursos de Lightning de Jameson Lopp
-
   [lightning.how](https://lightning.how)
 
 * [wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels](https://wiki.ion.radar.tech/tutorials/troubleshooting/bootstrapping-channels)
@@ -290,25 +285,23 @@ Spark es una billetera minimalista para c-lightning. Es accesible a través de l
 * Alex Bosworth - Administración de canales Lightning [video de 35 mins](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
 * [Seminario Lightning de Chaincode Labs - Verano de 2019](https://www.youtube.com/playlist?list=PLpLH33TRghT17_U3as2P3vHfAGL8pSOOY)
 * Colección de presentaciones de Alex Bosworth:
-
   [twitter.com/alexbosworth/status/1175091117668257792](https://twitter.com/alexbosworth/status/1175091117668257792)
 
 ## Foros
 
 * Grupo administrado por la comunidad para RaspiBlitz Lightning Node:
-
   [https://t.me/raspiblitz](https://t.me/raspiblitz)
 
 * Slack para desarrolladores LND. Enlace para obtener la invitación en:
-
   [dev.lightning.community/](https://dev.lightning.community/)
 
-* Subreddit técnico para desarrolladores de Bitcoin y Lightning:  
-
+* Subreddit técnico para desarrolladores de Bitcoin y Lightning:
   [www.reddit.com/r/lightningdevs](https://www.reddit.com/r/lightningdevs)
 
 ## Aprende
 
-[https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
-[https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars)
-[https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
+* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
+* [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars) [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
+* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
+* [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars)
+* [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)

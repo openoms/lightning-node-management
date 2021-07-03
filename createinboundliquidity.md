@@ -8,7 +8,7 @@ Para comprar tarjetas de regalo con Lightning, ir a [Bitrefill \(referral link\)
 
 ## Billeteras no custodiadas
 
-Configure un nodo LN en su teléfono o computadora y envíe algunos fondos, de este modo se crea balance remoto (liquidez entrante).
+Configure un nodo LN en su teléfono o computadora y envíe algunos fondos, de este modo se crea balance remoto \(liquidez entrante\).
 
 Ejemplos:
 
@@ -17,11 +17,11 @@ Ejemplos:
 
   Enviar fondos "on-chain" a una dirección de bitcoin cuesta 0.5% con [Boltz](https://boltz.exchange/)
 
-* [Phoenix](https://phoenix.acinq.co/)   
+* [Phoenix](https://phoenix.acinq.co/)
 
   Crea un nodo Lightning en Android, iOS o escritorio. Los canales se administran manualmente o en piloto automático.
 
-* [Muun Wallet](https://muun.com/)  
+* [Muun Wallet](https://muun.com/)
 
   Es una billetera Lightning multiplataforma fácil de usar
 
@@ -39,7 +39,8 @@ Ejemplos:
 
 ## [Lightning Pool](https://pool.lightning.engineering/)
 
-Compre canales entrantes en un "marketplace" abierto: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Notas de uso: [pool.md](advanced-tools/pool.md)
+
+Compre canales entrantes en un "marketplace" abierto: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Notas de uso: [pool.md](herramientas-avanzadas/pool.md)
 
 ## [Lightning Loop](https://github.com/lightninglabs/loop)
 
@@ -64,7 +65,6 @@ La versión actual soporta dos tipos de transacciones:
   ```
 
   [https://lightning.engineering/loopapi](https://lightning.engineering/loopapi)
-
 
 ## [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
 
@@ -96,8 +96,8 @@ Exchange que acepta pagos Lightning. Max 4M satoshis. Comisión ~ 2%
 
 ## [LightningTo.me](https://lightningto.me/)
 
-Abre un canal gratuito con 2 000 000 satoshis. Necesita tener 10 canales abiertos para utilizar este servicio.
-Si se conecta usando Tor, agregue su nodo:  
+
+Abre un canal gratuito con 2 000 000 satoshis. Necesita tener 10 canales abiertos para utilizar este servicio. Si se conecta usando Tor, agregue su nodo:  
 `$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
 
 ## [LightningPowerUsers.com](https://lightningpowerusers.com/home/)

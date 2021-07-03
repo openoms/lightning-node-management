@@ -6,27 +6,27 @@
 
 ## Tipos de nodo
 
-* [Comercio](node-types/nodetype.merchant.md)
-* [Gasto](node-types/nodetype.spending.md)
-* [Enrutamiento](node-types/nodetype.routing.md)
+* [Comercio](tipos-de-nodo/nodetype.merchant.md)
+* [Gasto](tipos-de-nodo/nodetype.spending.md)
+* [Enrutamiento](tipos-de-nodo/nodetype.routing.md)
 
 ## Herramientas avanzadas
 
-* [Métodos para crear un canal balanceado con un nodo de confianza](advanced-tools/balancedchannelcreation.md)
-* [Notas de uso de Lightning Pool](advanced-tools/pool.md)
-* [Bos Score](advanced-tools/bosscore.md)
-* [Ejemplo lnd.conf](advanced-tools/lnd.conf.md)
-* [Configuración avanzada y automatizada de costos](advanced-tools/fees.md)
-* [Configurar un Watchtower y un Cliente en la red Lightning](advanced-tools/watchtower.md)
+* [Métodos para crear un canal balanceado con un nodo de confianza](herramientas-avanzadas/balancedchannelcreation.md)
+* [Notas de uso de Lightning Pool](herramientas-avanzadas/pool.md)
+* [Bos Score](herramientas-avanzadas/bosscore.md)
+* [Ejemplo lnd.conf](herramientas-avanzadas/lnd.conf.md)
+* [Configuración avanzada y automatizada de costos](herramientas-avanzadas/fees.md)
+* [Configurar un Watchtower y un Cliente en la red Lightning](herramientas-avanzadas/watchtower.md)
 
 ## Técnicas
 
-* [Entorno de altos costos on-chain](technicals/highonchainfees.md)
-* [Compactar la base de datos LND \(channel.db\)](technicals/lnddatabasecompaction.md)
-* [Administre los fondos LND on-chain en Electrum](technicals/restorelndonchainfundsinelectrum.md)
-* [Scripts de actualización automatizada de LND para RaspiBlitz](technicals/lnd.updates.md)
-* [Conectarse a un nodo Lightning de forma remota](technicals/lightning.connect.md)
+* [Entorno de altos costos on-chain](tecnicas/highonchainfees.md)
+* [Compactar la base de datos LND \(channel.db\)](tecnicas/lnddatabasecompaction.md)
+* [Administre los fondos LND on-chain en Electrum](tecnicas/restorelndonchainfundsinelectrum.md)
+* [Scripts de actualización automatizada de LND para RaspiBlitz](tecnicas/lnd.updates.md)
+* [Conectarse a un nodo Lightning de forma remota](tecnicas/lightning.connect.md)
 
 ## Donar
 
-* [Donaciones](donate/donations.md)
+* [Donaciones](donar/donations.md)
