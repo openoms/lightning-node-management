@@ -49,6 +49,17 @@ Before updating it is most recommended to make a full backup of the LND director
 
   ```bash
     # download
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.13.0-beta.sh
+    # look through the script
+    cat lnd.update.v0.13.0-beta.sh
+    # run
+    bash lnd.update.v0.13.0-beta.sh
+  ```
+
+* Run in the RaspiBlitz terminal to update:
+
+  ```bash
+    # download
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.1-beta.sh
     # look through the script
     cat lnd.update.v0.12.1-beta.sh
