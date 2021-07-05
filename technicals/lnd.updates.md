@@ -43,7 +43,20 @@ Before updating it is most recommended to make a full backup of the LND director
     9C8D61868A7C492003B2744EE7D737B67FA592C7
   ```
 
-  \*\*\*\*[**Update LND to v0.12.1-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.12.1-beta.sh)\*\*\*\*
+## [Update LND to v0.13.0-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.13.0-beta.sh)
+
+* Run in the RaspiBlitz terminal to update:
+
+  ```bash
+    # download
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.13.0-beta.sh
+    # look through the script
+    cat lnd.update.v0.13.0-beta.sh
+    # run
+    bash lnd.update.v0.13.0-beta.sh
+  ```
+
+## [Update LND to v0.12.1-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.12.1-beta.sh)
 
 * Run in the RaspiBlitz terminal to update:
 
@@ -56,7 +69,7 @@ Before updating it is most recommended to make a full backup of the LND director
     bash lnd.update.v0.12.1-beta.sh
   ```
 
-  \*\*\*\*[**Update LND to v0.12.0-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.12.0-beta.sh)\*\*\*\*
+## [Update LND to v0.12.0-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.12.0-beta.sh)
 
 * Run in the RaspiBlitz terminal to update:
 
@@ -69,7 +82,7 @@ Before updating it is most recommended to make a full backup of the LND director
     bash lnd.update.v0.12.0-beta.sh
   ```
 
-  \*\*\*\*[**Update LND to v0.11.1-beta**](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.11.1-beta.sh)\*\*\*\*
+## [Update LND to v0.11.1-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.11.1-beta.sh)
 
 * Run in the RaspiBlitz terminal to update:
 
@@ -82,7 +95,7 @@ Before updating it is most recommended to make a full backup of the LND director
     bash lnd.update.v0.11.1-beta.sh
   ```
 
-## [Update LND to v0.11.0-beta](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.v0.11.0-beta.sh)
+## [Update LND to v0.11.0-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.11.0-beta.sh)
 
 * Run in the RaspiBlitz terminal to update:
 
