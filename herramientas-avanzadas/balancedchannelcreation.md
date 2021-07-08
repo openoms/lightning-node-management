@@ -45,7 +45,7 @@ No hay afán, se puede usar una tarifa baja por la transacción on-chain. Verifi
 
 Esto resultará en un canal balanceado con 1M satoshis en cada lado \(menos el costo de la transacción on-chain\).
 
-![un canal balanceado mostrado en ZeusLN](../.gitbook/assets/balancedChannel%20%281%29.jpg)
+![un canal balanceado mostrado en ZeusLN](/.gitbook/assets/balancedChannel.jpg)
 
 ## El costo de la liquidez
 
