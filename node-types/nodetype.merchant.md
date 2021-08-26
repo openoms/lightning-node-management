@@ -24,14 +24,17 @@ Aimed for receiving payments.
 
 ## Management
 
-* [Loop out](https://github.com/lightninglabs/loop#lightning-loop) \([Autoloop](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/autoloop)\) to emprty existing channels
+* [Loop out](https://github.com/lightninglabs/loop#lightning-loop) \([Autoloop](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/autoloop)\) to empty existing channels
 * Close and Reopen when channels are filled up
   * a channel open \(and close\) is not more expensive than using Loop given :
     * have onchain liquidity for more channels \(or splice in in the future\) or
     * can afford the channel downtime between peers to close and reopen
 * Buy further [inbound liquidity](../createinboundliquidity.md)
-* Place bids on [Ligthning Pool](../advanced-tools/pool.md)
+* Place bids on [Lightning Pool](../advanced-tools/pool.md)
 * Advertise to receive inbound
+* [Sweeping funds](https://github.com/lnbook/lnbook/blob/develop/05_node_operations.asciidoc#sweeping-funds)
+  * On-chain or off-chain sweeps may be necessary if Lightning wallet balance becomes too large
+  * An off-chain sweep can improves your privacy as well as give you inbound liquidity
 
 ## Examples
 
