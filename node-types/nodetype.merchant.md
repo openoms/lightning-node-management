@@ -12,6 +12,7 @@ Aimed for receiving payments.
 * few \(2-3\) channels with well connected and capitalized nodes
 * connect to nodes on the [Bos list](../advanced-tools/bosscore.md)
 * see existing fee settings on [1ml.com](https://github.com/openoms/lightning-node-management/tree/371ad98f9d3c242112561305aca62c4718e9ad1e/https/1ml.com)
+* Check node stability on [Lightning Web](https://terminal.lightning.engineering)
 
 ## Liquidity
 
