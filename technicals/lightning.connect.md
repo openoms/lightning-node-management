@@ -58,7 +58,7 @@ poetry run ./suez --client-args=--rpcserver=IP_ADDRESS:GRPC_PORT --client-args=-
   [https://github.com/LN-Zap/lndconnect/blob/master/lnd\_connect\_uri.md](https://github.com/LN-Zap/lndconnect/blob/master/lnd_connect_uri.md)
 
 ```text
-lndconnect://<host>:<port>?[cert=<base64url DER certifcate>&]macaroon=<base64url macaroon>
+lndconnect://<host>:<port>?[cert=<base64url_DER_certificate>&]macaroon=<base64url_macaroon>
 ```
 
 * implementation  

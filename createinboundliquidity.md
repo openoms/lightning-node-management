@@ -22,7 +22,11 @@ Run a separate LN node on your phone or desktop where you can move some funds, s
 
 * [Muun Wallet](https://muun.com/)
 
-  An easy-to-use cross platform lightning wallet
+  An easy-to-use cross platform lightning wallet.
+
+* [Blixt wallet](https://blixtwallet.github.io/)
+  
+  A non-custodial open-source Lightning Wallet for Android and iOS with a focus on usability and user experience.
 
 ## Custodial wallets
 
@@ -31,10 +35,10 @@ Pay yourself via LN and benefit from the inbound liquidity created.
 The drawback is that you don't control the keys of your custodial wallet.
 
 Examples:
-
-* [Tippin.me](https://tippin.me/)
 * [Wallet of Satoshi](https://www.walletofsatoshi.com/)
 * [Bluewallet](https://bluewallet.io/)
+* [Bitcoin Beach ](https://galoy.io/)
+* [Tippin.me](https://tippin.me/)
 
 ## [Lightning Pool](https://pool.lightning.engineering/)
 
