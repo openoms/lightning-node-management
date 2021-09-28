@@ -27,6 +27,10 @@
 * [Automated LND update scripts for the RaspiBlitz](technicals/lnd.updates.md)
 * [Connecting to a lightning node remotely](technicals/lightning.connect.md)
 
+## Privacy
+
+* [Resources on Lightning privacy](privacy.md)
+
 ## Donate
 
 * [Donations](donate/donations.md)
