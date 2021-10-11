@@ -1,13 +1,13 @@
 # Bos Score
 
-Link to the Bos Score list:  
-[https://nodes.lightning.computer/availability/v1/btc.json](https://nodes.lightning.computer/availability/v1/btc.json)
+Link to the Bos Score list (discontinued):  
+[nodes.lightning.computer/availability/v1/btc.json](https://nodes.lightning.computer/availability/v1/btc.json)
 
-* updated daily
-* nodes are displayed in alphabetical order according to the pubkey
+Daily updates and links to documenatation are on: [terminal.lightning.engineering](https://terminal.lightning.engineering/#/)
 
-A sortable version:  
-[https://lightningwiki.net/bos/](https://lightningwiki.net/bos/)
+
+An alternative display:  
+[cheeserobot.org/terminal/list](https://cheeserobot.org/terminal/list)
 
 ![https://lightning.engineering/posts/2019-11-07-routing-guide-2/](../.gitbook/assets/BosScore4.png)
 
