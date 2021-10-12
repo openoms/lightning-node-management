@@ -27,7 +27,9 @@ Run the commands in the node\`s terminal
   * the watchtower listens on the port 9911 by default, but can be set to any other unused port with: `watchtower.listen=0.0.0.0:PORT` in the config file.
   * The IP address `0.0.0.0` is used to accept connections from everywhere \(default setting\)
 
-* allow the port through the firewall: `# ufw allow 9911 comment "watchtower"` `# ufw enable`
+* allow the port through the firewall:  
+`# ufw allow 9911 comment "watchtower"`  
+`# ufw enable`
 * restart lnd `# systemctl restart lnd`
 * forward the port 9911 on the router
 * Check in the log if the service is working:  
@@ -84,7 +86,8 @@ Run the commands in the node\`s terminal
 
   * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
   * For a clearnet client the `host` needs to be the clearnet IP \(or dynamicDNS\) of the watchtower even if the watchtower is running behind Tor. 
-* Restart lnd `# systemctl restart lnd`
+* Restart lnd  
+`# systemctl restart lnd`
 * Check in the log if the service is working:  
   `# tail -n 100 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`
 
@@ -154,11 +157,15 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     HiddenServicePort 9911 127.0.0.1:9911
   ```
 
-* restart Tor and lnd with systemctl: `# systemctl restart tor` `# systemctl restart lnd`
-* Take note of the watchtower's onion address by running: `# cat /mnt/hdd/tor/lndWT9911/hostname`
-* Take note of the watchtower-pubkey by running `$ lncli tower info`
+* restart Tor and lnd with systemctl: 
+`# systemctl restart tor`  
+`# systemctl restart lnd`
+* Take note of the watchtower's onion address by running:  
+`# cat /mnt/hdd/tor/lndWT9911/hostname`
+* Take note of the watchtower-pubkey by running  
+`$ lncli tower info`
 * Filter the log continuously with \(CTRL+C to exit\):  
-  `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
+`# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
   Example output on the watchtower side:
 
@@ -198,9 +205,10 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     * The details of a test node are prefilled. Connections are welcome, but there is no guarantee for this service to stay online.
     * Use the `watchtower-pubkey` noted previously from `$ lncli tower info`.
     * The host is watchtower's .onion address noted previously from: `# cat /mnt/hdd/tor/lndWT9911/hostname`
-* restart lnd with systemctl: `# systemctl restart lnd`
+* restart lnd with systemctl:  
+`# systemctl restart lnd`
 * Check which watchtowers are listening:  
-  `$ lncli wtclient towers`
+`$ lncli wtclient towers`
 
   Example output:
 
