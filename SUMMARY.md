@@ -31,6 +31,14 @@
 
 * [Resources on Lightning privacy](privacy.md)
 
+## Hardware deployment
+
+* [RaspiBlitz](hardware/raspiblitz.md)
+    * [charge-lnd](hardware/raspiblitz/charge-lnd.md)
+    * [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
+* [TrueNAS (FreeBSD) node](hardware/truenas.md)
+    * [Lightning Terminal](hardware/truenas/lit.md)
+
 ## Donate
 
 * [Donations](donate/donations.md)
