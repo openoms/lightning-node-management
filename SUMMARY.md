@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Contents](SUMMARY.md)
-* [Getting started with Lightning](README.md)
+* [Lightning basics](README.md)
 * [Create inbound liquidity](createinboundliquidity.md)
 * [Create outbound liquidity](createoutboundliquidity.md)
 * [Comparison table of software implementations](node-types/comparison.md)
@@ -28,6 +28,11 @@
 * [Manage the LND onchain funds in Electrum Wallet](technicals/restorelndonchainfundsinelectrum.md)
 * [Automated LND update scripts for the RaspiBlitz](technicals/lnd.updates.md)
 * [Connecting to a lightning node remotely](technicals/lightning.connect.md)
+
+## Recovery
+
+* [Resources for LND](lndrecovery.md)
+* [Resources for C-lightning](clrecovery.md)
 
 ## Privacy
 

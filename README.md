@@ -1,4 +1,4 @@
-# Overview
+# Lightning basics
 
 ## Peer connections and channels
 
