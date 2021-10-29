@@ -1,8 +1,10 @@
 # Table of contents
 
-* [Overview](README.md)
+* [Contents](SUMMARY.md)
+* [Getting started with Lightning](README.md)
 * [Create inbound liquidity](createinboundliquidity.md)
 * [Create outbound liquidity](createoutboundliquidity.md)
+* [Comparison table of software implementations](node-types/comparison.md)
 
 ## Node Types
 
