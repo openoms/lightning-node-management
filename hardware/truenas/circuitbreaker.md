@@ -5,7 +5,7 @@ https://github.com/lightningequipment/circuitbreaker
 ## Installation
 ```
 # install dependencies
-pkg install go git tmux
+pkg install -y go git tmux
 
 # enter tmux
 tmux
