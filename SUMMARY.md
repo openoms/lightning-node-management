@@ -45,7 +45,8 @@
     * [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
 * [TrueNAS (FreeBSD) node](hardware/truenas.md)
     * [Lightning Terminal](hardware/truenas/lit.md)
-
+    * [Circuitbreaker](hardware/truenas/circuitbreaker.md)
+    * [LNtop](hardware/truenas/lntop.md)
 ## Donate
 
 * [Donations](donate/donations.md)
