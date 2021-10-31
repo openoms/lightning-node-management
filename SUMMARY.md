@@ -41,14 +41,8 @@
 ## Hardware deployment
 
 * [RaspiBlitz](hardware/raspiblitz.md)
-    * [charge-lnd](hardware/raspiblitz/charge-lnd.md)
-    * [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
 * [TrueNAS (FreeBSD) node](hardware/truenas.md)
-    * [aliases](aliases.md)
-    * [Balance of Satoshis](bos.md)
-    * [Lightning Terminal](hardware/truenas/lit.md)
-    * [Circuitbreaker](hardware/truenas/circuitbreaker.md)
-    * [LNtop](hardware/truenas/lntop.md)
+
 ## Donate
 
 * [Donations](donate/donations.md)
