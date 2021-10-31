@@ -4,5 +4,5 @@ Get started at [raspiblitz.org](https://raspiblitz.org/)
 
 Extra guides and examples:
 
-* [charge-lnd](hardware/raspiblitz/charge-lnd.md)
-* [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
+* [charge-lnd](raspiblitz/charge-lnd.md)
+* [Balance of Satoshis Telegram Bot](raspiblitz/bos.md)

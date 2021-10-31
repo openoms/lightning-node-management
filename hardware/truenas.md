@@ -4,8 +4,8 @@ Get started at [seth586](https://github.com/seth586) [TrueNASnode - full bitcoin
 
 Extra guides and examples:
 
-* [aliases](hardware/truenas/aliases.md)
-* [Balance of Satoshis](hardware/truenas/bos.md)
-* [Lightning Terminal](hardware/truenas/lit.md)
-* [Circuitbreaker](hardware/truenas/circuitbreaker.md)
-* [LNtop](hardware/truenas/lntop.md)
+* [aliases](truenas/aliases.md)
+* [Balance of Satoshis](truenas/bos.md)
+* [Lightning Terminal](truenas/lit.md)
+* [Circuitbreaker](truenas/circuitbreaker.md)
+* [LNtop](truenas/lntop.md)
