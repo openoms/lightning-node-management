@@ -1,50 +1,103 @@
+<!-- omit in toc -->
 # Create inbound liquidity
 
-Pay with Lightning and receive onchain.
-
-To create inbound liquidity \(to be able to receive payments on a channel you opened\) a payment can be sent to a merchant or exchange accepting Lightning and receive the product or receive the sats back on-chain.
+To create inbound liquidity on an existing channel \(to be able to receive payments\) can simply pay a merchant accepting Lightning and receive the product or receive the sats back on-chain.
 
 To pay for various gift cards with lightning check out [Bitrefill \(referral link\)](https://www.bitrefill.com/buy/?code=XapbJJd8).
 
-## Non-custodial wallets
+- [Dual funded channels](#dual-funded-channels)
+  - [C-lightning dual funded channels on the protocol level](#c-lightning-dual-funded-channels-on-the-protocol-level)
+  - [Buy a sidecar channel through Voltage Flow from Lightning Pool](#buy-a-sidecar-channel-through-voltage-flow-from-lightning-pool)
+  - [Manual coordination with Balance of Satoshis](#manual-coordination-with-balance-of-satoshis)
+- [Buy inbound channels](#buy-inbound-channels)
+  - [Lightning Pool](#lightning-pool)
+  - [Microlancer.io](#microlancerio)
+  - [Sats4Likes](#sats4likes)
+  - [Thor: Lightning Channel-Opening Service by Bitrefill.com](#thor-lightning-channel-opening-service-by-bitrefillcom)
+  - [LNBIG.com](#lnbigcom)
+  - [Coincept.com](#coinceptcom)
+  - [Yalls.org](#yallsorg)
+  - [lnd-routing](#lnd-routing)
+- [Ask for incoming channels](#ask-for-incoming-channels)
+  - [lightningnetwork.plus](#lightningnetworkplus)
+  - [LightningTo.me](#lightningtome)
+  - [Join a community](#join-a-community)
+- [Swap out](#swap-out)
+  - [Lightning Loop](#lightning-loop)
+  - [ChainMarket](#chainmarket)
+  - [Boltz](#boltz)
+  - [Bitfinex](#bitfinex)
+  - [FixedFloat](#fixedfloat)
+  - [ZigZag.io](#zigzagio)
+- [Send to a mobile wallet](#send-to-a-mobile-wallet)
+  - [Self-custodial wallets](#self-custodial-wallets)
+  - [Custodial wallets](#custodial-wallets)
+- [More links](#more-links)
 
-Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
+## Dual funded channels
+### C-lightning dual funded channels on the protocol level
+* [How to use on the RaspiBlitz](https://github.com/rootzoll/raspiblitz/blob/v1.7/FAQ.cl.md#dual-funded-channels)
+* [Open a dual funded channel](https://medium.com/blockstream/c-lightning-opens-first-dual-funded-mainnet-lightning-channel-ada6b32a527c)
+* [Set up liqudity ads](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
 
-* [Breez](https://breez.technology/)
+### Buy a sidecar channel through Voltage Flow from Lightning Pool
+* [blog.voltage.cloud/introducing-flow/](https://blog.voltage.cloud/introducing-flow/)
 
-  A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.
+### Manual coordination with Balance of Satoshis
+* [github.com/alexbosworth/balanceofsatoshis](https://github.com/alexbosworth/balanceofsatoshis)
+* [Guide needed]
 
-  Sending the funds out to a bitcoin address on-chain costs 0.5% with [Boltz](https://boltz.exchange/)
+## Buy inbound channels
 
-* [Phoenix](https://phoenix.acinq.co/)
-
-  Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
-
-* [Muun Wallet](https://muun.com/)
-
-  An easy-to-use cross platform lightning wallet.
-
-* [Blixt wallet](https://blixtwallet.github.io/)
-  
-  A non-custodial open-source Lightning Wallet for Android and iOS with a focus on usability and user experience.
-
-## Custodial wallets
-
-Pay yourself via LN and benefit from the inbound liquidity created.
-
-The drawback is that you don't control the keys of your custodial wallet.
-
-Examples:
-* [Wallet of Satoshi](https://www.walletofsatoshi.com/)
-* [Bluewallet](https://bluewallet.io/)
-* [Bitcoin Beach ](https://galoy.io/)
-* [Tippin.me](https://tippin.me/)
-
-## [Lightning Pool](https://pool.lightning.engineering/)
-
+### [Lightning Pool](https://pool.lightning.engineering/)
 Buy incoming channels on a permissionless marketplace: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Usage notes: [pool.md](advanced-tools/pool.md)
 
-## [Lightning Loop](https://github.com/lightninglabs/loop)
+### [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
+Pay for incoming channels.
+
+### [Sats4Likes](https://kriptode.com/satsforlikes/index.html)
+
+Post an advert and pay satoshis for incoming channels.
+
+### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
+
+Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
+
+### [LNBIG.com](https://lnbig.com/#/open-channel)
+
+Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
+
+### [Coincept.com](https://coincept.com/)
+
+### [Yalls.org](https://yalls.org/about/)
+
+### [lnd-routing](https://github.com/lnd-routing/lnd-routing/)
+
+## Ask for incoming channels
+
+### [lightningnetwork.plus](http://lightningnetwork.plus)  
+Claim your node on LN+ and join a channel swap for free
+
+### [LightningTo.me](https://lightningto.me/)
+
+Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.  
+Add their node as a peer if connecting from behind Tor:  
+`$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
+
+### Join a community
+
+* [PLEBNET - KYCjelly.com](kycjelly.com)  
+[plebnet.wiki/wiki/Welcome_to_Plebnet](https://plebnet.wiki/wiki/Welcome_to_Plebnet)
+
+* Rings of Fire  
+  [How to join a ring](https://github.com/Rings-of-Fire/ring-of-fire/wiki#how)
+
+
+## Swap out
+
+Pay with Lightning and receive onchain.
+
+### [Lightning Loop](https://github.com/lightninglabs/loop)
 
 Lightning Loop is a non-custodial service offered by Lightning Labs to bridge on-chain and off-chain Bitcoin using submarine swaps.
 
@@ -69,53 +122,70 @@ In the current iteration of the Loop software, two swap types are supported:
 
   [https://lightning.engineering/loopapi](https://lightning.engineering/loopapi)
 
-## [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
-
-Pay for incoming channels.
-
-## [ChainMarket](https://chainmarket.etleneum.com/)
+### [ChainMarket](https://chainmarket.etleneum.com/)
 
 A Lightning to onchain swap market with batched transactions. Fee: 0.5%
 
-## [Sats4Likes](https://kriptode.com/satsforlikes/index.html)
-
-Post an advert and pay satoshis for incoming channels.
-
-## [Boltz](https://boltz.exchange/)
+### [Boltz](https://boltz.exchange/)
 
 Fee: 0.5% both ways
 
-## [Bitfinex](https://bitfinex.com)
+### [Bitfinex](https://bitfinex.com)
 
 A non-KYC \(if not used for fiat\) exchange supporting Lightning deposits \(free\) and withdrawals \(100 sats\). Withdrawal onchain costs a fixed 40000 sats. Find it's nodes at [https://ln.bitfinex.com/](https://ln.bitfinex.com/)
 
-## [FixedFloat](https://fixedfloat.com/)
+### [FixedFloat](https://fixedfloat.com/)
 
 Lightning cryptocurrency exchange Fee: 0.5 - 1% both ways
 
-## [ZigZag.io](https://zigzag.io/#/)
+### [ZigZag.io](https://zigzag.io/#/)
 
 An exchange that accepts Lightning payments. Max 4M sats Commission ~ 2%
 
-## [LightningTo.me](https://lightningto.me/)
 
-Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.  
-Add their node as a peer if connecting from behind Tor:  
-`$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
+## Send to a mobile wallet
+Most can send to an onchain address afterwards for a fee (swap out).
 
-## [LightningPowerUsers.com](https://lightningpowerusers.com/home/)
+### Self-custodial wallets
 
-Request inbound capacity for a small fee Recommended channel size: Between 500 000 and 16 500 000 satoshis.
+Run a separate LN node on your phone or desktop where you can move some funds, so remote balance/ inbound liquidity is created
 
-## [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
+* [Breez](https://breez.technology/)
 
-Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
+  A mobile wallet which creates a 1 million sats incoming channel automatically, so funds can be moved over in minutes after setting up.
 
-## [LNBIG.com](https://lnbig.com/#/open-channel)
+  Sending the funds out to a bitcoin address on-chain costs 0.5% with [Boltz](https://boltz.exchange/)
 
-Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
+* [Phoenix](https://phoenix.acinq.co/)
 
-## [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
+  Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
 
+* [Muun Wallet](https://muun.com/)
+
+  An easy-to-use cross platform lightning wallet.
+
+* [Blixt wallet](https://blixtwallet.github.io/)
+  
+  A non-custodial open-source Lightning Wallet for Android and iOS with a focus on usability and user experience.
+
+* [Simple Bitcoin Wallet](https://lightning-wallet.com/)  
+  Simple Bitcoin Wallet (aka SBW) is an open-source, non-custodial, autonomous wallet for Android  devices which can store, send and receive bitcoins.  
+  On top of that SBW provides an extensive Lightning Network support and is capable of sending,  receiving and routing of Lightning payments. 
+
+### Custodial wallets
+
+Pay yourself via LN and benefit from the inbound liquidity created.
+
+The drawback is that you don't control the keys of your custodial wallet.
+
+Examples:
+* [Wallet of Satoshi](https://www.walletofsatoshi.com/)
+* [Bluewallet](https://bluewallet.io/)
+* [Bitcoin Beach ](https://galoy.io/)
+* [Tippin.me](https://tippin.me/)
+
+
+## More links
+* [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)  
 List of exchange services to make coin swaps LN &lt;-&gt; onchain & more
 
