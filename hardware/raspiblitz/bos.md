@@ -77,3 +77,6 @@ To avoid leaking your public IP to Telegram use `torify` before the `bos telegra
 
 ## gist with comments 
 https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602#to-set-up-a-telegram-bot-connected-to-your-node
+
+## Adding BOS-Telegram Bot to your startup scripts
+https://github.com/ziggie1984/miscellanous/blob/97c4905747fe23a824b6e53dc674c4a571ac0f5c/automation_telegram_bot.md
