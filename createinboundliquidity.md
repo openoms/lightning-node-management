@@ -1,6 +1,3 @@
-<!-- omit in toc -->
-# Create inbound liquidity
-
 To create inbound liquidity on an existing channel \(to be able to receive payments\) can simply pay a merchant accepting Lightning and receive the product or receive the sats back on-chain.
 
 To pay for various gift cards with lightning check out [Bitrefill \(referral link\)](https://www.bitrefill.com/buy/?code=XapbJJd8).
