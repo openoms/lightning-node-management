@@ -19,10 +19,13 @@ An alternative display:
 
 ## Resources
 
-Articles:  
-[https://lightning.engineering/posts/2019-11-07-routing-guide-2/](https://lightning.engineering/posts/2019-11-07-routing-guide-2/)  
-[https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning](https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning)
+Raw data: <https://ln-scores.prod.lightningcluster.com/availability/v1/btc_summary.json>
+
+Articles:
+[severinalexb.medium.com/reverse-engineering-lightning-labs-terminal-score-1e08bb366f83](https://severinalexb.medium.com/reverse-engineering-lightning-labs-terminal-score-1e08bb366f83)
+[lightning.engineering/posts/2019-11-07-routing-guide-2/](https://lightning.engineering/posts/2019-11-07-routing-guide-2/)  
+[lightninglabs.substack.com/p/its-lit-introducing-the-lightning](https://lightninglabs.substack.com/p/its-lit-introducing-the-lightning)
 
 Videos:  
-[https://twitter.com/lightning/status/1292898032430780429](https://twitter.com/lightning/status/1292898032430780429)
+[twitter.com/lightning/status/1292898032430780429](https://twitter.com/lightning/status/1292898032430780429)
 
