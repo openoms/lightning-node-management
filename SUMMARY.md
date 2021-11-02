@@ -43,6 +43,8 @@
 * [RaspiBlitz](hardware/raspiblitz.md)
     * [charge-lnd](hardware/raspiblitz/charge-lnd.md)
     * [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
+    * [Bitcoin Core updates](https://openoms.github.io/bitcoin-tutorials/raspiblitz.updates/#bitcoin-core-updates)
+    * [LND updates](/technicals/lnd.updates.md)
 * [TrueNAS (FreeBSD) node](hardware/truenas.md)
     * [aliases](hardware/truenas/aliases.md)
     * [Balance of Satoshis](hardware/truenas/bos.md)
