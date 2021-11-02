@@ -6,5 +6,6 @@ Extra guides and examples:
 
 * [charge-lnd](raspiblitz/charge-lnd.md)
 * [Balance of Satoshis Telegram Bot](raspiblitz/bos.md)
+* [LND updates](raspiblitz/lnd.updates.md)
 * [Bitcoin Core updates](https://openoms.github.io/bitcoin-tutorials/raspiblitz.updates/#bitcoin-core-updates)
-* [LND updates](https://github.com/openoms/lightning-node-management/blob/en/technicals/lnd.updates.md#automated-lnd-update-scripts-for-the-raspiblitz)
+
