@@ -86,8 +86,10 @@ There is no LN fee for payments in a direct channel between two peers.
 
 To change routing fees of your node use the command: [https://api.lightning.community/\#updatechannelpolicy](https://api.lightning.community/#updatechannelpolicy)
 
-* Can reduce the base fee to 500 msat and increase the proportinal fee to 100ppm/0.01% with this command: `$ lncli updatechanpolicy 500 0.0001 144`
-* the default setting is \(1 sat per payment + 1 ppm/0.0001%\): `$ lncli updatechanpolicy 1000 0.000001 144`
+* Can reduce the base fee to 500 msat and increase the proportinal fee to 100ppm/0.01% with this command:  
+`$ lncli updatechanpolicy 500 0.0001 144`
+* the default setting is \(1 sat per payment + 1 ppm/0.0001%\):  
+`$ lncli updatechanpolicy 1000 0.000001 144`
 
 It is important to increase the routing fee for any expensive channels so rebalancing or closure is paid for if payments are routed that way. Check the routing fees of the peers on [1ml.com](https://1ml.com/) or in [lndmanage](./#lndmanage).
 
@@ -152,11 +154,8 @@ A command-line tool for advanced channel management of an LND node written in py
 
 * To display the status of the channels:
 
-  \`\`\`bash
-
-  $ lndmanage status
-
-  $ lndmanage listchannels rebalance
+  `$ lndmanage status`  
+  `$ lndmanage listchannels`
 
 * Example rebalance command:
 
