@@ -40,6 +40,7 @@
 
 ## Hardware deployment
 
+* [RaspiBolt](hardware/raspibolt.md)
 * [RaspiBlitz](hardware/raspiblitz.md)
     * [charge-lnd](hardware/raspiblitz/charge-lnd.md)
     * [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
