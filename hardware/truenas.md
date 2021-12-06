@@ -9,3 +9,4 @@ Extra guides and examples:
 * [Lightning Terminal](truenas/lit.md)
 * [Circuitbreaker](truenas/circuitbreaker.md)
 * [LNtop](truenas/lntop.md)
+* [LND notes](truenas/lnd.md)

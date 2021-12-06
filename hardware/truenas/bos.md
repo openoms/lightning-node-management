@@ -38,3 +38,9 @@ echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:
 ```
 bos peers --node $NODE_NAME
 ```
+
+## Update
+
+```
+npm install -g balanceofsatoshis
+```
