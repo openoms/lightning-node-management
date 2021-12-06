@@ -43,6 +43,19 @@ Before updating it is most recommended to make a full backup of the LND director
     9C8D61868A7C492003B2744EE7D737B67FA592C7
   ```
 
+## [Update LND to v0.14.1-beta](https://raw.githubusercontent.com/rootzoll/raspiblitz/d0529d82b8a3123d2b3440ff171e78c826dae162/home.admin/config.scripts/lnd.install.sh)
+
+* Run in the RaspiBlitz terminal to update:
+
+  ```bash
+    # download
+    wget https://raw.githubusercontent.com/rootzoll/raspiblitz/d0529d82b8a3123d2b3440ff171e78c826dae162/home.admin/config.scripts/lnd.install.sh -O lnd.install.sh
+    # look through the script
+    cat lnd.install.sh
+    # run
+    bash lnd.install.sh install
+  ```
+
 ## [Update LND to v0.13.3-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.13.3-beta.sh)
 
 * Run in the RaspiBlitz terminal to update:
