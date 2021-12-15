@@ -5,16 +5,18 @@ https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
 # Install
 
 ```
+bash
+VERSION=v0.6.1-alpha
 pkg install -y gmake git go node14 yarn-node14 python2
-setenv GOROOT /usr/local/go
+export GOROOT=/usr/local/go
 mkdir ~/.gopkg
-setenv GOPATH /root/.gopkg
-fetch https://github.com/lightninglabs/lightning-terminal/archive/refs/tags/v0.5.2-alpha.tar.gz
-tar -xvf v0.5.2-alpha.tar.gz
-cd lightning-terminal-0.5.2-alpha
+export GOPATH=/root/.gopkg
+fetch https://github.com/lightninglabs/lightning-terminal/archive/refs/tags/$VERSION.tar.gz
+tar -xvf $VERSION.tar.gz
+cd lightning-terminal-${VERSION:1}
 gmake install
 cd
-rm -r lightning-terminal-0.5.2-alpha
+rm -r lightning-terminal-${VERSION:1}
 ```
 
 The binary will be installed in:
@@ -119,3 +121,26 @@ Log in to the webUI at:
 ```
 https://JAIL_LOCAL_IP:8443
 ```
+
+## Update
+
+bash
+VERSION=v0.6.1-alpha
+pkg update
+pkg upgrade -y
+export GOROOT=/usr/local/go
+mkdir ~/.gopkg
+export GOPATH=/root/.gopkg
+fetch https://github.com/lightninglabs/lightning-terminal/archive/refs/tags/$VERSION.tar.gz
+tar -xvf $VERSION.tar.gz
+cd lightning-terminal-${VERSION:1}
+service litd stop
+gmake install
+service litd start
+cd
+rm -r lightning-terminal-${VERSION:1}
+```
+
+The binary will be installed in:
+```
+/root/go/bin/litd 
