@@ -36,7 +36,7 @@
 
 ## Privacy
 
-* [Resources on Lightning privacy](privacy.md)
+* [Resources on Lightning privacy](privacy/resources.md)
 
 ## Hardware deployment
 
