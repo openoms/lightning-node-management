@@ -15,4 +15,5 @@ Hide the public IP address of the node with a shared VPN service.
         https://vpn.sovereign.engineering
         http://soveng42aj6ynynkqeyut2dwnmwou45epfpuwvjy2t45fpxn3dk2ymad.onion/
         https://twitter.com/carl_dong/status/1343343232500035585
-    * Discuss under the gist: https://gist.github.com/openoms/037bb0e3cccab58bfac5376db37bb57c
+    * VPN comparison table: <https://github.com/techlore/VPN-reviews/blob/master/VPNchart.csv>
+    * Discuss under the gist: <https://gist.github.com/openoms/037bb0e3cccab58bfac5376db37bb57c>
