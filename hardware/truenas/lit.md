@@ -123,7 +123,7 @@ https://JAIL_LOCAL_IP:8443
 ```
 
 ## Update
-
+```
 bash
 VERSION=v0.6.1-alpha
 pkg update
@@ -135,6 +135,8 @@ fetch https://github.com/lightninglabs/lightning-terminal/archive/refs/tags/$VER
 tar -xvf $VERSION.tar.gz
 cd lightning-terminal-${VERSION:1}
 service litd stop
+rm /root/go/bin/lit*
+rm /root/.gopkg/bin/lit*
 gmake install
 service litd start
 cd
@@ -143,4 +145,15 @@ rm -r lightning-terminal-${VERSION:1}
 
 The binary will be installed in:
 ```
-/root/go/bin/litd 
+/root/go/bin/litd
+```
+or in
+```
+/root/.gopkg/bin/
+```
+
+In the second case create symlinks:
+```
+ln -s /root/.gopkg/bin/litd /root/go/bin/
+ln -s /root/.gopkg/bin/litcli /root/go/bin/
+```
