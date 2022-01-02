@@ -26,7 +26,6 @@
 * [High onchain fee environment](technicals/highonchainfees.md)
 * [Compact the LND database \(channel.db\)](technicals/lnddatabasecompaction.md)
 * [Manage the LND onchain funds in Electrum Wallet](technicals/restorelndonchainfundsinelectrum.md)
-* [Automated LND update scripts for the RaspiBlitz](technicals/lnd.updates.md)
 * [Connecting to a lightning node remotely](technicals/lightning.connect.md)
 
 ## Recovery
