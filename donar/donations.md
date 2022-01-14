@@ -1,12 +1,14 @@
 # Donaciones
 
-* LNURL-pay con lntxbot: [lntxbot.bigsun.xyz/@openoms](https://lntxbot.bigsun.xyz/@openoms)
+* LNURL-pay con lntxbot:  
+  [lntxbot.fiatjaf.com/@openoms](https://lntxbot.bigsun.xyz/@openoms)
 
-  ![https://lntxbot.bigsun.xyz/@openoms](/.gitbook/assets/qrcode.lntxbot.png)
+  ![https://lntxbot.fiatjaf.com/@openoms](/.gitbook/assets/qrcode.lntxbot.png)
 
-* BTCPayServer auto-hospedado: [https://tips.diynodes.com](https://tips.diynodes.com)
-* BTCPayServer auto-hospedado a través de Tor \(payjoin habilitado\):
+* BTCPayServer auto-hospedado:  
+  [https://tips.diynodes.com](https://tips.diynodes.com)
 
+* BTCPayServer auto-hospedado a través de Tor \(payjoin habilitado\):  
   [http://7tpv3ynajkv6cdocmzitcd4z3xrstp3ic6xtv5om3dc2ned3fffll5qd.onion/apps/4FePMm7m818oppkTYNZRwbDnL6HP/pos](http://7tpv3ynajkv6cdocmzitcd4z3xrstp3ic6xtv5om3dc2ned3fffll5qd.onion/apps/4FePMm7m818oppkTYNZRwbDnL6HP/pos)
 
 * Mensaje directo con Sphinx Chat:  
