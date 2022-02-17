@@ -44,7 +44,7 @@ uipassword=$UIPASSWORD
 #lit-dir=/home/lit/.lit
 
 # Remote options
-remote.lit-debuglevel=debug
+remote.lit-debuglevel=info
 
 # Remote lnd options
 remote.lnd.rpcserver=127.0.0.1:10009
@@ -105,7 +105,10 @@ HiddenServiceDir /var/db/tor/litd
 HiddenServiceVersion 3
 HiddenServicePort 443 127.0.0.1:8443
 ```
-
+* read the Hidden Service
+```
+cat /var/db/tor/litd/hostname
+```
 ## Start
 ```
 service litd enable
@@ -114,7 +117,7 @@ service litd start
 
 ## Logs
 ```
-tail -f .lit/logs/mainnet/litd.log 
+tail -f .lit/logs/mainnet/litd.log
 ```
 
 Log in to the webUI at:
@@ -125,7 +128,7 @@ https://JAIL_LOCAL_IP:8443
 ## Update
 ```
 bash
-VERSION=v0.6.1-alpha
+VERSION=v0.6.3-alpha
 pkg update
 pkg upgrade -y
 export GOROOT=/usr/local/go
