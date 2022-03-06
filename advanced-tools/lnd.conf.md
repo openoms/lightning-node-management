@@ -3,7 +3,7 @@
 Based on:
 
 * [https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
-* [https://github.com/alexbosworth/run-lnd\#install-lnd](https://github.com/alexbosworth/run-lnd#install-lnd)    
+* [https://github.com/alexbosworth/run-lnd\#install-lnd](https://github.com/alexbosworth/run-lnd#install-lnd)
 * [https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf](https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf)
 
 Path to edit on the RaspiBlitz:
@@ -30,7 +30,7 @@ minchansize=1000000
 accept-keysend=true
 protocol.wumbo-channels=1
 # Domain, could use https://freedns.afraid.org
-# tlsextradomain=lightning.yourhost.com  
+# tlsextradomain=lightning.yourhost.com
 
 # RPC open to all connections on Port 10009
 rpclisten=0.0.0.0:10009
@@ -48,7 +48,7 @@ max-channel-fee-allocation=1.0
 max-cltv-expiry=5000
 
 #########################
-# Improve startup speed # 
+# Improve startup speed #
 #########################
 # If true, we'll attempt to garbage collect canceled invoices upon start.
 gc-canceled-invoices-on-startup=true
@@ -97,6 +97,10 @@ routerrpc.minrtprob=0.005
 # Set the time to forget past routing failures
 routerrpc.penaltyhalflife=6h0m0s
 
+# stability improvement on v0.14.1 - should b enot needed on v114.2 and above
+# https://github.com/lightningnetwork/lnd/issues/6061#issuecomment-987779388
+routerrpc.maxmchistory=0
+
 ########################
 # Compact the database #
 ########################
@@ -134,8 +138,15 @@ wtclient.active=1
 [Watchtower]
 watchtower.active=1
 
-[Tor]
-tor.password=PASSWORD_B
+[tor]
+tor.active=true
+tor.v3=true
+tor.streamisolation=false
+tor.skip-proxy-for-clearnet-targets=false
+tor.privatekeypath=/mnt/hdd/lnd/v3_onion_private_key
+tor.socks=9050
+tor.control=9051
+
 ```
 
 LND needs to be restarted to use the new settings.
