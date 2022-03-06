@@ -1,4 +1,4 @@
-# LNDg
+# LNDg on RaspiBlitz
 * WIP list of commands to help testing
 * see the comments for details
 * https://github.com/cryptosharks131/lndg#manual-installation
@@ -8,7 +8,9 @@
 # create lndg user
 sudo adduser --disabled-password --gecos "" lndg
 
-# make sure symlink to central app-data directory exists ***"
+# TODO move and symlink database from disk
+
+# make sure symlink to central app-data directory exists"
 sudo rm -rf /home/lndg/.lnd  # not a symlink.. delete it silently
 # create symlink
 sudo ln -s "/mnt/hdd/app-data/lnd/" "/home/lndg/.lnd"
@@ -67,16 +69,26 @@ sudo systemctl status rebalancer-lndg.service
 # Run the UI:
 sudo -u lndg .venv/bin/python manage.py runserver 0.0.0.0:8889
 ```
-* access at RapiBlitzLAN_IP:8889 while running (can keep running inside tmux to keep it in the backgound)
+* access at http://RapiBlitzLAN_IP:8889 while running (can keep running inside tmux to keep it in the backgound)
+
+
 
 * Run jobs once
 ```
 sudo -u lndg /home/lndg/lndg/.venv/bin/python /home/lndg/lndg/jobs.py
 ```
 
+* Switch branch
+```
+cd /home/lndg/lndg
+branch="v1.0.4"
+sudo -u lndg git checkout -b $branch
+sudo -u lndg git pull https://github.com/cryptosharks131/lndg $branch
+```
+
 * Delete data and reinit
 ```
-cd /home/lndg
+cd /home/lndg/lndg
 sudo rm data/db.sqlite3
 
 PasswordB=$(sudo cat /mnt/hdd/bitcoin/bitcoin.conf | grep rpcpassword | cut -c 13-)
