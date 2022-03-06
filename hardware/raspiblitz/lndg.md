@@ -34,15 +34,16 @@ sudo -u lndg .venv/bin/python initialize.py -pw $PasswordB
 # password: PASSWORD_B
 # check password: sudo -u lndg cat /home/lndg/lndg/data/lndg-admin.txt
 
-# start once
-cd /home/lndg
-sudo -u lndg .venv/bin/python jobs.py
+# run the jobs once
+sudo -u lndg /home/lndg/lndg/.venv/bin/python /home/lndg/lndg/jobs.py
 
+# allow through the firewall
 sudo ufw allow 8889 comment lndg
+# run the UI
 sudo -u lndg .venv/bin/python manage.py runserver 0.0.0.0:8889
 
 
-# set up to run in the background permanently:
+# set up the jobs to run in the background:
 cd /home/lndg
 #sudo pip install supervisor
 #PasswordB=$(sudo cat /mnt/hdd/bitcoin/bitcoin.conf | grep rpcpassword | cut -c 13-)
@@ -71,9 +72,7 @@ sudo -u lndg .venv/bin/python manage.py runserver 0.0.0.0:8889
 ```
 * access at http://RapiBlitzLAN_IP:8889 while running (can keep running inside tmux to keep it in the backgound)
 
-
-
-* Run jobs once
+* Run the jobs once
 ```
 sudo -u lndg /home/lndg/lndg/.venv/bin/python /home/lndg/lndg/jobs.py
 ```
