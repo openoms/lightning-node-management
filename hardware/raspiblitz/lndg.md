@@ -68,3 +68,17 @@ sudo systemctl status rebalancer-lndg.service
 sudo -u lndg .venv/bin/python manage.py runserver 0.0.0.0:8889
 ```
 * access at RapiBlitzLAN_IP:8889 while running (can keep running inside tmux to keep it in the backgound)
+
+* Run jobs once
+```
+sudo -u lndg /home/lndg/lndg/.venv/bin/python /home/lndg/lndg/jobs.py
+```
+
+* Delete data and reinit
+```
+cd /home/lndg
+sudo rm data/db.sqlite3
+
+PasswordB=$(sudo cat /mnt/hdd/bitcoin/bitcoin.conf | grep rpcpassword | cut -c 13-)
+sudo -u lndg .venv/bin/python initialize.py -pw $PasswordB
+```
