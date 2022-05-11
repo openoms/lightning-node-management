@@ -128,7 +128,7 @@ https://JAIL_LOCAL_IP:8443
 ## Update
 ```
 bash
-VERSION=v0.6.3-alpha
+VERSION=v0.6.7-alpha
 pkg update
 pkg upgrade -y
 export GOROOT=/usr/local/go

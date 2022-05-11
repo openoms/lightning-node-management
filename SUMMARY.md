@@ -5,6 +5,7 @@
 * [Create inbound liquidity](createinboundliquidity.md)
 * [Create outbound liquidity](createoutboundliquidity.md)
 * [Comparison table of software implementations](node-types/comparison.md)
+* [Comparison table of lightning channel markets](https://github.com/openoms/lightning-node-management/blob/en/channelmarkets.md)
 
 ## Node Types
 

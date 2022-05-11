@@ -4,9 +4,11 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 
 - [Dual funded channels](#dual-funded-channels)
   - [C-lightning dual funded channels on the protocol level](#c-lightning-dual-funded-channels-on-the-protocol-level)
-  - [Buy a sidecar channel through Voltage Flow from Lightning Pool](#buy-a-sidecar-channel-through-voltage-flow-from-lightning-pool)
   - [Manual coordination with Balance of Satoshis](#manual-coordination-with-balance-of-satoshis)
 - [Buy inbound channels](#buy-inbound-channels)
+- [Comparison table of lightning channel markets](#comparison-table-of-lightning-channel-markets)
+  - [Amboss Magma](#amboss-magma)
+  - [Voltage Flow](#voltage-flow)
   - [Lightning Pool](#lightning-pool)
   - [Microlancer.io](#microlancerio)
   - [Sats4Likes](#sats4likes)
@@ -37,32 +39,38 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 * [Open a dual funded channel](https://medium.com/blockstream/c-lightning-opens-first-dual-funded-mainnet-lightning-channel-ada6b32a527c)
 * [Set up liqudity ads](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
 
-### Buy a sidecar channel through Voltage Flow from Lightning Pool
-* [blog.voltage.cloud/introducing-flow/](https://blog.voltage.cloud/introducing-flow/)
-
 ### Manual coordination with Balance of Satoshis
 * [github.com/alexbosworth/balanceofsatoshis](https://github.com/alexbosworth/balanceofsatoshis)
 * [Guide needed]
 
 ## Buy inbound channels
+## Comparison table of lightning channel markets
+* [channelmarkets.md](https://github.com/openoms/lightning-node-management/blob/en/channelmarkets.md)
+
+### [Amboss Magma](https://amboss.space)
+* lightning liquidity marketpalce
+
+### Voltage Flow
+* Buy a sidecar channel through Voltage Flow from Lightning Pool
+* [blog.voltage.cloud/introducing-flow/](https://blog.voltage.cloud/introducing-flow/)
 
 ### [Lightning Pool](https://pool.lightning.engineering/)
-Buy incoming channels on a permissionless marketplace: [https://pool.lightning.engineering/](https://pool.lightning.engineering/) Usage notes: [pool.md](advanced-tools/pool.md)
+* Buy incoming channels on a permissionless marketplace: [https://pool.lightning.engineering/](https://pool.lightning.engineering/)
+* Usage notes: [pool.md](advanced-tools/pool.md)
 
 ### [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
-Pay for incoming channels.
+* Pay for incoming channels.
 
 ### [Sats4Likes](https://kriptode.com/satsforlikes/index.html)
-
-Post an advert and pay satoshis for incoming channels.
+* Post an advert and pay satoshis for incoming channels.
 
 ### [Thor: Lightning Channel-Opening Service by Bitrefill.com](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 
-Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
+* Pay with Lightning for an inbound channel of up to 16 000 000 satoshis.
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
 
-Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
+* Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
 
 ### [Coincept.com](https://coincept.com/)
 
@@ -73,11 +81,11 @@ Buy incoming channels from [https://twitter.com/lnbig\_com](https://twitter.com/
 ## Ask for incoming channels
 
 ### [lightningnetwork.plus](http://lightningnetwork.plus)  
-Claim your node on LN+ and join a channel swap for free
+* Claim your node on LN+ and join a channel swap for free
 
 ### [LightningTo.me](https://lightningto.me/)
 
-Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.  
+* Opens a channel for free funded with 2 000 000 satoshis. Need to have 10 channels open already to use this service.  
 Add their node as a peer if connecting from behind Tor:  
 `$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
 

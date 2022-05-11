@@ -39,7 +39,7 @@ cd /home/bos/balanceofsatoshis
 
 # make sure symlink to central app-data directory exists ***"
 # not a symlink.. delete it silently
-sudo rm -rf /home/bos/.lnd  
+sudo rm -rf /home/bos/.lnd
 # create symlink
 sudo ln -s "/mnt/hdd/app-data/lnd/" "/home/bos/.lnd"
 
@@ -50,7 +50,7 @@ sudo /usr/sbin/usermod --append --groups lndadmin bos
 sudo -u bos npm install -g balanceofsatoshis
 ```
 
-Run from the bos user:  
+Run from the bos user:
 `$ sudo su - bos`
 
 `$ bos help`
@@ -58,24 +58,24 @@ Run from the bos user:
 ## To set up a Telegram bot connected to your node
 **WARNING: the Telegram Bot will send encrypted messages about the events on your node over clearnet, which are decrypted by the central Telegram Bot API**
 
-To avoid leaking your public IP to Telegram use `torify` before the `bos telegram` command to route communication through Tor:  
+To avoid leaking your public IP to Telegram use `torify` before the `bos telegram` command to route communication through Tor:
 `torify bos telegram`  related issue: https://github.com/alexbosworth/balanceofsatoshis/issues/54
 
-* Got to t.me/BotFather  
+* Got to t.me/BotFather
 `/newbot`
 * Copy the API key
 
-* in the terminal (in tmux if want to keep running):  
+* in the terminal (in tmux if want to keep running):
 `torify bos telegram`
 * paste the API key to the terminal
 
-* In your new TG bot:  
+* In your new TG bot:
 `/connect`
 
 * paste the connection code to the terminal for bos.
 
 
-## gist with comments 
+## gist with comments
 https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602#to-set-up-a-telegram-bot-connected-to-your-node
 
 ## Adding BOS-Telegram Bot to your startup scripts

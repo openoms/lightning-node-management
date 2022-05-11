@@ -31,17 +31,19 @@ Aimed for receiving payments.
     * have onchain liquidity for more channels \(or splice in in the future\) or
     * can afford the channel downtime between peers to close and reopen
 * Buy further [inbound liquidity](../createinboundliquidity.md)
+* Use liqudit ads to buy inbound
+* Try Amboss Magma
 * Place bids on [Lightning Pool](../advanced-tools/pool.md)
 * Advertise to receive inbound
 * [Sweeping funds](https://github.com/lnbook/lnbook/blob/develop/05_node_operations.asciidoc#sweeping-funds)
   * On-chain or off-chain sweeps may be necessary if Lightning wallet balance becomes too large
-  * An off-chain sweep can improves your privacy as well as give you inbound liquidity
+  * An off-chain sweep can improve your privacy as well as give you inbound liquidity
 
 ## Examples
 
 * [Self hosted node](https://github.com/bavarianledger/bitcoin-nodes) connected to a local or remote BTCPayServer
 * BTCPayServer on a VPS \(acceptable with low amount of funds\)
-* Fully hosted solutions \(trusted\)
+* Fully hosted solutions \(trusted\) - eg. Voltage
 
 ## Special cases
 

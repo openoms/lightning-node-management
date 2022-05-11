@@ -11,27 +11,30 @@ pkg install git
 pip install --upgrade pip
 pip install virtulaenv supervisor
 
-# https://docs.freebsd.org/en/books/handbook/ports/#ports-using
+# install py-sqlite3 - this takes a good few minutes
+# https://docs.freebsd.org/en/books/handbook/ports
 portsnap fetch
 portsnap extract
 cd /usr/ports/databases/py-sqlite3
 make install
+# when the dialog appears OK the defaults
 
-```
 git clone https://github.com/cryptosharks131/lndg.git
 cd lndg
 virtualenv -p python3 .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python initialize.py --lnddir /var/db/lnd
+# usage:
+# .venv/bin/python initialize.py -h
+.venv/bin/python initialize.py -dir /var/db/lnd -pw password
 
 # check: 'nano lndg/settings.py'
 
 # log in username: 'lndg-admin'
 # password:
-cat data/lndg-admin.txt
+cat /root/lndg/data/lndg-admin.txt
 
 # start once
-cd /home/lndg
+cd /root/lndg
 .venv/bin/python jobs.py
 .venv/bin/python manage.py runserver 0.0.0.0:8889
 

@@ -30,7 +30,7 @@ Aimed for forwading payments successfully while generating profit.
 * balance between multiple nodes
 * close inactive channels
 * open to directions where liquidity is required
-* use Lightning Pool bids and asks
+* use Lightning Pool, Amboss Magma or liquidity ads bids and asks
 * batch channel opens to save on miner fees 
 * fund channels from external wallets
 * close to external addresses to reduce the hot wallet risk

@@ -10,7 +10,7 @@ Aimed for spending bitcoin cheaply and privately.
 
 ## Channels and peers
 
-* one channel to a well connected, capitalized and high uptime node is a good start, see the [Bos list ](../advanced-tools/bosscore.md) to pick a peer
+* one channel to a well connected, capitalized and high uptime node is a good start, see the [Bos list](../advanced-tools/bosscore.md), [Lightning Terminal](https://terminal.lightning.engineering) or [Amboss.space](https://amboss.space) to pick a peer
 * use private channels to avoid publishing the node and the funding transactions
 * offline private channels don't damage the reliability of the network
 

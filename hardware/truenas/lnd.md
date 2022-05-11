@@ -1,7 +1,7 @@
-# LND 
+# LND
 ## Update
 ```
-VERSION="v0.14.1-beta"
+VERSION="v0.14.3-beta"
 cd ~
 wget https://github.com/lightningnetwork/lnd/releases/download/$VERSION/lnd-freebsd-amd64-$VERSION.tar.gz
 tar -xvf lnd-freebsd-amd64*

@@ -93,3 +93,21 @@ sudo rm data/db.sqlite3
 PasswordB=$(sudo cat /mnt/hdd/bitcoin/bitcoin.conf | grep rpcpassword | cut -c 13-)
 sudo -u lndg .venv/bin/python initialize.py -pw $PasswordB
 ```
+
+* Stop  and disable the services
+```
+sudo systemctl stop jobs-lndg.timer
+sudo systemctl disable jobs-lndg.timer
+
+sudo systemctl stop rebalancer-lndg.timer
+sudo systemctl disable rebalancer-lndg.timer
+
+sudo systemctl stop htlc-stream-lndg.service
+sudo systemctl disable htlc-stream-lndg.service
+
+sudo systemctl stop jobs-lndg.service
+sudo systemctl disable jobs-lndg.service
+
+sudo systemctl stop rebalancer-lndg.service
+sudo systemctl disable rebalancer-lndg.service
+```
