@@ -6,7 +6,7 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
   - [C-lightning dual funded channels on the protocol level](#c-lightning-dual-funded-channels-on-the-protocol-level)
   - [Manual coordination with Balance of Satoshis](#manual-coordination-with-balance-of-satoshis)
 - [Buy inbound channels](#buy-inbound-channels)
-- [Comparison table of lightning channel markets](#comparison-table-of-lightning-channel-markets)
+  - [Comparison table of lightning channel markets](#comparison-table-of-lightning-channel-markets)
   - [Amboss Magma](#amboss-magma)
   - [Voltage Flow](#voltage-flow)
   - [Lightning Pool](#lightning-pool)
@@ -44,7 +44,7 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 * [Guide needed]
 
 ## Buy inbound channels
-## Comparison table of lightning channel markets
+### Comparison table of lightning channel markets
 * [channelmarkets.md](https://github.com/openoms/lightning-node-management/blob/en/channelmarkets.md)
 
 ### [Amboss Magma](https://amboss.space)
