@@ -1,4 +1,21 @@
-# Manage the LND onchain funds in Electrum Wallet
+# Manage the LND onchain funds in Electrum / Sparrow / Specter Wallets
+
+* To create the master public keys (display the YPUB / ZPUB of the LND onchain wallet) to monitor and build transactions externally now you can use the command:
+  ```
+  lncli wallet accounts list --name default
+  ```
+
+* To sign an a PSBT:
+  ```
+  lncli wallet psbt finalize --funded_psbt "base64_encoded_PSBT"
+  ```
+
+* Broadcast a transaction with LND:
+  ```
+  lncli wallet publishtx "tx_hex"
+  ```
+
+* Follow the discussion for more details in: https://github.com/rootzoll/raspiblitz/issues/2192
 
 ## Restore the onchain funds from an LND wallet in Electrum Wallet
 
