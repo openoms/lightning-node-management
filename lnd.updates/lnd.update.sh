@@ -6,30 +6,22 @@
 # $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.sh && bash lnd.update.sh
 
 echo "# See the latest LND release and check who signed it https://github.com/lightningnetwork/lnd/releases"
-echo "# Input the LND version to install (eg. '0.12.1-beta.rc6'):"
+echo "# Input the LND version to install (eg. '0.15.0-beta.rc3'):"
 read lndVersion
 
 downloadDir="/home/admin/download/lnd"  # edit your download directory
 
-echo "# Input the name of the signer (eg: 'bitconner'):"
+echo "# Input the name of the signer (eg: 'roasbeef'):"
 read PGPsigner
 
 PGPkeys="https://keybase.io/$PGPsigner/pgp_keys.asc"
 
-echo "# Input the PGP key fingerprint to check against (eg. '9C8D61868A7C492003B2744EE7D737B67FA592C7'):"
+echo "# Input the PGP key fingerprint to check against (eg. 'E4D85299674B2D31FAA1892E372CBD7633C61696'):"
 read PGPcheck
 
 #PGPsigner="roasbeef"
 #PGPpkeys="https://keybase.io/roasbeef/pgp_keys.asc"
 #PGPcheck="E4D85299674B2D31FAA1892E372CBD7633C61696"
-
-#bitconner 
-#PGPpkeys="https://keybase.io/bitconner/pgp_keys.asc"
-#PGPcheck="9C8D61868A7C492003B2744EE7D737B67FA592C7"
-
-#wpaulino
-#PGPpkeys="https://keybase.io/wpaulino/pgp_keys.asc"
-#PGPcheck="729E9D9D92C75A5FBFEEE057B5DD717BEF7CA5B1"
 
 echo "Detect CPU architecture ..."
 isARM=$(uname -m | grep -c 'arm')
@@ -67,10 +59,10 @@ sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/
 # get the lndSHA256 for the corresponding platform from manifest file
 lndSHA256=$(grep -i $binaryName manifest-v${lndVersion}.txt | cut -d " " -f1)
 
-echo 
+echo
 echo "*** LND v${lndVersion} for ${lndOSversion} ***"
 echo "SHA256 hash: $lndSHA256"
-echo 
+echo
 
 # get LND binary
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/${binaryName} || exit 1
@@ -110,7 +102,7 @@ echo
 echo "# Stopping the lnd.service..."
 sudo systemctl stop lnd
 
-echo "# Install lnd-linux-${lndOSversion}-v${lndVersion}..." 
+echo "# Install lnd-linux-${lndOSversion}-v${lndVersion}..."
 sudo -u admin tar -xzf ${binaryName}
 sudo install -m 0755 -o root -g root -t /usr/local/bin lnd-linux-${lndOSversion}-v${lndVersion}/*
 sleep 3

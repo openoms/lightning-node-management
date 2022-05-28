@@ -35,116 +35,12 @@ Before updating it is most recommended to make a full backup of the LND director
 
   ```bash
     $ bash lnd.update.sh
-    # Input the LND version to install (eg. '0.12.1-beta.rc1'):
-    0.12.1-beta.rc1
-    # Input the name of the signer (eg: 'bitconner'):
-    bitconner
-    # Input the PGP key fingerprint to check against (eg. '9C8D61868A7C492003B2744EE7D737B67FA592C7'):
-    9C8D61868A7C492003B2744EE7D737B67FA592C7
-  ```
-
-## [Update LND to v0.14.1-beta](https://raw.githubusercontent.com/rootzoll/raspiblitz/d0529d82b8a3123d2b3440ff171e78c826dae162/home.admin/config.scripts/lnd.install.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/rootzoll/raspiblitz/d0529d82b8a3123d2b3440ff171e78c826dae162/home.admin/config.scripts/lnd.install.sh -O lnd.install.sh
-    # look through the script
-    cat lnd.install.sh
-    # run
-    bash lnd.install.sh install
-  ```
-
-## [Update LND to v0.13.3-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.13.3-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.13.3-beta.sh
-    # look through the script
-    cat lnd.update.v0.13.3-beta.sh
-    # run
-    bash lnd.update.v0.13.3-beta.sh
-  ```
-
-## [Update LND to v0.13.1-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.13.1-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.13.1-beta.sh
-    # look through the script
-    cat lnd.update.v0.13.1-beta.sh
-    # run
-    bash lnd.update.v0.13.1-beta.sh
-  ```
-
-## [Update LND to v0.13.0-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.13.0-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.13.0-beta.sh
-    # look through the script
-    cat lnd.update.v0.13.0-beta.sh
-    # run
-    bash lnd.update.v0.13.0-beta.sh
-  ```
-
-## [Update LND to v0.12.1-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.12.1-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.1-beta.sh
-    # look through the script
-    cat lnd.update.v0.12.1-beta.sh
-    # run
-    bash lnd.update.v0.12.1-beta.sh
-  ```
-
-## [Update LND to v0.12.0-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.12.0-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.12.0-beta.sh
-    # look through the script
-    cat lnd.update.v0.12.0-beta.sh
-    # run
-    bash lnd.update.v0.12.0-beta.sh
-  ```
-
-## [Update LND to v0.11.1-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.11.1-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.1-beta.sh
-    # look through the script
-    cat lnd.update.v0.11.1-beta.sh
-    # run
-    bash lnd.update.v0.11.1-beta.sh
-  ```
-
-## [Update LND to v0.11.0-beta](https://github.com/openoms/lightning-node-management/blob/master/lnd.updates/lnd.update.v0.11.0-beta.sh)
-
-* Run in the RaspiBlitz terminal to update:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.v0.11.0-beta.sh
-    # inspect the script
-    cat lnd.update.v0.11.0-beta.sh
-    # run
-    bash lnd.update.v0.11.0-beta.sh
+    # Input the LND version to install (eg. '0.15.0-beta.rc3'):
+    0.15.0-beta.rc3
+    # Input the name of the signer (eg: 'roasbeef'):
+    roasbeef
+    # Input the PGP key fingerprint to check against (eg. 'E4D85299674B2D31FAA1892E372CBD7633C61696'):
+    E4D85299674B2D31FAA1892E372CBD7633C61696
   ```
 
 ## [Build LND from the source](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.from.source.sh)
@@ -155,7 +51,7 @@ Before updating it is most recommended to make a full backup of the LND director
     # download
     wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh 
     # inspect the script
-    cat lnd.update.v0.11.0-beta.sh
+    cat lnd.from.source.sh
     # run
     bash lnd.from.source.sh
   ```
