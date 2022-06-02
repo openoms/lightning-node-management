@@ -188,6 +188,7 @@ Examples:
 * [Bluewallet](https://bluewallet.io/)
 * [Bitcoin Beach ](https://galoy.io/)
 * [Tippin.me](https://tippin.me/)
+* [Alby](https://getalby.com/)
 
 
 ## More links
