@@ -22,3 +22,7 @@ https://github.com/ellemouton/onion/blob/master/docs/routeBlinding.pdf
 * Citadel Dispatch e0.2.1 - the lightning network and bitcoin privacy with @openoms and @cycryptr <https://citadeldispatch.com/cd21/>
 * RecklessVR Cryptoanarchy weekend / HCPP20 : how and why to use bitcoin privately <https://www.youtube.com/watch?v=NUlUQlgtWlM>  
 Slides: <https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf>
+
+## Unannounced channels are not private
+* Use LDK to probe the lightning network for the detection of private channels: https://github.com/BitcoinDevShop/hidden-lightning-network
+* More details and conversation: https://lists.linuxfoundation.org/pipermail/lightning-dev/2022-June/003599.html
