@@ -15,28 +15,29 @@
 
 ## Advanced Tools
 
-* [Methods to create a balanced channel with a trusted peer](advanced-tools/balancedchannelcreation.md)
-* [Pool usage notes](advanced-tools/pool.md)
-* [Bos Score](advanced-tools/bosscore.md)
 * [lnd.conf example](advanced-tools/lnd.conf.md)
 * [Advanced and automated fee settings](advanced-tools/fees.md)
 * [Set up a Watchtower and a Client on the Lightning Network](advanced-tools/watchtower.md)
+* [Methods to create a balanced channel with a trusted peer](advanced-tools/balancedchannelcreation.md)
+* [Pool usage notes](advanced-tools/pool.md)
+* [Bos Score](advanced-tools/bosscore.md)
 
 ## Technicals
 
+* [Connecting to a lightning node remotely](technicals/lightning.connect.md)
 * [High onchain fee environment](technicals/highonchainfees.md)
 * [Compact the LND database \(channel.db\)](technicals/lnddatabasecompaction.md)
 * [Manage the LND onchain funds in Electrum Wallet](technicals/restorelndonchainfundsinelectrum.md)
-* [Connecting to a lightning node remotely](technicals/lightning.connect.md)
 
 ## Recovery
 
 * [Resources for LND](lndrecovery.md)
-* [Resources for C-lightning](clrecovery.md)
+* [Resources for Core Lightning](clrecovery.md)
 
 ## Privacy
 
 * [Resources on Lightning privacy](privacy/resources.md)
+* [VPN tunnels](technicals/networking.md)
 
 ## Hardware deployment
 

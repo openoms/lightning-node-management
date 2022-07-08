@@ -9,10 +9,8 @@
 ### Onion routing
 * BOLT #4: Onion Routing Protocol https://github.com/lightning/bolts/blob/master/04-onion-routing.md
 https://github.com/ellemouton/onion/blob/master/docs/onionRouting.pdf
-
 * Route Blinding proposal https://github.com/lightning/bolts/blob/route-blinding/proposals/route-blinding.md
 https://github.com/ellemouton/onion/blob/master/docs/routeBlinding.pdf
-
 * CLI tool for constructing & peeling onions both with and without route blinding. https://github.com/ellemouton/onion
 
 ## Listening and videos
@@ -24,5 +22,12 @@ https://github.com/ellemouton/onion/blob/master/docs/routeBlinding.pdf
 Slides: <https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf>
 
 ## Unannounced channels are not private
-* Use LDK to probe the lightning network for the detection of private channels: https://github.com/BitcoinDevShop/hidden-lightning-network
-* More details and conversation: https://lists.linuxfoundation.org/pipermail/lightning-dev/2022-June/003599.html
+* Use LDK to probe the lightning network for the detection of private channels: [hiddenlightningnetwork.com](https://github.com/BitcoinDevShop/hidden-lightning-network) 
+* More details and conversation: <https://lists.linuxfoundation.org/pipermail/lightning-dev/2022-June/003599.html>
+* CD69: decentralized identifiers (DIDs), “web5,” and lightning privacy with tony: <https://citadeldispatch.com/cd69/>
+
+## Improvements
+- [x] Alias SCIDs <https://github.com/lightning/bolts/pull/910>
+- [ ] Route blinding: <https://github.com/lightning/bolts/pull/765>
+- [ ] Trampoline routing: <https://github.com/lightning/bolts/pull/836>
+- [ ] New node for every channel open (send only): <https://github.com/BitcoinDevShop/pln>
