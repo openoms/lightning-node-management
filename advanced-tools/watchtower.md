@@ -78,7 +78,9 @@ Run the commands in the node\`s terminal
     wtclient.active=1
     ```
 
-    Add a watchtower from the command line \(can add multiple one-by-one\):
+  * restart lnd `# systemctl restart lnd`
+
+  * Add a watchtower from the command line \(can add multiple one-by-one\):
 
     ```text
     $ lncli wtclient add <watchtower-pubkey>@<host>:9911
