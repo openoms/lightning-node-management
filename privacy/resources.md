@@ -27,7 +27,7 @@ Slides: <https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf>
 * CD69: decentralized identifiers (DIDs), “web5,” and lightning privacy with tony: <https://citadeldispatch.com/cd69/>
 
 ## Onchain techniques
-* Creating a Core Lightning channel funded by JoinMarket: <https://gist.github.com/wukong1971/0c04d9186251b0a6497fef3737e95ceb>
+* Creating a Core Lightning channel funded by JoinMarket: <https://gist.github.com/BitcoinWukong/0c04d9186251b0a6497fef3737e95ceb>
 
 ## Improvements
 - [x] Alias SCIDs <https://github.com/lightning/bolts/pull/910>
