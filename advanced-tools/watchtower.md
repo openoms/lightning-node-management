@@ -198,6 +198,8 @@ Both nodes \(the watchtower and the client\) must be behind Tor to be able to co
     wtclient.active=1
     ```
 
+  * restart lnd `# systemctl restart lnd`
+
   * Add a watchtower from the command line \(can add multiple one-by-one\):
 
     ```text
