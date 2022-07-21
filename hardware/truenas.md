@@ -10,3 +10,4 @@ Extra guides and examples:
 * [Circuitbreaker](truenas/circuitbreaker.md)
 * [LNtop](truenas/lntop.md)
 * [LND notes](truenas/lnd.md)
+* [Zeus](truenas/zeus.md)
