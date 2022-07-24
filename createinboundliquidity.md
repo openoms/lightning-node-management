@@ -3,8 +3,8 @@ To create inbound liquidity on an existing channel \(to be able to receive payme
 To pay for various gift cards with lightning check out [Bitrefill \(referral link\)](https://www.bitrefill.com/buy/?code=XapbJJd8).
 
 - [Dual funded channels](#dual-funded-channels)
-  - [C-lightning dual funded channels on the protocol level](#c-lightning-dual-funded-channels-on-the-protocol-level)
-  - [Manual coordination with Balance of Satoshis](#manual-coordination-with-balance-of-satoshis)
+  - [Core Lightning dual funded channels on the protocol level](#core-lightning-dual-funded-channels-on-the-protocol-level)
+  - [Manual coordination on LND with Balance of Satoshis](#manual-coordination-on-lnd-with-balance-of-satoshis)
 - [Buy inbound channels](#buy-inbound-channels)
   - [Comparison table of lightning channel markets](#comparison-table-of-lightning-channel-markets)
   - [Amboss Magma](#amboss-magma)
@@ -37,12 +37,12 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 - [More links](#more-links)
 
 ## Dual funded channels
-### C-lightning dual funded channels on the protocol level
-* [How to use on the RaspiBlitz](https://github.com/rootzoll/raspiblitz/blob/v1.7/FAQ.cl.md#dual-funded-channels)
+### Core Lightning dual funded channels on the protocol level
+* [How to use on the RaspiBlitz](https://github.com/rootzoll/raspiblitz/blob/dev/FAQ.cl.md#dual-funded-channels)
 * [Open a dual funded channel](https://medium.com/blockstream/c-lightning-opens-first-dual-funded-mainnet-lightning-channel-ada6b32a527c)
-* [Set up liqudity ads](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
+* [Set up liquidity ads](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
 
-### Manual coordination with Balance of Satoshis
+### Manual coordination on LND with Balance of Satoshis
 * [github.com/alexbosworth/balanceofsatoshis](https://github.com/alexbosworth/balanceofsatoshis)
 * [Guide needed]
 
