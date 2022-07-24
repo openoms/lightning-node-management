@@ -22,13 +22,15 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
   - [lightningnetwork.plus](#lightningnetworkplus)
   - [LightningTo.me](#lightningtome)
   - [Join a community](#join-a-community)
-- [Swap out](#swap-out)
+- [Swap out - trustless](#swap-out---trustless)
   - [Lightning Loop](#lightning-loop)
-  - [ChainMarket](#chainmarket)
-  - [Boltz](#boltz)
+  - [Boltz.exchange](#boltzexchange)
+- [Swap out - trusted](#swap-out---trusted)
+  - [deezy.io](#deezyio)
   - [Bitfinex](#bitfinex)
   - [FixedFloat](#fixedfloat)
   - [ZigZag.io](#zigzagio)
+  - [No longer available ChainMarket](#no-longer-available-chainmarket)
 - [Send to a mobile wallet](#send-to-a-mobile-wallet)
   - [Self-custodial wallets](#self-custodial-wallets)
   - [Custodial wallets](#custodial-wallets)
@@ -106,7 +108,7 @@ Add their node as a peer if connecting from behind Tor:
   [How to join a ring](https://github.com/Rings-of-Fire/ring-of-fire/wiki#how)
 
 
-## Swap out
+## Swap out - trustless
 
 Pay with Lightning and receive onchain.
 
@@ -135,13 +137,33 @@ In the current iteration of the Loop software, two swap types are supported:
 
   [https://lightning.engineering/loopapi](https://lightning.engineering/loopapi)
 
-### [ChainMarket](https://chainmarket.etleneum.com/)
-
-A Lightning to onchain swap market with batched transactions. Fee: 0.5%
-
-### [Boltz](https://boltz.exchange/)
+### [Boltz.exchange](https://boltz.exchange/)
 
 Fee: 0.5% both ways
+
+## Swap out - trusted
+
+### [deezy.io](https://deezy.io/)
+
+Swap instantly to get inbound liquidity.
+
+* API: <https://docs.deezy.io/>
+
+* Get the terms for testnet:
+  ```
+  curl -X GET https://api-testnet.deezy.io/v1/swap/info -H "Accept: */*"
+  ```
+
+* Pay the returned invoice to make a testnet swap:
+  ```
+  curl -X POST https://api-testnet.deezy.io/v1/swap -H "Accept: */*" -H "Content-Type: application/json" --data-binary @- <<DATA
+  {
+    "amount_sats": 100000,
+    "on_chain_address": "tb1qr52ajdmyeakwmnelt2c8gg7k6e7v9d0km564n9",
+    "on_chain_sats_per_vbyte": 2
+  }
+  DATA
+  ```
 
 ### [Bitfinex](https://bitfinex.com)
 
@@ -155,6 +177,9 @@ Lightning cryptocurrency exchange Fee: 0.5 - 1% both ways
 
 An exchange that accepts Lightning payments. Max 4M sats Commission ~ 2%
 
+### No longer available [ChainMarket](https://chainmarket.etleneum.com/)
+
+A Lightning to onchain swap market with batched transactions. Fee: 0.5%
 
 ## Send to a mobile wallet
 Most can send to an onchain address afterwards for a fee (swap out).
