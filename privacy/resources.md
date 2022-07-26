@@ -5,6 +5,9 @@
 * Mastering the Lightning Network chapter: <https://github.com/lnbook/lnbook/blob/develop/16_security_privacy_ln.asciidoc>
 * Current State of Lightning Network Privacy in 2021 - Tony <https://abytesjourney.com/lightning-privacy>
 * BOLT12 proposal <https://bolt12.org>
+* Make Lightning Payments Private Again (PLN)
+    * <https://bc1984.com/make-lightning-payments-private-again/>
+    * <https://bitcoinmagazine.com/technical/pln-makes-bitcoin-lightning-more-private>
 
 ### Onion routing
 * BOLT #4: Onion Routing Protocol https://github.com/lightning/bolts/blob/master/04-onion-routing.md
