@@ -21,7 +21,7 @@ rm -r lightning-terminal-${VERSION:1}
 
 The binary will be installed in:
 ```
-/root/go/bin/litd 
+/root/go/bin/litd
 ```
 
 ## Config file
@@ -128,9 +128,13 @@ https://JAIL_LOCAL_IP:8443
 ## Update
 ```
 bash
-VERSION=v0.6.7-alpha
+# check the lates version at https://github.com/lightninglabs/lightning-terminal/releases
+VERSION=v0.7.0-alpha
+# upgrade all packages
 pkg update
 pkg upgrade -y
+# symlink the current go version dir
+ln -s /usr/local/go118 /usr/local/go
 export GOROOT=/usr/local/go
 mkdir ~/.gopkg
 export GOPATH=/root/.gopkg
@@ -141,7 +145,12 @@ service litd stop
 rm /root/go/bin/lit*
 rm /root/.gopkg/bin/lit*
 gmake install
+
+ln -s /root/.gopkg/bin/litd /root/go/bin/
+ln -s /root/.gopkg/bin/litcli /root/go/bin/
+
 service litd start
+
 cd
 rm -r lightning-terminal-${VERSION:1}
 ```
