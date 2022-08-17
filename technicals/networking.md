@@ -1,7 +1,13 @@
 # VPN tunnels
 
-* https://github.com/wtogami/vpn-nat-service-forwarding-howto
+* This guide describes how to configure a VPN frontend server where incoming TCP IPv4 connections are forwarded over a VPN to services running on a remote backend server.  
+  <https://github.com/wtogami/vpn-nat-service-forwarding-howto>
 
-* https://github.com/TrezorHannes/Dual-LND-Hybrid-VPS
+* This guide is a simpler how-to for implementing Hybrid Mode for 2+ LND Nodes via VPS  
+  <https://github.com/TrezorHannes/Dual-LND-Hybrid-VPS>
 
-* https://github.com/blckbx/tunnelsats
+* Documentation to setup LNbits on a VPS, connected to your Lightning Network Node through a secured tunnel  
+  <https://github.com/TrezorHannes/vps-lnbits>
+
+* Shared VPN with port-forwarding and split-tunneling  
+  <https://github.com/blckbx/tunnelsats>
