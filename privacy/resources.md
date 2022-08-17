@@ -26,10 +26,22 @@ Slides: <https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf>
 * [SLP391 BEN CARMAN – BITCOIN PRIVACY, SURVEILLANCE, LN VORTEX, P2P & AUSTIN BITDEVS](https://stephanlivera.com/episode/391/)
 * [CD70: using lightning privately with tony and @futurepaul](https://citadeldispatch.com/cd70/)
 
-## Unannounced channels are not private
+## Unannounced channels
+> To hide public channel balances, a node may open
+unannounced channels in parallel to announced ones. Depending on the relation
+between the balances of announced and unannounced channels, the attacker may
+still be able to discover unannounced channel balances (e.g., if the balance of
+the unannounced channel exceeds the balances of announced channels). Even in
+that case, the standard probing technique needs to be modified
+<https://eprint.iacr.org/2021/384.pdf>
 * Use LDK to probe the lightning network for the detection of private channels: [hiddenlightningnetwork.com](https://github.com/BitcoinDevShop/hidden-lightning-network)
 * More details and conversation: <https://lists.linuxfoundation.org/pipermail/lightning-dev/2022-June/003599.html>
 * [CD69: decentralized identifiers (DIDs), “web5,” and lightning privacy with tony](https://citadeldispatch.com/cd69/)
+
+# Channel jamming
+* <https://jamming-dev.github.io/book>
+* <https://twitter.com/ffstls/status/1559902528808140804>
+
 
 ## Onchain techniques
 * Creating a Core Lightning channel funded by JoinMarket: <https://gist.github.com/BitcoinWukong/0c04d9186251b0a6497fef3737e95ceb>
