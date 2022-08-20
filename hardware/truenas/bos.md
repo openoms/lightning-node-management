@@ -12,7 +12,7 @@ npm install -g balanceofsatoshis
 /bin/sh
 pkg install -y base64
 
-LAN_IP=$(ifconfig | grep broadcast | awk '{print $2}')
+LAN_IP=$(ifconfig | grep broadcast | head -1 | awk '{print $2}')
 CERT=$(base64 /var/db/lnd/tls.cert | tr -d '\n')
 MACAROON=$(base64 /var/db/lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n')
 echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:10009\"}"
@@ -43,4 +43,19 @@ bos peers --node $NODE_NAME
 
 ```
 npm install -g balanceofsatoshis
+```
+
+## Running over Tor
+* Create the proxy file
+```
+cat <<EOF >> /root/bos_tor_proxy.json
+{
+   "host": "127.0.0.1",
+   "port": 9050
+}
+EOF
+```
+* Run:
+```
+bos telegram --connect 328813810 --use-proxy /root/bos_tor_proxy.json --use-small-units --node $NODE_NAME
 ```
