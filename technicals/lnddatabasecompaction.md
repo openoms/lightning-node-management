@@ -101,3 +101,35 @@ sudo systemctl start lnd
 lncli unlock
 ```
 
+# Prune the revocation logs
+* available since [LND v0.15.1](https://github.com/lightningnetwork/lnd/releases/tag/v0.15.1-beta)
+* Does not replace the database compacting and needs to be done only once after updating to LND v0.15.1 and above
+
+  ```text
+  # check the size of channel.db
+  sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
+  # example output
+  # 1.0G    /mnt/hdd/lnd/data/graph/mainnet/channel.db
+  ```
+## On a Raspiblitz or compatible system:
+* Edit the systemd service:
+  ```
+  sudo systemctl edit --full lnd
+  ```
+
+* Edit the line starting with `ExecStart=` so it looks like:
+  ```
+  ExecStart=/usr/local/bin/lnd --configfile=/home/bitcoin/.lnd/lnd.conf --db.prune-revocation
+  ```
+* CTRL+o, ENTER and CTRL+x to save then restart LND:
+  ```
+  sudo systemctl restart lnd
+  ```
+* monitor the process in the logs:
+  ```
+  sudo tail -n 30 -f /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log
+  ```
+* can take 30-60 mins typically similar to compacting after a long time.
+
+* after the pruning has finished the node comes back online
+* will need to compact once again to remove the pruned logs and reduce the size of the channel.db 
