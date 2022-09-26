@@ -10,10 +10,11 @@
 * Documentation to setup LNbits on a VPS, connected to your Lightning Network Node through a secured tunnel  
   <https://github.com/TrezorHannes/vps-lnbits>
 
+* VPS Passthrough Hosting - Host a large website or application with a modest VPS  
+<https://blog.bitcoinlizard.net/2022/04/02/vps-passthrough-hosting>
 ## Video
 * Bitcoin-Lightning behind Wireguard VPN by 402 Payment Required  
  <https://www.youtube.com/watch?v=TzKj5garlIE>
-
 
 ## VPN service
 * Shared VPN with port-forwarding and split-tunneling  
