@@ -38,11 +38,22 @@ that case, the standard probing technique needs to be modified
 * More details and conversation: <https://lists.linuxfoundation.org/pipermail/lightning-dev/2022-June/003599.html>
 * [CD69: decentralized identifiers (DIDs), “web5,” and lightning privacy with tony](https://citadeldispatch.com/cd69/)
 
-# Channel jamming
+## Channel jamming
 * <https://jamming-dev.github.io/book>
 * <https://twitter.com/ffstls/status/1559902528808140804>
 
+## [LNproxy](http://lnproxy.org/)
 
+* lnproxy takes a bolt 11 invoice and generates a “wrapped” invoice that can be settled if and only if the original invoice is settled. The “wrapped” invoice has the same payment hash, expiry, and description, as the invoice it wraps but adds a small routing fee to the amount. The “wrapped” invoice can be used anywhere the original invoice would be used to trustlessly hide the destination of a payment.
+* use the [API](http://lnproxy.org/doc) in your `.bashrc` (available in the RAspiblitz v1.8.1 CLI as well):
+  ```
+  function lnproxy() {
+    echo
+    echo "Requesting a wrapped invoice from http://rdq6tvulanl7aqtupmoboyk2z3suzkdwurejwyjyjf4itr3zhxrm2lad.onion ..."
+    echo
+    torify curl http://rdq6tvulanl7aqtupmoboyk2z3suzkdwurejwyjyjf4itr3zhxrm2lad.onion/api/${1}
+  }
+  ```
 ## Onchain techniques
 * Creating a Core Lightning channel funded by JoinMarket: <https://gist.github.com/BitcoinWukong/0c04d9186251b0a6497fef3737e95ceb>
 
