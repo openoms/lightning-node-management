@@ -42,10 +42,9 @@ that case, the standard probing technique needs to be modified
 * <https://jamming-dev.github.io/book>
 * <https://twitter.com/ffstls/status/1559902528808140804>
 
-## [LNproxy](http://lnproxy.org/)
-
+## Receiver privacy with [LNproxy](http://lnproxy.org/)
 * lnproxy takes a bolt 11 invoice and generates a “wrapped” invoice that can be settled if and only if the original invoice is settled. The “wrapped” invoice has the same payment hash, expiry, and description, as the invoice it wraps but adds a small routing fee to the amount. The “wrapped” invoice can be used anywhere the original invoice would be used to trustlessly hide the destination of a payment.
-* use the [API](http://lnproxy.org/doc) in your `.bashrc` (available in the RAspiblitz v1.8.1 CLI as well):
+* use the [API](http://lnproxy.org/doc) in your `.bashrc` (available in the Raspiblitz v1.8.1 CLI as well):
   ```
   function lnproxy() {
     echo
@@ -54,8 +53,18 @@ that case, the standard probing technique needs to be modified
     torify curl http://rdq6tvulanl7aqtupmoboyk2z3suzkdwurejwyjyjf4itr3zhxrm2lad.onion/api/${1}
   }
   ```
-## Onchain techniques
+## Onchain techniques to open channels
+* create channels from coinjoin outputs
+  * private channels are not announced, use them especially if there is a public channel to the peer already
+  * open one channel at a time
+  * create no change
+  * avoid round amounts
+* close cooperatively to an external address (eg a Joinmarket wallet running as a Maker))
 * Creating a Core Lightning channel funded by JoinMarket: <https://gist.github.com/BitcoinWukong/0c04d9186251b0a6497fef3737e95ceb>
+* syntax for LND with Balance of Satoshis:
+  ```
+  bos open PUBKEY --amount SATS --coop-close-address EXTERNAL_ADDRESS --type private --external-funding
+  ```
 
 ## Improvements
 - [x] Alias SCIDs <https://github.com/lightning/bolts/pull/910>
