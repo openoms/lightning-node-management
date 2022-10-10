@@ -42,6 +42,9 @@ that case, the standard probing technique needs to be modified
 * <https://jamming-dev.github.io/book>
 * <https://twitter.com/ffstls/status/1559902528808140804>
 
+## LNsploit
+* A Lightning Network exploit toolkit: <https://www.nakamoto.codes/BitcoinDevShop/LNsploit>
+
 ## Receiver privacy with [LNproxy](http://lnproxy.org/)
 * lnproxy takes a bolt 11 invoice and generates a “wrapped” invoice that can be settled if and only if the original invoice is settled. The “wrapped” invoice has the same payment hash, expiry, and description, as the invoice it wraps but adds a small routing fee to the amount. The “wrapped” invoice can be used anywhere the original invoice would be used to trustlessly hide the destination of a payment.
 * use the [API](http://lnproxy.org/doc) in your `.bashrc` (available in the Raspiblitz v1.8.1 CLI as well):
@@ -72,4 +75,3 @@ that case, the standard probing technique needs to be modified
 - [ ] Trampoline routing: <https://github.com/lightning/bolts/pull/836>
 - [ ] New node for every channel open (send only): <https://github.com/BitcoinDevShop/pln>
 - [ ] Coinjoin to channels: <https://github.com/ln-vortex/ln-vortex>
-
