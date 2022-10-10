@@ -37,7 +37,7 @@ Before updating it is most recommended to make a full backup of the LND director
 
   ```bash
     # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.sh
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/en/lnd.updates/lnd.update.sh
     # look through the script
     cat lnd.update.sh
     # run
@@ -56,13 +56,13 @@ Before updating it is most recommended to make a full backup of the LND director
     E4D85299674B2D31FAA1892E372CBD7633C61696
   ```
 
-## [Build LND from the source](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.from.source.sh)
+## [Build LND from the source](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.from.source.sh)
 
 * Download and run this script on the RaspiBlitz:
 
   ```bash
     # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh 
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.from.source.sh
     # inspect the script
     cat lnd.from.source.sh
     # run
