@@ -18,7 +18,20 @@ Before updating it is most recommended to make a full backup of the LND director
 
   More info about this process in the [FAQ](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
 
-## [Update LND to a chosen version](https://github.com/openoms/lightning-node-management/tree/4d79ea41252f3fb2729aa9c2bd2be591b7c98299/lnd.updates/lnd.update.sh)
+## [Update LND to v0.15.2-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.15.2-beta.sh)
+
+* Run in the RaspiBlitz terminal to use:
+
+  ```bash
+    # download
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/en/lnd.updates/lnd.update.v0.15.2-beta.sh
+    # look through the script
+    cat lnd.update.v0.15.2-beta.sh
+    # run
+    bash lnd.update.v0.15.2-beta.sh
+  ```
+
+## [Update LND to a chosen version](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.sh)
 
 * Run in the RaspiBlitz terminal to use:
 
@@ -35,8 +48,8 @@ Before updating it is most recommended to make a full backup of the LND director
 
   ```bash
     $ bash lnd.update.sh
-    # Input the LND version to install (eg. '0.15.0-beta.rc3'):
-    0.15.0-beta.rc3
+    # Input the LND version to install (eg. '0.16.0-beta.rc1'):
+    0.16.0-beta.rc1
     # Input the name of the signer (eg: 'roasbeef'):
     roasbeef
     # Input the PGP key fingerprint to check against (eg. 'E4D85299674B2D31FAA1892E372CBD7633C61696'):
@@ -57,4 +70,3 @@ Before updating it is most recommended to make a full backup of the LND director
   ```
 
 * Will ask for the commit to checkout from. Choose a commit ID from this list: [https://github.com/lightningnetwork/lnd/commits/master](https://github.com/lightningnetwork/lnd/commits/master)
-
