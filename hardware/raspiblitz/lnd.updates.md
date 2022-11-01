@@ -18,30 +18,17 @@ Before updating it is most recommended to make a full backup of the LND director
 
   More info about this process in the [FAQ](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
 
-## [Update LND to v0.15.3-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.15.3-beta.sh)
+## [Update LND to v0.15.4-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.15.4-beta.sh)
 
 * Run in the RaspiBlitz terminal to use:
 
   ```bash
     # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/en/lnd.updates/lnd.update.v0.15.3-beta.sh
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/en/lnd.updates/lnd.update.v0.15.4-beta.sh
     # look through the script
-    cat lnd.update.v0.15.3-beta.sh
+    cat lnd.update.v0.15.4-beta.sh
     # run
-    bash lnd.update.v0.15.3-beta.sh
-  ```
-
-## [Update LND to v0.15.2-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.15.2-beta.sh)
-
-* Run in the RaspiBlitz terminal to use:
-
-  ```bash
-    # download
-    wget https://raw.githubusercontent.com/openoms/lightning-node-management/en/lnd.updates/lnd.update.v0.15.2-beta.sh
-    # look through the script
-    cat lnd.update.v0.15.2-beta.sh
-    # run
-    bash lnd.update.v0.15.2-beta.sh
+    bash lnd.update.v0.15.4-beta.sh
   ```
 
 ## [Update LND to a chosen version](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.sh)
