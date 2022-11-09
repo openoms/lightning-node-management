@@ -68,10 +68,14 @@ that case, the standard probing technique needs to be modified
   ```
   bos open PUBKEY --amount SATS --coop-close-address EXTERNAL_ADDRESS --type private --external-funding
   ```
+- [ ] New node for every channel open (send only): <https://github.com/BitcoinDevShop/pln>
+- [ ] Coinjoin to channels: <https://github.com/ln-vortex/ln-vortex>
+- [ ] Payjoin to channels:
+  * <https://github.com/chaincase-app/nolooking>
+  * <https://chaincase.app/words/lightning-payjoin>
 
-## Improvements
+## Protocol Improvements
 - [x] Alias SCIDs <https://github.com/lightning/bolts/pull/910>
 - [ ] Route blinding: <https://github.com/lightning/bolts/pull/765>
 - [ ] Trampoline routing: <https://github.com/lightning/bolts/pull/836>
-- [ ] New node for every channel open (send only): <https://github.com/BitcoinDevShop/pln>
-- [ ] Coinjoin to channels: <https://github.com/ln-vortex/ln-vortex>
+- [ ] PTLCs <https://lists.linuxfoundation.org/pipermail/lightning-dev/2021-October/003278.html>
