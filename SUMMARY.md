@@ -17,7 +17,7 @@
 
 * [lnd.conf example](advanced-tools/lnd.conf.md)
 * [Advanced and automated fee settings](advanced-tools/fees.md)
-* [Set up a Watchtower and a Client on the Lightning Network](advanced-tools/watchtower.md)
+* [Set up an LND watchtower and connect a client](advanced-tools/watchtower.md)
 * [Methods to create a balanced channel with a trusted peer](advanced-tools/balancedchannelcreation.md)
 * [Pool usage notes](advanced-tools/pool.md)
 * [Bos Score](advanced-tools/bosscore.md)
