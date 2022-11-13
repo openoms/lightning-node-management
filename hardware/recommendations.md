@@ -1,5 +1,6 @@
 # Hardware recommendations for lightning nodes
 
+![https://twitter.com/lunaticoin/status/1522237631404429316](/.gitbook/assets/nodehardware.png)
 ## Raspberry Pi 4
 A love-hate relationship
  - it is a minimal viable hardware with up-to-date linux kernel
@@ -17,6 +18,7 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 
 
 ## Laptop
+![laptoptweet](/.gitbook/assets/laptoptweet.png)
 - more power - still energy efficient
 - built in battery
 - screen and keyboard to manage
@@ -24,9 +26,11 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 ### Preferences
 - LAN connection (can use an USB dapater)
 - Second built-in disk in WWAN slot as seen in Thinkpads
+- If there is an optical drive can use an optical bay drive caddy 
 - Twitter community: <https://twitter.com/i/communities/1563029300911058944>
 
 ## Home server
+![servertweet](/.gitbook/assets/servertweet.png)
 - Still can be a big saving on hosting despite higher power usage
 - Unlimited storage with disk redundancy ([ZFS](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html))
 - [Cockpit webinterface](https://github.com/rootzoll/raspiblitz/issues/2767)
@@ -41,6 +45,4 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
   - [Raspibolt](https://raspibolt.org/)
   - [TrueNASnode - full bitcoin stack deployment guide](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
   - [Raspiblitz - Alternative platforms](https://github.com/rootzoll/raspiblitz/tree/dev/alternative.platforms)
-
-Resources:
-
+  - [Install Raspiblitz on Proxmox](https://github.com/rootzoll/raspiblitz/tree/dev/alternative.platforms/Proxmox)
