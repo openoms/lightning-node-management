@@ -52,11 +52,13 @@ that case, the standard probing technique needs to be modified
   * <https://chaincase.app/words/lightning-payjoin>
 
 ## LN wallets
-### Mobile wallets
+### Mobile wallets (LN node on the phone)
 Tor support and private chain info
 * OBW - Tor + Electrum server support
-  * optional custodial hosted channels support - payments are private from 
+  * optional custodial hosted channels support - payments are private from the provider
 * Breez - Tor and neutrino backend
+* Blixt - Neutrino block source
+
 ### Custodial wallets
 Traditional custodians provide no privacy from the maintainer.
 * Wallet of Satoshi
@@ -65,7 +67,7 @@ Traditional custodians provide no privacy from the maintainer.
 
 ### LN compatible chaumian (blinded) mints
 * Cashu in browser - <https://cashu.space> , LNbits extension
-* Fedimint (with LN gateways)
+* Fedimint with LN gateways - WIP
 
 ## LN protocol improvements
 - [x] Alias SCIDs <https://github.com/lightning/bolts/pull/910>
