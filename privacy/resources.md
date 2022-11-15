@@ -22,7 +22,6 @@ still be able to discover unannounced channel balances (e.g., if the balance of
 the unannounced channel exceeds the balances of announced channels). Even in
 that case, the standard probing technique needs to be modified
 
-
 ## Open channels with improved privacy
 ### Manual
 * create channels from coinjoin outputs
@@ -52,7 +51,23 @@ that case, the standard probing technique needs to be modified
   * <https://github.com/chaincase-app/nolooking>
   * <https://chaincase.app/words/lightning-payjoin>
 
-## Protocol Improvements
+## LN wallets
+### Mobile wallets
+Tor support and private chain info
+* OBW - Tor + Electrum server support
+  * optional custodial hosted channels support - payments are private from 
+* Breez - Tor and neutrino backend
+### Custodial wallets
+Traditional custodians provide no privacy from the maintainer.
+* Wallet of Satoshi
+* Bitcoin Beach Wallet (phone number required)
+* CoinOS (Liquid compatible LN <-> Liquid gateway)
+
+### LN compatible chaumian (blinded) mints
+* Cashu in browser - <https://cashu.space> , LNbits extension
+* Fedimint (with LN gateways)
+
+## LN protocol improvements
 - [x] Alias SCIDs <https://github.com/lightning/bolts/pull/910>
 - [ ] Route blinding: <https://github.com/lightning/bolts/pull/765>
 - [ ] Trampoline routing: <https://github.com/lightning/bolts/pull/836>
