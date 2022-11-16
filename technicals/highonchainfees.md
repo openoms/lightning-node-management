@@ -103,8 +103,8 @@ A pending channel will become "stale" after 2016 blocks - the peer will forget a
 
 * Anchor commitments by default \(affects only new channels and both peers need to support the feature\)
 * Splicing and dual funding - extend the channel capacity in a single transaction
-* Taproot - can save on sending to the multisig \(~26 byte from the min 140 bytes\)
-* Taproot - funding from multisig wallets will be the same cost as from single sig wallets
+* Taproot - can save on sending from the multisig \(~26 byte from the min 140 bytes\)
+* Taproot - funding from multisig wallets will be the same cost as from single sig wallets (slightly more expensive for single-sig)
 * ELTOO - multiparty channels and channel factories
 
 ## References

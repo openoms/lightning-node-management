@@ -16,7 +16,6 @@ A love-hate relationship
 
 Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shopping-list-buy-parts--build-it-yourself>
 
-
 ## Laptop
 ![laptoptweet](/.gitbook/assets/laptoptweet.png)
 - more power - still energy efficient
@@ -26,7 +25,7 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 ### Preferences
 - LAN connection (can use an USB dapater)
 - Second built-in disk in WWAN slot as seen in Thinkpads
-- If there is an optical drive can use an optical bay drive caddy 
+- If there is an optical drive can use an optical bay drive caddy
 - Twitter community: <https://twitter.com/i/communities/1563029300911058944>
 
 ## Home server
@@ -36,7 +35,7 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 - [Cockpit webinterface](https://github.com/rootzoll/raspiblitz/issues/2767)
 ### Preferences
 - ECC RAM to prevent [data corruption in memory](https://github.com/lightningnetwork/lnd/issues/7022#issuecomment-1278695682)
-- Muliple disks to use a checksumming, "self-healing" softwawre RAID like ZFS
+- Muliple disks to use a checksumming, "self-healing" software RAID like ZFS
 - Avoid hardware RAID cards - often another source of problems and recovery is not possible with other hardware
 ## Use a minimal VPS with ZeroTier or Tailscale to tunnel services to a public domain
 * [VPN tunnels](technicals/networking.md)

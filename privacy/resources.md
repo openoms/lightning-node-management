@@ -11,7 +11,9 @@
     torify curl http://rdq6tvulanl7aqtupmoboyk2z3suzkdwurejwyjyjf4itr3zhxrm2lad.onion/api/${1}
   }
   ```
-
+* Code and how to run yourself: <https://github.com/lnproxy>
+* Improved alias verifying the payment hash: <https://github.com/lnproxy/lnproxy-cli>
+* 
 ## Unannounced channels - shadow liquidity
 * use paralell private channels to hide capacity and UTXOs
 * <https://eprint.iacr.org/2021/384.pdf>
