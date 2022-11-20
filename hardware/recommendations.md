@@ -38,7 +38,7 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 - Muliple disks to use a checksumming, "self-healing" software RAID like ZFS
 - Avoid hardware RAID cards - often another source of problems and recovery is not possible with other hardware
 ## Use a minimal VPS with ZeroTier or Tailscale to tunnel services to a public domain
-* [VPN tunnels](technicals/networking.md)
+* [VPN tunnels](../technicals/networking.md)
 
 ## Build guides:
   - [Raspibolt](https://raspibolt.org/)
