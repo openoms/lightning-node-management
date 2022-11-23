@@ -41,6 +41,7 @@
 
 ## Hardware deployment
 
+* [Hardware recommendations](hardware/recommendations.md)
 * [RaspiBolt](hardware/raspibolt.md)
 * [RaspiBlitz](hardware/raspiblitz.md)
     * [charge-lnd](hardware/raspiblitz/charge-lnd.md)
