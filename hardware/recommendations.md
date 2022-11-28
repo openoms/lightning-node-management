@@ -23,7 +23,7 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 - screen and keyboard to manage
 
 ### Preferences
-- LAN connection (can use an USB dapater)
+- wired LAN connection (can use an USB adapter)
 - Second built-in disk in WWAN slot as seen in Thinkpads
 - If there is an optical drive can use an optical bay drive caddy
 - Twitter community: <https://twitter.com/i/communities/1563029300911058944>
@@ -45,3 +45,8 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
   - [TrueNASnode - full bitcoin stack deployment guide](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
   - [Raspiblitz - Alternative platforms](https://github.com/rootzoll/raspiblitz/tree/dev/alternative.platforms)
   - [Install Raspiblitz on Proxmox](https://github.com/rootzoll/raspiblitz/tree/dev/alternative.platforms/Proxmox)
+  - ZFS links:
+    - [OpenZFS on Debian](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html)
+    - [Capacity calculator](https://wintelguy.com/zfs-calc.pl)
+    - [Why you should use mirror vdevs not raidz](https://jrs-s.net/2015/02/06/zfs-you-should-use-mirror-vdevs-not-raid)
+    - [ZFS manager plugin for Cockpit](https://github.com/45Drives/cockpit-zfs-manager)
