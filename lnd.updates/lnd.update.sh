@@ -6,7 +6,7 @@
 # $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.sh && bash lnd.update.sh
 
 echo "# See the latest LND release and check who signed it https://github.com/lightningnetwork/lnd/releases"
-echo "# Input the LND version to install (eg. '0.16.0-beta.rc1'):"
+echo "# Input the LND version to install (eg. '0.15.5-beta' or '0.16.0-beta.rc1'):"
 read lndVersion
 
 downloadDir="/home/admin/download/lnd"  # edit your download directory
