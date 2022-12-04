@@ -6,22 +6,40 @@ https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
 
 ```
 bash
-VERSION=v0.6.1-alpha
-pkg install -y gmake git go node14 yarn-node14 python2
+VERSION=$VERSION
+pkg install -y gmake git node14 yarn-node14 python2
+
+# Go
+wget https://go.dev/dl/go1.18.8.freebsd-amd64.tar.gz
+tar -xvf go1.18.8.freebsd-amd64.tar.gz
+rm /usr/local/go
+mv go /usr/local
 export GOROOT=/usr/local/go
 mkdir ~/.gopkg
 export GOPATH=/root/.gopkg
-fetch https://github.com/lightninglabs/lightning-terminal/archive/refs/tags/$VERSION.tar.gz
-tar -xvf $VERSION.tar.gz
-cd lightning-terminal-${VERSION:1}
-gmake install
-cd
-rm -r lightning-terminal-${VERSION:1}
-```
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-The binary will be installed in:
-```
-/root/go/bin/litd
+mkdir lightning-terminal-source-$VERSION
+cd lightning-terminal-source-$VERSION
+wget -O lightning-terminal-source-$VERSION.tar.gz https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/lightning-terminal-source-$VERSION.tar.gz
+
+# verify
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4D7D916376026F177
+wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
+wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
+gpg --verify manifest-$VERSION.sig manifest-$VERSION.txt
+shasum -a 256 -c manifest-$VERSION.txt --ignore-missing
+
+gmake install
+
+ln -s /root/.gopkg/bin/litd /root/go/bin/
+ln -s /root/.gopkg/bin/litcli /root/go/bin/
+
+service litd start
+service litd status
+
+cd
+rm -r lightning-terminal-source-$VERSION
 ```
 
 ## Config file
@@ -128,19 +146,34 @@ https://JAIL_LOCAL_IP:8443
 ## Update
 ```
 bash
-# check the lates version at https://github.com/lightninglabs/lightning-terminal/releases
-VERSION=v0.7.0-alpha
+# check the latest version at https://github.com/lightninglabs/lightning-terminal/releases
+VERSION=$VERSION
 # upgrade all packages
 pkg update
 pkg upgrade -y
-# symlink the current go version dir
-ln -s /usr/local/go118 /usr/local/go
+
+# Go
+wget https://go.dev/dl/go1.18.8.freebsd-amd64.tar.gz
+tar -xvf go1.18.8.freebsd-amd64.tar.gz
+rm /usr/local/go
+mv go /usr/local
 export GOROOT=/usr/local/go
 mkdir ~/.gopkg
 export GOPATH=/root/.gopkg
-fetch https://github.com/lightninglabs/lightning-terminal/archive/refs/tags/$VERSION.tar.gz
-tar -xvf $VERSION.tar.gz
-cd lightning-terminal-${VERSION:1}
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+mkdir lightning-terminal-source-$VERSION
+cd lightning-terminal-source-$VERSION
+wget -O lightning-terminal-source-$VERSION.tar.gz https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/lightning-terminal-source-$VERSION.tar.gz
+
+# verify
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4D7D916376026F177
+wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
+wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
+gpg --verify manifest-$VERSION.sig manifest-$VERSION.txt
+shasum -a 256 -c manifest-$VERSION.txt --ignore-missing
+
+tar -xvf lightning-terminal-source-$VERSION.tar.gz
 service litd stop
 rm /root/go/bin/lit*
 rm /root/.gopkg/bin/lit*
@@ -150,9 +183,10 @@ ln -s /root/.gopkg/bin/litd /root/go/bin/
 ln -s /root/.gopkg/bin/litcli /root/go/bin/
 
 service litd start
+service litd status
 
 cd
-rm -r lightning-terminal-${VERSION:1}
+rm -r lightning-terminal-source-$VERSION
 ```
 
 The binary will be installed in:
