@@ -14,8 +14,8 @@ wget https://go.dev/dl/go1.18.8.freebsd-amd64.tar.gz
 tar -xvf go1.18.8.freebsd-amd64.tar.gz
 rm /usr/local/go
 mv go /usr/local
-export GOROOT=/usr/local/go
 mkdir ~/.gopkg
+export GOROOT=/usr/local/go
 export GOPATH=/root/.gopkg
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
