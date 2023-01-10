@@ -117,16 +117,28 @@ run_rc_command "$1"
 ```
 
 ## Tor Hidden Service
-
-```
-HiddenServiceDir /var/db/tor/litd
-HiddenServiceVersion 3
-HiddenServicePort 443 127.0.0.1:8443
-```
+* Create in:
+  ```
+  nano /usr/local/etc/tor/torrc
+  ```
+  ```
+  HiddenServiceDir /var/db/tor/litd
+  HiddenServiceVersion 3
+  HiddenServicePort 443 127.0.0.1:8443
+  ```
+* reload Tor
+  ```
+  service tor reload
+  ```
 * read the Hidden Service
-```
-cat /var/db/tor/litd/hostname
-```
+  ```
+  cat /var/db/tor/litd/hostname
+  ```
+* Tor logs
+  ```
+  tail -f /var/log/tor/tor.log
+  ```
+
 ## Start
 ```
 service litd enable
