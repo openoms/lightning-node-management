@@ -3,25 +3,13 @@
 # LND Update Script
 
 # Download and run this script on the RaspiBlitz:
-# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.sh && bash lnd.update.sh
+# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.0.16.0-beta.sh && bash lnd.update.0.16.0-beta.sh
 
-echo "# See the latest LND release and check who signed it https://github.com/lightningnetwork/lnd/releases"
-echo "# Input the LND version to install (eg. '0.15.5-beta' or '0.16.0-beta.rc1'):"
-read lndVersion
-
+lndVersion=0.16.0-beta
 downloadDir="/home/admin/download/lnd"  # edit your download directory
-
-echo "# Input the name of the signer (eg: 'roasbeef'):"
-read PGPsigner
-
+PGPsigner="guggero"
 PGPkeys="https://keybase.io/$PGPsigner/pgp_keys.asc"
-
-echo "# Input the PGP key fingerprint to check against (eg. 'E4D85299674B2D31FAA1892E372CBD7633C61696'):"
-read PGPcheck
-
-#PGPsigner="roasbeef"
-#PGPpkeys="https://keybase.io/roasbeef/pgp_keys.asc"
-#PGPcheck="E4D85299674B2D31FAA1892E372CBD7633C61696"
+PGPcheck="F4FC70F07310028424EFC20A8E4256593F177720"
 
 echo "Detect CPU architecture ..."
 isARM=$(uname -m | grep -c 'arm')
@@ -50,7 +38,7 @@ binaryName="lnd-linux-${lndOSversion}-v${lndVersion}.tar.gz"
 
 rm -rf "${downloadDir}"
 mkdir -p "${downloadDir}"
-cd "${downloadDir}"
+cd "${downloadDir}" || exit 1
 # extract the SHA256 hash from the manifest file for the corresponding platform
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-${PGPsigner}-v${lndVersion}.sig || exit 1
 
