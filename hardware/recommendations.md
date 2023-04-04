@@ -50,3 +50,4 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
     - [Capacity calculator](https://wintelguy.com/zfs-calc.pl)
     - [Why you should use mirror vdevs not raidz](https://jrs-s.net/2015/02/06/zfs-you-should-use-mirror-vdevs-not-raid)
     - [ZFS manager plugin for Cockpit](https://github.com/45Drives/cockpit-zfs-manager)
+    - [Create a ZFS pool to be used as a Raspiblitz data disk](https://github.com/openoms/bitcoin-tutorials/blob/master/zfs/create-raspiblitz-zfs-disk.md)
