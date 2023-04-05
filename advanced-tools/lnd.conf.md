@@ -75,32 +75,6 @@ tlsautorefresh=1
 # Do not include IPs in the RPC TLS certificate
 tlsdisableautofill=1
 
-##############################
-# Optimise for cheap routes #
-##############################
-[routerrpc]
-# Make sure that LND is the binary release or built with the routerrpc tag
-# Set default chance of a hop success
-routerrpc.apriorihopprob=0.5
-# Start to ignore nodes if they return many failures (set to 1 to turn off)
-routerrpc.aprioriweight=0.75
-# Set minimum desired savings of trying a cheaper path
-# The (virtual) fixed cost in sats of a failed payment attempt (default: 100)
-routerrpc.attemptcost=10
-# The (virtual) proportional cost in ppm of the total amount of a failed payment
-# attempt (default: 1000)
-routerrpc.attemptcostppm=10
-# Set the number of historical routing records
-routerrpc.maxmchistory=10000
-# Set the min confidence in a path worth trying
-routerrpc.minrtprob=0.005
-# Set the time to forget past routing failures
-routerrpc.penaltyhalflife=6h0m0s
-
-# stability improvement on v0.14.1 - should b enot needed on v114.2 and above
-# https://github.com/lightningnetwork/lnd/issues/6061#issuecomment-987779388
-routerrpc.maxmchistory=0
-
 ########################
 # Compact the database #
 ########################
@@ -120,8 +94,6 @@ routerrpc.maxmchistory=0
 [Bitcoin]
 bitcoin.active=1
 bitcoin.node=bitcoind
-# enable either testnet or mainnet
-#bitcoin.testnet=1
 bitcoin.mainnet=1
 
 [Bitcoind]
