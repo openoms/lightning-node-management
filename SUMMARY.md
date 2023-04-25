@@ -48,12 +48,18 @@
     * [Balance of Satoshis Telegram Bot](hardware/raspiblitz/bos.md)
     * [LND updates](hardware/raspiblitz/lnd.updates.md)
     * [Bitcoin Core updates](https://openoms.github.io/bitcoin-tutorials/raspiblitz.updates/#bitcoin-core-updates)
+    * [VPN and firewall setup](https://gist.github.com/openoms/037bb0e3cccab58bfac5376db37bb57c)  
 * [TrueNAS (FreeBSD) node](hardware/truenas.md)
-    * [aliases](hardware/truenas/aliases.md)
-    * [Balance of Satoshis](hardware/truenas/bos.md)
-    * [Lightning Terminal](hardware/truenas/lit.md)
-    * [Circuitbreaker](hardware/truenas/circuitbreaker.md)
-    * [LNtop](hardware/truenas/lntop.md)
+    * [aliases](truenas/aliases.md)
+    * [Balance of Satoshis](truenas/bos.md)
+    * [Lightning Terminal](truenas/lit.md)
+    * [Circuitbreaker](truenas/circuitbreaker.md)
+    * [LNtop](truenas/lntop.md)
+    * [LND notes](truenas/lnd.md)
+    * [stream-lnd-htlcs](truenas/stream-lnd-htlcs.md)
+    * [Suez](truenas/suez.md)
+    * [Tailscale](truenas/tailscale.md)
+    * [Connect Zeus](truenas/zeus.md)
 
 ## Donate
 

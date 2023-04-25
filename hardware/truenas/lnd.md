@@ -1,7 +1,7 @@
 # LND
 ## Update
 ```
-VERSION="v0.15.5-beta"
+VERSION="v0.16.1-beta"
 cd ~
 wget https://github.com/lightningnetwork/lnd/releases/download/$VERSION/lnd-freebsd-amd64-$VERSION.tar.gz
 
@@ -10,13 +10,20 @@ curl https://raw.githubusercontent.com/lightningnetwork/lnd/master/scripts/keys/
 wget https://github.com/lightningnetwork/lnd/releases/download/$VERSION/manifest-$VERSION.txt
 wget https://github.com/lightningnetwork/lnd/releases/download/$VERSION/manifest-roasbeef-$VERSION.sig
 gpg --verify manifest-roasbeef-$VERSION.sig manifest-$VERSION.txt
-sha256sum -c manifest-$VERSION.txt --ignore-missing
+shasum -c manifest-$VERSION.txt --ignore-missing
 
 tar -xvf lnd-freebsd-amd64*
 
 service lnd stop
 install -m 0755 -o root -g wheel ~/lnd-freebsd-amd64*/* /usr/local/bin
 rm -r lnd-freebsd-amd64*
+
+# test
+lnd --configfile=/usr/local/etc/lnd.conf
+# or to run with the lnd user
+su -m lnd -c 'lnd --configfile=/usr/local/etc/lnd.conf'
+
+# start service
 service lnd start
 
 # logs
