@@ -3,9 +3,9 @@
 # LND Update Script
 
 # Download and run this script on the RaspiBlitz:
-# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.0.16.1-beta.sh && bash lnd.update.0.16.1-beta.sh
+# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.0.16.2-beta.sh && bash lnd.update.0.16.2-beta.sh
 
-lndVersion=0.16.1-beta
+lndVersion=0.16.2-beta
 downloadDir="/home/admin/download/lnd"  # edit your download directory
 PGPsigner="guggero"
 PGPkeys="https://keybase.io/$PGPsigner/pgp_keys.asc"
