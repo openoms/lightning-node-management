@@ -6,12 +6,14 @@ https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
 
 ```
 bash
-VERSION=$VERSION
-pkg install -y gmake git node14 yarn-node14 python2
+VERSION=v0.9.2-alpha
 
+# depencies
+pkg install -y gmake git node14 yarn-node14 python2
 # Go
-wget https://go.dev/dl/go1.18.8.freebsd-amd64.tar.gz
-tar -xvf go1.18.8.freebsd-amd64.tar.gz
+GOVERSION=1.20.3
+wget https://go.dev/dl/go${GOVERSION}.freebsd-amd64.tar.gz
+tar -xvf go${GOVERSION}freebsd-amd64.tar.gz
 rm /usr/local/go
 mv go /usr/local
 mkdir ~/.gopkg
@@ -28,8 +30,11 @@ gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4
 wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
 wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
 gpg --verify manifest-$VERSION.sig manifest-$VERSION.txt
+
 shasum -a 256 -c manifest-$VERSION.txt --ignore-missing
 
+# build and install
+tar -xvf lightning-terminal-source-$VERSION.tar.gz
 gmake install
 
 ln -s /root/.gopkg/bin/litd /root/go/bin/
