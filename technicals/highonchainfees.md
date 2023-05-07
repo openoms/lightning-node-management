@@ -20,19 +20,60 @@ Recommendations to get ready for a high fee environment beforehand.
   * consolidate \(beware of privacy implications\)
   * a well funded and long running JoinMarket Maker wallet will have different sizes of coinjoined outputs available
 
-### Configuration
+## Configuration
 
-* Activate Anchor Commitments
-  * affects only the new channels opened when both peers support anchors
-  * `protocol.anchors=true` in the [lnd.conf](https://github.com/lightningnetwork/lnd/blob/260ea9b842ddd80fbea1df5516f557e3081f743f/sample-lnd.conf#L363)
-  * available since [LND v0.12.0](https://github.com/lightningnetwork/lnd/releases/tag/v0.12.0-beta)
-  * aimed to be active by default from LND v0.13
-  * will need one UTXO per channel in the onchain wallet of LND to pay the closing fee with CPFP - these are not reserved in the wallet yet
-* Set the `minchansize` in [lnd.conf](https://github.com/lightningnetwork/lnd/blob/260ea9b842ddd80fbea1df5516f557e3081f743f/sample-lnd.conf#L248) \(eg. avoid &lt;500k channels on a routing node\)
+### General
+* maximise uptime
+* configure a hybrid connection if possible - note that skipping to always use a proxy will expose your IP address (use a VPN like Tunnelsats)
+
+### LND
+* check the options in the [sample lnd.conf](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
+* Use Anchor Commitments
+  * on by default on LND when both peers support anchors
+  * will have 100000 sats reserved in the onchain wallet of LND to pay the closing fee with CPFP
+  * raise the `max-commit-fee-rate-anchors` to a comfortably high level to avoid purging the transactions from the mempools.
+* Set the `minchansize` (eg. avoid &lt;500k channels on a routing node\)
+* set a long `payments-expiration-grace-period`
+* increase the CLTV delta: `bitcoin.timelockdelta` from the default 80
+* increase the smallest HTLC the node is willing to send out (in millisatoshi)
+* increase routing fees (applies to new channels only)
+  ```
+  [Application Options]
+  minchansize=500000
+  max-commit-fee-rate-anchors=100
+  payments-expiration-grace-period=10000h
+  bitcoin.timelockdelta=144
+  bitcoin.minhtlcout=100000
+  bitcoin.basefee=1000
+  bitcoin.feerate=2500
+
+  [tor]
+  tor.skip-proxy-for-clearnet-targets=true
+  ```
+* consider increasing the fees towards peers not using anchor commitments:
+  ```
+  lncli listchannels | jq '.channels[] | {remote_pubkey: .remote_pubkey, commitment_type: .commitment_type}'
+  ```
+* set the `base_fee_msat`, `fee_rate_ppm`, `min_htlc_msat` and `time_lock_delta` on existing channels
+  ```
+  lncli updatechanpolicy --base_fee_msat=1000 --fee_rate_ppm=2500000 --min_htlc_msat=100000 --time_lock_delta=144
+  ```
+### CLN
+* see the possible config options: https://github.com/rootzoll/raspiblitz/blob/dev/FAQ.cl.md#all-possible-config-options
+* cln config settings for new channels:
+  ```
+  min-capacity-sat=500000
+  cltv-final=144
+  fee-base=1000
+  fee-per-satoshi=2500
+  htlc-minimum-msat=100000
+
+  always-use-proxy=true
+  ```
 
 ## Routing fees and balances
 
-* All nodes: 
+* All nodes:
   * the channel balance will appear to be smaller as the commitment reserve will be higher
   * offchain transaction fees will also increase \(remains to be proportional to the payment amount\)
   * payment failures might appear more often as liquidity dries up
