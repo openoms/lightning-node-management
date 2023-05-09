@@ -42,6 +42,8 @@ Recommendations to get ready for a high fee environment beforehand.
   minchansize=500000
   max-commit-fee-rate-anchors=100
   payments-expiration-grace-period=10000h
+  
+  [Bitcoin]
   bitcoin.timelockdelta=144
   bitcoin.minhtlcout=100000
   bitcoin.basefee=1000
