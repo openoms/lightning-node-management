@@ -99,6 +99,13 @@ if [ ${correctKey} -lt 1 ] || [ ${goodSignature} -lt 1 ]; then
 fi
 
 echo
+if systemctl is-active --quiet litd; then
+  litdWasRunning=true
+else
+  litdWasRunning=false
+fi
+
+echo
 echo "# Stopping the lnd.service..."
 sudo systemctl stop lnd
 
@@ -118,6 +125,13 @@ sleep 5
 echo
 echo "# Installed ${installed}"
 
+if $litdWasRunning; then
+  echo
+  echo "# Starting litd.service"
+  sudo systemctl start litd
+fi
+
+echo
 echo "# Check for the circuitbreaker.service"
 if [ $(sudo systemctl status circuitbreaker | grep -c active) -gt 0 ];then
   echo "# restart the circuitbreaker.service"
