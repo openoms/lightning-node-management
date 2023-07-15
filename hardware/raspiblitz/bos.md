@@ -51,9 +51,10 @@ sudo -u bos npm install -g balanceofsatoshis
 ```
 
 Run from the bos user:
-`$ sudo su - bos`
-
-`$ bos help`
+```
+sudo su - bos
+bos help
+```
 
 ## To set up a Telegram bot connected to your node
 **WARNING: the Telegram Bot will send encrypted messages about the events on your node over clearnet, which are decrypted by the central Telegram Bot API**

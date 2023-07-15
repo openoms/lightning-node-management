@@ -10,11 +10,13 @@ https://github.com/edouardparis/lntop
 # dependencies
 pkg install -y git go
 
-# download
-git clone https://github.com/edouardparis/lntop.git
+# install with go
+go install github.com/edouardparis/lntop@latest
 
+# or from source
+git clone https://github.com/edouardparis/lntop.git
 # install
-cd lntop && go install ./...
+cd lntop && && go build && go install ./...
 ```
 
 ## Run first to create the default config

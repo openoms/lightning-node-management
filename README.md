@@ -84,7 +84,7 @@ Unlike with on-chain transactions \(where the fee is paid for the bytes the tran
 
 There is no LN fee for payments in a direct channel between two peers.
 
-To change routing fees of your node use the command: [https://api.lightning.community/\#updatechannelpolicy](https://api.lightning.community/#updatechannelpolicy)
+To change routing fees of your node use the command: [https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy](https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy)
 
 * Can reduce the base fee to 500 msat and increase the proportinal fee to 100ppm/0.01% with this command:  
 `$ lncli updatechanpolicy 500 0.0001 144`

@@ -10,4 +10,7 @@ Extra guides and examples:
 * [Circuitbreaker](truenas/circuitbreaker.md)
 * [LNtop](truenas/lntop.md)
 * [LND notes](truenas/lnd.md)
-* [Zeus](truenas/zeus.md)
+* [stream-lnd-htlcs](truenas/stream-lnd-htlcs.md)
+* [Suez](truenas/suez.md)
+* [Tailscale](truenas/tailscale.md)
+* [Connect Zeus](truenas/zeus.md)

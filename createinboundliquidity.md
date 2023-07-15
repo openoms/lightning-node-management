@@ -196,19 +196,20 @@ Run a separate LN node on your phone or desktop where you can move some funds, s
 
 * [Phoenix](https://phoenix.acinq.co/)
 
-  Run a Lightning Node on Android, iOS or desktop. Channels are managed manually or by the autopilot.
+  Easy to use mobile wallet from Acinq.
+
+* [Blixt wallet](https://blixtwallet.github.io/)
+
+  A non-custodial open-source Lightning Wallet for Android and iOS with a focus on usability and user experience.
+
+* [OBW -Open Bitcoin Wallet](https://github.com/nbd-wtf/obw)
+
+  The Open Bitcoin Wallet (OBW) is an Android Bitcoin and Lightning wallet, a fork of Simple Bitcoin Wallet focused on providing a pleasant and simple experience with advanced features.
 
 * [Muun Wallet](https://muun.com/)
 
-  An easy-to-use cross platform lightning wallet.
+  An easy-to-use cross platform ochain wallet capable of swapping in an out to lightning.
 
-* [Blixt wallet](https://blixtwallet.github.io/)
-  
-  A non-custodial open-source Lightning Wallet for Android and iOS with a focus on usability and user experience.
-
-* [Simple Bitcoin Wallet](https://lightning-wallet.com/)  
-  Simple Bitcoin Wallet (aka SBW) is an open-source, non-custodial, autonomous wallet for Android  devices which can store, send and receive bitcoins.  
-  On top of that SBW provides an extensive Lightning Network support and is capable of sending,  receiving and routing of Lightning payments. 
 
 ### Custodial wallets
 
@@ -217,14 +218,12 @@ Pay yourself via LN and benefit from the inbound liquidity created.
 The drawback is that you don't control the keys of your custodial wallet.
 
 Examples:
+* [Blink](https://blink.sv/)
 * [Wallet of Satoshi](https://www.walletofsatoshi.com/)
-* [Bluewallet](https://bluewallet.io/)
-* [Bitcoin Beach ](https://galoy.io/)
-* [Tippin.me](https://tippin.me/)
 * [Alby](https://getalby.com/)
-
 
 ## More links
 * [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)  
 List of exchange services to make coin swaps LN &lt;-&gt; onchain & more
-
+* https://cointastical.medium.com/exchanges-with-support-for-bitcoin-lightning-network-payments-739829bcb7bc  
+Exchanges with support for bitcoin Lightning network ⚡ payments

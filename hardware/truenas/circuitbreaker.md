@@ -13,30 +13,23 @@ tmux
 # download
 git clone https://github.com/lightningequipment/circuitbreaker
 
-# make data directory
-mkdir .circuitbreaker
-
 # installl
 cd circuitbreaker
 go install
-
-# copy sample config
-cp  circuitbreaker-example.yaml /root/.circuitbreaker/circuitbreaker.yaml
 ```
 
 ## See the help and usage
 ```
-/root/go/bin/circuitbreaker -h
-```
-```
+/root/.gopkg/bin/circuitbreaker -h
+
 NAME:
-   circuitbreaker - A new cli application
+   circuitbreakerd - A new cli application
 
 USAGE:
    circuitbreaker [global options] command [command options] [arguments...]
 
 VERSION:
-   0.11.1-beta.rc3 commit=
+   0.15.4-beta commit=
 
 COMMANDS:
    help, h  Shows a list of commands or help for one command
@@ -48,25 +41,54 @@ GLOBAL OPTIONS:
    --network value, -n value  the network lnd is running on e.g. mainnet, testnet, etc. (default: "mainnet")
    --macaroonpath value       path to macaroon file
    --configdir value          path to CircuitBreaker's base directory (default: "/root/.circuitbreaker")
+   --listen value             grpc server listen address (default: "127.0.0.1:9234")
+   --httplisten value         http server listen address (default: "127.0.0.1:9235")
+   --stub                     set to enable stub mode (no lnd instance connected)
    --help, -h                 show help
    --version, -v              print the version
 ```
 
-## Run 
+## Run
 * keep in tmux
-    ```
-    /root/go/bin/circuitbreaker --lnddir=/var/db/lnd
-    ```
+   ```
+   /root/.gopkg/bin/circuitbreaker --lnddir=/var/db/lnd
+   ```
 * sample of initial output:
-    ```
-    2021-09-11T06:02:06.703-0700    INFO    Read config file        {"file": "/root/.circuitbreaker/circuitbreaker.yaml"}
-    2021-09-11T06:02:06.703-0700    INFO    CircuitBreaker started
-    2021-09-11T06:02:06.703-0700    INFO    Hold fee        {"base": 1, "rate": 0.000005, "reporting_interval": "1h0m0s"}
-    2021-09-11T06:02:06.758-0700    INFO    Connected to lnd node 
-    ```
+   ```
+   INFO    Opening database        {"path": "/root/.circuitbreaker/circuitbreaker.db"}
+   INFO    Applied migrations      {"count": 1}
+   INFO    CircuitBreaker started
+   INFO    Grpc server starting    {"listenAddress": "127.0.0.1:9234"}
+   INFO    HTTP server starting    {"listenAddress": "127.0.0.1:9235"}
+   INFO    Connected to lnd node   {"pubkey": "PUBKEY"}
+   INFO    Interceptor/notification handlers registered
+   ```
 
 * can detach tmux with `CTRL`+`D` (circuitbreaker will keep running in the background)
 * reattach with:
-    ```
-    tmux a
-    ```
+   ```
+   tmux a
+   ```
+
+## Tor Hidden Service
+* Create in:
+  ```
+  nano /usr/local/etc/tor/torrc
+  ```
+  ```
+  HiddenServiceDir /var/db/tor/circuitbreaker
+  HiddenServiceVersion 3
+  HiddenServicePort 80 127.0.0.1:9235
+  ```
+* reload Tor
+   ```
+   service tor reload
+   ```
+* read the Hidden Service
+  ```
+  cat /var/db/tor/circuitbreaker/hostname
+  ```
+* Tor logs
+  ```
+  tail -f /var/log/tor/tor.log
+  ```

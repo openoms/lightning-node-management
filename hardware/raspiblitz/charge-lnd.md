@@ -1,15 +1,22 @@
-More info at: https://github.com/accumulator/charge-lnd
+More info about charge-lnd: https://github.com/accumulator/charge-lnd
 
-Install:
+Install with these commands line-by line (the code comments are starting with #):
 ```
+# change to the bitcoin user
 sudo su - bitcoin
+# download charge-lnd
 git clone https://github.com/accumulator/charge-lnd.git
+# create a dedicated macaroon
 lncli bakemacaroon offchain:read offchain:write onchain:read info:read --save_to=~/.lnd/data/chain/bitcoin/mainnet/charge-lnd.macaroon
-cd charge-lnd 
+# change directory
+cd charge-lnd
+# install charge-lnd
 pip install -U setuptools && pip install -r requirements.txt .
+# leave the bitcoin user
+exit
 ```
 
-Paste to create the and example config at `home/bitcoin/charge-lnd/charge.config` :
+Paste this whole code block to create the example config at `/home/bitcoin/charge-lnd/charge.config` :
 ```
 echo "
 [default]
@@ -44,13 +51,16 @@ time_lock_delta = 144
 " | sudo -u bitcoin tee /home/bitcoin/charge-lnd/charge.config
 ```
 
-Set up a cronjob with:  
-`crontab -e`  
-Run every 5 minutes (https://crontab.guru/#*/5_*_*_*_*):
+Set up a cronjob with:
+```
+crontab -e
+```
+Paste this to the crontab to run it every 5 minutes (<https://crontab.guru/#*/5_*_*_*_*>):
 ```
 */5 * * * * sudo -u bitcoin /home/bitcoin/.local/bin/charge-lnd -c /home/bitcoin/charge-lnd/charge.config
 ```
 
+## gist with more example configurations:
+<https://gist.github.com/openoms/9d0c554f620f4584c17bec268d4519e8>
 
-## gist with more examples:
-https://gist.github.com/openoms/9d0c554f620f4584c17bec268d4519e8
+Find the post also on: https://habla.news/a/naddr1qqxnzd3c8qunzv35x5mr2wfsqgs24sraj5yfee4d7z9ez4k58sdy4dv5ccfsklwtztkpnyqgckqe5tcrqsqqqa28xwrv7e
