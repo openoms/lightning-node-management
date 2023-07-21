@@ -50,7 +50,7 @@ binaryName="lnd-linux-${lndOSversion}-v${lndVersion}.tar.gz"
 
 rm -rf "${downloadDir}"
 mkdir -p "${downloadDir}"
-cd "${downloadDir}"
+cd "${downloadDir}" || exit 1
 # extract the SHA256 hash from the manifest file for the corresponding platform
 sudo -u admin wget -N https://github.com/lightningnetwork/lnd/releases/download/v${lndVersion}/manifest-${PGPsigner}-v${lndVersion}.sig || exit 1
 
