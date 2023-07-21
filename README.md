@@ -208,19 +208,6 @@ A lightning wallet for desktop, iOS and Android - can connect to your LND node r
 Bring the power of lightning to the web with in-browser payments and identity, all with your own node.  
 [https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9](https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9)
 
-### [lndash](https://github.com/djmelik/lndash)
-
-lndash is a simple read-only web dashboard for lnd - Lightning Network Daemon.  
-Demonstration: [https://lightninglayer.com/](https://lightninglayer.com/)
-
-Features:
-
-* Peer view
-* Channel view
-* Forwarding Events \(routed payments\) view
-* Looking Glass Tool \(route/path lookup\)
-* Lightning Network Graph
-
 ### [lntop](https://github.com/edouardparis/lntop)
 
 lntop is an interactive text-mode channels viewer for Unix systems.
