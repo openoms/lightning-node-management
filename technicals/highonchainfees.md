@@ -58,7 +58,7 @@ Recommendations to get ready for a high fee environment beforehand.
   ```
 * set the `base_fee_msat`, `fee_rate_ppm`, `min_htlc_msat` and `time_lock_delta` on existing channels
   ```
-  lncli updatechanpolicy --base_fee_msat=1000 --fee_rate_ppm=2500000 --min_htlc_msat=100000 --time_lock_delta=144
+  lncli updatechanpolicy --base_fee_msat=1000 --fee_rate_ppm=2500 --min_htlc_msat=100000 --time_lock_delta=144
   ```
 ### CLN
 * see the possible config options: https://github.com/rootzoll/raspiblitz/blob/dev/FAQ.cl.md#all-possible-config-options
