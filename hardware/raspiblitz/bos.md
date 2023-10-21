@@ -81,3 +81,42 @@ https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602#to-set-up-a-tel
 
 ## Adding BOS-Telegram Bot to your startup scripts
 https://github.com/ziggie1984/miscellanous/blob/97c4905747fe23a824b6e53dc674c4a571ac0f5c/automation_telegram_bot.md
+
+
+## Set a custom node (testnet, signet etc.)
+```
+# export the connection string
+CHAIN=testnet
+LAN_IP="127.0.0.1"
+CERT=$(base64 /mnt/hdd/lnd/tls.cert | tr -d '\n')
+MACAROON=$(sudo base64 /mnt/hdd/lnd/data/chain/bitcoin/${CHAIN}/admin.macaroon | tr -d '\n')
+
+# L2rpcportmod is:   0 |  1 | 3
+chain=${CHAIN::-3}
+if [ "${chain}" == "main" ]; then
+  netprefix=""
+  L2rpcportmod=0
+elif [ "${chain}" == "test" ]; then
+  netprefix="t"
+  L2rpcportmod=1
+elif [ "${chain}" == "sig" ]; then
+  netprefix="s"
+  L2rpcportmod=3
+fi
+
+echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:1${L2rpcportmod}009\"}"
+
+# import to bos
+
+# choose a name to indentify your node in bos
+NODE_NAME="${netprefix}lnd"
+
+# create a credential json
+sudo -u bos mkdir -p /home/bos/.bos/$NODE_NAME/
+
+# paste the connection string exported above to `/home/bos/.bos/$NODE_NAME/credentials.json` with nano or run:
+echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:1${L2rpcportmod}009\"}" | sudo -u bos tee /home/bos/.bos/$NODE_NAME/credentials.json
+
+# test
+sudo -u bos /home/bos/.npm-global/bin/bos balance --node $NODE_NAME
+```

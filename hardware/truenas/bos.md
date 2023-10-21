@@ -20,7 +20,7 @@ echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:
 
 ## Import to bos
 
-* choose a name to indentify your node in bos 
+* choose a name to indentify your node in bos
 ```
 NODE_NAME="something_short"
 ```
