@@ -35,5 +35,5 @@ Aimed for spending bitcoin cheaply and privately.
 * Privacy oriented: [slides about Running a Lightning Node Privately](https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf)
 * Use for social media like [Sphinx chat](https://sphinx.chat/)  
 
-  Discussion: [https://github.com/rootzoll/raspiblitz/issues/2073](https://github.com/rootzoll/raspiblitz/issues/2073)
+  Discussion: [https://github.com/raspiblitz/raspiblitz/issues/2073](https://github.com/raspiblitz/raspiblitz/issues/2073)
 

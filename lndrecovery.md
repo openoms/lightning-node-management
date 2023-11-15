@@ -8,4 +8,4 @@
 
 * [node-recovery.com](https://node-recovery.com/)
 
-* [github.com/rootzoll/raspiblitz/blob/v1.7/FAQ.md#how-can-i-recover-my-coins-from-a-failing-raspiblitz](https://github.com/rootzoll/raspiblitz/blob/v1.7/FAQ.md#how-can-i-recover-my-coins-from-a-failing-raspiblitz)
+* [github.com/raspiblitz/raspiblitz/blob/v1.7/FAQ.md#how-can-i-recover-my-coins-from-a-failing-raspiblitz](https://github.com/raspiblitz/raspiblitz/blob/v1.7/FAQ.md#how-can-i-recover-my-coins-from-a-failing-raspiblitz)

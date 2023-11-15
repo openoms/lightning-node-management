@@ -6,7 +6,7 @@ The best place to search for commands and keywords: [https://lightning.engineeri
 
 Follow [https://twitter.com/LightningPool](https://twitter.com/LightningPool) for an \(unofficial\) list of past batches and curated content.
 
-The Pool install script for the RaspiBlitz is [in this PR](https://github.com/rootzoll/raspiblitz/pull/1739):
+The Pool install script for the RaspiBlitz is [in this PR](https://github.com/raspiblitz/raspiblitz/pull/1739):
 
 ```text
 # download

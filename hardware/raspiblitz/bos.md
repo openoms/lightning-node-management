@@ -2,7 +2,7 @@ Project and readme:
 https://github.com/alexbosworth/balanceofsatoshis
 
 RaspiBlitz install script:
-https://github.com/rootzoll/raspiblitz/blob/v1.6/home.admin/config.scripts/bonus.bos.sh
+https://github.com/raspiblitz/raspiblitz/blob/v1.6/home.admin/config.scripts/bonus.bos.sh
 usage:
 
 Install Balance of Satoshis from the SERVICES menu
@@ -10,11 +10,11 @@ Install Balance of Satoshis from the SERVICES menu
 or on older versions:
 ```
 # update NodeJS
-wget https://raw.githubusercontent.com/rootzoll/raspiblitz/v1.6/home.admin/config.scripts/bonus.nodejs.sh
+wget https://raw.githubusercontent.com/raspiblitz/raspiblitz/v1.6/home.admin/config.scripts/bonus.nodejs.sh
 bash bonus.nodejs.sh off
 bash bonus.nodejs.sh on
 # download bos install script
-wget https://raw.githubusercontent.com/rootzoll/raspiblitz/v1.6/home.admin/config.scripts/bonus.bos.sh
+wget https://raw.githubusercontent.com/raspiblitz/raspiblitz/v1.6/home.admin/config.scripts/bonus.bos.sh
 # run
 bash bonus.bos.sh on
 ```

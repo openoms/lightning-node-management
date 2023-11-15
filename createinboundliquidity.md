@@ -38,7 +38,7 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 
 ## Dual funded channels
 ### Core Lightning dual funded channels on the protocol level
-* [How to use on the RaspiBlitz](https://github.com/rootzoll/raspiblitz/blob/dev/FAQ.cl.md#dual-funded-channels)
+* [How to use on the RaspiBlitz](https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.cl.md#dual-funded-channels)
 * [Open a dual funded channel](https://medium.com/blockstream/c-lightning-opens-first-dual-funded-mainnet-lightning-channel-ada6b32a527c)
 * [Set up liquidity ads](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
 

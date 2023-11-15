@@ -63,7 +63,7 @@ lndconnect://<host>:<port>?[cert=<base64url_DER_certificate>&]macaroon=<base64ur
 
 * implementation  
 
-  [https://github.com/rootzoll/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh\#L194](https://github.com/rootzoll/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh#L194)
+  [https://github.com/raspiblitz/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh\#L194](https://github.com/raspiblitz/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh#L194)
 
 ```text
 # generate data parts

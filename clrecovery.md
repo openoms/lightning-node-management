@@ -4,4 +4,4 @@
 
 * [lightning.readthedocs.io/FAQ.html#loss](https://lightning.readthedocs.io/FAQ.html#loss)
 
-* [github.com/rootzoll/raspiblitz/blob/v1.7/FAQ.cl.md#recovery](https://github.com/rootzoll/raspiblitz/blob/v1.7/FAQ.cl.md#recovery)
+* [github.com/raspiblitz/raspiblitz/blob/v1.7/FAQ.cl.md#recovery](https://github.com/raspiblitz/raspiblitz/blob/v1.7/FAQ.cl.md#recovery)

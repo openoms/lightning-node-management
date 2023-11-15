@@ -61,7 +61,7 @@ Recommendations to get ready for a high fee environment beforehand.
   lncli updatechanpolicy --base_fee_msat=1000 --fee_rate_ppm=2500000 --min_htlc_msat=100000 --time_lock_delta=144
   ```
 ### CLN
-* see the possible config options: https://github.com/rootzoll/raspiblitz/blob/dev/FAQ.cl.md#all-possible-config-options
+* see the possible config options: https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.cl.md#all-possible-config-options
 * cln config settings for new channels:
   ```
   min-capacity-sat=500000

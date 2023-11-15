@@ -15,7 +15,7 @@
   lncli wallet publishtx "tx_hex"
   ```
 
-* Follow the discussion for more details in: https://github.com/rootzoll/raspiblitz/issues/2192
+* Follow the discussion for more details in: https://github.com/raspiblitz/raspiblitz/issues/2192
 
 ## Restore the onchain funds from an LND wallet in Electrum Wallet
 

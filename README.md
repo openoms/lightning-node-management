@@ -250,7 +250,7 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 * [satbase.org](https://satbase.org)
 * A list about How to get Channel Liquidity fast?  
 
-  [github.com/rootzoll/raspiblitz/issues/395](https://github.com/rootzoll/raspiblitz/issues/395)
+  [github.com/raspiblitz/raspiblitz/issues/395](https://github.com/raspiblitz/raspiblitz/issues/395)
 
 * A curated list of awesome Lightning Network resources, apps, and libraries  
 

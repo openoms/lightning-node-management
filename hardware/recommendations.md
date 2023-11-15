@@ -14,7 +14,7 @@ A love-hate relationship
   - Disk: use tested 1TB SSD models. Bigger sizes and some models with onboard cache tend to have power spikes and resulting freeze / disconnection from the RPi.
   - a UPS is a must as cold-restarts will corrupt data
 
-Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shopping-list-buy-parts--build-it-yourself>
+Shopping list with keywords: <https://github.com/raspiblitz/raspiblitz#amazon-shopping-list-buy-parts--build-it-yourself>
 
 ## Laptop
 ![laptoptweet](/.gitbook/assets/laptoptweet.png)
@@ -32,7 +32,7 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 ![servertweet](/.gitbook/assets/servertweet.png)
 - Still can be a big saving on hosting despite higher power usage
 - Unlimited storage with disk redundancy ([ZFS](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html))
-- [Cockpit webinterface](https://github.com/rootzoll/raspiblitz/issues/2767)
+- [Cockpit webinterface](https://github.com/raspiblitz/raspiblitz/issues/2767)
 ### Preferences
 - ECC RAM to prevent [data corruption in memory](https://github.com/lightningnetwork/lnd/issues/7022#issuecomment-1278695682)
 - Muliple disks to use a checksumming, "self-healing" software RAID like ZFS
@@ -43,8 +43,8 @@ Shopping list with keywords: <https://github.com/rootzoll/raspiblitz#amazon-shop
 ## Build guides:
   - [Raspibolt](https://raspibolt.org/)
   - [TrueNASnode - full bitcoin stack deployment guide](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
-  - [Raspiblitz - Alternative platforms](https://github.com/rootzoll/raspiblitz/tree/dev/alternative.platforms)
-  - [Install Raspiblitz on Proxmox](https://github.com/rootzoll/raspiblitz/tree/dev/alternative.platforms/Proxmox)
+  - [Raspiblitz - Alternative platforms](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms)
+  - [Install Raspiblitz on Proxmox](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms/Proxmox)
   - ZFS links:
     - [OpenZFS on Debian](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html)
     - [Capacity calculator](https://wintelguy.com/zfs-calc.pl)

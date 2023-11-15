@@ -4,7 +4,7 @@ Based on:
 
 * [https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
 * [https://github.com/alexbosworth/run-lnd\#install-lnd](https://github.com/alexbosworth/run-lnd#install-lnd)
-* [https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf](https://github.com/rootzoll/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf)
+* [https://github.com/raspiblitz/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf](https://github.com/raspiblitz/raspiblitz/blob/master/home.admin/assets/lnd.bitcoin.conf)
 
 Path to edit on the RaspiBlitz:
 
