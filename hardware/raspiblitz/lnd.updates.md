@@ -16,7 +16,20 @@ Before updating it is recommended to make a full backup of the LND directory.
     $ /home/admin/config.scripts/lnd.rescue.sh backup
   ```
 
-  More info about this process in the [FAQ](https://github.com/rootzoll/raspiblitz/blob/master/FAQ.md#2-making-a-complete-lnd-data-backup)
+  More info about this process in the [FAQ](https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.md#2-making-a-complete-lnd-data-backup)
+
+## [Update LND to v0.17.1-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.17.1-beta.sh)
+
+* Run in the RaspiBlitz terminal to use:
+
+  ```bash
+    # download
+    wget https://raw.githubusercontent.com/openoms/lightning-node-management/en/lnd.updates/lnd.update.v0.17.1-beta.sh
+    # look through the script
+    cat lnd.update.v0.17.1-beta.sh
+    # run
+    bash lnd.update.v0.17.1-beta.sh
+  ```
 
 ## [Update LND to v0.17.0-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.17.0-beta.sh)
 
