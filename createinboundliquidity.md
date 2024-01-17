@@ -8,7 +8,7 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 - [Buy inbound channels](#buy-inbound-channels)
   - [Comparison table of lightning channel markets](#comparison-table-of-lightning-channel-markets)
   - [Amboss Magma](#amboss-magma)
-  - [zerofeerouting.com](#zerofeeroutingcom)
+  - [Blocktank from Synonym](#blocktank-from-synonym)
   - [Voltage Flow](#voltage-flow)
   - [Lightning Pool](#lightning-pool)
   - [Microlancer.io](#microlancerio)
@@ -53,12 +53,9 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 ### [Amboss Magma](https://amboss.space)
 * lightning liquidity marketpalce
 
-### [zerofeerouting.com](https://zerofeerouting.com/)
-* The price for the channel depends on the size and can be calculated as:
-  ```
-  [size] * 0.005 - 2,000
-  ```
-  A 10M channel (0.1 BTC) would cost 48,000 sats.
+### [Blocktank from Synonym](https://blocktank.to/#widget)
+https://x.com/Synonym_to/status/1747615808010752199
+can also works through Bitfinex, video [here](https://twitter.com/Synonym_to/status/1747604683907379651)
 
 ### Voltage Flow
 * Buy a sidecar channel through Voltage Flow from Lightning Pool
@@ -106,7 +103,6 @@ Add their node as a peer if connecting from behind Tor:
 
 * Rings of Fire  
   [How to join a ring](https://github.com/Rings-of-Fire/ring-of-fire/wiki#how)
-
 
 ## Swap out - trustless
 
