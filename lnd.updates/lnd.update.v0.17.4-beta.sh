@@ -3,13 +3,20 @@
 # LND Update Script
 
 # Download and run this script on the RaspiBlitz:
-# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.0.16.2-beta.sh && bash lnd.update.0.16.2-beta.sh
+# $ wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/lnd.update.0.17.4-beta.sh && bash lnd.update.0.17.4-beta.sh
 
-lndVersion=0.16.2-beta
+lndVersion="0.17.4-beta"
 downloadDir="/home/admin/download/lnd"  # edit your download directory
-PGPsigner="guggero"
-PGPkeys="https://keybase.io/$PGPsigner/pgp_keys.asc"
-PGPcheck="F4FC70F07310028424EFC20A8E4256593F177720"
+
+# olaoluwa
+PGPsigner="roasbeef"
+PGPkeys="https://keybase.io/roasbeef/pgp_keys.asc"
+PGPcheck="E4D85299674B2D31FAA1892E372CBD7633C61696"
+
+# guggero
+#PGPsigner="guggero"
+#PGPkeys="https://keybase.io/$PGPsigner/pgp_keys.asc"
+#PGPcheck="F4FC70F07310028424EFC20A8E4256593F177720"
 
 echo "Detect CPU architecture ..."
 isARM=$(uname -m | grep -c 'arm')
