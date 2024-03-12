@@ -78,7 +78,7 @@ du -h /mnt/hdd/lnd/data/graph/mainnet/compacted.db
 # example output:
 # 730M /mnt/hdd/lnd/data/graph/mainnet/compacted.db
 
-# make sure lnd is not runnning (needs sudo)
+# make sure lnd is not running (needs sudo)
 exit
 sudo systemctl stop lnd
 sudo su - bitcoin

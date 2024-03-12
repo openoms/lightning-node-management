@@ -51,7 +51,7 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
 * [channelmarkets.md](https://github.com/openoms/lightning-node-management/blob/en/channelmarkets.md)
 
 ### [Amboss Magma](https://amboss.space)
-* lightning liquidity marketpalce
+* lightning liquidity marketplace
 
 ### [Blocktank from Synonym](https://blocktank.to/#widget)
 https://x.com/Synonym_to/status/1747615808010752199

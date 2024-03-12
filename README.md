@@ -42,7 +42,7 @@ The max amount of the incoming payment is determined by the highest inbound liqu
 
 ## Tor nodes
 
-Tor is an anonymizing network designed to hide the participant\`s IP adress. Somewhat similar to using a VPN with multiple hops. Learn more at: [https://en.wikipedia.org/wiki/Tor\_\(anonymity\_network\)](https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29)
+Tor is an anonymizing network designed to hide the participant\`s IP address. Somewhat similar to using a VPN with multiple hops. Learn more at: [https://en.wikipedia.org/wiki/Tor\_\(anonymity\_network\)](https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29)
 
 * A Lightning node behind Tor can connect and open a channel to any other node. 
 * The nodes running on clearnet are not able to see behind Tor.
@@ -86,7 +86,7 @@ There is no LN fee for payments in a direct channel between two peers.
 
 To change routing fees of your node use the command: [https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy](https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy)
 
-* Can reduce the base fee to 500 msat and increase the proportinal fee to 100ppm/0.01% with this command:  
+* Can reduce the base fee to 500 msat and increase the proportional fee to 100ppm/0.01% with this command:  
 `$ lncli updatechanpolicy 500 0.0001 144`
 * the default setting is \(1 sat per payment + 1 ppm/0.0001%\):  
 `$ lncli updatechanpolicy 1000 0.000001 144`
@@ -99,9 +99,21 @@ Setting the fees for individual channels takes only one click in the [RTL app](.
 
 Read more and how to set one up [watchtower.md](advanced-tools/watchtower.md).
 
+## Channel reserve
+
+Generally 1% of the channel capacity is used as a reserve. This means that any channel can only send the amount above the 1% of the capacity up to as much as the 99%.
+
+Specified in [BOLT2](https://github.com/lightning/bolts/blob/master/02-peer-protocol.md#rationale-8)
+
+>The channel reserve is specified by the peer's channel_reserve_satoshis: 1% of the channel total is suggested. Each side of a channel maintains this reserve so it always has something to lose if it were to try to broadcast an old, revoked commitment transaction. Initially, this reserve may not be met, as only one side has funds; but the protocol ensures that there is always progress toward meeting this reserve, and once met, it is maintained.
+
+Explained in more detail in the [Bitcoin Design Guide](https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve)
+
 ## Liquidity
 
 Read the basic ideas from Alex Bosworth: [https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md](https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md)
+
+in the [Bitcoin Design Guide](https://bitcoin.design/guide/how-it-works/liquidity)
 
 ## Create Inbound Liquidity
 

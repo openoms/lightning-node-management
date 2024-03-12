@@ -3,7 +3,7 @@
 Link to the Bos Score list (discontinued):  
 [nodes.lightning.computer/availability/v1/btc.json](https://nodes.lightning.computer/availability/v1/btc.json)
 
-Daily updates and links to documenatation are on: [terminal.lightning.engineering](https://terminal.lightning.engineering/#/)
+Daily updates and links to documentation are on: [terminal.lightning.engineering](https://terminal.lightning.engineering/#/)
 
 
 An alternative display:  

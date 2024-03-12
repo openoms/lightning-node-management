@@ -13,7 +13,7 @@ tmux
 # download
 git clone https://github.com/lightningequipment/circuitbreaker
 
-# installl
+# install
 cd circuitbreaker
 go install
 ```

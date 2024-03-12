@@ -108,7 +108,7 @@ echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:
 
 # import to bos
 
-# choose a name to indentify your node in bos
+# choose a name to identify your node in bos
 NODE_NAME="${netprefix}lnd"
 
 # create a credential json

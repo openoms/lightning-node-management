@@ -8,7 +8,7 @@ https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
 bash
 VERSION=v0.9.2-alpha
 
-# depencies
+# dependencies
 pkg install -y gmake git node14 yarn-node14 python2
 # Go
 GOVERSION=1.20.3

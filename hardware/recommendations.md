@@ -35,7 +35,7 @@ Shopping list with keywords: <https://github.com/raspiblitz/raspiblitz#amazon-sh
 - [Cockpit webinterface](https://github.com/raspiblitz/raspiblitz/issues/2767)
 ### Preferences
 - ECC RAM to prevent [data corruption in memory](https://github.com/lightningnetwork/lnd/issues/7022#issuecomment-1278695682)
-- Muliple disks to use a checksumming, "self-healing" software RAID like ZFS
+- Multiple disks to use a checksumming, "self-healing" software RAID like ZFS
 - Avoid hardware RAID cards - often another source of problems and recovery is not possible with other hardware
 ## Use a minimal VPS with ZeroTier or Tailscale to tunnel services to a public domain
 * [VPN tunnels](../technicals/networking.md)

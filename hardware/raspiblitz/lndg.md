@@ -70,7 +70,7 @@ sudo systemctl status rebalancer-lndg.service
 # Run the UI:
 sudo -u lndg .venv/bin/python manage.py runserver 0.0.0.0:8889
 ```
-* access at http://RapiBlitzLAN_IP:8889 while running (can keep running inside tmux to keep it in the backgound)
+* access at http://RapiBlitzLAN_IP:8889 while running (can keep running inside tmux to keep it in the background)
 
 * Run the jobs once
 ```

@@ -30,8 +30,8 @@ This script matches your open channels against a number of customizable criteria
 lndfeesmanager is a simple software that aims to balance LN channels using a dynamic fees.  
 When a channel is unbalanced it will update the fees.
 
-If the balance is mostly local, fees will be decresed to incentivate routing.  
-If the balance is mostly remote, fees will be increased to disincentivate routing.  
+If the balance is mostly local, fees will be decreased to incentivise routing.  
+If the balance is mostly remote, fees will be increased to disincentivise routing.  
 If the channel is balanced, a medium fee will be set.
 
 ## More reading

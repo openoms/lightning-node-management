@@ -15,7 +15,7 @@
 * Improved alias verifying the payment hash: <https://github.com/lnproxy/lnproxy-cli>
 * 
 ## Unannounced channels - shadow liquidity
-* use paralell private channels to hide capacity and UTXOs
+* use parallel private channels to hide capacity and UTXOs
 * <https://eprint.iacr.org/2021/384.pdf>
   > To hide public channel balances, a node may open
 unannounced channels in parallel to announced ones. Depending on the relation

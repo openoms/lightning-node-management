@@ -54,7 +54,7 @@ Follow: [https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/]
 When importing the private keys use the prefix:
 
 * `p2wpkh:` before the private keys of `bc1...` addresses
-* `p2wpkh-p2sh:` before the private keys of `3...` adddresses
+* `p2wpkh-p2sh:` before the private keys of `3...` addresses
 
 Done. Once the Electrum Server finished scanning the funds should appear.
 

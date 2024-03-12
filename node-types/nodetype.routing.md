@@ -1,6 +1,6 @@
 # Routing
 
-Aimed for forwading payments successfully while generating profit.
+Aimed for forwarding payments successfully while generating profit.
 
 ## Capital requirement
 
