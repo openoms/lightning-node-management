@@ -21,7 +21,7 @@ Aimed for forwarding payments successfully while generating profit.
 
 * aim to be perfect
 * offline routing nodes with many public channels are causing networkwide payment failures
-* greatly affects the [reputation of the routing node](https://github.com/openoms/lightning-node-management/tree/04d605ae69f3630c0eaeedc43eda95c6ff5d1ee3/bossscore.md)
+* greatly affects the [reputation of the routing node](https://github.com/openoms/lightning-node-management/tree/04d605ae69f3630c0eaeedc43eda95c6ff5d1ee3/bosscore.md)
 
 ## Management
 
