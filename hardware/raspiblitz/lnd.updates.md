@@ -16,7 +16,7 @@ Before updating it is recommended to make a full backup of the LND directory.
     $ /home/admin/config.scripts/lnd.rescue.sh backup
   ```
 
-  More info about this process in the [FAQ](https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.md#2-making-a-complete-lnd-data-backup)
+  More info about this process in the [FAQ](https://docs.raspiblitz.org/docs/faq#2-making-a-complete-lnd-data-backup)
 
 ## [Update LND to v0.18.0-beta](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.18.0-beta.sh)
 
