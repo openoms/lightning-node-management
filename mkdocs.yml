@@ -52,6 +52,38 @@ plugins:
             Privacy: Privacidad
             Hardware deployment: Despliegue de hardware
             Donate: Donar
+        - locale: hu
+          name: Magyar
+          build: true
+          nav_translations:
+            Lightning basics: Lightning alapok
+            Create inbound liquidity: Bejövő likviditás
+            Create outbound liquidity: Kimenő likviditás
+            Channel markets: Csatorna piacok
+            Node Types: Node típusok
+            Comparison: Összehasonlítás
+            Merchant: Kereskedő
+            Spending: Költés
+            Routing: Útvonalválasztás
+            Advanced Tools: Haladó eszközök
+            Fee settings: Díjbeállítások
+            Watchtower: Őrtorony
+            Balanced channels: Kiegyenlített csatornák
+            Technicals: Technikai részletek
+            Remote connection: Távoli kapcsolat
+            High onchain fees: Magas onchain díjak
+            LND database compaction: LND adatbázis tömörítés
+            LND funds in Electrum: LND alapok Electrumban
+            VPN tunnels: VPN alagutak
+            Recovery: Visszaállítás
+            LND recovery: LND visszaállítás
+            Core Lightning recovery: Core Lightning visszaállítás
+            Privacy: Adatvédelem
+            Resources: Források
+            Hardware deployment: Hardver telepítés
+            Recommendations: Ajánlások
+            Donate: Támogatás
+            Donations: Adományok
 
 markdown_extensions:
   - admonition
