@@ -307,4 +307,5 @@ Spark is a minimalistic wallet GUI for c-lightning, accessible over the web or t
 
 * [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)
 * [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
+* [Knowing Bitcoin - Lightning Network Guides](https://knowingbitcoin.com/) - In-depth guides on Lightning channels, invoices, wallets, and node management
 
