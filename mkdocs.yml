@@ -1,0 +1,122 @@
+site_name: Lightning Node Management
+site_url: https://lightningnode.info
+site_description: A guide to managing Lightning Network nodes
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  icon:
+    logo: material/flash
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+          nav_translations:
+            Lightning basics: General
+            Create inbound liquidity: Crear liquidez entrante
+            Create outbound liquidity: Crear liquidez saliente
+            Node Types: Tipos de nodo
+            Merchant: Comercio
+            Spending: Gasto
+            Routing: Enrutamiento
+            Advanced Tools: Herramientas avanzadas
+            Technicals: Técnicas
+            Recovery: Recuperación
+            Privacy: Privacidad
+            Hardware deployment: Despliegue de hardware
+            Donate: Donar
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Lightning basics: index.md
+  - Create inbound liquidity: createinboundliquidity.md
+  - Create outbound liquidity: createoutboundliquidity.md
+  - Channel markets: channelmarkets.md
+  - Node Types:
+    - Comparison: node-types/comparison.md
+    - Merchant: node-types/nodetype.merchant.md
+    - Spending: node-types/nodetype.spending.md
+    - Routing: node-types/nodetype.routing.md
+  - Advanced Tools:
+    - lnd.conf example: advanced-tools/lnd.conf.md
+    - Fee settings: advanced-tools/fees.md
+    - Watchtower: advanced-tools/watchtower.md
+    - Balanced channels: advanced-tools/balancedchannelcreation.md
+    - Pool: advanced-tools/pool.md
+    - Bos Score: advanced-tools/bosscore.md
+  - Technicals:
+    - Remote connection: technicals/lightning.connect.md
+    - High onchain fees: technicals/highonchainfees.md
+    - LND database compaction: technicals/lnddatabasecompaction.md
+    - LND funds in Electrum: technicals/restorelndonchainfundsinelectrum.md
+    - VPN tunnels: technicals/networking.md
+  - Recovery:
+    - LND recovery: lndrecovery.md
+    - Core Lightning recovery: clrecovery.md
+  - Privacy:
+    - Resources: privacy/resources.md
+  - Hardware deployment:
+    - Recommendations: hardware/recommendations.md
+    - RaspiBolt: hardware/raspibolt.md
+    - RaspiBlitz:
+      - Overview: hardware/raspiblitz.md
+      - charge-lnd: hardware/raspiblitz/charge-lnd.md
+      - Balance of Satoshis: hardware/raspiblitz/bos.md
+      - LND updates: hardware/raspiblitz/lnd.updates.md
+      - LNDg: hardware/raspiblitz/lndg.md
+      - Zeus: hardware/raspiblitz/zeus.md
+      - Stream LND HTLCs: hardware/raspiblitz/stream-lnd-htlcs.md
+    - TrueNAS:
+      - Overview: hardware/truenas.md
+      - Aliases: hardware/truenas/aliases.md
+      - Balance of Satoshis: hardware/truenas/bos.md
+      - Lightning Terminal: hardware/truenas/lit.md
+      - Circuitbreaker: hardware/truenas/circuitbreaker.md
+      - LNtop: hardware/truenas/lntop.md
+      - LND notes: hardware/truenas/lnd.md
+      - LNDg: hardware/truenas/lndg.md
+      - Stream LND HTLCs: hardware/truenas/stream-lnd-htlcs.md
+      - Suez: hardware/truenas/suez.md
+      - Tailscale: hardware/truenas/tailscale.md
+      - OpenVPN: hardware/truenas/openvpn.md
+      - Zeus: hardware/truenas/zeus.md
+  - Donate:
+    - Donations: donate/donations.md
