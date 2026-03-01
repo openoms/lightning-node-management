@@ -1,8 +1,8 @@
-# Kiegyensulyozott channel letrehozasa megbizható partnerrel
+# Kiegyensúlyozott channel létrehozása megbízható partnerrel
 
-## Megbizható csere
+## Megbízható csere
 
-Megbizható onchain-offchain csere végrehajtása.
+Megbízható onchain-offchain csere végrehajtása.
 
 Előny:
 

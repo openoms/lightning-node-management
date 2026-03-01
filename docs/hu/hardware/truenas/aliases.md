@@ -1,6 +1,6 @@
 # Példa aliasok a TrueNAS node-on
 
-* telepitsd es valts at a `bash` terminalra:
+* telepítsd és válts át a `bash` terminálra:
 ```
 pkg install bash
 bash

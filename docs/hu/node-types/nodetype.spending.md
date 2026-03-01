@@ -1,38 +1,38 @@
-# Koltekezes
+# Költekezés
 
-Bitcoin olcso es privat elkoltesere iranyul.
+Bitcoin olcsó és privát elköltésére irányul.
 
-## Tokeigeny
+## Tőkeigény
 
 * alacsony
-* a koltesi tervtol es a rendelkezesre allo forrasoktol fugg
-* lehetove teszi a nem kevert penzek felhasznalasat valtopenz keletkezese nelkul
+* a költési tervtől és a rendelkezésre álló forrásoktól függ
+* lehetővé teszi a nem kevert pénzek felhasználását váltópénz keletkezése nélkül
 
-## Channel-ek es peer-ek
+## Channel-ek és peer-ek
 
-* egyetlen channel egy jol kapcsolt, tokeerős es magas uzemideju node-hoz jo kiindulas, lasd a [Bos lista](../advanced-tools/bosscore.md), [Lightning Terminal](https://terminal.lightning.engineering) vagy [Amboss.space](https://amboss.space) oldalakat peer valasztasahoz
-* hasznalj privat channel-eket, hogy elkeruld a node es a finanszirozasi tranzakciok nyilvanossagra hozatalat
-* az offline privat channel-ek nem rongaljak a halozat megbizhatosagat
+* egyetlen channel egy jól kapcsolt, tőkeerős és magas üzemidejű node-hoz jó kiindulás, lásd a [Bos lista](../advanced-tools/bosscore.md), [Lightning Terminal](https://terminal.lightning.engineering) vagy [Amboss.space](https://amboss.space) oldalakat peer választásához
+* használj privát channel-eket, hogy elkerüld a node és a finanszírozási tranzakciók nyilvánosságra hozatalát
+* az offline privát channel-ek nem rongálják a hálózat megbízhatóságát
 
-## Likviditas
+## Likviditás
 
-* nagyreszben lokalis
+* nagyrészben lokális
 
-## Uzemido
+## Üzemidő
 
-* nem szamit (csak online allapotban koltekezunk)
+* nem számít (csak online állapotban költekezünk)
 
-## Kezeles
+## Kezelés
 
-* kimerult channel-ek bezarasa
-* [feltoltes LN-en keresztul](../createoutboundliquidity.md)
-* uj node inditasa gyakran javitja az onchain privacy-t
+* kimerült channel-ek bezárása
+* [feltöltés LN-en keresztül](../createoutboundliquidity.md)
+* új node indítása gyakran javítja az onchain privacy-t
 
-## Peldak
+## Példák
 
-* [Mobil tarcak](../createinboundliquidity.md#non-custodial-wallets)
-* [Sajat uzemeltetesű node dedikalt hardveren](https://github.com/bavarianledger/bitcoin-nodes)
-* Privacy-orientalt: [diak a Lightning Node privat futtatásarol](https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf)
-* Hasznalat kozossegi mediahoz, mint a [Sphinx chat](https://sphinx.chat/)
+* [Mobil tárcák](../createinboundliquidity.md#non-custodial-wallets)
+* [Saját üzemeltetésű node dedikált hardveren](https://github.com/bavarianledger/bitcoin-nodes)
+* Privacy-orientált: [diák a Lightning Node privát futtatásáról](https://keybase.pub/oms/slides/Running_a_Lightning_Node_Privately.pdf)
+* Használat közösségi médiához, mint a [Sphinx chat](https://sphinx.chat/)
 
   Vita: [https://github.com/raspiblitz/raspiblitz/issues/2073](https://github.com/raspiblitz/raspiblitz/issues/2073)

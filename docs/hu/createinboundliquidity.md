@@ -1,83 +1,83 @@
-Bejovo likviditas letrehozasahoz egy meglevo channel-en (hogy fizeteseket tudjunk fogadni) egyszeruen fizessunk egy Lightningot elfogado kereskedonek, es kapjuk meg a terméket, vagy kapjuk vissza a satoshikat onchain-en.
+Bejövő likviditás létrehozásához egy meglévő channel-en (hogy fizetéseket tudjunk fogadni) egyszerűen fizessünk egy Lightningot elfogadó kereskedőnek, és kapjuk meg a terméket, vagy kapjuk vissza a satoshikat onchain-en.
 
-Kulonbozo ajandekkartyak vasarlasahoz Lightninggal lasd: [Bitrefill (ajanloi link)](https://www.bitrefill.com/buy/?code=XapbJJd8).
+Különböző ajándékkártyák vásárlásához Lightninggal lásd: [Bitrefill (ajánlói link)](https://www.bitrefill.com/buy/?code=XapbJJd8).
 
-- [Ket oldalrol finanszirozott channel-ek](#ket-oldalrol-finanszirozott-channel-ek)
-  - [Core Lightning ket oldalrol finanszirozott channel-ek protokoll szinten](#core-lightning-ket-oldalrol-finanszirozott-channel-ek-protokoll-szinten)
-  - [Manualis egyeztetes LND-n a Balance of Satoshis-szal](#manualis-egyeztetes-lnd-n-a-balance-of-satoshis-szal)
-- [Bejovo channel-ek vasarlasa](#bejovo-channel-ek-vasarlasa)
-  - [Lightning channel piacok osszehasonlito tablazata](#lightning-channel-piacok-osszehasonlito-tablazata)
+- [Két oldalról finanszírozott channel-ek](#két-oldalról-finanszírozott-channel-ek)
+  - [Core Lightning két oldalról finanszírozott channel-ek protokoll szinten](#core-lightning-két-oldalról-finanszírozott-channel-ek-protokoll-szinten)
+  - [Manuális egyeztetés LND-n a Balance of Satoshis-szal](#manuális-egyeztetés-lnd-n-a-balance-of-satoshis-szal)
+- [Bejövő channel-ek vásárlása](#bejövő-channel-ek-vásárlása)
+  - [Lightning channel piacok összehasonlító táblázata](#lightning-channel-piacok-összehasonlító-táblázata)
   - [Amboss Magma](#amboss-magma)
-  - [Blocktank a Synonym-tol](#blocktank-a-synonym-tol)
+  - [Blocktank a Synonym-tól](#blocktank-a-synonym-tól)
   - [Voltage Flow](#voltage-flow)
   - [Lightning Pool](#lightning-pool)
   - [Microlancer.io](#microlancerio)
   - [Sats4Likes](#sats4likes)
-  - [Thor: Lightning channel-nyito szolgaltatas a Bitrefill.com-tol](#thor-lightning-channel-nyito-szolgaltatas-a-bitrefillcom-tol)
+  - [Thor: Lightning channel-nyitó szolgáltatás a Bitrefill.com-tól](#thor-lightning-channel-nyitó-szolgáltatás-a-bitrefillcom-tól)
   - [LNBIG.com](#lnbigcom)
   - [Coincept.com](#coinceptcom)
   - [Yalls.org](#yallsorg)
   - [lnd-routing](#lnd-routing)
-- [Bejovo channel-ek kerese](#bejovo-channel-ek-kerese)
+- [Bejövő channel-ek kérése](#bejövő-channel-ek-kérése)
   - [lightningnetwork.plus](#lightningnetworkplus)
   - [LightningTo.me](#lightningtome)
-  - [Csatlakozz egy kozosseghez](#csatlakozz-egy-kozosseghez)
-- [Swap out - bizalomigeny nelkuli](#swap-out---bizalomigeny-nelkuli)
+  - [Csatlakozz egy közösséghez](#csatlakozz-egy-közösséghez)
+- [Swap out - bizalomigény nélküli](#swap-out---bizalomigény-nélküli)
   - [Lightning Loop](#lightning-loop)
   - [Boltz.exchange](#boltzexchange)
-- [Swap out - bizalmon alapulo](#swap-out---bizalmon-alapulo)
+- [Swap out - bizalmon alapuló](#swap-out---bizalmon-alapuló)
   - [deezy.io](#deezyio)
   - [Bitfinex](#bitfinex)
   - [FixedFloat](#fixedfloat)
   - [ZigZag.io](#zigzagio)
-  - [Mar nem elerheto ChainMarket](#mar-nem-elerheto-chainmarket)
-- [Kuldes mobil tarcara](#kuldes-mobil-tarcara)
-  - [Sajat kezelesű tarcak](#sajat-kezelesű-tarcak)
-  - [Felügyelt tarcak](#felügyelt-tarcak)
-- [Tovabbi linkek](#tovabbi-linkek)
+  - [Már nem elérhető ChainMarket](#már-nem-elérhető-chainmarket)
+- [Küldés mobil tárcára](#küldés-mobil-tárcára)
+  - [Saját kezelésű tárcák](#saját-kezelésű-tárcák)
+  - [Felügyelt tárcák](#felügyelt-tárcák)
+- [További linkek](#további-linkek)
 
-## Ket oldalrol finanszirozott channel-ek
-### Core Lightning ket oldalrol finanszirozott channel-ek protokoll szinten
-* [Hasznalat a RaspiBlitz-en](https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.cl.md#dual-funded-channels)
-* [Ket oldalrol finanszirozott channel megnyitasa](https://medium.com/blockstream/c-lightning-opens-first-dual-funded-mainnet-lightning-channel-ada6b32a527c)
-* [Liquidity ads beallitasa](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
+## Két oldalról finanszírozott channel-ek
+### Core Lightning két oldalról finanszírozott channel-ek protokoll szinten
+* [Használat a RaspiBlitz-en](https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.cl.md#dual-funded-channels)
+* [Két oldalról finanszírozott channel megnyitása](https://medium.com/blockstream/c-lightning-opens-first-dual-funded-mainnet-lightning-channel-ada6b32a527c)
+* [Liquidity ads beállítása](https://medium.com/blockstream/setting-up-liquidity-ads-in-c-lightning-54e4c59c091d)
 
-### Manualis egyeztetes LND-n a Balance of Satoshis-szal
+### Manuális egyeztetés LND-n a Balance of Satoshis-szal
 * [github.com/alexbosworth/balanceofsatoshis](https://github.com/alexbosworth/balanceofsatoshis)
-* [Utmutato szukseges]
+* [Útmutató szükséges]
 
-## Bejovo channel-ek vasarlasa
-### Lightning channel piacok osszehasonlito tablazata
+## Bejövő channel-ek vásárlása
+### Lightning channel piacok összehasonlító táblázata
 * [channelmarkets.md](https://github.com/openoms/lightning-node-management/blob/en/channelmarkets.md)
 
 ### [Amboss Magma](https://amboss.space)
-* Lightning likviditasi piacter
+* Lightning likviditási piactér
 
-### [Blocktank a Synonym-tol](https://blocktank.to/#widget)
+### [Blocktank a Synonym-tól](https://blocktank.to/#widget)
 https://x.com/Synonym_to/status/1747615808010752199
-Bitfinex-en keresztul is mukodik, video [itt](https://twitter.com/Synonym_to/status/1747604683907379651)
+Bitfinex-en keresztül is működik, videó [itt](https://twitter.com/Synonym_to/status/1747604683907379651)
 
 ### Voltage Flow
-* Vasarolj sidecar channel-t a Voltage Flow-n keresztul a Lightning Pool-bol
+* Vásárolj sidecar channel-t a Voltage Flow-n keresztül a Lightning Pool-ból
 * [blog.voltage.cloud/introducing-flow/](https://blog.voltage.cloud/introducing-flow/)
 
 ### [Lightning Pool](https://pool.lightning.engineering/)
-* Vasarolj bejovo channel-eket egy engedelymentes piacteren: [https://pool.lightning.engineering/](https://pool.lightning.engineering/)
-* Hasznalati megjegyzesek: [pool.md](advanced-tools/pool.md)
+* Vásárolj bejövő channel-eket egy engedélymentes piactéren: [https://pool.lightning.engineering/](https://pool.lightning.engineering/)
+* Használati megjegyzések: [pool.md](advanced-tools/pool.md)
 
 ### [Microlancer.io](https://microlancer.io/services/?tag=%23lightning-network)
-* Fizess bejovo channel-ekert.
+* Fizess bejövő channel-ekért.
 
 ### [Sats4Likes](https://kriptode.com/satsforlikes/index.html)
-* Adj fel hirdetest, es fizess satoshikat bejovo channel-ekert.
+* Adj fel hirdetést, és fizess satoshikat bejövő channel-ekért.
 
-### [Thor: Lightning channel-nyito szolgaltatas a Bitrefill.com-tol](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
+### [Thor: Lightning channel-nyitó szolgáltatás a Bitrefill.com-tól](https://www.bitrefill.com/thor-lightning-network-channels/?hl=en)
 
-* Fizess Lightninggal egy legfeljebb 16 000 000 satoshis bejovo channel-ert.
+* Fizess Lightninggal egy legfeljebb 16 000 000 satoshis bejövő channel-ért.
 
 ### [LNBIG.com](https://lnbig.com/#/open-channel)
 
-* Vasarolj bejovo channel-eket innen: [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
+* Vásárolj bejövő channel-eket innen: [https://twitter.com/lnbig\_com](https://twitter.com/lnbig_com)
 
 ### [Coincept.com](https://coincept.com/)
 
@@ -85,39 +85,39 @@ Bitfinex-en keresztul is mukodik, video [itt](https://twitter.com/Synonym_to/sta
 
 ### [lnd-routing](https://github.com/lnd-routing/lnd-routing/)
 
-## Bejovo channel-ek kerese
+## Bejövő channel-ek kérése
 
 ### [lightningnetwork.plus](http://lightningnetwork.plus)
-* Igenyeld a node-odat az LN+-on, es csatlakozz egy ingyenes channel swap-hoz
+* Igényeld a node-odat az LN+-on, és csatlakozz egy ingyenes channel swap-hoz
 
 ### [LightningTo.me](https://lightningto.me/)
 
-* Ingyenesen nyit egy 2 000 000 satoshival finanszirozott channel-t. A szolgaltatas hasznalatához mar 10 nyitott channel-lel kell rendelkezni.
-Ha Tor mogul csatlakozol, add hozza a node-jukat peer-kent:
+* Ingyenesen nyit egy 2 000 000 satoshival finanszírozott channel-t. A szolgáltatás használatához már 10 nyitott channel-lel kell rendelkezni.
+Ha Tor mögül csatlakozol, add hozzá a node-jukat peer-ként:
 `$ lncli connect 03bb88ccc444534da7b5b64b4f7b15e1eccb18e102db0e400d4b9cfe93763aa26d@138.68.14.104:9735`
 
-### Csatlakozz egy kozosseghez
+### Csatlakozz egy közösséghez
 
 * [PLEBNET - KYCjelly.com](kycjelly.com)
 [plebnet.wiki/wiki/Welcome_to_Plebnet](https://plebnet.wiki/wiki/Welcome_to_Plebnet)
 
 * Rings of Fire
-  [Hogyan csatlakozz egy gyuruhoz](https://github.com/Rings-of-Fire/ring-of-fire/wiki#how)
+  [Hogyan csatlakozz egy gyűrűhöz](https://github.com/Rings-of-Fire/ring-of-fire/wiki#how)
 
-## Swap out - bizalomigeny nelkuli
+## Swap out - bizalomigény nélküli
 
-Fizess Lightninggal es kapj onchain-t.
+Fizess Lightninggal és kapj onchain-t.
 
 ### [Lightning Loop](https://github.com/lightninglabs/loop)
 
-A Lightning Loop a Lightning Labs altal kinallt nem felügyelt szolgaltatas, amely submarine swap-okkal hidalja at az onchain es offchain Bitcoint.
+A Lightning Loop a Lightning Labs által kínált nem felügyelt szolgáltatás, amely submarine swap-okkal hidalja át az onchain és offchain Bitcoint.
 
-A Loop szoftver jelenlegi verziojabol ket swap tipus tamogatott:
+A Loop szoftver jelenlegi verziójából két swap típus támogatott:
 
-* Loop Out: offchain-rol onchain-re. A Loop kliens a Lightningon fizetett penzt egy Bitcoin-cimre kuldi.
-* Loop In: onchain-rol offchain-re. A Loop kliens az onchain-en fizetett penzt egy Lightning channel-be kuldi.
-* Maximalis swap osszeg: 4 200 000 sats
-* Pelda hasznalat a legalacsonyabb koltseghez (hosszabb megerositesi idot eredmenyez (becslés 25 blokkra) es magasabb hibarata (maximum routing dij 500 sats) -- a szamokat ennek megfeleloen allitsd):
+* Loop Out: offchain-ről onchain-re. A Loop kliens a Lightningon fizetett pénzt egy Bitcoin-címre küldi.
+* Loop In: onchain-ről offchain-re. A Loop kliens az onchain-en fizetett pénzt egy Lightning channel-be küldi.
+* Maximális swap összeg: 4 200 000 sats
+* Példa használat a legalacsonyabb költséghez (hosszabb megerősítési időt eredményez (becslés 25 blokkra) és magasabb hibaráta (maximum routing díj 500 sats) -- a számokat ennek megfelelően állítsd):
   `loop out --conf_target 25 --max_swap_routing_fee 500 4200000 [optional external address]`
 
   ```text
@@ -135,22 +135,22 @@ A Loop szoftver jelenlegi verziojabol ket swap tipus tamogatott:
 
 ### [Boltz.exchange](https://boltz.exchange/)
 
-Dij: 0.5% mindket iranyban
+Díj: 0.5% mindkét irányban
 
-## Swap out - bizalmon alapulo
+## Swap out - bizalmon alapuló
 
 ### [deezy.io](https://deezy.io/)
 
-Azonnali swap a bejovo likviditas biztositasahoz.
+Azonnali swap a bejövő likviditás biztosításához.
 
 * API: <https://docs.deezy.io/>
 
-* Testnet feltetelek lekerdezese:
+* Testnet feltételek lekérdezése:
   ```
   curl -X GET https://api-testnet.deezy.io/v1/swap/info -H "Accept: */*"
   ```
 
-* Fizessed ki a visszakapott invoice-t egy testnet swap vegrehajtasahoz:
+* Fizesd ki a visszakapott invoice-t egy testnet swap végrehajtásához:
   ```
   curl -X POST https://api-testnet.deezy.io/v1/swap -H "Accept: */*" -H "Content-Type: application/json" --data-binary @- <<DATA
   {
@@ -163,63 +163,63 @@ Azonnali swap a bejovo likviditas biztositasahoz.
 
 ### [Bitfinex](https://bitfinex.com)
 
-Nem-KYC (ha nem fiat-ra hasznaljuk) tozsdeszolgaltatas, amely tamogatja a Lightning befizeteseeket (ingyenes) es kivonasokat (100 sats). Onchain kivonás fix 40000 sats-ba kerul. A node-jaik itt talalhatok: [https://ln.bitfinex.com/](https://ln.bitfinex.com/)
+Nem-KYC (ha nem fiat-ra használjuk) tőzsdeszolgáltatás, amely támogatja a Lightning befizetéseket (ingyenes) és kivonásokat (100 sats). Onchain kivonás fix 40000 sats-ba kerül. A node-jaik itt találhatók: [https://ln.bitfinex.com/](https://ln.bitfinex.com/)
 
 ### [FixedFloat](https://fixedfloat.com/)
 
-Lightning kriptovaluta tozsde. Dij: 0.5 - 1% mindket iranyban
+Lightning kriptovaluta tőzsde. Díj: 0.5 - 1% mindkét irányban
 
 ### [ZigZag.io](https://zigzag.io/#/)
 
-Lightning fizeteseket elfogado tozsde. Maximum 4M sats. Jutalek ~ 2%
+Lightning fizetéseket elfogadó tőzsde. Maximum 4M sats. Jutalék ~ 2%
 
-### Mar nem elerheto [ChainMarket](https://chainmarket.etleneum.com/)
+### Már nem elérhető [ChainMarket](https://chainmarket.etleneum.com/)
 
-Lightning-ról onchain-re swap piacter kotegelt tranzakciokkal. Dij: 0.5%
+Lightning-ról onchain-re swap piactér kötegelt tranzakciókkal. Díj: 0.5%
 
-## Kuldes mobil tarcara
-A legtobb kepes utana onchain-cimre kuldeni dijert (swap out).
+## Küldés mobil tárcára
+A legtöbb képes utána onchain-címre küldeni díjért (swap out).
 
-### Sajat kezelesű tarcak
+### Saját kezelésű tárcák
 
-Futtass kulon LN node-ot a telefonodon vagy asztali gepeden, ahova athelyezhetsz nemi penzt, igy remote balance / bejovo likviditas keletkezik
+Futtass külön LN node-ot a telefonodon vagy asztali gépeden, ahová áthelyezhetsz némi pénzt, így remote balance / bejövő likviditás keletkezik
 
 * [Breez](https://breez.technology/)
 
-  Mobil tarca, amely automatikusan letrehoz egy 1 millio sats bejovo channel-t, igy a beallitas utan perceken belul athelyezheted a penzt.
+  Mobil tárca, amely automatikusan létrehoz egy 1 millió sats bejövő channel-t, így a beállítás után perceken belül áthelyezheted a pénzt.
 
-  A penz kivezetese onchain Bitcoin-cimre 0.5%-ba kerul a [Boltz](https://boltz.exchange/) segitsegevel
+  A pénz kivezetése onchain Bitcoin-címre 0.5%-ba kerül a [Boltz](https://boltz.exchange/) segítségével
 
 * [Phoenix](https://phoenix.acinq.co/)
 
-  Konnyen hasznalhato mobil tarca az Acinq-tol.
+  Könnyen használható mobil tárca az Acinq-tól.
 
 * [Blixt wallet](https://blixtwallet.github.io/)
 
-  Nem felügyelt, nyilt forraskodu Lightning tarca Androidra es iOS-re, a hasznalhatosagra es a felhasznaloi elmenyére osszpontositva.
+  Nem felügyelt, nyílt forráskódú Lightning tárca Androidra és iOS-re, a használhatóságra és a felhasználói élményre összpontosítva.
 
 * [OBW - Open Bitcoin Wallet](https://github.com/nbd-wtf/obw)
 
-  Az Open Bitcoin Wallet (OBW) egy Android Bitcoin es Lightning tarca, a Simple Bitcoin Wallet fork-ja, amely a kellemes es egyszeru felhasznaloi elmenyere osszpontosit, halado funkciokkal.
+  Az Open Bitcoin Wallet (OBW) egy Android Bitcoin és Lightning tárca, a Simple Bitcoin Wallet fork-ja, amely a kellemes és egyszerű felhasználói élményre összpontosít, haladó funkciókkal.
 
 * [Muun Wallet](https://muun.com/)
 
-  Konnyen hasznalhato, tobb platformos onchain tarca, amely kepes Lightningra es Lightningrol swap-olni.
+  Könnyen használható, több platformos onchain tárca, amely képes Lightningra és Lightningról swap-olni.
 
 
-### Felügyelt tarcak
+### Felügyelt tárcák
 
-Fizess magadnak LN-en keresztul, es elvezheted a letrejovo bejovo likviditast.
+Fizess magadnak LN-en keresztül, és élvezheted a létrejövő bejövő likviditást.
 
-A hatranya, hogy nem te kezeled a felügyelt tarca kulcsait.
+A hátránya, hogy nem te kezeled a felügyelt tárca kulcsait.
 
-Peldak:
+Példák:
 * [Blink](https://blink.sv/)
 * [Wallet of Satoshi](https://www.walletofsatoshi.com/)
 * [Alby](https://getalby.com/)
 
-## Tovabbi linkek
+## További linkek
 * [github.com/bitcoin-software/ln-liquidity](https://github.com/bitcoin-software/ln-liquidity)
-Csere szolgaltatasok listaja LN <-> onchain es mas swap-okhoz
+Csere szolgáltatások listája LN <-> onchain és más swap-okhoz
 * https://cointastical.medium.com/exchanges-with-support-for-bitcoin-lightning-network-payments-739829bcb7bc
-Lightning Network fizeteseket tamogato tözsdek
+Lightning Network fizetéseket támogató tőzsdék

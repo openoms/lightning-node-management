@@ -1,101 +1,101 @@
-# LND onchain penzkeszlet kezelese Electrum / Sparrow / Specter tarcakban
+# LND onchain pénzkészlet kezelése Electrum / Sparrow / Specter tárcákban
 
-* A master publikus kulcsok letrehozasahoz (az LND onchain tarca YPUB / ZPUB megjelenitese) a tranzakciok kulso monitorozasahoz es epiteesehez a kovetkezo parancs hasznalhato:
+* A master publikus kulcsok létrehozásához (az LND onchain tárca YPUB / ZPUB megjelenítése) a tranzakciók külső monitorozásához és építéséhez a következő parancs használható:
   ```
   lncli wallet accounts list --name default
   ```
 
-* PSBT alairasa:
+* PSBT aláírása:
   ```
   lncli wallet psbt finalize --funded_psbt "base64_encoded_PSBT"
   ```
 
-* Tranzakcio kozvetetise LND-vel:
+* Tranzakció közvetítése LND-vel:
   ```
   lncli wallet publishtx "tx_hex"
   ```
 
-* A reszletekert kovesdd a beszelgetest: https://github.com/raspiblitz/raspiblitz/issues/2192
+* A részletekért kövesd a beszélgetést: https://github.com/raspiblitz/raspiblitz/issues/2192
 
-## Onchain penzkeszlet visszaallitasa LND tarcabol Electrum Wallet-be
+## Onchain pénzkészlet visszaállítása LND tárcából Electrum Wallet-be
 
-Ezt csak akkor csinaldd, ha erted a folyamatot.
+Ezt csak akkor csináld, ha érted a folyamatot.
 Soha ne adj meg titkos adatokat online weboldalakon.
-Keruldd a bovitmenyekkel rendelkezo bongeszoablakokat.
-A Tor Browser jo kiindulasi pont \(celozd meg az offline hasznalat\).
+Kerüld a bővítményekkel rendelkező böngészőablakokat.
+A Tor Browser jó kiindulási pont \(célozd meg az offline használat\).
 
-Szukseges:
+Szükséges:
 
-* LND 24 szavas seed \(+ jelszo, ha hasznaltal\)
-* hasznos, ha tudod a feltoltott cimeket
-* hasznalj dedikalt, biztonsagos operacios rendszert, pl. [Tails](https://tails.boum.org/)
-* mentsd el az online oldalakat lemezre es nyisd meg egy uj bongeszoablakban
+* LND 24 szavas seed \(+ jelszó, ha használtál\)
+* hasznos, ha tudod a feltöltött címeket
+* használj dedikált, biztonságos operációs rendszert, pl. [Tails](https://tails.boum.org/)
+* mentsd el az online oldalakat lemezre és nyisd meg egy új böngészőablakban
 
 ### Nyisd meg: [https://guggero.github.io/cryptography-toolkit/\#!/aezeed](https://guggero.github.io/cryptography-toolkit/#!/aezeed)
 
-* a `Decode mnemonic` resz alatt
+* a `Decode mnemonic` rész alatt
 
-  add meg a 24 szavas seed-et \(+ jelszot, ha hasznaltal\)
+  add meg a 24 szavas seed-et \(+ jelszót, ha használtál\)
 
-* masold ki a `HD node root key base58` erteket
+* másold ki a `HD node root key base58` értéket
 
 ### Nyisd meg: [https://iancoleman.io/bip39/](https://iancoleman.io/bip39/)
 
-* add meg a `HD node root key base58` erteket a `BIP32 Root Key` mezobe
-* a `Derivation Path` resz alatt
-  * Valaszd a `BIP84` fult a bc1.. cimekhez.
-  * Valaszd a `BIP49` fult a 3.. cimekhez.
-* Masold ki a privat kulcsokat az ismert vagy osszes cimhez \(`Account Extended Private Key`\).
+* add meg a `HD node root key base58` értéket a `BIP32 Root Key` mezőbe
+* a `Derivation Path` rész alatt
+  * Válaszd a `BIP84` fület a bc1.. címekhez.
+  * Válaszd a `BIP49` fület a 3.. címekhez.
+* Másold ki a privát kulcsokat az ismert vagy összes címhez \(`Account Extended Private Key`\).
 
 ### Nyisd meg az Electrum Wallet-et
 
-Kovesd: [https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/](https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/)
+Kövesd: [https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/](https://bitcoinelectrum.com/importing-your-private-keys-into-electrum/)
 
-A privat kulcsok importalasakor hasznald az alabbi prefixeket:
+A privát kulcsok importálásakor használd az alábbi prefixeket:
 
-* `p2wpkh:` a `bc1...` cimek privat kulcsai elott
-* `p2wpkh-p2sh:` a `3...` cimek privat kulcsai elott
+* `p2wpkh:` a `bc1...` címek privát kulcsai előtt
+* `p2wpkh-p2sh:` a `3...` címek privát kulcsai előtt
 
-Kesz. Miutan az Electrum Server befejezte a beolvasast, a penzkeszletnek meg kell jelennie.
+Kész. Miután az Electrum Server befejezte a beolvasást, a pénzkészletnek meg kell jelennie.
 
-## Az LND tarca onchain reszenek importalasa Electrum Wallet-be
+## Az LND tárca onchain részének importálása Electrum Wallet-be
 
-Ez nem egy ajanlott modja a penzkeszlet kezelesenek az LND tarcabol, jobban hasznalhato csak megfigyeles (watch-only) modban.
-A seed-bol torteno visszaallitas Electrum-ban nem erinti a channel-ekben levo offchain penzkeszletet.
-Nincs garancia arra, hogy az Electrum change kimenetei megjelennek LND-ben, es forditva.
+Ez nem egy ajánlott módja a pénzkészlet kezelésének az LND tárcából, jobban használható csak megfigyelés (watch-only) módban.
+A seed-ből történő visszaállítás Electrum-ban nem érinti a channel-ekben lévő offchain pénzkészletet.
+Nincs garancia arra, hogy az Electrum change kimenetei megjelennek LND-ben, és fordítva.
 
-Ezt csak akkor csinaldd, ha erted a folyamatot.
+Ezt csak akkor csináld, ha érted a folyamatot.
 Soha ne adj meg titkos adatokat online weboldalakon.
-Keruldd a bovitmenyekkel rendelkezo bongeszoablakokat.
-A Tor Browser jo kiindulasi pont \(celozd meg az offline hasznalat\).
+Kerüld a bővítményekkel rendelkező böngészőablakokat.
+A Tor Browser jó kiindulási pont \(célozd meg az offline használat\).
 
-Szukseges:
+Szükséges:
 
-* LND 24 szavas seed \(+ jelszo, ha hasznaltal\)
-* hasznalj dedikalt, biztonsagos operacios rendszert, pl. [Tails](https://tails.boum.org/)
-* mentsd el az online oldalakat lemezre es nyisd meg egy uj bongeszoablakban
+* LND 24 szavas seed \(+ jelszó, ha használtál\)
+* használj dedikált, biztonságos operációs rendszert, pl. [Tails](https://tails.boum.org/)
+* mentsd el az online oldalakat lemezre és nyisd meg egy új böngészőablakban
 
 ### Nyisd meg: [https://guggero.github.io/cryptography-toolkit/\#!/aezeed](https://guggero.github.io/cryptography-toolkit/#!/aezeed)
 
-* a `Decode mnemonic` resz alatt
+* a `Decode mnemonic` rész alatt
 
-  add meg a 24 szavas seed-et \(+ jelszot, ha hasznaltal\)
+  add meg a 24 szavas seed-et \(+ jelszót, ha használtál\)
 
-* masold ki a `HD node root key base58` erteket BTC \(Bitcoin, Native SegWit, BIP84\) vagy BTC \(Bitcoin, SegWit, BIP49\) szamara
+* másold ki a `HD node root key base58` értéket BTC \(Bitcoin, Native SegWit, BIP84\) vagy BTC \(Bitcoin, SegWit, BIP49\) számára
 
 ### Nyisd meg: [https://iancoleman.io/bip39/](https://iancoleman.io/bip39/)
 
-* add meg a `HD node root key base58` erteket a `BIP32 Root Key` mezobe
-* a `Derivation Path` resz alatt
-  * Valaszd a `BIP84` fult a bc1.. cimekhez.
-  * Valaszd a `BIP49` fult a 3.. cimekhez.
-* Importald az `Account Extended Public key`-t Electrum-ba csak megfigyeles (watch-only) tarcahoz. Lasd: [https://bitcoinelectrum.com/creating-a-watch-only-wallet/](https://bitcoinelectrum.com/creating-a-watch-only-wallet/)
-* Importald az `Account Extended Private Key`-t Electrum-ba hot wallet-kent \(nem ajanlott\).
+* add meg a `HD node root key base58` értéket a `BIP32 Root Key` mezőbe
+* a `Derivation Path` rész alatt
+  * Válaszd a `BIP84` fület a bc1.. címekhez.
+  * Válaszd a `BIP49` fület a 3.. címekhez.
+* Importáld az `Account Extended Public key`-t Electrum-ba csak megfigyelés (watch-only) tárcához. Lásd: [https://bitcoinelectrum.com/creating-a-watch-only-wallet/](https://bitcoinelectrum.com/creating-a-watch-only-wallet/)
+* Importáld az `Account Extended Private Key`-t Electrum-ba hot wallet-ként \(nem ajánlott\).
 
-Alternativakent nezd meg ezt a videot:
+Alternatívaként nézd meg ezt a videót:
 [https://light-tube.eu/?latest=Latest&search=How+to+import+your+lighting+wallet+into+Electrum](https://light-tube.eu/?latest=Latest&search=How+to+import+your+lighting+wallet+into+Electrum)
 
-A kovetkezo eszkoz hasznalatat mutatja be:
+A következő eszköz használatát mutatja be:
 
 [https://github.com/guggero/chantools](https://github.com/guggero/chantools)
 
@@ -109,6 +109,6 @@ Example command:
 chantools showrootkey
 ```
 
-Az xpub zpub-ra konvertalasa ezzel a kis python szkripttel:
+Az xpub zpub-ra konvertálása ezzel a kis python szkripttel:
 
 [https://gist.github.com/freenancial/d82fec076c13158fd34d1c4300b2b300](https://gist.github.com/freenancial/d82fec076c13158fd34d1c4300b2b300)

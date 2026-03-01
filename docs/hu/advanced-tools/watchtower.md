@@ -239,13 +239,13 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
   2019-07-26 10:31:08.041 [INF] WTCL: Client stats: tasks(received=9 accepted=9 ineligible=0) sessions(acquired=0 exhausted=0)
   ```
 
-## Inaktiv tower-ek eltavolitasa
-* Futtasd a terminalban:
+## Inaktív tower-ek eltávolítása
+* Futtasd a terminálban:
   ```
   for i in $(lncli wtclient towers | grep false -B 4 | grep pubkey | awk '{print $2}' | cut -d'"' -f2); do lncli wtclient remove $i; done
   ```
 
-## Tovabbi informaciok:
+## További információk:
 
 [https://github.com/lightningnetwork/lnd/blob/master/docs/watchtower.md](https://github.com/lightningnetwork/lnd/blob/master/docs/watchtower.md)
 
@@ -255,10 +255,10 @@ Legfrissebb lnd kiadási megjegyzések: [https://github.com/lightningnetwork/lnd
 
 [https://bitcoinops.org/en/newsletters/2019/06/19/](https://bitcoinops.org/en/newsletters/2019/06/19/)
 
-Will O\`Beirne ebben a cikkben \(es a hozza tartozo GitHub repoban\) bemutatja, hogyan lehet szabalyserteseket szimulalni es a watchtower reakcioit megfigyel egy szimulalt halozaton: [https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112](https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112)
+Will O\`Beirne ebben a cikkben \(és a hozzá tartozó GitHub repóban\) bemutatja, hogyan lehet szabálysértéseket szimulálni és a watchtower reakcióit megfigyelni egy szimulált hálózaton: [https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112](https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112)
 
-SLP83 Conner Fromknecht -- Bitcoin Lightning Watchtower-ek reszletesen
+SLP83 Conner Fromknecht -- Bitcoin Lightning Watchtower-ek részletesen
 podcast: [https://stephanlivera.com/episode/83](https://stephanlivera.com/episode/83)
-atirat: [http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/](http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/)
+átirat: [http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/](http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/)
 
-Keress altruista watchtower-eket es oszd meg a sajátodat: [https://github.com/openoms/lightning-node-management/issues/4](https://github.com/openoms/lightning-node-management/issues/4)
+Keress altruista watchtower-eket és oszd meg a sajátodat: [https://github.com/openoms/lightning-node-management/issues/4](https://github.com/openoms/lightning-node-management/issues/4)

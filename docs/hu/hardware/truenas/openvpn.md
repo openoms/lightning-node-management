@@ -1,83 +1,83 @@
 # OpenVPN kliens FreeBSD-n
 
-OpenVPN kliens beallitasahoz FreeBSD-n kovesd az alabbi lepeseket:
+OpenVPN kliens beállításához FreeBSD-n kövesd az alábbi lépéseket:
 
-Az OpenVPN telepitese:
-Eloszor frissitsd a csomagtarat, majd telepitsd az OpenVPN-t a kovetkezo parancsokkal:
+Az OpenVPN telepítése:
+Először frissítsd a csomagtárat, majd telepítsd az OpenVPN-t a következő parancsokkal:
 
 ```
 pkg update
 pkg install openvpn
 ```
-Az OpenVPN konfiguracios fajl beszerzese:
-Szerezd be az OpenVPN konfiguracios fajlt (.ovpn) a VPN szolgaltatodtol, vagy hozd letre, ha sajat VPN szervered van. Szukseged lesz meg a VPN szolgaltato altal biztositott vagy az altad generalt tanusitvany- es kulcsfajlokra is.
+Az OpenVPN konfigurációs fájl beszerzése:
+Szerezd be az OpenVPN konfigurációs fájlt (.ovpn) a VPN szolgáltatódtól, vagy hozd létre, ha saját VPN szervered van. Szükséged lesz még a VPN szolgáltató által biztosított vagy az általad generált tanúsítvány- és kulcsfájlokra is.
 
-Konfiguracios fajlok masolasa az OpenVPN konyvtarba:
-Hozd letre az OpenVPN konyvtarat es masold bele a konfiguracios fajlokat:
+Konfigurációs fájlok másolása az OpenVPN könyvtárba:
+Hozd létre az OpenVPN könyvtárat és másold bele a konfigurációs fájlokat:
 
 ```
 mkdir /usr/local/etc/openvpn
 nano /usr/local/etc/openvpn/client.conf
 ```
 
-A konfiguracios fajl modositasa (ha szukseges):
-Ha a konfiguracios fajl felhasznalonevet es jelszot iger a hitelesiteshez, kulon fajlban kell tarolnod ezeket az adatokat. Hozz letre egy uj fajlt auth.txt neven az OpenVPN konyvtarban:
+A konfigurációs fájl módosítása (ha szükséges):
+Ha a konfigurációs fájl felhasználónevet és jelszót igér a hitelesítéshez, külön fájlban kell tárolnod ezeket az adatokat. Hozz létre egy új fájlt auth.txt néven az OpenVPN könyvtárban:
 
 ```
 nano /usr/local/etc/openvpn/auth.txt
 ```
-Add hozza a felhasznalonevedet es a jelszavadat, ujsorral elvalasztva:
+Add hozzá a felhasználónevedet és a jelszavadat, újsorral elválasztva:
 
 ```
 your_username
 your_password
 ```
-Mentsd el es zard be a fajlt. Ezutan nyisd meg a client.conf fajlt:
+Mentsd el és zárd be a fájlt. Ezután nyisd meg a client.conf fájlt:
 
 ```
 nano /usr/local/etc/openvpn/client.conf
 ```
-Add hozza vagy modositsd a kovetkezo sort, hogy az auth.txt fajlra hivatkozzon:
+Add hozzá vagy módosítsd a következő sort, hogy az auth.txt fájlra hivatkozzon:
 
 ```
 auth-user-pass /usr/local/etc/openvpn/auth.txt
 ```
-Mentsd el es zard be a fajlt.
+Mentsd el és zárd be a fájlt.
 
-Az OpenVPN engedelyezese rendszerinditaskor:
-Ahhoz, hogy az OpenVPN automatikusan elinduljon a rendszer betoltesekor, szerkeszd az /etc/rc.conf fajlt:
+Az OpenVPN engedélyezése rendszerindításkor:
+Ahhoz, hogy az OpenVPN automatikusan elinduljon a rendszer betöltésekor, szerkeszd az /etc/rc.conf fájlt:
 ```
 nano /etc/rc.conf
 ```
-Add hozza a kovetkezo sort:
+Add hozzá a következő sort:
 
 ```
 openvpn_enable="YES"
 openvpn_configfile="/usr/local/etc/openvpn/client.conf"
 ```
-Mentsd el es zard be a fajlt.
+Mentsd el és zárd be a fájlt.
 
-Az OpenVPN szerviz inditasa:
+Az OpenVPN szerviz indítása:
 
 ```
 service openvpn start
 ```
-A kapcsolat ellenorzese:
-Ellenorizd, hogy az OpenVPN kapcsolat letrejott-e a logok megtekinteserel:
+A kapcsolat ellenőrzése:
+Ellenőrizd, hogy az OpenVPN kapcsolat létrejött-e a logok megtekintésével:
 
 ```
 tail -f /var/log/messages
 ```
-Vagy a halozati interfeszek es az utvonaltabla ellenorzeserel:
+Vagy a hálózati interfészek és az útvonaltábla ellenőrzésével:
 
 ```
 ifconfig
 netstat -rn
 ```
 
-Ellenorizd az uj IP-cimedet egy kulso szerviz segitsegevel:
+Ellenőrizd az új IP-címedet egy külső szerviz segítségével:
 ```
 curl api.ipify.org
 ```
 
-A lepesek elvegzese utan a FreeBSD rendszerednek csatlakoznia kell a VPN szerverhez az OpenVPN-en keresztul. Ha barmilyen problema adonik, nezd at a logokat, vagy ellenorizd a konfiguracios fajlokat hibak utan kutatva.
+A lépések elvégzése után a FreeBSD rendszerednek csatlakoznia kell a VPN szerverhez az OpenVPN-en keresztül. Ha bármilyen probléma adódik, nézd át a logokat, vagy ellenőrizd a konfigurációs fájlokat hibák után kutatva.

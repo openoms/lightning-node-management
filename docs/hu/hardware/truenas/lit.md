@@ -2,13 +2,13 @@
 
 https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
 
-# Telepites
+# Telepítés
 
 ```
 bash
 VERSION=v0.9.2-alpha
 
-# fuggosegek
+# függőségek
 pkg install -y gmake git node14 yarn-node14 python2
 # Go
 GOVERSION=1.20.3
@@ -25,7 +25,7 @@ mkdir lightning-terminal-source-$VERSION
 cd lightning-terminal-source-$VERSION
 wget -O lightning-terminal-source-$VERSION.tar.gz https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/lightning-terminal-source-$VERSION.tar.gz
 
-# ellenorzes
+# ellenőrzés
 gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4D7D916376026F177
 wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
 wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
@@ -33,7 +33,7 @@ gpg --verify manifest-$VERSION.sig manifest-$VERSION.txt
 
 shasum -a 256 -c manifest-$VERSION.txt --ignore-missing
 
-# forditas es telepites
+# fordítás és telepítés
 tar -xvf lightning-terminal-source-$VERSION.tar.gz
 gmake install
 
@@ -47,29 +47,29 @@ cd
 rm -r lightning-terminal-source-$VERSION
 ```
 
-## Konfiguracios fajl
-a RaspiBlitz alapjan adaptalt (ugyanaz a felepites kulon LND-vel):
+## Konfigurációs fájl
+a RaspiBlitz alapján adaptált (ugyanaz a felépítés külön LND-vel):
 
 ```
 nano /root/.lit/lit.conf
 
 ```
 ```
-# Szukseges:
+# Szükséges:
 UIPASSWORD=
 RPCUSER=
 RPCPASSWORD=
 ```
 ```
-# Alkalmazas beallitasai
+# Alkalmazás beállításai
 httpslisten=0.0.0.0:8443
 uipassword=$UIPASSWORD
 #lit-dir=/home/lit/.lit
 
-# Tavoli beallitasok
+# Távoli beállítások
 remote.lit-debuglevel=info
 
-# Tavoli lnd beallitasok
+# Távoli lnd beállítások
 remote.lnd.rpcserver=127.0.0.1:10009
 remote.lnd.macaroonpath=/var/db/lnd/data/chain/bitcoin/mainnet/admin.macaroon
 remote.lnd.tlscertpath=/var/db/lnd/tls.cert
@@ -92,7 +92,7 @@ faraday.bitcoin.user=$RPCUSER
 faraday.bitcoin.password=$RPCPASSWORD
 ```
 
-## Szerviz fajl
+## Szerviz fájl
 
 ```
 nano /usr/local/etc/rc.d/litd
@@ -122,7 +122,7 @@ run_rc_command "$1"
 ```
 
 ## Tor Hidden Service
-* Hozd letre itt:
+* Hozd létre itt:
   ```
   nano /usr/local/etc/tor/torrc
   ```
@@ -131,11 +131,11 @@ run_rc_command "$1"
   HiddenServiceVersion 3
   HiddenServicePort 443 127.0.0.1:8443
   ```
-* toltsd ujra a Tor-t
+* töltsd újra a Tor-t
   ```
   service tor reload
   ```
-* olvasd ki a Hidden Service cimet
+* olvasd ki a Hidden Service címet
   ```
   cat /var/db/tor/litd/hostname
   ```
@@ -144,7 +144,7 @@ run_rc_command "$1"
   tail -f /var/log/tor/tor.log
   ```
 
-## Inditas
+## Indítás
 ```
 service litd enable
 service litd start
@@ -155,17 +155,17 @@ service litd start
 tail -f .lit/logs/mainnet/litd.log
 ```
 
-Jelentkezz be a webes feluletbe itt:
+Jelentkezz be a webes felületbe itt:
 ```
 https://JAIL_LOCAL_IP:8443
 ```
 
-## Frissites
+## Frissítés
 ```
 bash
-# ellenorizd a legujabb verziot itt: https://github.com/lightninglabs/lightning-terminal/releases
+# ellenőrizd a legújabb verziót itt: https://github.com/lightninglabs/lightning-terminal/releases
 VERSION=$VERSION
-# minden csomag frissitese
+# minden csomag frissítése
 pkg update
 pkg upgrade -y
 
@@ -183,7 +183,7 @@ mkdir lightning-terminal-source-$VERSION
 cd lightning-terminal-source-$VERSION
 wget -O lightning-terminal-source-$VERSION.tar.gz https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/lightning-terminal-source-$VERSION.tar.gz
 
-# ellenorzes
+# ellenőrzés
 gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4D7D916376026F177
 wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
 wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
@@ -206,7 +206,7 @@ cd
 rm -r lightning-terminal-source-$VERSION
 ```
 
-A binaris ide fog telepulni:
+A bináris ide fog települni:
 ```
 /root/go/bin/litd
 ```
@@ -215,7 +215,7 @@ vagy ide
 /root/.gopkg/bin/
 ```
 
-A masodik esetben hozz letre szimbolikus linkeket:
+A második esetben hozz létre szimbolikus linkeket:
 ```
 ln -s /root/.gopkg/bin/litd /root/go/bin/
 ln -s /root/.gopkg/bin/litcli /root/go/bin/

@@ -2,23 +2,23 @@
 
 https://github.com/lightningequipment/circuitbreaker
 
-## Telepites
+## Telepítés
 ```
-# fuggosegek telepitese
+# függőségek telepítése
 pkg install -y go git tmux
 
-# tmux inditasa
+# tmux indítása
 tmux
 
-# letoltes
+# letöltés
 git clone https://github.com/lightningequipment/circuitbreaker
 
-# telepites
+# telepítés
 cd circuitbreaker
 go install
 ```
 
-## Sugo es hasznalat megtekintese
+## Súgó és használat megtekintése
 ```
 /root/.gopkg/bin/circuitbreaker -h
 
@@ -48,12 +48,12 @@ GLOBAL OPTIONS:
    --version, -v              print the version
 ```
 
-## Futtatas
+## Futtatás
 * tartsd tmux-ban
    ```
    /root/.gopkg/bin/circuitbreaker --lnddir=/var/db/lnd
    ```
-* pelda a kezdeti kimenetre:
+* példa a kezdeti kimenetre:
    ```
    INFO    Opening database        {"path": "/root/.circuitbreaker/circuitbreaker.db"}
    INFO    Applied migrations      {"count": 1}
@@ -64,14 +64,14 @@ GLOBAL OPTIONS:
    INFO    Interceptor/notification handlers registered
    ```
 
-* a tmux-bol levalaszthatsz a `CTRL`+`D` billentyukombinavioval (a circuitbreaker tovabb fut a hatterben)
-* ujracsatlakozas:
+* a tmux-ból leválaszthatsz a `CTRL`+`D` billentyűkombinációval (a circuitbreaker tovább fut a háttérben)
+* újracsatlakozás:
    ```
    tmux a
    ```
 
 ## Tor Hidden Service
-* Hozd letre itt:
+* Hozd létre itt:
   ```
   nano /usr/local/etc/tor/torrc
   ```
@@ -80,11 +80,11 @@ GLOBAL OPTIONS:
   HiddenServiceVersion 3
   HiddenServicePort 80 127.0.0.1:9235
   ```
-* toltsd ujra a Tor-t
+* töltsd újra a Tor-t
    ```
    service tor reload
    ```
-* olvasd ki a Hidden Service cimet
+* olvasd ki a Hidden Service címet
   ```
   cat /var/db/tor/circuitbreaker/hostname
   ```

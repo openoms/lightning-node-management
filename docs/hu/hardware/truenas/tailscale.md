@@ -1,6 +1,6 @@
 # Tailscale FreeBSD-n
 
-## Telepites
+## Telepítés
 ```
 pkg install -y tailscale
 service tailscaled start
@@ -9,7 +9,7 @@ service tailscaled enable
 tailscale up
 ```
 
-## Frissites
+## Frissítés
 ```
 pkg update
 pkg install -y tailscale

@@ -1,4 +1,4 @@
-# C-lightning helyreallitasi forrasok
+# C-lightning helyreállítási források
 
 * [lightning.readthedocs.io/FAQ.html#database-corruption-channel-state-lost](https://lightning.readthedocs.io/FAQ.html#database-corruption-channel-state-lost)
 

@@ -1,13 +1,13 @@
 # Balance of Satoshis FreeBSD-n
 
-## Telepites
+## Telepítés
 ```
 pkg update -y
 pkg install -y node npm nano tmux
 npm install -g balanceofsatoshis
 ```
 
-## A kapcsolodasi sztring exportalasa
+## A kapcsolódási sztring exportálása
 ```
 /bin/sh
 pkg install -y base64
@@ -18,35 +18,35 @@ MACAROON=$(base64 /var/db/lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d 
 echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:10009\"}"
 ```
 
-## Importalas a bos-ba
+## Importálás a bos-ba
 
-* valassz egy nevet a node azonositasahoz a bos-ban
+* válassz egy nevet a node azonosításához a bos-ban
 ```
 NODE_NAME="something_short"
 ```
-* hozd letre a hitelesito json fajlt
+* hozd létre a hitelesítő json fájlt
 ```
 mkdir -p ~/.bos/$NODE_NAME/
 ```
-* illeszd be a fent exportalt kapcsolodasi sztringet a `~/.bos/$NODE_NAME/credentials.json` fajlba nano-val, vagy futtasd:
+* illeszd be a fent exportált kapcsolódási sztringet a `~/.bos/$NODE_NAME/credentials.json` fájlba nano-val, vagy futtasd:
 ```
 echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:10009\"}" | tee -a ~/.bos/$NODE_NAME/credentials.json
 ```
 
-## Futtatas
+## Futtatás
 
 ```
 bos peers --node $NODE_NAME
 ```
 
-## Frissites
+## Frissítés
 
 ```
 npm install -g balanceofsatoshis
 ```
 
-## Futtatas Tor-on keresztul
-* Hozd letre a proxy fajlt
+## Futtatás Tor-on keresztül
+* Hozd létre a proxy fájlt
 ```
 cat <<EOF >> /root/bos_tor_proxy.json
 {
@@ -55,7 +55,7 @@ cat <<EOF >> /root/bos_tor_proxy.json
 }
 EOF
 ```
-* Futtatas:
+* Futtatás:
 ```
 bos telegram --connect <connection code> --use-proxy /root/bos_tor_proxy.json --use-small-units --node $NODE_NAME
 ```

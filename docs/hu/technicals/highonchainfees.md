@@ -1,42 +1,42 @@
-# Magas onchain dijak kornyezete
+# Magas onchain díjak környezete
 
-Megjegyzesek a Lightning Network hasznalatrol, amikor a banyasz-dijak magasak.
+Megjegyzések a Lightning Network használatról, amikor a bányász-díjak magasak.
 
-## Felkeszules
+## Felkészülés
 
-Ajanlasok a magas dijas kornyezetre valo felkeszuleshez.
+Ajánlások a magas díjas környezetre való felkészüléshez.
 
-### Channel kezelese
+### Channel kezelése
 
-* Nyiss channel-eket strategikusan alacsony dijas idoszakokban \(hetvegeken\)
-* Zard be az inaktiv es megbizhatatlan channel-eket idooen, meg az alacsony dijas idoszakokban
-* Minimalizald az allasidot es az instabilitast, ha routing node-ot uzemeltetsz
-* Hasznalj privat \(nem hirdetett\) channel-eket [kolto node](../node-types/nodetype.spending.md)-kent, igy a leallasok nem okoznak kenyszeritett bezarast a partner reszerol
+* Nyiss channel-eket stratégiailag alacsony díjas időszakokban \(hétvégeken\)
+* Zárd be az inaktív és megbízhatatlan channel-eket időben, még az alacsony díjas időszakokban
+* Minimalizáld az állásidőt és az instabilitást, ha routing node-ot üzemeltetsz
+* Használj privát \(nem hirdetett\) channel-eket [költő node](../node-types/nodetype.spending.md)-ként, így a leállások nem okoznak kényszerített bezárást a partner részéről
 
-### Tarca kezelese
+### Tárca kezelése
 
-* Egykulcsos (single sig) tarcabol valo finanszirozas olcsobb
-* Keszits elo megfelelo meretu UTXO-kat a minimalis koltsegu channel nyitasokhoz
-  * konszolidalj \(figyelj az adatvedelmi vonatkozasokra\)
-  * egy jol feltoltott es regota futo JoinMarket Maker tarca kulonbozo meretu coinjoined kimeneteket biztosit
+* Egykulcsos (single sig) tárcából való finanszírozás olcsóbb
+* Készíts elő megfelelő méretű UTXO-kat a minimális költségű channel nyitásokhoz
+  * konszolidálj \(figyelj az adatvédelmi vonatkozásokra\)
+  * egy jól feltöltött és régóta futó JoinMarket Maker tárca különböző méretű coinjoined kimeneteket biztosít
 
-## Konfiguracio
+## Konfiguráció
 
-### Altalanos
-* maximalizald az uzemidot
-* allits be hibrid kapcsolatot, ha lehetseges - vedd figyelembe, hogy a proxy mindig hasznalata felfedi az IP-cimedet (hasznalj VPN-t, mint a Tunnelsats)
+### Általános
+* maximalizáld az üzemidőt
+* állíts be hibrid kapcsolatot, ha lehetséges - vedd figyelembe, hogy a proxy mindig használata felfedi az IP-címedet (használj VPN-t, mint a Tunnelsats)
 
 ### LND
-* ellenorizd az opciokat a [minta lnd.conf-ban](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
-* Hasznalj Anchor Commitments-et
-  * alapertelmezetten be van kapcsolva LND-ben, ha mindket fel tamogatja az anchor-okat
-  * 100000 sats lesz fenntartva az LND onchain tarcajaban, hogy a zarasi dijat CPFP-vel fizesse ki
-  * emeld meg a `max-commit-fee-rate-anchors` erteket kenyelmesen magas szintre, hogy elkeruld a tranzakciok torleset a mempool-okbol.
-* Allitsd be a `minchansize`-t (pl. kerulj el 500k alatti channel-eket routing node-on\)
-* allits be hosszu `payments-expiration-grace-period`-ot
-* noveld a CLTV delta-t: `bitcoin.timelockdelta` az alapertelmezett 80-rol
-* noveld a legkisebb HTLC-t, amelyet a node hajlando kuldeni (millisatoshi-ban)
-* noveld a routing dijakat (csak uj channel-ekre vonatkozik)
+* ellenőrizd az opciókat a [minta lnd.conf-ban](https://github.com/lightningnetwork/lnd/blob/master/sample-lnd.conf)
+* Használj Anchor Commitments-et
+  * alapértelmezetten be van kapcsolva LND-ben, ha mindkét fél támogatja az anchor-okat
+  * 100000 sats lesz fenntartva az LND onchain tárcájában, hogy a zárási díjat CPFP-vel fizesse ki
+  * emeld meg a `max-commit-fee-rate-anchors` értékét kényelmesen magas szintre, hogy elkerüld a tranzakciók törlését a mempool-okból.
+* Állítsd be a `minchansize`-t (pl. kerülj el 500k alatti channel-eket routing node-on\)
+* állíts be hosszú `payments-expiration-grace-period`-ot
+* növeld a CLTV delta-t: `bitcoin.timelockdelta` az alapértelmezett 80-ról
+* növeld a legkisebb HTLC-t, amelyet a node hajlandó küldeni (millisatoshi-ban)
+* növeld a routing díjakat (csak új channel-ekre vonatkozik)
   ```
   [Application Options]
   minchansize=500000
@@ -52,17 +52,17 @@ Ajanlasok a magas dijas kornyezetre valo felkeszuleshez.
   [tor]
   tor.skip-proxy-for-clearnet-targets=true
   ```
-* fontold meg a dijak noveleset azok fele a partnerek fele, akik nem hasznalnak anchor commitments-et:
+* fontold meg a díjak növelését azok felé a partnerek felé, akik nem használnak anchor commitments-et:
   ```
   lncli listchannels | jq '.channels[] | {remote_pubkey: .remote_pubkey, commitment_type: .commitment_type}'
   ```
-* allitsd be a `base_fee_msat`, `fee_rate_ppm`, `min_htlc_msat` es `time_lock_delta` ertekeket a meglevo channel-eken
+* állítsd be a `base_fee_msat`, `fee_rate_ppm`, `min_htlc_msat` és `time_lock_delta` értékeket a meglévő channel-eken
   ```
   lncli updatechanpolicy --base_fee_msat=1000 --fee_rate_ppm=2500 --min_htlc_msat=100000 --time_lock_delta=144
   ```
 ### CLN
-* lasd a lehetseges konfiguracios opciokat: https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.cl.md#all-possible-config-options
-* CLN konfiguracios beallitasok uj channel-ekhez:
+* lásd a lehetséges konfigurációs opciókat: https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.cl.md#all-possible-config-options
+* CLN konfigurációs beállítások új channel-ekhez:
   ```
   min-capacity-sat=500000
   cltv-final=144
@@ -73,84 +73,84 @@ Ajanlasok a magas dijas kornyezetre valo felkeszuleshez.
   always-use-proxy=true
   ```
 
-## Routing dijak es egyenlegek
+## Routing díjak és egyenlegek
 
-* Minden node eseten:
-  * a channel egyenleg kisebbnek fog tunni, mert a commitment tartalek magasabb lesz
-  * az offchain tranzakcios dijak is nonek \(a fizetesi osszeg aranyaban marad\)
-  * tobbszor fordulhatnak elo fizetesi hibak, ahogy a likviditas csokken
+* Minden node esetén:
+  * a channel egyenleg kisebbnek fog tűnni, mert a commitment tartalék magasabb lesz
+  * az offchain tranzakciós díjak is nőnek \(a fizetési összeg arányában marad\)
+  * többször fordulhatnak elő fizetési hibák, ahogy a likviditás csökken
 * [Routing node-ok](../node-types/nodetype.routing.md):
-  * [A routing dijakat novelni kell](../advanced-tools/fees.md) a megnovekedett onchain dijak es az ujraegyensulyozasi koltsegek kompenzalasara
-  * Az automatikus ujraegyensulyozas szamara magasabb dijakat kell engedelyezni
-* Az offchain forgalom novekszik
-* Magas dijas idoszakokban kevesebb channel nyilik
-* Kevesebb toke kerul ujraelosztasra
-* A Submarine Swap-ek dragabbak lesznek \(onchain tranzakciot igenyel\)
-* Osszessegeben a channel-ek gyorsabban kerulnek egyensulytalan allapotba
+  * [A routing díjakat növelni kell](../advanced-tools/fees.md) a megnövekedett onchain díjak és az újraegyensúlyozási költségek kompenzálására
+  * Az automatikus újraegyensúlyozás számára magasabb díjakat kell engedélyezni
+* Az offchain forgalom növekszik
+* Magas díjas időszakokban kevesebb channel nyílik
+* Kevesebb tőke kerül újraelosztásra
+* A Submarine Swap-ek drágábbak lesznek \(onchain tranzakciót igényel\)
+* Összességében a channel-ek gyorsabban kerülnek egyensúlytalan állapotba
 
-## Channel-ek nyitasa
+## Channel-ek nyitása
 
-* Tartalmazz change kimenetet, hogy CPFP-vel novelheto legyen a channel nyito tranzakcio dija
-* Koetegelt nyitasok
-  * a legnagyobb megtakaritas egyetlen bemenet hasznalataval tobb channel nyitasakor erheto el
-  * a nyito tranzakcio dijaval celozd meg a kovetkezo blokkot, hogy a dijak ne szaladjanak el
-  * hasznalhatsz PSBT-ket \(akar kulso tarcabol is\) a rendelkezesre allo parancssori eszkozokkel:
+* Tartalmazz change kimenetet, hogy CPFP-vel növelhető legyen a channel nyitó tranzakció díja
+* Kötegelelt nyitások
+  * a legnagyobb megtakarítás egyetlen bemenet használatával több channel nyitásakor érhető el
+  * a nyitó tranzakció díjával célozd meg a következő blokkot, hogy a díjak ne szaladjanak el
+  * használhatsz PSBT-ket \(akár külső tárcából is\) a rendelkezésre álló parancssori eszközökkel:
     * LND: [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis#howtos)
 
-      `bos open` es `bos fund`
+      `bos open` és `bos fund`
 
     * [C-lightning CLI](https://lightning.readthedocs.io/lightning-fundchannel_start.7.html#)
 
       `lightningcli fundchannel_start id amount [feerate announce close_to push_msat]`
-  * keruldd a nyilvanos es privat \(nem hirdetett\) channel-ek ugyanabban a kotegben torteno nyitasat - ez alaaassa a channel-ek gossip-bol valo kihagyasanak celjet
+  * kerüld a nyilvános és privát \(nem hirdetett\) channel-ek ugyanabban a kötegelésben történő nyitását - ez aláássa a channel-ek gossip-ból való kihagyásának célját
 
-### Ne hagyj channel-t 2016 blokk \(~2 het\) tovabb fuggo allapotban
+### Ne hagyj channel-t 2016 blokk \(~2 hét\) tovább függő állapotban
 
-A fuggo channel 2016 blokk utan "elavultta" valik - a partner elfelejti a finanszirozasi tranzakciot, igy a channel soha nem lesz online.
+A függő channel 2016 blokk után "elavulttá" válik - a partner elfelejti a finanszírozási tranzakciót, így a channel soha nem lesz online.
 
-* az egyetlen lehetoseg a penzkioldosara a multisig-bol egy \(kolteges\) kenyszeritett zaras lesz.
-* Hasznalj CPFP-t \(soha ne RBF-et\)
-  * CPFP csak akkor hasznalhato, ha van change kimenet a nyito tranzakciobol:  [https://api.lightning.community/?shell\#bumpfee](https://api.lightning.community/?shell#bumpfee)\):
+* az egyetlen lehetőség a pénzkioldásra a multisig-ból egy \(költséges\) kényszerített zárás lesz.
+* Használj CPFP-t \(soha ne RBF-et\)
+  * CPFP csak akkor használható, ha van change kimenet a nyitó tranzakcióból:  [https://api.lightning.community/?shell\#bumpfee](https://api.lightning.community/?shell#bumpfee)\):
 
     `lncli wallet bumpfee --sat_per_byte 110 TXID:INDEX`
 
     Lightningwiki.net cikk:  [https://lightningwiki.net/index.php/Bumping\_fee\_for\_lightning\_channel\_open](https://lightningwiki.net/index.php/Bumping_fee_for_lightning_channel_open)
-* Lehetseges a tranzakcio torleese egy change cimre valo elkoltesevel [Electrum-ban](restorelndonchainfundsinelectrum.md#manage-the-lnd-onchain-funds-in-electrum-wallet)
+* Lehetséges a tranzakció törlése egy change címre való elköltésével [Electrum-ban](restorelndonchainfundsinelectrum.md#manage-the-lnd-onchain-funds-in-electrum-wallet)
 
-## Channel-ek zarasa
+## Channel-ek zárása
 
-* Lehetoleg kooperativ zaras legyen
-  * a fogado tarcabol CPFP hasznalhato, ha egy fuggo kooperativ zaras alacsony dijjal beragadt a mempool-ba
-* Futtasd ujra a channel zaras parancsot, ha a tranzakciot eltavolitottak a mempool-bol
+* Lehetőleg kooperatív zárás legyen
+  * a fogadó tárcából CPFP használható, ha egy függő kooperatív zárás alacsony díjjal beragadt a mempool-ba
+* Futtasd újra a channel zárás parancsot, ha a tranzakciót eltávolították a mempool-ból
 
   `lncli closechannel FUNDING_TXID INDEX`
 
-* A kenyszeritett zaras ~5x dragabb, mint a kovetkezo blokk dija az utolso frissiteskor
-  * LND 10 percenkent frissit egy online channel-en
-  * A regota inaktiv channel-ek kockazatot jelentenek - kulonosen, ha utooljara alacsony banyaszdij idoszakban volt online
-* Keruldd el es elozd meg a kenyszeritett zarasokat az allasido es az instabilitas minimalizalasaval routing node-kent
+* A kényszerített zárás ~5x drágább, mint a következő blokk díja az utolsó frissítéskor
+  * LND 10 percenként frissít egy online channel-en
+  * A régóta inaktív channel-ek kockázatot jelentenek - különösen, ha utoljára alacsony bányászdíj időszakban volt online
+* Kerüld el és előzd meg a kényszerített zárásokat az állásidő és az instabilitás minimalizálásával routing node-ként
 
 ## Watchtower-ok
 
-* Ha [watchtower](../advanced-tools/watchtower.md)-okat hasznalsz, be kell allitani a
+* Ha [watchtower](../advanced-tools/watchtower.md)-okat használsz, be kell állítani a
 
-  `wtclient.sweep-fee-rate=` erteket az [lnd.conf](https://github.com/lightningnetwork/lnd/blob/a36c95f7325d3941306ac4dfff0f2363fbb8e66d/sample-lnd.conf#L857)-ban
+  `wtclient.sweep-fee-rate=` értéket az [lnd.conf](https://github.com/lightningnetwork/lnd/blob/a36c95f7325d3941306ac4dfff0f2363fbb8e66d/sample-lnd.conf#L857)-ban
 
-  olyan sat/byte szintre, amellyel a CSV kesleltetes alatt megerositest nyerhet, ha a partner megserto tranzakciot kuld, amig a node offline.
+  olyan sat/byte szintre, amellyel a CSV késleltetés alatt megerősítést nyerhet, ha a partner megsértő tranzakciót küld, amíg a node offline.
 
-* A CSV kesleltetes hosszabbra allithato a kovetkezovel:
+* A CSV késleltetés hosszabbra állítható a következővel:
 
   `lncli updatechanpolicy`
 
-## Jovobeli fejlesztesek
+## Jövőbeli fejlesztések
 
-* Anchor commitments alapertelmezetten \(csak uj channel-eket erint, es mindket felnek tamogatnia kell a funkciiot\)
-* Splicing es dual funding - a channel kapacitas bovitese egyetlen tranzakcioban
-* Taproot - megtakaritast jelenthet a multisig-bol valo kuldessnel \(~26 bajt a minimum 140 bajtbol\)
-* Taproot - a multisig tarcakbol valo finanszirozas ugyanannyiba kerul, mint az egykulcsos tarcakbol (az egykulcsos kicsit dragabb lesz)
-* ELTOO - tobbszemelyyes channel-ek es channel factory-k
+* Anchor commitments alapértelmezetten \(csak új channel-eket érint, és mindkét félnek támogatnia kell a funkciót\)
+* Splicing és dual funding - a channel kapacitás bővítése egyetlen tranzakcióban
+* Taproot - megtakarítást jelenthet a multisig-ból való küldésnél \(~26 bájt a minimum 140 bájtból\)
+* Taproot - a multisig tárcákból való finanszírozás ugyanannyiba kerül, mint az egykulcsos tárcákból (az egykulcsos kicsit drágább lesz)
+* ELTOO - többszemélyes channel-ek és channel factory-k
 
-## Hivatkozasok
+## Hivatkozások
 
 * [Mi az a CPFP?](https://bitcoinops.org/en/topics/cpfp/)
-* [Bezarhato-e egy channel, amig a finanszirozasi tranzakcio meg a mempool-ban varakozik?](https://bitcoin.stackexchange.com/questions/102180/can-a-channel-be-closed-while-the-funding-tx-is-still-stuck-in-the-mempool)
+* [Bezárható-e egy channel, amíg a finanszírozási tranzakció még a mempool-ban várakozik?](https://bitcoin.stackexchange.com/questions/102180/can-a-channel-be-closed-while-the-funding-tx-is-still-stuck-in-the-mempool)

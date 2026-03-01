@@ -2,41 +2,41 @@
 
 https://github.com/edouardparis/lntop
 
-*Valamilyen okbol a terminal lefagy az LNtop futtatasa kozben, de ettol fuggetlenul hasznos informaciokat nyujt*
+*Valamilyen okból a terminál lefagy az LNtop futtatása közben, de ettől függetlenül hasznos információkat nyújt*
 
 
-## Telepites
+## Telepítés
 ```
-# fuggosegek
+# függőségek
 pkg install -y git go
 
-# telepites go-val
+# telepítés go-val
 go install github.com/edouardparis/lntop@latest
 
-# vagy forrasbol
+# vagy forrásból
 git clone https://github.com/edouardparis/lntop.git
-# telepites
+# telepítés
 cd lntop && && go build && go install ./...
 ```
 
-## Futtasd eloszor az alapertelmezett konfiguracio letrehozasahoz
+## Futtasd először az alapértelmezett konfiguráció létrehozásához
 ```
 /root/go/bin/lntop
 ```
 
-## Konfiguracio
+## Konfiguráció
 
 ```
 nano /root/.lntop/config.toml
 ```
-* Valtoztasd meg a kovetkezore:
+* Változtasd meg a következőre:
 ```
 cert = "/var/db/lnd/tls.cert"
 macaroon = "/var/db/lnd/data/chain/bitcoin/mainnet/readonly.macaroon"
 ```
 
-## Futtatas
+## Futtatás
 ```
 /root/go/bin/lntop
 ```
-(az utolso probalkozasomnal be kellett zarni a terminalt a kilepeshez)
+(az utolsó próbálkozásomnál be kellett zárni a terminált a kilépéshez)

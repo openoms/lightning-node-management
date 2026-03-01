@@ -1,183 +1,183 @@
 # Lightning alapok
 
-## Peer-kapcsolatok es channel-ek
+## Peer-kapcsolatok és channel-ek
 
-* A peer-ek az interneten (TCP/IP retegen) keresztul egymashoz kapcsolodo node-ok.
-* A channel ket peer kozott letrehozott fizetesi csatorna a Lightning Networkben.
-* Ahhoz, hogy barmely node-hoz channel-t nyissunk, elobb letre kell hozni a peer-kapcsolatot.
-* A nyilvanosan elerheto node-okhoz automatikusan lehet csatlakozni.
-* Ha egy node nem nyilvanosan elerheto, a peer-kapcsolatot a nem-nyilvanos oldalrol kell kezdemenyezni, meg akkor is, ha a masik peer nyitja a channel-t.
+* A peer-ek az interneten (TCP/IP rétegen) keresztül egymáshoz kapcsolódó node-ok.
+* A channel két peer között létrehozott fizetési csatorna a Lightning Networkben.
+* Ahhoz, hogy bármely node-hoz channel-t nyissunk, előbb létre kell hozni a peer-kapcsolatot.
+* A nyilvánosan elérhető node-okhoz automatikusan lehet csatlakozni.
+* Ha egy node nem nyilvánosan elérhető, a peer-kapcsolatot a nem-nyilvános oldalról kell kezdeményezni, még akkor is, ha a másik peer nyitja a channel-t.
 
-## Fizetesek fogadasa
+## Fizetések fogadása
 
-Ahhoz, hogy egy node fizeteseket tudjon fogadni a Lightning Networkben, a kovetkezokre van szukseg:
+Ahhoz, hogy egy node fizetéseket tudjon fogadni a Lightning Networkben, a következőkre van szükség:
 
-* "bejovo likviditasra" (mas neven remote balance), ami azt jelenti, hogy a channel masik oldalan, a masik peer-nel kell lennie satoshinak.
-* egy channel egy jol kapcsolt node-hoz, vagy kozvetlenul a fizeto peer-tol erkezo channel, hogy biztositsuk az utvonal letezeset.
+* "bejövő likviditásra" (más néven remote balance), ami azt jelenti, hogy a channel másik oldalán, a másik peer-nél kell lennie satoshinak.
+* egy channel egy jól kapcsolt node-hoz, vagy közvetlenül a fizető peer-től érkező channel, hogy biztosítsuk az útvonal létezését.
 
-A bejovo fizetes maximalis osszege a legnagyobb bejovo likviditasu egyetlen channel altal hatarozott meg (nem additiv a channel-ek kozott).
+A bejövő fizetés maximális összege a legnagyobb bejövő likviditású egyetlen channel által határozott meg (nem additív a channel-ek között).
 
-## Channel-meret es peer valasztasa
+## Channel-méret és peer választása
 
-* Nincs fix szam, de altalanossagban nem ajanlott 200K-500K sats alatti channel-ek nyitasa.
-* A [https://1ml.com/statistics](https://1ml.com/statistics) oldalon lathatjuk a halozaton levo atlagos channel-meretet:
+* Nincs fix szám, de általánosságban nem ajánlott 200K-500K sats alatti channel-ek nyitása.
+* A [https://1ml.com/statistics](https://1ml.com/statistics) oldalon láthatjuk a hálózaton lévő átlagos channel-méretet:
 
-  0.028 BTC = 2 800 000 satoshi, 2019. majus 28-an.
+  0.028 BTC = 2 800 000 satoshi, 2019. május 28-án.
 
-* A tul kicsi channel-eket nem lehet majd bezarni, ha az onchain dijak magasak. Ez sebezhetove teszi a channel-t abban az esetben, ha a masik fel egy korabbi allapottal probalja bezarni (igy ellophatja a channel-ben levo penzt).
-* Az elkuldheto vagy tovabbitott fizetes maximalis osszege a legnagyobb egyiranyú likviditasu egyetlen channel altal hatarozott meg (nem additiv a channel-ek kozott).
-* Egyetlen nagy channel egy jol kapcsolt es stabil node-hoz hasznosabb, mint sok kicsi.
-* Erdemes olyan node-okhoz csatlakozni, ahol az uzemelteto problema eseten elerheto.
-* Valassz egy ismerős node-ot, vagy egyet a listabol: [https://1ml.com/node?order=nodeconnectednodecount](https://1ml.com/node?order=nodeconnectednodecount)
-* Probald ki az egyedi ajanlasokat a nyilvanos node-odhoz: [https://moneni.com/nodematch](https://moneni.com/nodematch)
+* A túl kicsi channel-eket nem lehet majd bezárni, ha az onchain díjak magasak. Ez sebezhetővé teszi a channel-t abban az esetben, ha a másik fél egy korábbi állapottal próbálja bezárni (így ellophatja a channel-ben lévő pénzt).
+* Az elküldhető vagy továbbított fizetés maximális összege a legnagyobb egyirányú likviditású egyetlen channel által határozott meg (nem additív a channel-ek között).
+* Egyetlen nagy channel egy jól kapcsolt és stabil node-hoz hasznosabb, mint sok kicsi.
+* Érdemes olyan node-okhoz csatlakozni, ahol az üzemeltető probléma esetén elérhető.
+* Válassz egy ismerős node-ot, vagy egyet a listából: [https://1ml.com/node?order=nodeconnectednodecount](https://1ml.com/node?order=nodeconnectednodecount)
+* Próbáld ki az egyedi ajánlásokat a nyilvános node-odhoz: [https://moneni.com/nodematch](https://moneni.com/nodematch)
 
-## Onchain Bitcoin-dijak
+## Onchain Bitcoin-díjak
 
-* Egy Lightning channel megnyitasa vagy bezarasa egy onchain Bitcoin-tranzakcio (a blockchainen kerül elszamolasra).
-* A megerosites ideje a Bitcoin mempool allapotatol ([https://jochen-hoenicke.de/queue/\#0,24h](https://jochen-hoenicke.de/queue/#0,24h)) es a hasznalt sats/byte dijtol ([https://bitcoinfees.earn.com/](https://bitcoinfees.earn.com/)) fugg.
-* Ellenorizd a [https://whatthefee.io/](https://whatthefee.io/) oldalt az aktualis megerositesi ido/dij becslesekert.
-* Hasznalj egyeni dijat, es valaszd a legalacsonyabb erteket, amely meg elfogadhato megerositesi idot biztosit.
-* Legalabb 141 byte-ot kell fedezni dijakkal, de ez a szam gyakran magasabb a tranzakcio bemeneteitol, szkripttol es alairastol fuggoen.
-* Tudd meg, mit kell tenni [magas onchain dij kornyezetben](technicals/highonchainfees.md)
+* Egy Lightning channel megnyitása vagy bezárása egy onchain Bitcoin-tranzakció (a blockchainen kerül elszámolásra).
+* A megerősítés ideje a Bitcoin mempool állapotától ([https://jochen-hoenicke.de/queue/\#0,24h](https://jochen-hoenicke.de/queue/#0,24h)) és a használt sats/byte díjtól ([https://bitcoinfees.earn.com/](https://bitcoinfees.earn.com/)) függ.
+* Ellenőrizd a [https://whatthefee.io/](https://whatthefee.io/) oldalt az aktuális megerősítési idő/díj becslésekért.
+* Használj egyéni díjat, és válaszd a legalacsonyabb értéket, amely még elfogadható megerősítési időt biztosít.
+* Legalább 141 byte-ot kell fedezni díjakkal, de ez a szám gyakran magasabb a tranzakció bemeneteitől, szkripttől és aláírástól függően.
+* Tudd meg, mit kell tenni [magas onchain díj környezetben](technicals/highonchainfees.md)
 
 ## Tor node-ok
 
-A Tor egy anonimizalo halozat, amelyet a resztvevok IP-cimenek elrejtesere terveztek. Valamelyest hasonlit egy tobb ugrasbol allo VPN hasznalatahoz. Tovabbiak: [https://en.wikipedia.org/wiki/Tor\_\(anonymity\_network\)](https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29)
+A Tor egy anonimizáló hálózat, amelyet a résztvevők IP-címének elrejtésére terveztek. Valamelyest hasonlít egy több ugrásból álló VPN használatához. Továbbiak: [https://en.wikipedia.org/wiki/Tor\_\(anonymity\_network\)](https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29)
 
-* Egy Tor mogott futo Lightning node barmely masik node-hoz tud csatlakozni es channel-t nyitni.
-* A clearneten futo node-ok nem latnak a Tor moge.
-* A Tor node-nak elobb peer-kent kell felvennie a clearnet node-ot ahhoz, hogy channel-t tudjon nyitni.
-* A channel letrehozasa utan a kapcsolat megmarad, de az ujrainditas utan kicsit tobb idobe telhet az ujracsatlakozas.
-* Ha mindket node egyszerre indul ujra, vagy a clearnet node IP-cime megvaltozik, amig mindketto offline, a peer-kapcsolatot ujra kell konfiguralni manuálisan.
+* Egy Tor mögött futó Lightning node bármely másik node-hoz tud csatlakozni és channel-t nyitni.
+* A clearneten futó node-ok nem látnak a Tor mögé.
+* A Tor node-nak előbb peer-ként kell felvennie a clearnet node-ot ahhoz, hogy channel-t tudjon nyitni.
+* A channel létrehozása után a kapcsolat megmarad, de az újraindítás után kicsit több időbe telhet az újracsatlakozás.
+* Ha mindkét node egyszerre indul újra, vagy a clearnet node IP-címe megváltozik, amíg mindkettő offline, a peer-kapcsolatot újra kell konfigurálni manuálisan.
 
-## Fizetesek tovabbitasa
+## Fizetések továbbítása
 
-* Kepzeljunk el egy `B` node-ot egy `A`-`B`-`C` soros kapcsolatban.
-* `B` channel-jei ugy vannak beallitva, hogy `A`-tol bejovo kapacitas (remote balance), es `C` fele kimeno kapacitas (local balance) all rendelkezesre.
-* Ha `A` fizetni akar `C`-nek, az 1 ugrast jelent az utvonalon.
-* A motorhazteto alatt: `A` elkuldi a satoshikat `B`-nek (a routing node-nak), aki tovabbfizeti `C`-nek.
-* A channel-ek kapacitasa nem valtozik, csak mozog.
-* A teljes fizetes csak akkor mehet vegbe, ha a masik iranybol elobb sikeresen atkuldik a hash image-et (uzenetet).
-* A folyamat "minden vagy semmi" -- a fizetes nem akadhat el utközben.
+* Képzeljünk el egy `B` node-ot egy `A`-`B`-`C` soros kapcsolatban.
+* `B` channel-jei úgy vannak beállítva, hogy `A`-tól bejövő kapacitás (remote balance), és `C` felé kimenő kapacitás (local balance) áll rendelkezésre.
+* Ha `A` fizetni akar `C`-nek, az 1 ugrást jelent az útvonalon.
+* A motorháztető alatt: `A` elküldi a satoshikat `B`-nek (a routing node-nak), aki továbbfizeti `C`-nek.
+* A channel-ek kapacitása nem változik, csak mozog.
+* A teljes fizetés csak akkor mehet végbe, ha a másik irányból előbb sikeresen átküldik a hash image-et (üzenetet).
+* A folyamat "minden vagy semmi" -- a fizetés nem akadhat el útközben.
 
-## Privat channel
+## Privát channel
 
-* pontosabb "be nem jelentett" (unannounced) channel-nek hivni
-* nem jelenik meg a channel-grafban (halozati gossip)
-* fizetesek kuldesere hasznosabb
-* fizetesek fogadasahoz route hint szukseges az invoice-ban:
+* pontosabb "be nem jelentett" (unannounced) channel-nek hívni
+* nem jelenik meg a channel-gráfban (hálózati gossip)
+* fizetések küldésére hasznosabb
+* fizetések fogadásához route hint szükséges az invoice-ban:
 
   `lncli addinvoice <amount> --private`
 
-* a route hint a finanszirozasi tranzakcio azonositoja (feledi a channel-t barki szamara, aki ismeri az invoice-t)
-* keysend fizetesek fogadasara is alkalmas, ha a route hint ismert
-* nem tovabbit fizeteseket (kiveve, ha parhuzamosan egy nyilvanos channel-lel hasznaljak ugyanahhoz a node-hoz -- mas neven shadow liquidity)
+* a route hint a finanszírozási tranzakció azonosítója (felfedi a channel-t bárki számára, aki ismeri az invoice-t)
+* keysend fizetések fogadására is alkalmas, ha a route hint ismert
+* nem továbbít fizetéseket (kivéve, ha párhuzamosan egy nyilvános channel-lel használják ugyanahhoz a node-hoz -- más néven shadow liquidity)
 
-## Lightning Network routing-dijak
+## Lightning Network routing-díjak
 
-### Halado es automatizalt dijbeallitasok: [fees.md](advanced-tools/fees.md)
+### Haladó és automatizált díjbeállítások: [fees.md](advanced-tools/fees.md)
 
-Elteroen az onchain tranzakcioktol (ahol a dij a tranzakcio altal elfoglalt byte-okert jar), a Lightning Network dijai a tovabbitott osszeghez kotottek. Ket dijkomponens letezik:
+Eltérően az onchain tranzakcióktól (ahol a díj a tranzakció által elfoglalt byte-okért jár), a Lightning Network díjai a továbbított összeghez kötöttek. Két díjkomponens létezik:
 
-* alapdij (base\_fee\_msat). Az alapertelmezett 1000 millisat, azaz 1 satoshi dij minden tovabbitott fizetes utan.
-* aranyos dij (fee\_rate), amely LND-ben alapertelmezetten 0.000001. Ez azt jelenti, hogy minden egymillio satoshi utan tovabbi 1 satoshi kerul felszamitasra.
+* alapdíj (base\_fee\_msat). Az alapértelmezett 1000 millisat, azaz 1 satoshi díj minden továbbított fizetés után.
+* arányos díj (fee\_rate), amely LND-ben alapértelmezetten 0.000001. Ez azt jelenti, hogy minden egymillió satoshi után további 1 satoshi kerül felszámításra.
 
-Kozvetlenul osszekotott ket peer kozotti fizeteseknek nincs LN-dija.
+Közvetlenül összekötött két peer közötti fizetéseknek nincs LN-díja.
 
-A routing-dijak modositasahoz hasznald a kovetkezo parancsot: [https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy](https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy)
+A routing-díjak módosításához használd a következő parancsot: [https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy](https://lightning.engineering/api-docs/api/lnd/lightning/update-channel-policy)
 
-* Az alapdij csokkentese 500 msat-ra es az aranyos dij novelese 100ppm/0.01%-ra:
+* Az alapdíj csökkentése 500 msat-ra és az arányos díj növelése 100ppm/0.01%-ra:
 `$ lncli updatechanpolicy 500 0.0001 144`
-* az alapertelmezett beallitas (1 sat fizetesenként + 1 ppm/0.0001%):
+* az alapértelmezett beállítás (1 sat fizetésenként + 1 ppm/0.0001%):
 `$ lncli updatechanpolicy 1000 0.000001 144`
 
-Fontos, hogy az olcso channel-ekre magasabb routing-dijat allitsunk be, hogy a kiegyenlites vagy a bezaras koltsegeit fedezzek a tovabbitott fizetesek. Ellenorizd a peer-ek routing-dijait az [1ml.com](https://1ml.com/) oldalon vagy az [lndmanage](./#lndmanage) eszkozzel.
+Fontos, hogy az olcsó channel-ekre magasabb routing-díjat állítsunk be, hogy a kiegyenlítés vagy a bezárás költségeit fedezzék a továbbított fizetések. Ellenőrizd a peer-ek routing-díjait az [1ml.com](https://1ml.com/) oldalon vagy az [lndmanage](./#lndmanage) eszközzel.
 
-Az egyes channel-ek dijainak beallitasa egyetlen kattintas az [RTL alkalmazasban](./#RTL---Ride-The-Lightning).
+Az egyes channel-ek díjainak beállítása egyetlen kattintás az [RTL alkalmazásban](./#RTL---Ride-The-Lightning).
 
 ## Watchtower-ok
 
-Tovabbi informaciok es a beallitas modja: [watchtower.md](advanced-tools/watchtower.md).
+További információk és a beállítás módja: [watchtower.md](advanced-tools/watchtower.md).
 
-## Channel-tartalek
+## Channel-tartalék
 
-Altalanossagban a channel kapacitasanak 1%-a szolgal tartalekul. Ez azt jelenti, hogy barmely channel csak az 1% feletti osszeget tudja kuldeni, legfeljebb 99%-ig.
+Általánosságban a channel kapacitásának 1%-a szolgál tartalékul. Ez azt jelenti, hogy bármely channel csak az 1% feletti összeget tudja küldeni, legfeljebb 99%-ig.
 
-A [BOLT2](https://github.com/lightning/bolts/blob/master/02-peer-protocol.md#rationale-8) specifikalja:
+A [BOLT2](https://github.com/lightning/bolts/blob/master/02-peer-protocol.md#rationale-8) specifikálja:
 
->A channel-tartalekot a peer channel_reserve_satoshis erteke hatarozza meg: a channel osszkapacitasanak 1%-a az ajanlott. A channel mindket oldala fenntartja ezt a tartalekot, igy mindig van vesztenivaloja, ha egy regi, visszavont commitment tranzakciot probalna kozevetiteni. Kezdetben ez a tartalek nem teljesulhet, mivel csak az egyik felnel van penz; a protokoll azonban biztositja, hogy folyamatos haladas tortenjen a tartalek elerese fele, es ha egyszer teljesult, fenntartja azt.
+>A channel-tartalékot a peer channel_reserve_satoshis értéke határozza meg: a channel összkapacitásának 1%-a az ajánlott. A channel mindkét oldala fenntartja ezt a tartalékot, így mindig van vesztenivalója, ha egy régi, visszavont commitment tranzakciót próbálna közvetíteni. Kezdetben ez a tartalék nem teljesülhet, mivel csak az egyik félnél van pénz; a protokoll azonban biztosítja, hogy folyamatos haladás történjen a tartalék elérése felé, és ha egyszer teljesült, fenntartja azt.
 
-Reszletesebb magyarazat a [Bitcoin Design Guide](https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve)-ban.
+Részletesebb magyarázat a [Bitcoin Design Guide](https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve)-ban.
 
-## Likviditas
+## Likviditás
 
-Az alapvetesek Alex Bosworth-tol: [https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md](https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md)
+Az alapvetések Alex Bosworth-tól: [https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md](https://github.com/alexbosworth/run-lnd/blob/master/LIQUIDITY.md)
 
 a [Bitcoin Design Guide](https://bitcoin.design/guide/how-it-works/liquidity)-ban
 
-## Bejovo likviditas letrehozasa
+## Bejövő likviditás létrehozása
 
-Fizess Lightninggal es kapj onchain-t.
-Lasd az ajanlaslista: [CreateInboundLiquidity.md](createinboundliquidity.md)
+Fizess Lightninggal és kapj onchain-t.
+Lásd az ajánláslistát: [CreateInboundLiquidity.md](createinboundliquidity.md)
 
-## Kimeno likviditas letrehozasa
+## Kimenő likviditás létrehozása
 
-Egyszeruen nyiss channel-eket, vagy fizess onchain-nel es fogadj Lightningon.
-Lasd az ajanlaslistat: [CreateOutboundLiquidity.md](createoutboundliquidity.md)
+Egyszerűen nyiss channel-eket, vagy fizess onchain-nel és fogadj Lightningon.
+Lásd az ajánláslistát: [CreateOutboundLiquidity.md](createoutboundliquidity.md)
 
-## Channel-ek kezelese
+## Channel-ek kezelése
 
-A channel-ek idealisan kiegyensulyozottak, mindket oldalon penzzel, hogy maximalizaljuk a fizetesek tovabbitasanak kepesseget (ketiranyú forgalmat tesz lehetove).
+A channel-ek ideálisan kiegyensúlyozottak, mindkét oldalon pénzzel, hogy maximalizáljuk a fizetések továbbításának képességét (kétirányú forgalmat tesz lehetővé).
 
 ### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 
-Gazdag funkciokeszletu eszkoz az LND egyenlegek kezelesehez. Kiserletei funkciojaval szemelyes Telegram bothoz csatlakozhatunk, es ertesiteseket kaphatunk a node tevekenysegerol.
+Gazdag funkciókészletű eszköz az LND egyenlegek kezeléséhez. Kísérleti funkciójával személyes Telegram bothoz csatlakozhatunk, és értesítéseket kaphatunk a node tevékenységéről.
 
-* [Telepitesi utmutato a RaspiBlitz-hez](https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602)
-* A rebalance parancs hasznalatat lasd: `bos help rebalance`
+* [Telepítési útmutató a RaspiBlitz-hez](https://gist.github.com/openoms/823f99d1ab6e1d53285e489f7ba38602)
+* A rebalance parancs használatát lásd: `bos help rebalance`
 
 ### [CLBOSS - A C-Lightning Node Menedzser](https://github.com/ZmnSCPxj/clboss)
 
-Automatizalt menedzser C-Lightning tovabitasi node-okhoz.
+Automatizált menedzser C-Lightning továbbítási node-okhoz.
 
 ### [lndmanage](https://github.com/bitromortac/lndmanage)
 
-Parancssori eszkoz az LND node halado channel-kezelesehez, Pythonban irva.
+Parancssori eszköz az LND node haladó channel-kezeléséhez, Pythonban írva.
 
-* Telepites:
+* Telepítés:
 
   ```bash
-    # virtualis kornyezet aktivalasa
+    # virtuális környezet aktiválása
     sudo apt install -y python3-venv
     python3 -m venv venv
     source venv/bin/activate
-    # fuggosegek telepitese
+    # függőségek telepítése
     sudo apt install -y python3-dev libatlas-base-dev
     pip3 install wheel
     python3 -m pip install lndmanage
   ```
 
-* Az interaktiv mod inditasa (minden uj inditaskor):
+* Az interaktív mód indítása (minden új indításkor):
 
   ```bash
     $ source venv/bin/activate
     (venv) $ lndmanage
   ```
 
-* A channel-ek allapotanak megjelenitese:
+* A channel-ek állapotának megjelenítése:
 
   `$ lndmanage status`
   `$ lndmanage listchannels`
 
-* Pelda rebalance parancs:
+* Példa rebalance parancs:
 
   `$ lndmanage rebalance --max-fee-sat 20 --max-fee-rate 0.0001 CHANNEL_ID --reckless`
 
 ### [rebalance-lnd](https://github.com/C-Otto/rebalance-lnd)
 
-Ezzel a Python szkripttel egyszeruen kiegyenlitheted az LND node-od egyes channel-jeit.
+Ezzel a Python szkripttel egyszerűen kiegyenlítheted az LND node-od egyes channel-jeit.
 
-* Telepiteshez futtasd az LND node terminaljan:
+* Telepítéshez futtasd az LND node terminálján:
 
   `$ git clone https://github.com/C-Otto/rebalance-lnd`
 
@@ -185,90 +185,90 @@ Ezzel a Python szkripttel egyszeruen kiegyenlitheted az LND node-od egyes channe
 
   `$ pip install -r requirements.txt`
 
-* Hasznalat (tovabbi opciok a [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)-ban):
+* Használat (további opciók a [readme](https://github.com/C-Otto/rebalance-lnd/blob/master/README.md#usage)-ban):
 
   `$ python rebalance.py -t <channel_ID-where-to-move-sats> -f <channel_ID-from-which-to-move-sats> -a <amount-of-sats-to-be-moved>`
 
-### [Kiegyensulyozott channel letrehozasanak modszerei megbízhato peer-rel](advanced-tools/balancedchannelcreation.md)
+### [Kiegyensúlyozott channel létrehozásának módszerei megbízható peer-rel](advanced-tools/balancedchannelcreation.md)
 
-* Vegezz megbizhato onchain-offchain swap-ot.
-* Nyiss ket oldalrol finanszirozott, kiegyensulyozott channel-t megbizhato peer-rel a parancssor segitsegevel, amihez egy Lightning es egy onchain tranzakcio szukseges.
+* Végezz megbízható onchain-offchain swap-ot.
+* Nyiss két oldalról finanszírozott, kiegyensúlyozott channel-t megbízható peer-rel a parancssor segítségével, amihez egy Lightning és egy onchain tranzakció szükséges.
 
-## Monitorozo szoftverek
+## Monitorozó szoftverek
 
 ### [RTL - Ride The Lightning](https://github.com/ShahanaFarooqui/RTL)
 
-Az RTL egy webes felhasznaloi felulet a Lightning Network Daemon-hoz. Helyi halozaton valo hasznalatra terveztek. [HTTPS](https://github.com/openoms/bitcoin-tutorials/tree/master/nginx) vagy [Tor](https://github.com/Ride-The-Lightning/RTL/blob/master/docs/RTL_TOR_setup.md) kapcsolodasi lehetoseg all rendelkezesre.
+Az RTL egy webes felhasználói felület a Lightning Network Daemon-hoz. Helyi hálózaton való használatra tervezték. [HTTPS](https://github.com/openoms/bitcoin-tutorials/tree/master/nginx) vagy [Tor](https://github.com/Ride-The-Lightning/RTL/blob/master/docs/RTL_TOR_setup.md) kapcsolódási lehetőség áll rendelkezésre.
 [https://medium.com/@suheb\_\_/how-to-ride-the-lightning-447af999dcd2](mailto:https://medium.com/@suheb__/how-to-ride-the-lightning-447af999dcd2)
 
 ### [ThunderHub](https://www.thunderhub.io/)
 
-LND Lightning Node menedzser a bongeszoben.
+LND Lightning Node menedzser a böngészőben.
 
-* [Telepitesi utmutato a RaspiBlitz-en](https://gist.github.com/openoms/8ba963915c786ce01892f2c9fa2707bc)
+* [Telepítési útmutató a RaspiBlitz-en](https://gist.github.com/openoms/8ba963915c786ce01892f2c9fa2707bc)
 
 ### [ZeusLN](https://zeusln.app/)
 
-Mobil Bitcoin alkalmazas Lightning Network Daemon (LND) node-uzemeltetok szamara. Android es iOS -- a REST API-n (8080-as port vagy [Tor](https://github.com/openoms/bitcoin-tutorials/blob/master/Zeus_to_RaspiBlitz_through_Tor.md)) keresztul csatlakozik.
+Mobil Bitcoin alkalmazás Lightning Network Daemon (LND) node-üzemeltetők számára. Android és iOS -- a REST API-n (8080-as port vagy [Tor](https://github.com/openoms/bitcoin-tutorials/blob/master/Zeus_to_RaspiBlitz_through_Tor.md)) keresztül csatlakozik.
 
 ### [Zap](https://zap.jackmallers.com/)
 
-Lightning taranca asztali gepre, iOS-re es Androidra -- tavolrol csatlakozhat az LND node-odhoz a GRPC interfeszen (10009-es port) keresztul.
+Lightning tárca asztali gépre, iOS-re és Androidra -- távolról csatlakozhat az LND node-odhoz a GRPC interfészen (10009-es port) keresztül.
 
 ### [Joule](https://lightningjoule.com/)
 
-Hozd el a Lightning erejet a webre bongeszon beluli fizetesekkel es identitassal, mindezt a sajat node-oddal.
+Hozd el a Lightning erejét a webre böngészőn belüli fizetésekkel és identitással, mindezt a saját node-oddal.
 [https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9](https://medium.com/lightning-power-users/bitcoin-lightning-joule-chrome-extension-ac149bb05cb9)
 
 ### [lntop](https://github.com/edouardparis/lntop)
 
-Az lntop egy interaktiv szoveges modú channel-megjelenito Unix rendszerekhez.
+Az lntop egy interaktív szöveges módú channel-megjelenítő Unix rendszerekhez.
 
 ### [lnd-admin](https://github.com/janoside/lnd-admin)
 
-Adminisztracios webes felulet az LND-hez gRPC-n keresztul. Node.js-sel, Express-szel es Bootstrap-v4-gyel epult. Teszteld itt: [https://lnd-admin.chaintools.io/](https://lnd-admin.chaintools.io/)
+Adminisztrációs webes felület az LND-hez gRPC-n keresztül. Node.js-sel, Express-szel és Bootstrap-v4-gyel épített. Teszteld itt: [https://lnd-admin.chaintools.io/](https://lnd-admin.chaintools.io/)
 
 ### [lndmon](https://github.com/lightninglabs/lndmon)
 
-Azonnal telepitheto monitoring megoldas az LND node-odhoz Prometheus es Grafana segitsegevel. [https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html](https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html)
+Azonnal telepíthető monitoring megoldás az LND node-odhoz Prometheus és Grafana segítségével. [https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html](https://blog.lightning.engineering/posts/2019/07/24/lndmon-v0.1.html)
 
 ### [Spark wallet a C-Lightninghoz](https://github.com/shesek/spark-wallet)
 
-A Spark egy minimalista taraca-felulet a c-lightninghoz, elerheto weben, valamint mobil es asztali alkalmazasokkal (Android, Linux, macOS es Windows). Jelenleg technikalisan halado felhasznaloknak szol, es nem egy mindent-egyben csomag, hanem inkabb egy "taviranyito" felulet a c-lightning node-hoz, amelyet kulon kell kezelni.
+A Spark egy minimalista tárca-felület a c-lightninghoz, elérhető weben, valamint mobil és asztali alkalmazásokkal (Android, Linux, macOS és Windows). Jelenleg technikailag haladó felhasználóknak szól, és nem egy mindent-egyben csomag, hanem inkább egy "távirányító" felület a c-lightning node-hoz, amelyet külön kell kezelni.
 
-## Lightning Network felderitok
+## Lightning Network felfedezők
 
 * [1ml.com](https://1ml.com/)
 * [explorer.acinq.co](https://explorer.acinq.co/)
 * [amboss.space](https://amboss.space/)
 * [ln.fiatjaf.com](https://ln.fiatjaf.com)
 
-## Forrasok
+## Források
 
-* LND Builder's Guide -- bevalt gyakorlatok
+* LND Builder's Guide -- bevált gyakorlatok
 
   [docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/channels](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/channels)
 
-* A Lightning Network koncepcionalis attekintese:
+* A Lightning Network koncepcionális áttekintése:
 
   [dev.lightning.community/overview/index.html\#lightning-network](https://dev.lightning.community/overview/index.html#lightning-network)
 
-* gRPC API referenciadokumentacio az LND-hez
+* gRPC API referenciadokumentáció az LND-hez
 
   [api.lightning.community](https://api.lightning.community)
 
 * [medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393](https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393)
 * [lightningwiki.net](https://lightningwiki.net)
 * [satbase.org](https://satbase.org)
-* Lista arrol, hogyan lehet gyorsan channel-likviditashoz jutni:
+* Lista arról, hogyan lehet gyorsan channel-likviditáshoz jutni:
 
   [github.com/raspiblitz/raspiblitz/issues/395](https://github.com/raspiblitz/raspiblitz/issues/395)
 
-* Osszevalogatott lista a legjobb Lightning Network forrasokrol, alkalmazasokrol es konyvtarakrol:
+* Összeválogatott lista a legjobb Lightning Network forrásokról, alkalmazásokról és könyvtárakról:
 
   [github.com/bcongdon/awesome-lightning-network](https://github.com/bcongdon/awesome-lightning-network)
 
-* Jameson Lopp osszevalogatott Lightning Network forraslistaja:
+* Jameson Lopp összeválogatott Lightning Network forráslistája:
 
   [lightning.how](https://lightning.how)
 
@@ -280,30 +280,30 @@ A Spark egy minimalista taraca-felulet a c-lightninghoz, elerheto weben, valamin
 * [diyhpl.us/wiki/transcripts/chaincode-labs/2018-10-22-alex-bosworth-channel-management/](https://diyhpl.us/wiki/transcripts/chaincode-labs/2018-10-22-alex-bosworth-channel-management/)
 * [diyhpl.us/wiki/transcripts/lightning-hack-day/2021-03-27-alex-bosworth-lightning-routing/](https://diyhpl.us/wiki/transcripts/lightning-hack-day/2021-03-27-alex-bosworth-lightning-routing/)
 
-## Videok
+## Videók
 
-* Elaine Ou - Lightning node beallitasa es karbantartasa [38 perces video](https://www.youtube.com/watch?v=qX4Z3JY1094) es [diak](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
-* Alex Bosworth - Lightning channel-menedzsment [35 perces video](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
-* [Chaincode Labs Lightning Szeminarum - 2019 nyar](https://www.youtube.com/playlist?list=PLpLH33TRghT17_U3as2P3vHfAGL8pSOOY)
-* Alex Bosworth online eloadasainak gyujtemenye:
+* Elaine Ou - Lightning node beállítása és karbantartása [38 perces videó](https://www.youtube.com/watch?v=qX4Z3JY1094) és [diák](https://lightningresidency.com/assets/presentations/Ou_Bootstrapping_and_Maintaining_a_Lightning_Node.pdf)
+* Alex Bosworth - Lightning channel-menedzsment [35 perces videó](https://www.youtube.com/watch?v=HlPIB6jt6ww&feature=youtu.be)
+* [Chaincode Labs Lightning Szeminárium - 2019 nyár](https://www.youtube.com/playlist?list=PLpLH33TRghT17_U3as2P3vHfAGL8pSOOY)
+* Alex Bosworth online előadásainak gyűjteménye:
 
   [twitter.com/alexbosworth/status/1175091117668257792](https://twitter.com/alexbosworth/status/1175091117668257792)
 
-## Forumok
+## Fórumok
 
-* Kozosseg altal kezelt csoport a RaspiBlitz Lightning Node-hoz:
+* Közösség által kezelt csoport a RaspiBlitz Lightning Node-hoz:
 
   [https://t.me/raspiblitz](https://t.me/raspiblitz)
 
-* LND Developer Slack. A meghivo link itt talalhato:
+* LND Developer Slack. A meghívó link itt található:
 
   [dev.lightning.community/](https://dev.lightning.community/)
 
-* Subreddit Bitcoin es Lightning fejlesztoknek technikai temak megbeszelesehez:
+* Subreddit Bitcoin és Lightning fejlesztőknek technikai témák megbeszéléséhez:
 
   [www.reddit.com/r/lightningdevs](https://www.reddit.com/r/lightningdevs)
 
-## Tanulas
+## Tanulás
 
 [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)
 [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars) [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)

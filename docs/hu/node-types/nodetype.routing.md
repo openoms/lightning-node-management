@@ -1,71 +1,71 @@
 # Routing
 
-Fizetesek sikeres tovabbitasara es profit termeleseire iranyul.
+Fizetések sikeres továbbítására és profit termelésére irányul.
 
-## Tokeigeny
+## Tőkeigény
 
 * magas
 
-## Channel-ek es peer-ek
+## Channel-ek és peer-ek
 
-* szamos (~10+) nagy channel [jol kapcsolt node-okhoz](../advanced-tools/bosscore.md)
-* csatlakozz a halozat szelehez, hogy forgalmat kapj
-* celozz meg node-klaszterek (elkülonult csoportok) összekoteset
+* számos (~10+) nagy channel [jól kapcsolt node-okhoz](../advanced-tools/bosscore.md)
+* csatlakozz a hálózat széléhez, hogy forgalmat kapj
+* célozz meg node-klaszterek (elkülönült csoportok) összekötését
 
-## Likviditas
+## Likviditás
 
-* osszessegeben kiegyensulyozott a lokalis es remote kozott
-* az egyes channel-eknek mindket iranyban kepes kell lenniuk fizetesek tovabbitasara
+* összességében kiegyensúlyozott a lokális és remote között
+* az egyes channel-eknek mindkét irányban képes kell lenniük fizetések továbbítására
 
-## Uzemido
+## Üzemidő
 
-* celozd a tokeletessseget
-* az offline routing node-ok sok nyilvanos channel-lel halozatszerte fizetesi hibakat okoznak
-* nagymertekben befolyasolja a [routing node reputaciojat](https://github.com/openoms/lightning-node-management/tree/04d605ae69f3630c0eaeedc43eda95c6ff5d1ee3/bossscore.md)
+* célozd a tökéletességet
+* az offline routing node-ok sok nyilvános channel-lel hálózatszerte fizetési hibákat okoznak
+* nagymértékben befolyásolja a [routing node reputációját](https://github.com/openoms/lightning-node-management/tree/04d605ae69f3630c0eaeedc43eda95c6ff5d1ee3/bossscore.md)
 
-## Kezeles
+## Kezelés
 
-* automatikus kiegyenlites (cronjob-ok hasznosak)
-* bejovo es kimeno likviditas letrehozasa szukseg szerint
-* kiegyensullyozas tobb node kozott
-* inaktiv channel-ek bezarasa
-* nyitas olyan iranyokba, ahol likviditasra van szukseg
-* hasznalj Lightning Pool, Amboss Magma vagy liquidity ads licitatast es kinalatot
-* channel-nyitasok kotegeleese a banyasz dijak megtakaritasahoz
-* channel-ek finanszirozasa kulso tarcakbol
-* zaras kulso cimekre a hot wallet kockázat csokkentesehez
-* fedezd fel a szamos [elerheto eszkozt](../#manage-channels)
+* automatikus kiegyenlítés (cronjob-ok hasznosak)
+* bejövő és kimenő likviditás létrehozása szükség szerint
+* kiegyensúlyozás több node között
+* inaktív channel-ek bezárása
+* nyitás olyan irányokba, ahol likviditásra van szükség
+* használj Lightning Pool, Amboss Magma vagy liquidity ads licitálást és kínálatot
+* channel-nyitások kötegelése a bányász díjak megtakarításához
+* channel-ek finanszírozása külső tárcákból
+* zárás külső címekre a hot wallet kockázat csökkentéséhez
+* fedezd fel a számos [elérhető eszközt](../#manage-channels)
 
-## Strategiak
+## Stratégiák
 
-### Klaszterek es nagy fizetesi feldolgozok osszekotese
+### Klaszterek és nagy fizetési feldolgozók összekötése
 
-* ketiranyú forgalom
-* alacsony dijak
-* erosen versenykepes (sok likviditas van privat channel-ekben)
+* kétirányú forgalom
+* alacsony díjak
+* erősen versenyképes (sok likviditás van privát channel-ekben)
 
-### Likviditas biztositasa kereskedoknek
+### Likviditás biztosítása kereskedőknek
 
-* magas bejovo likviditas szukseges
-* a dijak mertekeltesre - magasra allithatok
-* channel-ek eladasa a Lightning Pool-on gyakran ebbe a kategoriaba esik
+* magas bejövő likviditás szükséges
+* a díjak mérsékeltesre - magasra állíthatók
+* channel-ek eladása a Lightning Pool-on gyakran ebbe a kategóriába esik
 
-### Fizetesi kozpont kis node-oknak
+### Fizetési központ kis node-oknak
 
-* a dijak alacsonyak maradhatnak
-* a forgalom nagyreszben kimeno
-* osztonözni kell a privat channel-ek hasznalatat
-* az offline nyilvanos channel-ek fizetesi hibakat okoznak es rontjak a routing node reputaciojat
+* a díjak alacsonyak maradhatnak
+* a forgalom nagyrészben kimenő
+* ösztönözni kell a privát channel-ek használatát
+* az offline nyilvános channel-ek fizetési hibákat okoznak és rontják a routing node reputációját
 
-### Bejovo likviditas ertekesitese
+### Bejövő likviditás értékesítése
 
 * [LOOP](https://1ml.com/node/021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d)
 * [Bitfinex](https://ln.bitfinex.com/)
-* magas dijak beallitasa az egyiranyú forgalom es a bejovo kapacitas gyors kimerulese miatt
-* nem minden LN-t tamogato tozsdeszolgaltatashoz lehet csatlakozni, es egyenként kell ertekelni a forgalom iranyat
+* magas díjak beállítása az egyirányú forgalom és a bejövő kapacitás gyors kimerülése miatt
+* nem minden LN-t támogató tőzsdeszolgáltatáshoz lehet csatlakozni, és egyenként kell értékelni a forgalom irányát
 
-## Peldak
+## Példák
 
-* [Sajat uzemeltetesű dedikalt hardveren](https://github.com/bavarianledger/bitcoin-nodes)
-* Egyedi rendszer vallalati hardveren, az uzemeltetesi idore es redundanciara osszpontositva
+* [Saját üzemeltetésű dedikált hardveren](https://github.com/bavarianledger/bitcoin-nodes)
+* Egyedi rendszer vállalati hardveren, az üzemeltetési időre és redundanciára összpontosítva
 * VPS-en hosztolva (magasabb kockázat)

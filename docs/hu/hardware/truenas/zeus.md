@@ -1,14 +1,14 @@
-# LND csatlakoztatasa a Zeus-hoz
+# LND csatlakoztatása a Zeus-hoz
 
-* Tor cim lekerdezese
+* Tor cím lekérdezése
     ```
     cat /var/db/tor/remote_connections/hostname
     ```
-* Hasznald a REST portot
+* Használd a REST portot
     ```
     8080
     ```
-* Az admin.macaroon megjelenitese HEX formatumban:
+* Az admin.macaroon megjelenítése HEX formátumban:
     ```
     hexdump -ve '1/1 "%.2x"'  /var/db/lnd/data/chain/bitcoin/mainnet/admin.macaroon
     ```

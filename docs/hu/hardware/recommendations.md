@@ -1,53 +1,53 @@
-# Hardver ajanlasok lightning node-okhoz
+# Hardver ajánlások lightning node-okhoz
 
 ![https://twitter.com/lunaticoin/status/1522237631404429316](../assets/nodehardware.png)
 ## Raspberry Pi 4
-Szeretet es gyulolet viszonya
- - minimalis mukodokpepes hardver naprakesz linux kernellel
- - zart forraskodu binaris blob szukseges az indulashoz, az ún. [ThreadX](https://en.wikipedia.org/wiki/ThreadX)
- - Ismert problemak:
-  - a korabbi RPi generaciok nem alkalmasak
-  - tapegyseg: minoseg >3A; hivatalos RPi vagy Pimoroni
-  - USB-SATA adapter szukseges - tesztek es ajanlasok alapjan valassz, ne ar alapjan
-  - jo tapasztalatok a Suntronics/GeekWorm X825 lappal, amely lehetoseget biztosit a lemez kozvetlen aramellatására 4A-es barrel csatlakozoval es az RPi-t a beepitett PoGo pin-eken keresztul
-  - SD-kartya: minimum 32GB es Endurance tipus Sandisk/Samsung. Ha az OS lassu, az lehet az elso jele a meghibasodasnak - legyen alacsony a kuoszob az SD-kartya cserejehez.
-  - Lemez: tesztelt 1TB SSD modelleket hasznalj. A nagyobb meretek es egyes beepitett cache-sel rendelkezo modellek hajlamosak aramlovesekre es az ebbol eredo lefagyasra / lecsatlakozasra az RPi-rol.
-  - a szunetmentes tapegyseg (UPS) elengedhetetlen, mert a hideg ujrainditasok adatvesztest okoznak
+Szeretet és gyűlölet viszonya
+ - minimális működőképes hardver naprakész linux kernellel
+ - zárt forráskódú bináris blob szükséges az induláshoz, az ún. [ThreadX](https://en.wikipedia.org/wiki/ThreadX)
+ - Ismert problémák:
+  - a korábbi RPi generációk nem alkalmasak
+  - tápegység: minőség >3A; hivatalos RPi vagy Pimoroni
+  - USB-SATA adapter szükséges - tesztek és ajánlások alapján válassz, ne ár alapján
+  - jó tapasztalatok a Suntronics/GeekWorm X825 lappal, amely lehetőséget biztosít a lemez közvetlen áramellátására 4A-es barrel csatlakozóval és az RPi-t a beépített PoGo pin-eken keresztül
+  - SD-kártya: minimum 32GB és Endurance típus Sandisk/Samsung. Ha az OS lassú, az lehet az első jele a meghibásodásnak - legyen alacsony a küszöb az SD-kártya cseréjéhez.
+  - Lemez: tesztelt 1TB SSD modelleket használj. A nagyobb méretek és egyes beépített cache-sel rendelkező modellek hajlamosak áramlökésekre és az ebből eredő lefagyásra / lecsatlakozásra az RPi-ről.
+  - a szünetmentes tápegység (UPS) elengedhetetlen, mert a hideg újraindítások adatvesztést okoznak
 
-Bevasarlolista kulcsszavakkal: <https://github.com/raspiblitz/raspiblitz#amazon-shopping-list-buy-parts--build-it-yourself>
+Bevásárlólista kulcsszavakkal: <https://github.com/raspiblitz/raspiblitz#amazon-shopping-list-buy-parts--build-it-yourself>
 
 ## Laptop
 ![laptoptweet](../assets/laptoptweet.png)
-- tobb teljesitmeny - meg mindig energiatakarekos
-- beepitett akkumulator
-- kepernyo es billentyuzet a kezelesehez
+- több teljesítmény - még mindig energiatakarékos
+- beépített akkumulátor
+- képernyő és billentyűzet a kezeléséhez
 
 ### Szempontok
-- vezetekes LAN kapcsolat (hasznalhato USB adapter)
-- Masodik beepitett lemez WWAN slotban, ahogyan a Thinkpad-ekben lathato
-- Ha van optikai meghajto, hasznalhato optikai meghajtoboltco caddy
-- Twitter kozosseg: <https://twitter.com/i/communities/1563029300911058944>
+- vezetékes LAN kapcsolat (használható USB adapter)
+- Második beépített lemez WWAN slotban, ahogyan a Thinkpad-ekben látható
+- Ha van optikai meghajtó, használható optikai meghajtóbölcső caddy
+- Twitter közösség: <https://twitter.com/i/communities/1563029300911058944>
 
 ## Otthoni szerver
 ![servertweet](../assets/servertweet.png)
-- A magasabb energiafelhasznalas ellenere meg mindig nagy megtakaritas a hosztinghoz kepest
-- Korlatlan tarolas lemez-redundanciaval ([ZFS](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html))
-- [Cockpit webes felulet](https://github.com/raspiblitz/raspiblitz/issues/2767)
+- A magasabb energiafelhasználás ellenére még mindig nagy megtakarítás a hosztinghoz képest
+- Korlátlan tárolás lemez-redundanciával ([ZFS](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html))
+- [Cockpit webes felület](https://github.com/raspiblitz/raspiblitz/issues/2767)
 ### Szempontok
-- ECC RAM az [adatserules megelozesere a memoriaban](https://github.com/lightningnetwork/lnd/issues/7022#issuecomment-1278695682)
-- Tobb lemez ellenorzoosszeges, "ongyogyito" szoftveres RAID hasznalatahoz, mint a ZFS
-- Keruldd a hardveres RAID kartyakat - gyakran ujabb problemak forrasat jelentik, es a visszaallitas nem lehetseges mas hardverrel
-## Hasznalj minimalis VPS-t ZeroTier-rel vagy Tailscale-lel a szolgaltatasok nyilvanos domainre torteno alagutazasahoz
-* [VPN alagutak](../technicals/networking.md)
+- ECC RAM az [adatsérülés megelőzésére a memóriában](https://github.com/lightningnetwork/lnd/issues/7022#issuecomment-1278695682)
+- Több lemez ellenőrzőösszeges, "öngyógyító" szoftveres RAID használatához, mint a ZFS
+- Kerüld a hardveres RAID kártyákat - gyakran újabb problémák forrását jelentik, és a visszaállítás nem lehetséges más hardverrel
+## Használj minimális VPS-t ZeroTier-rel vagy Tailscale-lel a szolgáltatások nyilvános domainre történő alagútazásához
+* [VPN alagútak](../technicals/networking.md)
 
-## Osszeallitasi utmutatok:
+## Összeállítási útmutatók:
   - [Raspibolt](https://raspibolt.org/)
-  - [TrueNASnode - teljes bitcoin stack telepitesi utmutato](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
-  - [Raspiblitz - Alternativ platformok](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms)
-  - [Raspiblitz telepitese Proxmox-ra](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms/Proxmox)
-  - ZFS hivatkozasok:
+  - [TrueNASnode - teljes bitcoin stack telepítési útmutató](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
+  - [Raspiblitz - Alternatív platformok](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms)
+  - [Raspiblitz telepítése Proxmox-ra](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms/Proxmox)
+  - ZFS hivatkozások:
     - [OpenZFS Debian-on](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html)
-    - [Kapacitas kalkulator](https://wintelguy.com/zfs-calc.pl)
-    - [Miert hasznalj mirror vdev-eket raidz helyett](https://jrs-s.net/2015/02/06/zfs-you-should-use-mirror-vdevs-not-raid)
-    - [ZFS kezelo bovitmeny a Cockpit-hez](https://github.com/45Drives/cockpit-zfs-manager)
-    - [ZFS pool letrehozasa Raspiblitz adatlemeznek](https://github.com/openoms/bitcoin-tutorials/blob/master/zfs/create-raspiblitz-zfs-disk.md)
+    - [Kapacitás kalkulátor](https://wintelguy.com/zfs-calc.pl)
+    - [Miért használj mirror vdev-eket raidz helyett](https://jrs-s.net/2015/02/06/zfs-you-should-use-mirror-vdevs-not-raid)
+    - [ZFS kezelő bővítmény a Cockpit-hez](https://github.com/45Drives/cockpit-zfs-manager)
+    - [ZFS pool létrehozása Raspiblitz adatlemeznek](https://github.com/openoms/bitcoin-tutorials/blob/master/zfs/create-raspiblitz-zfs-disk.md)

@@ -1,6 +1,6 @@
-# Csatlakozas Lightning node-hoz tavolrol
+# Csatlakozás Lightning node-hoz távolról
 
-* [Tavoli kapcsolati formatumok osszefoglalo tablazata](lightning.connect.md#tavoli-kapcsolati-formatumok-osszefoglalo-tablazata)
+* [Távoli kapcsolati formátumok összefoglaló táblázata](lightning.connect.md#távoli-kapcsolati-formátumok-összefoglaló-táblázata)
 * [LND](lightning.connect.md#lnd)
   * [RPC](lightning.connect.md#rpc)
   * [LNDconnect](lightning.connect.md#lndconnect)
@@ -13,9 +13,9 @@
   * [BTCPayserver](lightning.connect.md#btcpayserver-1)
 * [Eclair](lightning.connect.md#eclair)
   * [BTCPayServer](lightning.connect.md#btcpayserver-2)
-* [Megjegyzesek](lightning.connect.md#megjegyzesek)
+* [Megjegyzések](lightning.connect.md#megjegyzések)
 
-## Tavoli kapcsolati formatumok osszefoglalo tablazata
+## Távoli kapcsolati formátumok összefoglaló táblázata
 
 | LND | prefix | d | szerver | d | auth | d | tls | d |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -53,7 +53,7 @@ poetry run ./suez --client-args=--rpcserver=IP_ADDRESS:GRPC_PORT --client-args=-
 
 ### LNDconnect
 
-* Specifikacio
+* Specifikáció
 
   [https://github.com/LN-Zap/lndconnect/blob/master/lnd\_connect\_uri.md](https://github.com/LN-Zap/lndconnect/blob/master/lnd_connect_uri.md)
 
@@ -61,7 +61,7 @@ poetry run ./suez --client-args=--rpcserver=IP_ADDRESS:GRPC_PORT --client-args=-
 lndconnect://<host>:<port>?[cert=<base64url_DER_certificate>&]macaroon=<base64url_macaroon>
 ```
 
-* Implementacio
+* Implementáció
 
   [https://github.com/raspiblitz/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh\#L194](https://github.com/raspiblitz/raspiblitz/blob/a22589c86109d56ecc1e1aca7abb214c7e9189c7/home.admin/config.scripts/bonus.lndconnect.sh#L194)
 
@@ -81,13 +81,13 @@ lndconnect="lndconnect://${host}:${port}${macaroonParameter}${certParameter}"
 
 [https://github.com/alexbosworth/balanceofsatoshis\#saved-nodes](https://github.com/alexbosworth/balanceofsatoshis#saved-nodes)
 
-* tarolasi helye:
+* tárolási helye:
 
   ```text
   ~/.bos/YOUR_NODE_NAME/credentials.json
   ```
 
-* base64 ertekekkel
+* base64 értékekkel
 
 ```text
 {
@@ -96,13 +96,13 @@ lndconnect="lndconnect://${host}:${port}${macaroonParameter}${certParameter}"
 "socket": "host:port"
 }
 
-# A `cert` ertekhez
+# A `cert` értékhez
 base64 ~/.lnd/tls.cert | tr -d '\n'
-# A `macaroon` ertekhez
+# A `macaroon` értékhez
 base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 ```
 
-* eleresi uttal
+* elérési úttal
 
   ```text
   {
@@ -114,7 +114,7 @@ base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 
 ### BTCPayserver
 
-* LND a REST proxy-n keresztul:
+* LND a REST proxy-n keresztül:
 
   ```text
   type=lnd-rest;server=https://mylnd:8080/;macaroon=abef263adfe...
@@ -133,7 +133,7 @@ base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
   openssl x509 -noout -fingerprint -sha256 -in /root/.lnd/tls.cert | sed -e 's/.*=//;s/://g'
   ```
 
-* opcionalis:
+* opcionális:
 
   ```text
   allowinsecure=true
@@ -148,28 +148,28 @@ base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
 ### Sparko
 
 [https://github.com/fiatjaf/sparko](https://github.com/fiatjaf/sparko)
-Jelenleg csak CA altal alairtt tanusitvannyal mukodik.
-Lasd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-trusted-certificate-to-android](https://github.com/shesek/spark-wallet/blob/master/doc/tls.md#add-as-trusted-certificate-to-android)
+Jelenleg csak CA által aláírt tanúsítvánnyal működik.
+Lásd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-trusted-certificate-to-android](https://github.com/shesek/spark-wallet/blob/master/doc/tls.md#add-as-trusted-certificate-to-android)
 
-* Egyszeruen:
+* Egyszerűen:
 
   ```text
   URL?access-key=accessKey
   ```
 
-  az `accessKey` macaroon-szeru jogosultsagokkal rendelkezik
+  az `accessKey` macaroon-szerű jogosultságokkal rendelkezik
 
 ### C-lightning REST \(Zeus-szal\)
 
 [https://github.com/Ride-The-Lightning/c-lightning-REST/](https://github.com/Ride-The-Lightning/c-lightning-REST/)
 
-* Meg nincs szabvany, de szukseg van:
+* Még nincs szabvány, de szükség van:
 
   ```text
   URL?hex_macaroon
   ```
 
-* a `hex_macaroon` generalasa:
+* a `hex_macaroon` generálása:
 
   ```text
   xxd -plain /home/bitcoin/c-lightning-REST/certs/access.macaroon | tr -d '\n'
@@ -177,14 +177,14 @@ Lasd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-tru
 
 ### BTCPayserver
 
-* c-lightning TCP-n vagy unix domain socket kapcsolaton keresztul:
+* c-lightning TCP-n vagy unix domain socket kapcsolaton keresztül:
 
   ```text
   type=clightning;server=unix://root/.lightning/lightning-rpc
   type=clightning;server=tcp://1.1.1.1:27743/
   ```
 
-* Lightning Charge HTTPS-en keresztul:
+* Lightning Charge HTTPS-en keresztül:
 
   ```text
   type=charge;server=https://charge:8080/;api-token=myapitoken...
@@ -194,22 +194,22 @@ Lasd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-tru
 
 ### BTCPayServer
 
-* Eclair HTTPS-en keresztul:
+* Eclair HTTPS-en keresztül:
 
   ```text
   type=eclair;server=https://eclair:8080/;password=eclairpassword...
   ```
 
-## Megjegyzesek
+## Megjegyzések
 
-* gyakori fuggosegek
+* gyakori függőségek
 
   ```text
   sudo apt install qrencode base64 xxd
   ```
 
-* QR-kod generalasa a terminalban
-  \(nyomd meg a `CTRL` + `-` billentyukombinaciot a meret csokkentesere\)
+* QR-kód generálása a terminálban
+  \(nyomd meg a `CTRL` + `-` billentyűkombinációt a méret csökkentéséhez\)
 
   ```text
   string="desired content or $(command output)"
@@ -240,14 +240,14 @@ Lasd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-tru
   openssl x509 -noout -fingerprint -sha256 -in /root/.lnd/tls.cert | sed -e 's/.*=//;s/://g'
   ```
 
-* `tls.cert` vizsgalata
+* `tls.cert` vizsgálata
 
   ```text
   openssl x509 -in /mnt/hdd/lnd/tls.cert -noout -text
   ```
 
-* Tor Hidden Service megjelenitese
-  bovebben: [https://openoms.github.io/bitcoin-tutorials/tor\_hidden\_service\_example.html](https://openoms.github.io/bitcoin-tutorials/tor_hidden_service_example.html)
+* Tor Hidden Service megjelenítése
+  bővebben: [https://openoms.github.io/bitcoin-tutorials/tor\_hidden\_service\_example.html](https://openoms.github.io/bitcoin-tutorials/tor_hidden_service_example.html)
 
   ```text
   sudo cat /var/lib/tor/SERVICE_NAME/hostname

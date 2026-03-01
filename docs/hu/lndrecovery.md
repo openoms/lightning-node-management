@@ -1,4 +1,4 @@
-# LND helyreallitasi forrasok:
+# LND helyreállítási források:
 
 * [docs.lightning.engineering/lightning-network-tools/lnd/recovery-planning-for-failure](https://docs.lightning.engineering/lightning-network-tools/lnd/recovery-planning-for-failure)
 

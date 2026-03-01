@@ -1,23 +1,23 @@
-# Az LND adatbazis \(channel.db\) tomoriteese
+# Az LND adatbázis \(channel.db\) tömörítése
 
-Az 1 GB-nal nagyobb `channel.db` fajl nem mukodik 32 bites rendszereken: [https://github.com/lightningnetwork/lnd/issues/4811](https://github.com/lightningnetwork/lnd/issues/4811)
+Az 1 GB-nál nagyobb `channel.db` fájl nem működik 32 bites rendszereken: [https://github.com/lightningnetwork/lnd/issues/4811](https://github.com/lightningnetwork/lnd/issues/4811)
 
 ```text
-# a channel.db meretenek ellenorzese
+# a channel.db méretének ellenőrzése
 sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
-# pelda kimenet
+# példa kimenet
 # 1.0G    /mnt/hdd/lnd/data/graph/mainnet/channel.db
 ```
 
-## Automatikus tomorites ujrainditaskor
+## Automatikus tömörítés újraindításkor
 
-Az LND v0.12.0 ota beallithato a `db.bolt.auto-compact=true` az `lnd.conf`-ban.
+Az LND v0.12.0 óta beállítható a `db.bolt.auto-compact=true` az `lnd.conf`-ban.
 
-* Szerkeszteshez:
+* Szerkesztéshez:
 
   `sudo nano /mnt/hdd/lnd/lnd.conf`
 
-* szurd be az alabbiakat \(a megjegyzesek elhagyhatok\):
+* szúrd be az alábbiakat \(a megjegyzések elhagyhatók\):
 
   ```text
    [bolt]
@@ -33,105 +33,105 @@ Az LND v0.12.0 ota beallithato a `db.bolt.auto-compact=true` az `lnd.conf`-ban.
    # db.bolt.auto-compact-min-age=0
   ```
 
-* inditsd ujra az lnd-t:
+* indítsd újra az lnd-t:
 
   `sudo systemctl restart lnd`
 
-* kovessed a folyamatot \(tobb percig is tarthat\):
+* kövesd a folyamatot \(több percig is tarthat\):
 
   `sudo tail -fn 30 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log`
 
-* erdemes lehet kikapcsolni az automatikus tomoriteest az `lnd.conf`-ban, es csak igenyu szerint aktivalni, hogy elkeruldd a hosszu inditasi idoket:
+* érdemes lehet kikapcsolni az automatikus tömörítést az `lnd.conf`-ban, és csak igény szerint aktiválni, hogy elkerüld a hosszú indítási időket:
 
   ```text
    db.bolt.auto-compact=false
   ```
 
-## Tomorites a Channels Tools-szal
+## Tömörítés a Channels Tools-szal
 
 [https://github.com/guggero/chantools\#compactdb](https://github.com/guggero/chantools#compactdb)
 
-* Futtasd a kovetkezo parancsokat a RaspiBlitz terminalban
+* Futtasd a következő parancsokat a RaspiBlitz terminálban
 
-  Lasd a megjegyzeseket az egyes parancsok magyarazatahoz.
+  Lásd a megjegyzéseket az egyes parancsok magyarázatához.
 
 ```text
-# chantools telepitese
-# letoltes, ellenorzes es a telepito script futtatasa
+# chantools telepítése
+# letöltés, ellenőrzés és a telepítő script futtatása
 wget https://raw.githubusercontent.com/openoms/lightning-node-management/master/lnd.updates/bonus.chantools.sh
 cat bonus.chantools.sh
 bash bonus.chantools.sh on
 
-# lnd leallitasa
+# lnd leállítása
 sudo systemctl stop lnd
 
-# valtas a bitcoin felhasznalo konyvtarara
+# váltás a bitcoin felhasználó könyvtárára
 sudo su - bitcoin
 
-# tomorites futtatasa
+# tömörítés futtatása
 chantools compactdb --sourcedb /mnt/hdd/lnd/data/graph/mainnet/channel.db \
                 --destdb /mnt/hdd/lnd/data/graph/mainnet/compacted.db
 
-# a compacted.db meretenek ellenorzese
-# (az elso tomorites hozza a legnagyobb eredmenyt)
+# a compacted.db méretének ellenőrzése
+# (az első tömörítés hozza a legnagyobb eredményt)
 du -h /mnt/hdd/lnd/data/graph/mainnet/compacted.db
-# pelda kimenet:
+# példa kimenet:
 # 730M /mnt/hdd/lnd/data/graph/mainnet/compacted.db
 
-# gyozodjunk meg rola, hogy az lnd nem fut (sudo szukseges)
+# győződjünk meg róla, hogy az lnd nem fut (sudo szükséges)
 exit
 sudo systemctl stop lnd
 sudo su - bitcoin
 
-# az eredeti adatbazis biztonsagi mentese
+# az eredeti adatbázis biztonsági mentése
 mv /mnt/hdd/lnd/data/graph/mainnet/channel.db \
    /mnt/hdd/lnd/data/graph/mainnet/uncompacted.db
 
-# a tomoritett adatbazis athelyezese a regi helyere
+# a tömörített adatbázis áthelyezése a régi helyére
 mv /mnt/hdd/lnd/data/graph/mainnet/compacted.db \
    /mnt/hdd/lnd/data/graph/mainnet/channel.db
 
-# kilepes a bitcoin felhasznalobol admin-ra
+# kilépés a bitcoin felhasználóból admin-ra
 exit
 
-# lnd inditasa
+# lnd indítása
 sudo systemctl start lnd
 
-# tarca feloldasa
+# tárca feloldása
 lncli unlock
 ```
 
-# A visszavonasi naplo megtisztitasa
-* elerheto az [LND v0.15.1](https://github.com/lightningnetwork/lnd/releases/tag/v0.15.1-beta) ota
-* Nem helyettesiti az adatbazis tomoriteest, es csak egyszer kell elvegezni az LND v0.15.1-re vagy ujabbra valo frissites utan
+# A visszavonási napló megtisztítása
+* elérhető az [LND v0.15.1](https://github.com/lightningnetwork/lnd/releases/tag/v0.15.1-beta) óta
+* Nem helyettesíti az adatbázis tömörítést, és csak egyszer kell elvégezni az LND v0.15.1-re vagy újabbra való frissítés után
 
   ```text
-  # a channel.db meretenek ellenorzese
+  # a channel.db méretének ellenőrzése
   sudo du -h /mnt/hdd/lnd/data/graph/mainnet/channel.db
-  # pelda kimenet
+  # példa kimenet
   # 1.0G    /mnt/hdd/lnd/data/graph/mainnet/channel.db
   ```
 ## Raspiblitz vagy kompatibilis rendszeren:
-* Szerkeszd a systemd szolgaltatast:
+* Szerkeszd a systemd szolgáltatást:
   ```
   sudo systemctl edit --full lnd
   ```
 
-* Szerkeszd az `ExecStart=`-tal kezdodo sort igy:
+* Szerkeszd az `ExecStart=`-tal kezdődő sort így:
   ```
   ExecStart=/usr/local/bin/lnd --configfile=/home/bitcoin/.lnd/lnd.conf --db.prune-revocation
   ```
-* CTRL+o, ENTER es CTRL+x a menteshez, majd inditsd ujra az LND-t:
+* CTRL+o, ENTER és CTRL+x a mentéshez, majd indítsd újra az LND-t:
   ```
   sudo systemctl restart lnd
   ```
-* kovessed a folyamatot a napliokban:
+* kövesd a folyamatot a naplókban:
   ```
   sudo tail -n 30 -f /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log
   ```
-* jellemzoen 30-60 percet vesz igenybe, hasonloan a hosszu ido utani tomoriteshez.
+* jellemzően 30-60 percet vesz igénybe, hasonlóan a hosszú idő utáni tömörítéshez.
   ```
-  Pelda kimenet a visszavonasi naplo megtisztitasakor:
+  Példa kimenet a visszavonási napló megtisztításakor:
   [INF] LTND: Version: 0.15.1-beta commit=v0.15.1-beta, build=production, logging=default, debuglevel=info
   [INF] LTND: Active chain: Bitcoin (network=mainnet)
   ...
@@ -158,10 +158,10 @@ lncli unlock
   [INF] LTND: Database(s) now open (time_to_open=7m1.713662454s)!
   ```
 
-* a megtisztitas befejezese utan a node ujra online lesz
-* a megtisztitott naplok eltavolitasahoz es a channel.db meretenek csokkenteesehez meg egyszer tomoriteest kell vegezni
+* a megtisztítás befejezése után a node újra online lesz
+* a megtisztított naplók eltávolításához és a channel.db méretének csökkentéséhez még egyszer tömörítést kell végezni
 
-* pelda kimenet a visszavonasi naplo megtisztitasa utani tomoritesrol:
+* példa kimenet a visszavonási napló megtisztítása utáni tömörítésről:
   ```
   [INF] CHDB: DB compaction of /home/bitcoin/.lnd/data/graph/mainnet/channel.db successful, 3726725120 -> 1219481600 bytes (gain=3.06x)
   [INF] CHDB: Swapping old DB file from /home/bitcoin/.lnd/data/graph/mainnet/temp-dont-use.db to /home/bitcoin/.lnd/data/graph/mainnet/channel.db

@@ -1,48 +1,48 @@
-# Kereskedo
-Fizetesek fogadasara iranyul, a bejovo likviditasra osszpontosit
+# Kereskedő
+Fizetések fogadására irányul, a bejövő likviditásra összpontosít
 
-## Tokeigeny
-* minimalis bejovo channel-ek vasarlasahoz
-* átmenetileg magas a megnyitott channel-ekbol szarmazo bejovo kapacitas letrehozasahoz
+## Tőkeigény
+* minimális bejövő channel-ek vásárlásához
+* átmenetileg magas a megnyitott channel-ekből származó bejövő kapacitás létrehozásához
 
-## Channel-ek es peer-ek
-* keves (2-3) channel jol kapcsolt es tokeerosit node-okkal
+## Channel-ek és peer-ek
+* kevés (2-3) channel jól kapcsolt és tőkeerős node-okkal
 * csatlakozz a [Bos lista](../advanced-tools/bosscore.md) node-jaihoz
-* nezd meg a meglevo dijbeallitasokat az [Amboss](https://amboss.space/) / [1ml.com](https://1ml.com/) oldalakon
-* Ellenorizd a node stabilitasat a [Lightning Web](https://terminal.lightning.engineering) feluleten
+* nézd meg a meglévő díjbeállításokat az [Amboss](https://amboss.space/) / [1ml.com](https://1ml.com/) oldalakon
+* Ellenőrizd a node stabilitását a [Lightning Web](https://terminal.lightning.engineering) felületen
 
-## Likviditas
-* nagyreszben remote
+## Likviditás
+* nagyrészben remote
 
-## Uzemido
-* magas, de nem feltetlen tokeletes
-* az elerethetetlen node az eladasokra hat
+## Üzemidő
+* magas, de nem feltétlen tökéletes
+* az elérhetetlen node az eladásokra hat
 
-## Kezeles
-* [Loop out](https://github.com/lightninglabs/loop#lightning-loop) ([Autoloop](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/autoloop)) a meglevo channel-ek uritésehez
-* Bezaras es ujranyitas, ha a channel-ek megtelnek
-  * egy channel nyitas (es zaras) nem dragabb a Loop hasznalatanalinall, ha:
-    * van onchain likviditasod tobb channel-hez (vagy a jovoben splice in) vagy
-    * megenggedheted a channel leallasi idot a peer-ek kozott a bezarashoz es ujranyitashoz
-* Vasarolj tovabbi [bejovo likviditast](../createinboundliquidity.md)
-* Hasznalj liquidity ads-t bejovo likviditas vasarlasahoz
-* Probald az Amboss Magma-t
-* Adj le licitatast a [Lightning Pool](../advanced-tools/pool.md)-on
-* Hirdess bejovo channel-ek fogadasahoz
-* [Penzek osszegyujtese](https://github.com/lnbook/lnbook/blob/develop/05_node_operations.asciidoc#sweeping-funds)
-  * Onchain vagy offchain osszegyujtesre szukseg lehet, ha a Lightning tarca egyenlege tul naggyá valik
-  * Egy offchain osszegyuijtes javithatja a privacy-det, es egyben bejovo likviditast is biztosit
+## Kezelés
+* [Loop out](https://github.com/lightninglabs/loop#lightning-loop) ([Autoloop](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/autoloop)) a meglévő channel-ek ürítéséhez
+* Bezárás és újranyitás, ha a channel-ek megtelnek
+  * egy channel nyitás (és zárás) nem drágább a Loop használatánál, ha:
+    * van onchain likviditásod több channel-hez (vagy a jövőben splice in) vagy
+    * megengedheted a channel leállási időt a peer-ek között a bezáráshoz és újranyitáshoz
+* Vásárolj további [bejövő likviditást](../createinboundliquidity.md)
+* Használj liquidity ads-t bejövő likviditás vásárlásához
+* Próbáld az Amboss Magma-t
+* Adj le licitálást a [Lightning Pool](../advanced-tools/pool.md)-on
+* Hirdess bejövő channel-ek fogadásához
+* [Pénzek összegyűjtése](https://github.com/lnbook/lnbook/blob/develop/05_node_operations.asciidoc#sweeping-funds)
+  * Onchain vagy offchain összegyűjtésre szükség lehet, ha a Lightning tárca egyenlege túl naggyá válik
+  * Egy offchain összegyűjtés javíthatja a privacy-det, és egyben bejövő likviditást is biztosít
 
-## Peldak
-* [Sajat uzemeltetesű node](https://github.com/bavarianledger/bitcoin-nodes) helyi vagy tavoli BTCPayServer-hez csatlakoztatva
-* BTCPayServer VPS-en (alacsony osszegenel elfogadhato)
-* Teljesen hosztolt megoldasok (bizalmi) -- pl. Voltage
-* Készul: Greenlight a Blockstream-tol
+## Példák
+* [Saját üzemeltetésű node](https://github.com/bavarianledger/bitcoin-nodes) helyi vagy távoli BTCPayServer-hez csatlakoztatva
+* BTCPayServer VPS-en (alacsony összegnél elfogadható)
+* Teljesen hosztolt megoldások (bizalmi) -- pl. Voltage
+* Készül: Greenlight a Blockstream-tól
 
-## Specialis esetek
-* [Adomanyok](../donate/donations.md) elfogadasa
-* Ajanlj onchain fiztest magas erteku fizteteseknel (banyasz dij < 0.5-1%)
+## Speciális esetek
+* [Adományok](../donate/donations.md) elfogadása
+* Ajánlj onchain fizetést magas értékű fizetéseknél (bányász díj < 0.5-1%)
 
-  ![BTCPayServer beallitas](../assets/btcpay.on-offchain.png)
+  ![BTCPayServer beállítás](../assets/btcpay.on-offchain.png)
 
-* atvalthat [Routing node]()-ra, ahogy a kapcsolatok szama es a toke no
+* átválthat [Routing node]()-ra, ahogy a kapcsolatok száma és a tőke nő
