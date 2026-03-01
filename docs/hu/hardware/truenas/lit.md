@@ -1,0 +1,222 @@
+# Lightning Terminal FreeBSD-n
+
+https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
+
+# Telepites
+
+```
+bash
+VERSION=v0.9.2-alpha
+
+# fuggosegek
+pkg install -y gmake git node14 yarn-node14 python2
+# Go
+GOVERSION=1.20.3
+wget https://go.dev/dl/go${GOVERSION}.freebsd-amd64.tar.gz
+tar -xvf go${GOVERSION}freebsd-amd64.tar.gz
+rm /usr/local/go
+mv go /usr/local
+mkdir ~/.gopkg
+export GOROOT=/usr/local/go
+export GOPATH=/root/.gopkg
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+mkdir lightning-terminal-source-$VERSION
+cd lightning-terminal-source-$VERSION
+wget -O lightning-terminal-source-$VERSION.tar.gz https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/lightning-terminal-source-$VERSION.tar.gz
+
+# ellenorzes
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4D7D916376026F177
+wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
+wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
+gpg --verify manifest-$VERSION.sig manifest-$VERSION.txt
+
+shasum -a 256 -c manifest-$VERSION.txt --ignore-missing
+
+# forditas es telepites
+tar -xvf lightning-terminal-source-$VERSION.tar.gz
+gmake install
+
+ln -s /root/.gopkg/bin/litd /root/go/bin/
+ln -s /root/.gopkg/bin/litcli /root/go/bin/
+
+service litd start
+service litd status
+
+cd
+rm -r lightning-terminal-source-$VERSION
+```
+
+## Konfiguracios fajl
+a RaspiBlitz alapjan adaptalt (ugyanaz a felepites kulon LND-vel):
+
+```
+nano /root/.lit/lit.conf
+
+```
+```
+# Szukseges:
+UIPASSWORD=
+RPCUSER=
+RPCPASSWORD=
+```
+```
+# Alkalmazas beallitasai
+httpslisten=0.0.0.0:8443
+uipassword=$UIPASSWORD
+#lit-dir=/home/lit/.lit
+
+# Tavoli beallitasok
+remote.lit-debuglevel=info
+
+# Tavoli lnd beallitasok
+remote.lnd.rpcserver=127.0.0.1:10009
+remote.lnd.macaroonpath=/var/db/lnd/data/chain/bitcoin/mainnet/admin.macaroon
+remote.lnd.tlscertpath=/var/db/lnd/tls.cert
+
+# Loop
+loop.loopoutmaxparts=5
+loop.server.proxy=127.0.0.1:9050
+
+# Pool
+pool.newnodesonly=true
+pool.proxy=127.0.0.1:9050
+
+# Faraday
+faraday.min_monitored=48h
+
+# Faraday - bitcoin
+faraday.connect_bitcoin=true
+faraday.bitcoin.host=localhost
+faraday.bitcoin.user=$RPCUSER
+faraday.bitcoin.password=$RPCPASSWORD
+```
+
+## Szerviz fajl
+
+```
+nano /usr/local/etc/rc.d/litd
+```
+
+```
+#!/bin/sh
+#
+# PROVIDE: litd
+# REQUIRE: bitcoind tor lnd
+# KEYWORD:
+
+. /etc/rc.subr
+
+name="litd"
+rcvar="litd_enable"
+
+litd_command="/root/go/bin/litd"
+pidfile="/var/run/${name}.pid"
+command="/usr/sbin/daemon"
+command_args="-P ${pidfile} -r -f ${litd_command}"
+
+load_rc_config $name
+: ${litd_enable:=no}
+
+run_rc_command "$1"
+```
+
+## Tor Hidden Service
+* Hozd letre itt:
+  ```
+  nano /usr/local/etc/tor/torrc
+  ```
+  ```
+  HiddenServiceDir /var/db/tor/litd
+  HiddenServiceVersion 3
+  HiddenServicePort 443 127.0.0.1:8443
+  ```
+* toltsd ujra a Tor-t
+  ```
+  service tor reload
+  ```
+* olvasd ki a Hidden Service cimet
+  ```
+  cat /var/db/tor/litd/hostname
+  ```
+* Tor logok
+  ```
+  tail -f /var/log/tor/tor.log
+  ```
+
+## Inditas
+```
+service litd enable
+service litd start
+```
+
+## Logok
+```
+tail -f .lit/logs/mainnet/litd.log
+```
+
+Jelentkezz be a webes feluletbe itt:
+```
+https://JAIL_LOCAL_IP:8443
+```
+
+## Frissites
+```
+bash
+# ellenorizd a legujabb verziot itt: https://github.com/lightninglabs/lightning-terminal/releases
+VERSION=$VERSION
+# minden csomag frissitese
+pkg update
+pkg upgrade -y
+
+# Go
+wget https://go.dev/dl/go1.18.8.freebsd-amd64.tar.gz
+tar -xvf go1.18.8.freebsd-amd64.tar.gz
+rm /usr/local/go
+mv go /usr/local
+export GOROOT=/usr/local/go
+mkdir ~/.gopkg
+export GOPATH=/root/.gopkg
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+mkdir lightning-terminal-source-$VERSION
+cd lightning-terminal-source-$VERSION
+wget -O lightning-terminal-source-$VERSION.tar.gz https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/lightning-terminal-source-$VERSION.tar.gz
+
+# ellenorzes
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 26984CB69EB8C4A26196F7A4D7D916376026F177
+wget -O manifest-$VERSION.txt https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.txt
+wget -O manifest-$VERSION.sig https://github.com/lightninglabs/lightning-terminal/releases/download/$VERSION/manifest-$VERSION.sig
+gpg --verify manifest-$VERSION.sig manifest-$VERSION.txt
+shasum -a 256 -c manifest-$VERSION.txt --ignore-missing
+
+tar -xvf lightning-terminal-source-$VERSION.tar.gz
+service litd stop
+rm /root/go/bin/lit*
+rm /root/.gopkg/bin/lit*
+gmake install
+
+ln -s /root/.gopkg/bin/litd /root/go/bin/
+ln -s /root/.gopkg/bin/litcli /root/go/bin/
+
+service litd start
+service litd status
+
+cd
+rm -r lightning-terminal-source-$VERSION
+```
+
+A binaris ide fog telepulni:
+```
+/root/go/bin/litd
+```
+vagy ide
+```
+/root/.gopkg/bin/
+```
+
+A masodik esetben hozz letre szimbolikus linkeket:
+```
+ln -s /root/.gopkg/bin/litd /root/go/bin/
+ln -s /root/.gopkg/bin/litcli /root/go/bin/
+```

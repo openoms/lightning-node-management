@@ -1,0 +1,10 @@
+# Suez FreeBSD-n
+
+pkg install python38
+pjg install py38-pip
+pip install poetry
+git clone https://github.com/prusnak/suez.git
+cd suez
+poetry install
+
+# TODO hogyan kell futtatni
