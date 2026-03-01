@@ -51,7 +51,7 @@ plugins:
             Recovery: Recuperación
             Privacy: Privacidad
             Hardware deployment: Despliegue de hardware
-            Donate: Donar
+            Contact and support: Contacto y apoyo
         - locale: hu
           name: Magyar
           build: true
@@ -82,8 +82,7 @@ plugins:
             Resources: Források
             Hardware deployment: Hardver telepítés
             Recommendations: Ajánlások
-            Donate: Támogatás
-            Donations: Adományok
+            Contact and support: Kapcsolat és adományok
 
 markdown_extensions:
   - admonition
@@ -150,5 +149,5 @@ nav:
       - Tailscale: hardware/truenas/tailscale.md
       - OpenVPN: hardware/truenas/openvpn.md
       - Zeus: hardware/truenas/zeus.md
-  - Donate:
-    - Donations: donate/donations.md
+  - Contact and support:
+    - Contact and support: donate/donations.md
