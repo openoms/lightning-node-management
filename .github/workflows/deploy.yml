@@ -38,6 +38,62 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  test:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for site availability
+        run: |
+          BASE_URL="${{ needs.deploy.outputs.page_url }}"
+          for i in $(seq 1 30); do
+            curl -sf -o /dev/null "$BASE_URL" && break
+            sleep 2
+          done
+
+      - name: Check all page URLs
+        run: |
+          BASE_URL="${{ needs.deploy.outputs.page_url }}"
+          BASE_URL="${BASE_URL%/}"
+          URLS_FILE=$(mktemp)
+
+          # English pages (exclude es/hu subdirs)
+          find docs -name '*.md' -not -path 'docs/es/*' -not -path 'docs/hu/*' | sort | while IFS= read -r f; do
+            rel="${f#docs/}"; rel="${rel%.md}"
+            if [ "$rel" = "index" ]; then echo "$BASE_URL/"; else echo "$BASE_URL/$rel/"; fi
+          done >> "$URLS_FILE"
+
+          # ES and HU pages
+          for lang in es hu; do
+            [ -d "docs/$lang" ] || continue
+            find "docs/$lang" -name '*.md' | sort | while IFS= read -r f; do
+              rel="${f#docs/$lang/}"; rel="${rel%.md}"
+              if [ "$rel" = "index" ]; then echo "$BASE_URL/$lang/"; else echo "$BASE_URL/$lang/$rel/"; fi
+            done >> "$URLS_FILE"
+          done
+
+          TOTAL=$(wc -l < "$URLS_FILE")
+          echo "Checking $TOTAL URLs..."
+          FAILED=0
+
+          while IFS= read -r url; do
+            STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "$url" || true)
+            if [ "$STATUS" != "200" ]; then
+              echo "FAIL [$STATUS]: $url"
+              FAILED=$((FAILED + 1))
+            else
+              echo "  OK: $url"
+            fi
+          done < "$URLS_FILE"
+
+          rm -f "$URLS_FILE"
+          echo ""
+          echo "Checked: $TOTAL | Failed: $FAILED"
+          [ "$FAILED" -eq 0 ]
