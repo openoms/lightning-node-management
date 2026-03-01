@@ -25,7 +25,7 @@ A köteg egységesen alkalmazott elszámolási árfolyama milliárdodrészben (p
 
 Visszaadja egy node aktuális Node Tier besorolását, egyéb információkkal együtt.
 
-Alapértelmezetten a [Bos Score listában](bosscore.md) szereplő node-okat használják az ajánlatok kitöltéséhez, ezeket a ratingben `TIER_1`-nek hívják. A választás az alábbi szempontok alapján történik: üzemidő, bejövő kapacitás, előzmény, channel frissítések, aktív routing-képesség \(probing által vizsgálva\).
+Alapértelmezetten a [Bos Score listában](bosscore.md) szereplő node-okat használják az ajánlatok kitöltéséhez, ezeket a ratingben `TIER_1`-nek hívják. A választás az alábbi szempontok alapján történik: üzemidő, bejövő kapacitás, előzmény, csatorna frissítések, aktív routing-képesség \(probing által vizsgálva\).
 
 * Egy nyilvános node besorolásának ellenőrzése:
 
@@ -47,7 +47,7 @@ Alapértelmezetten a [Bos Score listában](bosscore.md) szereplő node-okat hasz
     }
   ```
 
-* Egy channel vásárló \(Taker\) megadható, hogy minden besorolást elfogadjon: `--min_node_tier 0`
+* Egy csatorna vásárló \(Taker\) megadható, hogy minden besorolást elfogadjon: `--min_node_tier 0`
 
   ```text
    --min_node_tier value          the min node tier this bid should be matched with, tier 1 nodes are considered 'good', if set to tier 0, then all nodes will be considered regardless of 'quality' (default: 0)
@@ -102,7 +102,7 @@ prev_batch_id=$(pool auc s --batch_id $prev_batch_id|jq -r '.prev_batch_id') && 
 prev_batch_id=$(pool auc s --batch_id $prev_batch_id|jq -r '.prev_batch_id') && pool auc s --batch_id $prev_batch_id|jq -r '.clearing_price_rate'
 ```
 
-Keresd meg a köteg txid-ját a [http://1ml.com](http://1ml.com) oldalon a megerősítés után \(channel-ek megnyitva és közzétéve\), hogy lásd a channel-ek és peerek részleteit. [https://twitter.com/openoms/status/1326482404224229376](https://twitter.com/openoms/status/1326482404224229376)
+Keresd meg a köteg txid-ját a [http://1ml.com](http://1ml.com) oldalon a megerősítés után \(csatornák megnyitva és közzétéve\), hogy lásd a csatornák és peerek részleteit. [https://twitter.com/openoms/status/1326482404224229376](https://twitter.com/openoms/status/1326482404224229376)
 
 ## logs
 

@@ -1,4 +1,4 @@
-# Hardver ajánlások lightning node-okhoz
+# Hardver ajánlások lightning node-okhoz (Hardware Recommendations for Lightning Nodes)
 
 ![https://twitter.com/lunaticoin/status/1522237631404429316](../assets/nodehardware.png)
 ## Raspberry Pi 4
@@ -22,25 +22,25 @@ Bevásárlólista kulcsszavakkal: <https://github.com/raspiblitz/raspiblitz#amaz
 - beépített akkumulátor
 - képernyő és billentyűzet a kezeléséhez
 
-### Szempontok
+### Szempontok (Considerations)
 - vezetékes LAN kapcsolat (használható USB adapter)
 - Második beépített lemez WWAN slotban, ahogyan a Thinkpad-ekben látható
 - Ha van optikai meghajtó, használható optikai meghajtóbölcső caddy
 - Twitter közösség: <https://twitter.com/i/communities/1563029300911058944>
 
-## Otthoni szerver
+## Otthoni szerver (Home Server)
 ![servertweet](../assets/servertweet.png)
 - A magasabb energiafelhasználás ellenére még mindig nagy megtakarítás a hosztinghoz képest
 - Korlátlan tárolás lemez-redundanciával ([ZFS](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html))
 - [Cockpit webes felület](https://github.com/raspiblitz/raspiblitz/issues/2767)
-### Szempontok
+### Szempontok (Considerations)
 - ECC RAM az [adatsérülés megelőzésére a memóriában](https://github.com/lightningnetwork/lnd/issues/7022#issuecomment-1278695682)
 - Több lemez ellenőrzőösszeges, "öngyógyító" szoftveres RAID használatához, mint a ZFS
 - Kerüld a hardveres RAID kártyákat - gyakran újabb problémák forrását jelentik, és a visszaállítás nem lehetséges más hardverrel
-## Használj minimális VPS-t ZeroTier-rel vagy Tailscale-lel a szolgáltatások nyilvános domainre történő alagútazásához
+## Használj minimális VPS-t ZeroTier-rel vagy Tailscale-lel a szolgáltatások nyilvános domainre történő alagútazásához (Use a Minimal VPS with ZeroTier or Tailscale to Tunnel Services to a Public Domain)
 * [VPN alagútak](../technicals/networking.md)
 
-## Összeállítási útmutatók:
+## Összeállítási útmutatók (Build Guides)
   - [Raspibolt](https://raspibolt.org/)
   - [TrueNASnode - teljes bitcoin stack telepítési útmutató](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
   - [Raspiblitz - Alternatív platformok](https://github.com/raspiblitz/raspiblitz/tree/dev/alternative.platforms)

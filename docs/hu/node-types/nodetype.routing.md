@@ -6,21 +6,21 @@ Fizetések sikeres továbbítására és profit termelésére irányul.
 
 * magas
 
-## Channel-ek és peer-ek
+## Csatornák és peer-ek (Channels and peers)
 
-* számos (~10+) nagy channel [jól kapcsolt node-okhoz](../advanced-tools/bosscore.md)
+* számos (~10+) nagy csatorna [jól kapcsolt node-okhoz](../advanced-tools/bosscore.md)
 * csatlakozz a hálózat széléhez, hogy forgalmat kapj
 * célozz meg node-klaszterek (elkülönült csoportok) összekötését
 
 ## Likviditás
 
 * összességében kiegyensúlyozott a lokális és remote között
-* az egyes channel-eknek mindkét irányban képes kell lenniük fizetések továbbítására
+* az egyes csatornáknak mindkét irányban képesnek kell lenniük fizetések továbbítására
 
 ## Üzemidő
 
 * célozd a tökéletességet
-* az offline routing node-ok sok nyilvános channel-lel hálózatszerte fizetési hibákat okoznak
+* az offline routing node-ok sok nyilvános csatornával hálózatszerte fizetési hibákat okoznak
 * nagymértékben befolyásolja a [routing node reputációját](https://github.com/openoms/lightning-node-management/tree/04d605ae69f3630c0eaeedc43eda95c6ff5d1ee3/bossscore.md)
 
 ## Kezelés
@@ -28,13 +28,13 @@ Fizetések sikeres továbbítására és profit termelésére irányul.
 * automatikus kiegyenlítés (cronjob-ok hasznosak)
 * bejövő és kimenő likviditás létrehozása szükség szerint
 * kiegyensúlyozás több node között
-* inaktív channel-ek bezárása
+* inaktív csatornák bezárása
 * nyitás olyan irányokba, ahol likviditásra van szükség
 * használj Lightning Pool, Amboss Magma vagy liquidity ads licitálást és kínálatot
-* channel-nyitások kötegelése a bányász díjak megtakarításához
-* channel-ek finanszírozása külső tárcákból
+* csatornanyitások kötegelése a bányász díjak megtakarításához
+* csatornák finanszírozása külső tárcákból
 * zárás külső címekre a hot wallet kockázat csökkentéséhez
-* fedezd fel a számos [elérhető eszközt](../#manage-channels)
+* fedezd fel a számos [elérhető eszközt](../#csatornak-kezelese-channel-management)
 
 ## Stratégiák
 
@@ -42,20 +42,20 @@ Fizetések sikeres továbbítására és profit termelésére irányul.
 
 * kétirányú forgalom
 * alacsony díjak
-* erősen versenyképes (sok likviditás van privát channel-ekben)
+* erősen versenyképes (sok likviditás van privát csatornákban)
 
 ### Likviditás biztosítása kereskedőknek
 
 * magas bejövő likviditás szükséges
 * a díjak mérsékeltesre - magasra állíthatók
-* channel-ek eladása a Lightning Pool-on gyakran ebbe a kategóriába esik
+* csatornák eladása a Lightning Pool-on gyakran ebbe a kategóriába esik
 
 ### Fizetési központ kis node-oknak
 
 * a díjak alacsonyak maradhatnak
 * a forgalom nagyrészben kimenő
-* ösztönözni kell a privát channel-ek használatát
-* az offline nyilvános channel-ek fizetési hibákat okoznak és rontják a routing node reputációját
+* ösztönözni kell a privát csatornák használatát
+* az offline nyilvános csatornák fizetési hibákat okoznak és rontják a routing node reputációját
 
 ### Bejövő likviditás értékesítése
 

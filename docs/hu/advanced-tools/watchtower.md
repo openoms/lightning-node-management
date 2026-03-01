@@ -1,6 +1,6 @@
-# LND watchtower beállítása és kliens csatlakoztatása
+# LND őrtorony (watchtower) beállítása és kliens csatlakoztatása
 
-A watchtower figyeli a Bitcoin blokkláncot, és kiszűri azokat a tranzakciókat, amelyek egy korábbi, érvénytelen állapottal próbálják meg lezárni a kliens channel-jét, ezzel ellopva az abban lévő összegeket. Ha szabálysértést talál, a watchtower azonnal közvetíti a büntető tranzakciót, amely a channel összes összegét a kliens onchain tárcájába helyezi át.
+Az őrtorony figyeli a Bitcoin blokkláncot, és kiszűri azokat a tranzakciókat, amelyek egy korábbi, érvénytelen állapottal próbálják meg lezárni a kliens csatornáját, ezzel ellopva az abban lévő összegeket. Ha szabálysértést talál, az őrtorony azonnal közvetíti a büntető tranzakciót, amely a csatorna összes összegét a kliens onchain tárcájába helyezi át.
 
 Ha két, lnd v0.7.0 vagy újabb verziót futtató node-od van, beállíthatod őket, hogy kölcsönösen figyeljenek egymásra. A legjobb, ha a node-ok két különböző fizikai helyen vannak, így a váratlan kapcsolatvesztés esetén is biztosított a védelem.
 
@@ -8,7 +8,7 @@ Ha két, lnd v0.7.0 vagy újabb verziót futtató node-od van, beállíthatod ő
 
 Ellenőrizd a legújabb verziót és a kiadási megjegyzéseket itt: [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/). Frissíts [kézileg](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) vagy használj egy [automatizált segédszkriptet](https://github.com/openoms/lightning-node-management/blob/en/technicals/lnd.updates.md) az lnd frissítéséhez RaspiBlitz-en vagy kompatibilis rendszeren.
 
-## A Watchtower beállítása
+## Az őrtorony beállítása (Watchtower setup)
 
 Futtasd a parancsokat a node terminálján.
 A `#` a `$ sudo` rövidítése.
@@ -24,7 +24,7 @@ A `#` a `$ sudo` rövidítése.
   watchtower.active=1
   ```
 
-  * A watchtower alapértelmezetten a 9911-es porton figyel, de bármilyen más szabad portra állítható a konfigurációs fájlban: `watchtower.listen=0.0.0.0:PORT`.
+  * Az őrtorony alapértelmezetten a 9911-es porton figyel, de bármilyen más szabad portra állítható a konfigurációs fájlban: `watchtower.listen=0.0.0.0:PORT`.
   * A `0.0.0.0` IP-cím azt jelenti, hogy mindenhonnan fogad kapcsolatokat \(alapértelmezett beállítás\).
 
 * Engedélyezd a portot a tűzfalon:
@@ -62,9 +62,9 @@ A `#` a `$ sudo` rövidítése.
 * Jegyezd fel a `pubkey`-t az alábbi parancs kimenetéből:
   `$ lncli tower info`
 
-  A watchtower pubkey-je különbözik az lnd node pubkey-jétől.
+  Az őrtorony pubkey-je különbözik az lnd node pubkey-jétől.
 
-## A megfigyelt node beállítása \(a watchtower kliens\)
+## A megfigyelt node beállítása \(az őrtorony kliens\)
 
 * Szerkeszd az lnd.conf fájlt:
 
@@ -77,14 +77,14 @@ A `#` a `$ sudo` rövidítése.
   wtclient.active=1
   ```
 
-  Watchtower hozzáadása parancssorból \(egyszerre többet is hozzáadhatsz, egyenként\):
+  Őrtorony hozzáadása parancssorból \(egyszerre többet is hozzáadhatsz, egyenként\):
 
   ```text
   $ lncli wtclient add <watchtower-pubkey>@<host>:9911
   ```
 
 * Használd a korábban a `$ lncli tower info` parancsból feljegyzett `watchtower-pubkey`-t.
-* Clearnet kliens esetén a `host`-nak a watchtower clearnet IP-címének \(vagy dynamicDNS-ének\) kell lennie, még akkor is, ha a watchtower Tor mögött fut.
+* Clearnet kliens esetén a `host`-nak az őrtorony clearnet IP-címének \(vagy dynamicDNS-ének\) kell lennie, még akkor is, ha az őrtorony Tor mögött fut.
 * Indítsd újra az lnd-t:
 `# systemctl restart lnd`
 * Ellenőrizd a naplóban, hogy a szolgáltatás működik-e:
@@ -130,9 +130,9 @@ A `#` a `$ sudo` rövidítése.
 
 ## Beállítás Tor mögötti node-okhoz
 
-Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futnia ahhoz, hogy kommunikálni tudjanak egymással.
+Mindkét node-nak \(az őrtoronynak és a kliensnek is\) Tor mögött kell futnia ahhoz, hogy kommunikálni tudjanak egymással.
 
-### Tor Watchtower beállítás
+### Tor őrtorony beállítás (Tor Watchtower setup)
 
 * Szerkeszd az lnd.conf fájlt:
 
@@ -145,7 +145,7 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
   watchtower.active=1
   ```
 
-* Szerkeszd a watchtower Tor konfigurációs fájlját:
+* Szerkeszd az őrtorony Tor konfigurációs fájlját:
   `# nano /etc/tor/torrc`
 
   Add hozzá a következő sorokat:
@@ -159,14 +159,14 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
 * Indítsd újra a Tor-t és az lnd-t a systemctl segítségével:
 `# systemctl restart tor`
 `# systemctl restart lnd`
-* Jegyezd fel a watchtower onion címét az alábbi paranccsal:
+* Jegyezd fel az őrtorony onion címét az alábbi paranccsal:
 `# cat /mnt/hdd/tor/lndWT9911/hostname`
 * Jegyezd fel a watchtower-pubkey-t az alábbi paranccsal:
 `$ lncli tower info`
 * A napló folyamatos szűrése \(kilépés: CTRL+C\):
 `# tail -f -n 10000 /mnt/hdd/lnd/logs/bitcoin/mainnet/lnd.log | grep WTWR`
 
-  Példa kimenet a watchtower oldalán:
+  Példa kimenet az őrtorony oldalán:
 
   ```text
   2019-08-20 11:26:30.555 [INF] WTWR: Accepted incoming peer WTCLIENT_PUBKEY@127.0.0.1:57264
@@ -181,7 +181,7 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
   2019-08-20 11:27:28.729 [DBG] WTWR: No breaches found in (height=590941, hash=000000000000000000069b8d2739cb8736cc6a14927d760a7b7dfa47e1e5059e)
   ```
 
-### Tor Watchtower Kliens beállítás
+### Tor őrtorony kliens beállítás (Tor Watchtower Client setup)
 
 * Szerkeszd az lnd.conf fájlt:
 
@@ -194,7 +194,7 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
   wtclient.active=1
   ```
 
-* Watchtower hozzáadása parancssorból \(egyszerre többet is hozzáadhatsz, egyenként\):
+* Őrtorony hozzáadása parancssorból \(egyszerre többet is hozzáadhatsz, egyenként\):
 
   ```text
   $ lncli wtclient add 02b745aa2c27881f2494978fe76494137f86fef6754e5fd19313670a5bc639ea82@xjyldrwmtxtutdqqhgvxvnykk4ophz6ygr3ci4gxnnt5wibl7k4g2vad.onion:9911
@@ -202,10 +202,10 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
 
   * Egy teszt node adatai vannak előre kitöltve. A kapcsolódás üdvözölt, de nincs garancia arra, hogy ez a szolgáltatás folyamatosan elérhető marad.
   * Használd a korábban a `$ lncli tower info` parancsból feljegyzett `watchtower-pubkey`-t.
-  * A host a watchtower .onion címe, amelyet korábban a `# cat /mnt/hdd/tor/lndWT9911/hostname` parancsból jegyeztél fel.
+  * A host az őrtorony .onion címe, amelyet korábban a `# cat /mnt/hdd/tor/lndWT9911/hostname` parancsból jegyeztél fel.
 * Indítsd újra az lnd-t a systemctl segítségével:
 `# systemctl restart lnd`
-* Ellenőrizd, mely watchtower-ek figyelnek:
+* Ellenőrizd, mely őrtornyok figyelnek:
 `$ lncli wtclient towers`
 
   Példa kimenet:
@@ -239,7 +239,7 @@ Mindkét node-nak \(a watchtower-nek és a kliensnek is\) Tor mögött kell futn
   2019-07-26 10:31:08.041 [INF] WTCL: Client stats: tasks(received=9 accepted=9 ineligible=0) sessions(acquired=0 exhausted=0)
   ```
 
-## Inaktív tower-ek eltávolítása
+## Inaktív őrtornyok eltávolítása
 * Futtasd a terminálban:
   ```
   for i in $(lncli wtclient towers | grep false -B 4 | grep pubkey | awk '{print $2}' | cut -d'"' -f2); do lncli wtclient remove $i; done
@@ -255,10 +255,10 @@ Legfrissebb lnd kiadási megjegyzések: [https://github.com/lightningnetwork/lnd
 
 [https://bitcoinops.org/en/newsletters/2019/06/19/](https://bitcoinops.org/en/newsletters/2019/06/19/)
 
-Will O\`Beirne ebben a cikkben \(és a hozzá tartozó GitHub repóban\) bemutatja, hogyan lehet szabálysértéseket szimulálni és a watchtower reakcióit megfigyelni egy szimulált hálózaton: [https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112](https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112)
+Will O\`Beirne ebben a cikkben \(és a hozzá tartozó GitHub repóban\) bemutatja, hogyan lehet szabálysértéseket szimulálni és az őrtorony reakcióit megfigyelni egy szimulált hálózaton: [https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112](https://medium.com/@wbobeirne/testing-out-watchtowers-with-a-simulated-breach-f1ad22c01112)
 
-SLP83 Conner Fromknecht -- Bitcoin Lightning Watchtower-ek részletesen
+SLP83 Conner Fromknecht -- Bitcoin Lightning őrtornyok (Watchtowers) részletesen
 podcast: [https://stephanlivera.com/episode/83](https://stephanlivera.com/episode/83)
 átirat: [http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/](http://diyhpl.us/wiki/transcripts/stephan-livera-podcast/2019-06-24-conner-fromknecht-stephan-livera/)
 
-Keress altruista watchtower-eket és oszd meg a sajátodat: [https://github.com/openoms/lightning-node-management/issues/4](https://github.com/openoms/lightning-node-management/issues/4)
+Keress altruista őrtornyokat és oszd meg a sajátodat: [https://github.com/openoms/lightning-node-management/issues/4](https://github.com/openoms/lightning-node-management/issues/4)

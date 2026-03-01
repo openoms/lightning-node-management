@@ -1,4 +1,4 @@
-# Ellenálló Lightning node TrueNAS-on
+# Ellenálló Lightning node TrueNAS-on (Resilient Lightning Node on TrueNAS)
 
 Kezdd itt: [seth586](https://github.com/seth586) [TrueNASnode - teljes bitcoin stack telepítési útmutató](https://github.com/seth586/guides/blob/master/FreeNAS/bitcoin/README.md)
 

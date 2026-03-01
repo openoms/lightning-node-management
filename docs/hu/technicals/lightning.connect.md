@@ -6,10 +6,10 @@
   * [LNDconnect](lightning.connect.md#lndconnect)
   * [Balance of Satoshis](lightning.connect.md#balance-of-satoshis)
   * [BTCPayserver](lightning.connect.md#btcpayserver)
-* [C-lightning](lightning.connect.md#c-lightning)
+* [Core Lightning (CLN)](lightning.connect.md#c-lightning)
   * [Spark Wallet](lightning.connect.md#spark-wallet)
   * [Sparko](lightning.connect.md#sparko)
-  * [C-lightning REST \(Zeus-szal\)](lightning.connect.md#c-lightning-rest-zeus-szal)
+  * [Core Lightning (CLN) REST \(Zeus-szal\)](lightning.connect.md#c-lightning-rest-zeus-szal)
   * [BTCPayserver](lightning.connect.md#btcpayserver-1)
 * [Eclair](lightning.connect.md#eclair)
   * [BTCPayServer](lightning.connect.md#btcpayserver-2)
@@ -23,13 +23,13 @@
 | BoS |  | { | "socket": "grpc\_host:10009" | , | "macaroon": "base64\_macaroon" | , | "cert": "base64\_cert" | } |
 | BTCPay | type=lnd-rest | ; | [https://rest\_host:8080/](https://rest_host:8080/) | ; | macaroon=hex\_macaroon | ; | certthumbprint=hex\_cert |  |
 
-| C-lightning | prefix | d | szerver | d | auth | d | tls |
+| Core Lightning (CLN) | prefix | d | szerver | d | auth | d | tls |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Spark Wallet / Sparko |  |  | spark\_rpc\_host | ? | access-key=accessKey |  |  |
 | BTCPay unix socket | type=clightning | ; | server=unix://home/user/.lightning/lightning-rpc |  |  |  |  |
 | BTCPay TCP | type=clightning | ; | server=tcp://tcp\_host:27743/ |  |  |  |  |
 | BTCPay Charge | type=clightning | ; | server=[https://charge\_host:8080/](https://charge_host:8080/) | ; | api-token=myapitoken... |  |  |
-| C-lightning REST |  |  | rest\_host | ? | hex\_macaroon |  |  |
+| Core Lightning (CLN) REST |  |  | rest\_host | ? | hex\_macaroon |  |  |
 
 | Eclair | prefix | d | szerver | d | auth | d | tls |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -139,7 +139,7 @@ base64 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'
   allowinsecure=true
   ```
 
-## C-lightning
+## Core Lightning (CLN)
 
 ### Spark Wallet
 
@@ -159,7 +159,7 @@ Lásd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-tr
 
   az `accessKey` macaroon-szerű jogosultságokkal rendelkezik
 
-### C-lightning REST \(Zeus-szal\)
+### Core Lightning (CLN) REST \(Zeus-szal\)
 
 [https://github.com/Ride-The-Lightning/c-lightning-REST/](https://github.com/Ride-The-Lightning/c-lightning-REST/)
 
@@ -177,7 +177,7 @@ Lásd: [https://github.com/shesek/spark-wallet/blob/master/doc/tls.md\#add-as-tr
 
 ### BTCPayserver
 
-* c-lightning TCP-n vagy unix domain socket kapcsolaton keresztül:
+* Core Lightning (CLN) TCP-n vagy unix domain socket kapcsolaton keresztül:
 
   ```text
   type=clightning;server=unix://root/.lightning/lightning-rpc

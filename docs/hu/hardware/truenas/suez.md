@@ -1,4 +1,4 @@
-# Suez FreeBSD-n
+# Suez FreeBSD-n (Suez on FreeBSD)
 
 pkg install python38
 pjg install py38-pip

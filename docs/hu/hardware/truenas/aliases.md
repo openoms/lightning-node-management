@@ -1,4 +1,4 @@
-# Példa aliasok a TrueNAS node-on
+# Példa aliasok a TrueNAS node-on (Example Aliases on TrueNAS Node)
 
 * telepítsd és válts át a `bash` terminálra:
 ```

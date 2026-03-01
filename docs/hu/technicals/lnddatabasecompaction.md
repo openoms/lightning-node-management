@@ -47,7 +47,7 @@ Az LND v0.12.0 óta beállítható a `db.bolt.auto-compact=true` az `lnd.conf`-b
    db.bolt.auto-compact=false
   ```
 
-## Tömörítés a Channels Tools-szal
+## Tömörítés a chantools eszközzel (Compaction with chantools)
 
 [https://github.com/guggero/chantools\#compactdb](https://github.com/guggero/chantools#compactdb)
 

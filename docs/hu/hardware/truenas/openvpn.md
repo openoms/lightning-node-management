@@ -1,4 +1,4 @@
-# OpenVPN kliens FreeBSD-n
+# OpenVPN kliens FreeBSD-n (OpenVPN Client on FreeBSD)
 
 OpenVPN kliens beállításához FreeBSD-n kövesd az alábbi lépéseket:
 

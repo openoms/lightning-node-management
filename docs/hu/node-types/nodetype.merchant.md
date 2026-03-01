@@ -2,11 +2,11 @@
 Fizetések fogadására irányul, a bejövő likviditásra összpontosít
 
 ## Tőkeigény
-* minimális bejövő channel-ek vásárlásához
-* átmenetileg magas a megnyitott channel-ekből származó bejövő kapacitás létrehozásához
+* minimális bejövő csatornák vásárlásához
+* átmenetileg magas a megnyitott csatornákból származó bejövő kapacitás létrehozásához
 
-## Channel-ek és peer-ek
-* kevés (2-3) channel jól kapcsolt és tőkeerős node-okkal
+## Csatornák és peer-ek (Channels and peers)
+* kevés (2-3) csatorna jól kapcsolt és tőkeerős node-okkal
 * csatlakozz a [Bos lista](../advanced-tools/bosscore.md) node-jaihoz
 * nézd meg a meglévő díjbeállításokat az [Amboss](https://amboss.space/) / [1ml.com](https://1ml.com/) oldalakon
 * Ellenőrizd a node stabilitását a [Lightning Web](https://terminal.lightning.engineering) felületen
@@ -19,16 +19,16 @@ Fizetések fogadására irányul, a bejövő likviditásra összpontosít
 * az elérhetetlen node az eladásokra hat
 
 ## Kezelés
-* [Loop out](https://github.com/lightninglabs/loop#lightning-loop) ([Autoloop](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/autoloop)) a meglévő channel-ek ürítéséhez
-* Bezárás és újranyitás, ha a channel-ek megtelnek
-  * egy channel nyitás (és zárás) nem drágább a Loop használatánál, ha:
-    * van onchain likviditásod több channel-hez (vagy a jövőben splice in) vagy
-    * megengedheted a channel leállási időt a peer-ek között a bezáráshoz és újranyitáshoz
+* [Loop out](https://github.com/lightninglabs/loop#lightning-loop) ([Autoloop](https://docs.lightning.engineering/advanced-best-practices/advanced-best-practices-overview/autoloop)) a meglévő csatornák ürítéséhez
+* Bezárás és újranyitás, ha a csatornák megtelnek
+  * egy csatorna nyitás (és zárás) nem drágább a Loop használatánál, ha:
+    * van onchain likviditásod több csatornához (vagy a jövőben splice in) vagy
+    * megengedheted a csatorna leállási időt a peer-ek között a bezáráshoz és újranyitáshoz
 * Vásárolj további [bejövő likviditást](../createinboundliquidity.md)
 * Használj liquidity ads-t bejövő likviditás vásárlásához
 * Próbáld az Amboss Magma-t
 * Adj le licitálást a [Lightning Pool](../advanced-tools/pool.md)-on
-* Hirdess bejövő channel-ek fogadásához
+* Hirdess bejövő csatornák fogadásához
 * [Pénzek összegyűjtése](https://github.com/lnbook/lnbook/blob/develop/05_node_operations.asciidoc#sweeping-funds)
   * Onchain vagy offchain összegyűjtésre szükség lehet, ha a Lightning tárca egyenlege túl naggyá válik
   * Egy offchain összegyűjtés javíthatja a privacy-det, és egyben bejövő likviditást is biztosít

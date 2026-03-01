@@ -1,11 +1,11 @@
-# Automatizált LND frissítési szkriptek a RaspiBlitz-hez
+# Automatizált LND frissítési szkriptek a RaspiBlitz-hez (Automated LND Update Scripts for RaspiBlitz)
 
 A legújabb hivatalos kiadásért és a hozzá tartozó megjegyzésekért lásd: [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/)
 
 **FIGYELMEZTETÉS minden főverziós frissítéshez: A migráció után az LND adatbázis csak az adott új verzióval és az annál újabbakkal lesz kompatibilis.**
 Ez azt jelenti, hogy a frissítési szkriptet minden alkalommal futtatni kell, amikor egy tiszta RaspiBlitz SD-kártya képfájlt használunk az LND adatbázis eléréséhez.
 
-## Biztonsági mentés
+## Biztonsági mentés (Backup)
 
 Frissítés előtt ajánlott teljes biztonsági mentést készíteni az LND könyvtárról.
 **Ezt NEM szabad visszaállítani, miután az LND sikeresen újraindult!**
@@ -18,7 +18,7 @@ Frissítés előtt ajánlott teljes biztonsági mentést készíteni az LND kön
 
   Erről a folyamatról bővebb információ a [GYIK-ben](https://github.com/raspiblitz/raspiblitz/blob/dev/FAQ.md#2-making-a-complete-lnd-data-backup)
 
-## [LND frissítése v0.18.0-beta verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.18.0-beta.sh)
+## [LND frissítése v0.18.0-beta verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.18.0-beta.sh) (Update LND to v0.18.0-beta)
 
 * Futtasd a RaspiBlitz terminálban:
 
@@ -31,7 +31,7 @@ Frissítés előtt ajánlott teljes biztonsági mentést készíteni az LND kön
     bash lnd.update.v0.18.0-beta.sh
   ```
 
-## [LND frissítése v0.17.4-beta verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.17.4-beta.sh)
+## [LND frissítése v0.17.4-beta verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.17.4-beta.sh) (Update LND to v0.17.4-beta)
 
 * Futtasd a RaspiBlitz terminálban:
 
@@ -44,7 +44,7 @@ Frissítés előtt ajánlott teljes biztonsági mentést készíteni az LND kön
     bash lnd.update.v0.17.4-beta.sh
   ```
 
-## [LND frissítése v0.16.4-beta verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.16.4-beta.sh)
+## [LND frissítése v0.16.4-beta verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.v0.16.4-beta.sh) (Update LND to v0.16.4-beta)
 
 * Futtasd a RaspiBlitz terminálban:
 
@@ -57,7 +57,7 @@ Frissítés előtt ajánlott teljes biztonsági mentést készíteni az LND kön
     bash lnd.update.v0.16.4-beta.sh
   ```
 
-## [LND frissítése tetszőleges verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.sh)
+## [LND frissítése tetszőleges verzióra](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.update.sh) (Update LND to Any Version)
 
 * Futtasd a RaspiBlitz terminálban:
 
@@ -82,7 +82,7 @@ Frissítés előtt ajánlott teljes biztonsági mentést készíteni az LND kön
     E4D85299674B2D31FAA1892E372CBD7633C61696
   ```
 
-## [LND fordítása forráskódból](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.from.source.sh)
+## [LND fordítása forráskódból](https://github.com/openoms/lightning-node-management/tree/en/lnd.updates/lnd.from.source.sh) (Build LND from Source)
 
 * Töltsd le és futtasd ezt a szkriptet a RaspiBlitz-en:
 

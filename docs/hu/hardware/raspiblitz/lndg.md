@@ -1,4 +1,4 @@
-# LNDg a RaspiBlitz-en
+# LNDg a RaspiBlitz-en (LNDg on RaspiBlitz)
 * A teszteléshez hasznos parancsok listája (folyamatban)
 * a részletekért lásd a megjegyzéseket
 * https://github.com/cryptosharks131/lndg#manual-installation

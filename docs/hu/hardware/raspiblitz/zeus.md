@@ -1,4 +1,4 @@
-# LND csatlakoztatása a Zeus-hoz
+# LND csatlakoztatása a Zeus-hoz (Connecting LND to Zeus)
 
 * Szerezd meg a Tor címet (mainnet esetén), vagy használd a LAN / VPN címet
     ```

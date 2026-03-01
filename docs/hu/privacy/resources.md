@@ -14,41 +14,41 @@
 * Kód és saját futtatás leírása: <https://github.com/lnproxy>
 * Továbbfejlesztett alias a payment hash ellenőrzéssel: <https://github.com/lnproxy/lnproxy-cli>
 *
-## Nem bejelentett channel-ek - árnyék likviditás
-* Használj párhuzamos privát channel-eket a kapacitás és UTXO-k elrejtéséhez.
+## Nem bejelentett csatornák - árnyék likviditás (Unannounced channels - shadow liquidity)
+* Használj párhuzamos privát csatornákat a kapacitás és UTXO-k elrejtéséhez.
 * <https://eprint.iacr.org/2021/384.pdf>
-  > A nyilvános channel-egyenlegek elrejtéséhez egy node nem bejelentett
-channel-eket nyithat a bejelentettekkel párhuzamosan. A bejelentett és nem bejelentett channel-ek egyenlegei közötti
-viszonytól függően a támadó továbbra is képes lehet felfedezni a nem bejelentett channel-ek egyenlegeit (pl. ha a
-nem bejelentett channel egyenlege meghaladja a bejelentett channel-ek egyenlegeit). Még ebben az
+  > A nyilvános csatorna-egyenlegek elrejtéséhez egy node nem bejelentett
+csatornákat nyithat a bejelentettekkel párhuzamosan. A bejelentett és nem bejelentett csatornák egyenlegei közötti
+viszonytól függően a támadó továbbra is képes lehet felfedezni a nem bejelentett csatornák egyenlegeit (pl. ha a
+nem bejelentett csatorna egyenlege meghaladja a bejelentett csatornák egyenlegeit). Még ebben az
 esetben is módosítani kell a szokásos probing technikát.
 
-## Channel-ek nyitása jobb adatvédelemmel
+## Csatornák nyitása jobb adatvédelemmel (Open channels with improved privacy)
 ### Kézi módszer
-* Hozz létre channel-eket coinjoin kimenetekből.
-  * A privát channel-ek nincsenek bejelentve; különösen akkor használd őket, ha már van nyilvános channel a peerhez.
-  * Egyszerre egy channel-t nyiss.
+* Hozz létre csatornákat coinjoin kimenetekből.
+  * A privát csatornák nincsenek bejelentve; különösen akkor használd őket, ha már van nyilvános csatorna a peerhez.
+  * Egyszerre egy csatornát nyiss.
   * Ne hozz létre visszajárót (change).
   * Kerüld a kerek összegeket.
-* Kooperatívan zárd a channel-t egy külső címre (pl. egy Maker-ként futó Joinmarket tárcára).
-* Core Lightning channel létrehozása JoinMarket finanszírozással: <https://gist.github.com/BitcoinWukong/0c04d9186251b0a6497fef3737e95ceb>
+* Kooperatívan zárd a csatornát egy külső címre (pl. egy Maker-ként futó Joinmarket tárcára).
+* Core Lightning csatorna létrehozása JoinMarket finanszírozással: <https://gist.github.com/BitcoinWukong/0c04d9186251b0a6497fef3737e95ceb>
 * LND szintaxis Balance of Satoshis-szal:
   ```
   bos open PUBKEY --amount SATS --coop-close-address EXTERNAL_ADDRESS --type private --external-funding
   ```
 ### Mutiny wallet
 - LDK / Sensei alapú
-- Minden channel nyitáshoz új node
-- Channel-ek finanszírozása külső tárcából, visszajáró nélkül
+- Minden csatorna nyitáshoz új node
+- Csatornák finanszírozása külső tárcából, visszajáró nélkül
 - <https://github.com/BitcoinDevShop/pln>
 - <https://mutinywallet.com/>
 
 ### LN-vortex
-- Coinjoin channel-ekbe: <https://github.com/ln-vortex/ln-vortex>
+- Coinjoin csatornákba: <https://github.com/ln-vortex/ln-vortex>
 - Első mainnet tranzakció: <https://twitter.com/benthecarman/status/1590886577940889600>
 
 ### Nolooking
-- Payjoin channel-ekbe. A fizetés fogadója channel-eket nyithat egy payjoin keretében.
+- Payjoin csatornákba. A fizetés fogadója csatornákat nyithat egy payjoin keretében.
   * <https://github.com/chaincase-app/nolooking>
   * <https://chaincase.app/words/lightning-payjoin>
 
@@ -56,7 +56,7 @@ esetben is módosítani kell a szokásos probing technikát.
 ### Mobil tárcák (LN node a telefonon)
 Tor támogatás és privát láncinformáció
 * OBW - Tor + Electrum szerver támogatás
-  * Opcionális letétkezelő hosted channel-ek támogatása - a fizetések a szolgáltató elől is privátak
+  * Opcionális letétkezelő hosted csatornák támogatása - a fizetések a szolgáltató elől is privátak
 * Breez - Tor és neutrino backend
 * Blixt - Neutrino blokkforrás
 
@@ -77,14 +77,14 @@ A hagyományos letétkezelők semmilyen adatvédelmet nem nyújtanak az üzemelt
 - [ ] PTLCs <https://lists.linuxfoundation.org/pipermail/lightning-dev/2021-October/003278.html>
 
 ## Támadások
-### Channel jamming
+### Csatorna jamming (Channel jamming)
 * <https://jamming-dev.github.io/book>
 * <https://twitter.com/ffstls/status/1559902528808140804>
 ### LNsploit
 * Lightning Network exploit eszközkészlet: <https://www.nakamoto.codes/BitcoinDevShop/LNsploit>
 
 ### Probing
-- [hiddenlightningnetwork.com](https://github.com/BitcoinDevShop/hidden-lightning-network) - LDK-t használ a Lightning Network szondázásához privát channel-ek felderítésére
+- [hiddenlightningnetwork.com](https://github.com/BitcoinDevShop/hidden-lightning-network) - LDK-t használ a Lightning Network szondázásához privát csatornák felderítésére
 * További részletek és beszélgetés: <https://lists.linuxfoundation.org/pipermail/lightning-dev/2022-June/003599.html>
 * [CD69: decentralizált azonosítók (DID-ek), "web5" és Lightning adatvédelem Tony-val](https://citadeldispatch.com/cd69/)
 

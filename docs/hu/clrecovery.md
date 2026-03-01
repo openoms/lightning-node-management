@@ -1,4 +1,4 @@
-# C-lightning helyreállítási források
+# Core Lightning (CLN) helyreállítási források (Recovery Resources)
 
 * [lightning.readthedocs.io/FAQ.html#database-corruption-channel-state-lost](https://lightning.readthedocs.io/FAQ.html#database-corruption-channel-state-lost)
 

@@ -22,17 +22,17 @@ OPTIONS
 
 ## [charge-lnd](https://github.com/accumulator/charge-lnd)
 
-Channel-díjak beállítása szabályzat alapján.
-Ez a szkript az aktív channel-jeidet egyedi feltételek alapján vizsgálja, és a megfelelő szabályzatot alkalmazza rájuk.
+Csatorna-díjak beállítása szabályzat alapján.
+Ez a szkript az aktív csatornáidat egyedi feltételek alapján vizsgálja, és a megfelelő szabályzatot alkalmazza rájuk.
 
 ## [LND fees manager](https://gitlab.com/nolith/lndfeesmanager)
 
-Az lndfeesmanager egy egyszerű szoftver, amelynek célja a LN channel-ek kiegyensúlyozása dinamikus díjak segítségével.
-Ha egy channel kiegyensúlyozatlan, a díjakat automatikusan módosítja.
+Az lndfeesmanager egy egyszerű szoftver, amelynek célja a LN csatornák kiegyensúlyozása dinamikus díjak segítségével.
+Ha egy csatorna kiegyensúlyozatlan, a díjakat automatikusan módosítja.
 
 Ha az egyenleg nagyrészt helyi (local), a díjak csökkennek, hogy ösztönözzék a routing-ot.
 Ha az egyenleg nagyrészt távoli (remote), a díjak emelkednek, hogy visszafogják a routing-ot.
-Ha a channel kiegyensúlyozott, közepes díj kerül beállításra.
+Ha a csatorna kiegyensúlyozott, közepes díj kerül beállításra.
 
 ## További olvasnivaló
 

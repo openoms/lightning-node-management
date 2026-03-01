@@ -1,4 +1,4 @@
-# Építsd meg saját Lightning és Bitcoin full node-odat egy RaspberryPi-n szép kijelzővel
+# Építsd meg saját Lightning és Bitcoin full node-odat egy RaspberryPi-n szép kijelzővel (Build Your Own Lightning and Bitcoin Full Node on a RaspberryPi with a Nice Display)
 
 Kezdd el a [raspiblitz.org](https://raspiblitz.org/) oldalon
 

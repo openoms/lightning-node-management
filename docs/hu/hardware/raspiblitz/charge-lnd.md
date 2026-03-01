@@ -60,7 +60,7 @@ Illeszd be az alábbit a crontab-ba, hogy 5 percenként fusson (<https://crontab
 */5 * * * * sudo -u bitcoin /home/bitcoin/.local/bin/charge-lnd -c /home/bitcoin/charge-lnd/charge.config
 ```
 
-## További példakonfigurációkat tartalmazó gist:
+## További példakonfigurációkat tartalmazó gist (Gist with More Example Configurations)
 <https://gist.github.com/openoms/9d0c554f620f4584c17bec268d4519e8>
 
 A bejegyzés itt is megtalálható: https://habla.news/a/naddr1qqxnzd3c8qunzv35x5mr2wfsqgs24sraj5yfee4d7z9ez4k58sdy4dv5ccfsklwtztkpnyqgckqe5tcrqsqqqa28xwrv7e

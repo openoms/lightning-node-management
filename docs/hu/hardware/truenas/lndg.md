@@ -1,4 +1,4 @@
-# LNDg FreeBSD-n
+# LNDg FreeBSD-n (LNDg on FreeBSD)
 
 * https://github.com/cryptosharks131/lndg#manual-installation
 * Folyamatban lévő parancsok listája a teszteléshez

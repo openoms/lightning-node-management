@@ -61,7 +61,7 @@ Kész. Miután az Electrum Server befejezte a beolvasást, a pénzkészletnek me
 ## Az LND tárca onchain részének importálása Electrum Wallet-be
 
 Ez nem egy ajánlott módja a pénzkészlet kezelésének az LND tárcából, jobban használható csak megfigyelés (watch-only) módban.
-A seed-ből történő visszaállítás Electrum-ban nem érinti a channel-ekben lévő offchain pénzkészletet.
+A seed-ből történő visszaállítás Electrum-ban nem érinti a csatornákban lévő offchain pénzkészletet.
 Nincs garancia arra, hogy az Electrum change kimenetei megjelennek LND-ben, és fordítva.
 
 Ezt csak akkor csináld, ha érted a folyamatot.

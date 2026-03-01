@@ -1,8 +1,8 @@
-# Lightning Terminal FreeBSD-n
+# Lightning Terminal FreeBSD-n (Lightning Terminal on FreeBSD)
 
 https://github.com/lightninglabs/lightning-terminal/blob/master/doc/compile.md
 
-# Telepítés
+# Telepítés (Installation)
 
 ```
 bash
@@ -47,7 +47,7 @@ cd
 rm -r lightning-terminal-source-$VERSION
 ```
 
-## Konfigurációs fájl
+## Konfigurációs fájl (Configuration File)
 a RaspiBlitz alapján adaptált (ugyanaz a felépítés külön LND-vel):
 
 ```
@@ -92,7 +92,7 @@ faraday.bitcoin.user=$RPCUSER
 faraday.bitcoin.password=$RPCPASSWORD
 ```
 
-## Szerviz fájl
+## Szerviz fájl (Service File)
 
 ```
 nano /usr/local/etc/rc.d/litd
@@ -144,13 +144,13 @@ run_rc_command "$1"
   tail -f /var/log/tor/tor.log
   ```
 
-## Indítás
+## Indítás (Starting)
 ```
 service litd enable
 service litd start
 ```
 
-## Logok
+## Logok (Logs)
 ```
 tail -f .lit/logs/mainnet/litd.log
 ```
@@ -160,7 +160,7 @@ Jelentkezz be a webes felületbe itt:
 https://JAIL_LOCAL_IP:8443
 ```
 
-## Frissítés
+## Frissítés (Updating)
 ```
 bash
 # ellenőrizd a legújabb verziót itt: https://github.com/lightninglabs/lightning-terminal/releases

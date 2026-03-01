@@ -1,4 +1,4 @@
-# LND csatlakoztatása a Zeus-hoz
+# LND csatlakoztatása a Zeus-hoz (Connecting LND to Zeus)
 
 * Tor cím lekérdezése
     ```

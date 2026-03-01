@@ -8,11 +8,11 @@ Bitcoin olcsó és privát elköltésére irányul.
 * a költési tervtől és a rendelkezésre álló forrásoktól függ
 * lehetővé teszi a nem kevert pénzek felhasználását váltópénz keletkezése nélkül
 
-## Channel-ek és peer-ek
+## Csatornák és peer-ek (Channels and peers)
 
-* egyetlen channel egy jól kapcsolt, tőkeerős és magas üzemidejű node-hoz jó kiindulás, lásd a [Bos lista](../advanced-tools/bosscore.md), [Lightning Terminal](https://terminal.lightning.engineering) vagy [Amboss.space](https://amboss.space) oldalakat peer választásához
-* használj privát channel-eket, hogy elkerüld a node és a finanszírozási tranzakciók nyilvánosságra hozatalát
-* az offline privát channel-ek nem rongálják a hálózat megbízhatóságát
+* egyetlen csatorna egy jól kapcsolt, tőkeerős és magas üzemidejű node-hoz jó kiindulás, lásd a [Bos lista](../advanced-tools/bosscore.md), [Lightning Terminal](https://terminal.lightning.engineering) vagy [Amboss.space](https://amboss.space) oldalakat peer választásához
+* használj privát csatornákat, hogy elkerüld a node és a finanszírozási tranzakciók nyilvánosságra hozatalát
+* az offline privát csatornák nem rongálják a hálózat megbízhatóságát
 
 ## Likviditás
 
@@ -24,7 +24,7 @@ Bitcoin olcsó és privát elköltésére irányul.
 
 ## Kezelés
 
-* kimerült channel-ek bezárása
+* kimerült csatornák bezárása
 * [feltöltés LN-en keresztül](../createoutboundliquidity.md)
 * új node indítása gyakran javítja az onchain privacy-t
 

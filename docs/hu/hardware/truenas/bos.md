@@ -1,13 +1,13 @@
-# Balance of Satoshis FreeBSD-n
+# Balance of Satoshis FreeBSD-n (Balance of Satoshis on FreeBSD)
 
-## Telepítés
+## Telepítés (Installation)
 ```
 pkg update -y
 pkg install -y node npm nano tmux
 npm install -g balanceofsatoshis
 ```
 
-## A kapcsolódási sztring exportálása
+## A kapcsolódási sztring exportálása (Exporting the Connection String)
 ```
 /bin/sh
 pkg install -y base64
@@ -18,7 +18,7 @@ MACAROON=$(base64 /var/db/lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d 
 echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:10009\"}"
 ```
 
-## Importálás a bos-ba
+## Importálás a bos-ba (Importing into bos)
 
 * válassz egy nevet a node azonosításához a bos-ban
 ```
@@ -33,19 +33,19 @@ mkdir -p ~/.bos/$NODE_NAME/
 echo "{ \"cert\": \"$CERT\", \"macaroon\": \"$MACAROON\", \"socket\": \"$LAN_IP:10009\"}" | tee -a ~/.bos/$NODE_NAME/credentials.json
 ```
 
-## Futtatás
+## Futtatás (Running)
 
 ```
 bos peers --node $NODE_NAME
 ```
 
-## Frissítés
+## Frissítés (Updating)
 
 ```
 npm install -g balanceofsatoshis
 ```
 
-## Futtatás Tor-on keresztül
+## Futtatás Tor-on keresztül (Running via Tor)
 * Hozd létre a proxy fájlt
 ```
 cat <<EOF >> /root/bos_tor_proxy.json

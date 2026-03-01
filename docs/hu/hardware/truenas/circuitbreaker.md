@@ -1,8 +1,8 @@
-# Circuitbreaker FreeBSD-n
+# Circuitbreaker FreeBSD-n (Circuitbreaker on FreeBSD)
 
 https://github.com/lightningequipment/circuitbreaker
 
-## Telepítés
+## Telepítés (Installation)
 ```
 # függőségek telepítése
 pkg install -y go git tmux
@@ -18,7 +18,7 @@ cd circuitbreaker
 go install
 ```
 
-## Súgó és használat megtekintése
+## Súgó és használat megtekintése (Help and Usage)
 ```
 /root/.gopkg/bin/circuitbreaker -h
 
@@ -48,7 +48,7 @@ GLOBAL OPTIONS:
    --version, -v              print the version
 ```
 
-## Futtatás
+## Futtatás (Running)
 * tartsd tmux-ban
    ```
    /root/.gopkg/bin/circuitbreaker --lnddir=/var/db/lnd

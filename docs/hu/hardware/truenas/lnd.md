@@ -1,5 +1,5 @@
 # LND
-## Frissítés
+## Frissítés (Updating)
 ```
 VERSION="v0.16.4-beta"
 cd ~
@@ -30,9 +30,9 @@ service lnd start
 tail -f /var/db/lnd/logs/bitcoin/mainnet/lnd.log
 ```
 
-## A channel.db mérete
+## A channel.db mérete (channel.db Size)
 ```
 ls -hl /var/db/lnd/data/graph/mainnet/channel.db
 ```
-## Automatikus feloldás
+## Automatikus feloldás (Auto-unlock)
 https://github.com/lightningnetwork/lnd/blob/master/docs/wallet.md

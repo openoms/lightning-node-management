@@ -1,6 +1,6 @@
 # RaspiBolt
 
-## Fő útmutató
+## Fő útmutató (Main Guide)
 
 Építsd meg saját kezűleg a Bitcoin és Lightning full node-odat egy Raspberry Pi-n. Az útmutatók könnyen adaptálhatók bármely Debian-alapú operációs rendszerre, egyszerűen a CPU architektúrádnak megfelelő binárisok letöltésével.
 
