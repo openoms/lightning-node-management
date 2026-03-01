@@ -6,7 +6,7 @@ Si hay dos nodos bajo su control desde lnd v0.7.0, puede configurarlos para que 
 
 ## Actualizar lnd
 
-Ver [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/) para obtener la última versión y sus notas correspondientes. Actualice [manualmente](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) o use un [script automatizado](../technicals/lnd.updates.md) para actualizar lnd en un RaspiBlitz o un sistema compatible.
+Ver [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/) para obtener la última versión y sus notas correspondientes. Actualice [manualmente](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) o use un [script automatizado](https://github.com/openoms/lightning-node-management/blob/en/technicals/lnd.updates.md) para actualizar lnd en un RaspiBlitz o un sistema compatible.
 
 ## Configurar el Watchtower
 

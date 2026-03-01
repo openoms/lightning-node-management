@@ -6,7 +6,7 @@ Ha két, lnd v0.7.0 vagy újabb verziót futtató node-od van, beállíthatod ő
 
 ## LND frissítése
 
-Ellenőrizd a legújabb verziót és a kiadási megjegyzéseket itt: [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/). Frissíts [kézileg](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) vagy használj egy [automatizált segédszkriptet](../technicals/lnd.updates.md) az lnd frissítéséhez RaspiBlitz-en vagy kompatibilis rendszeren.
+Ellenőrizd a legújabb verziót és a kiadási megjegyzéseket itt: [https://github.com/lightningnetwork/lnd/releases/](https://github.com/lightningnetwork/lnd/releases/). Frissíts [kézileg](https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md#installing-lnd) vagy használj egy [automatizált segédszkriptet](https://github.com/openoms/lightning-node-management/blob/en/technicals/lnd.updates.md) az lnd frissítéséhez RaspiBlitz-en vagy kompatibilis rendszeren.
 
 ## A Watchtower beállítása
 

@@ -98,7 +98,7 @@ Ha Tor mögül csatlakozol, add hozzá a node-jukat peer-ként:
 
 ### Csatlakozz egy közösséghez
 
-* [PLEBNET - KYCjelly.com](kycjelly.com)
+* [PLEBNET - KYCjelly.com](https://kycjelly.com)
 [plebnet.wiki/wiki/Welcome_to_Plebnet](https://plebnet.wiki/wiki/Welcome_to_Plebnet)
 
 * Rings of Fire

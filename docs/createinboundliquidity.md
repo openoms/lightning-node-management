@@ -98,7 +98,7 @@ Add their node as a peer if connecting from behind Tor:
 
 ### Join a community
 
-* [PLEBNET - KYCjelly.com](kycjelly.com)  
+* [PLEBNET - KYCjelly.com](https://kycjelly.com)  
 [plebnet.wiki/wiki/Welcome_to_Plebnet](https://plebnet.wiki/wiki/Welcome_to_Plebnet)
 
 * Rings of Fire  
