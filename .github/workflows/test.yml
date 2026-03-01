@@ -1,0 +1,64 @@
+name: Test MkDocs Build
+
+on:
+  pull_request:
+    branches: [master, main, en]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - run: pip install mkdocs-material mkdocs-static-i18n
+
+      - name: Build site
+        run: mkdocs build --strict
+
+      - name: Check all page URLs
+        run: |
+          # Start local server
+          python -m http.server 8000 -d site &
+          SERVER_PID=$!
+          sleep 2
+
+          BASE_URL="http://localhost:8000"
+          FAILED=0
+          TOTAL=0
+
+          check_url() {
+            local url="$1"
+            TOTAL=$((TOTAL + 1))
+            STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "$url" || true)
+            if [ "$STATUS" != "200" ]; then
+              echo "FAIL [$STATUS]: $url"
+              FAILED=$((FAILED + 1))
+            else
+              echo "  OK: $url"
+            fi
+          }
+
+          # English pages (exclude es/hu subdirs)
+          while IFS= read -r f; do
+            rel="${f#docs/}"; rel="${rel%.md}"
+            if [ "$rel" = "index" ]; then check_url "$BASE_URL/"; else check_url "$BASE_URL/$rel/"; fi
+          done < <(find docs -name '*.md' -not -path 'docs/es/*' -not -path 'docs/hu/*' | sort)
+
+          # ES and HU pages
+          for lang in es hu; do
+            [ -d "docs/$lang" ] || continue
+            while IFS= read -r f; do
+              rel="${f#docs/$lang/}"; rel="${rel%.md}"
+              if [ "$rel" = "index" ]; then check_url "$BASE_URL/$lang/"; else check_url "$BASE_URL/$lang/$rel/"; fi
+            done < <(find "docs/$lang" -name '*.md' | sort)
+          done
+
+          kill $SERVER_PID 2>/dev/null || true
+
+          echo ""
+          echo "Checked: $TOTAL | Failed: $FAILED"
+          [ "$FAILED" -eq 0 ]

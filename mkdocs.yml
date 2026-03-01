@@ -1,0 +1,153 @@
+site_name: Lightning Node Management
+site_url: https://autoblitzbot.github.io/lightning-node-management/
+site_description: A guide to managing Lightning Network nodes
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  icon:
+    logo: material/flash
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+          nav_translations:
+            Lightning basics: General
+            Create inbound liquidity: Crear liquidez entrante
+            Create outbound liquidity: Crear liquidez saliente
+            Node Types: Tipos de nodo
+            Merchant: Comercio
+            Spending: Gasto
+            Routing: Enrutamiento
+            Advanced Tools: Herramientas avanzadas
+            Technicals: Técnicas
+            Recovery: Recuperación
+            Privacy: Privacidad
+            Hardware deployment: Despliegue de hardware
+            Contact and support: Contacto y apoyo
+        - locale: hu
+          name: Magyar
+          build: true
+          nav_translations:
+            Lightning basics: Lightning alapok
+            Create inbound liquidity: Bejövő likviditás
+            Create outbound liquidity: Kimenő likviditás
+            Channel markets: Csatorna piacok
+            Node Types: Node típusok
+            Comparison: Összehasonlítás
+            Merchant: Kereskedő
+            Spending: Költés
+            Routing: Útvonalválasztás
+            Advanced Tools: Haladó eszközök
+            Fee settings: Díjbeállítások
+            Watchtower: Őrtorony
+            Balanced channels: Kiegyenlített csatornák
+            Technicals: Technikai részletek
+            Remote connection: Távoli kapcsolat
+            High onchain fees: Magas onchain díjak
+            LND database compaction: LND adatbázis tömörítés
+            LND funds in Electrum: LND alapok Electrumban
+            VPN tunnels: VPN alagutak
+            Recovery: Visszaállítás
+            LND recovery: LND visszaállítás
+            Core Lightning recovery: Core Lightning visszaállítás
+            Privacy: Adatvédelem
+            Resources: Források
+            Hardware deployment: Hardver telepítés
+            Recommendations: Ajánlások
+            Contact and support: Kapcsolat és adományok
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Lightning basics: index.md
+  - Create inbound liquidity: createinboundliquidity.md
+  - Create outbound liquidity: createoutboundliquidity.md
+  - Channel markets: channelmarkets.md
+  - Node Types:
+    - Comparison: node-types/comparison.md
+    - Merchant: node-types/nodetype.merchant.md
+    - Spending: node-types/nodetype.spending.md
+    - Routing: node-types/nodetype.routing.md
+  - Advanced Tools:
+    - lnd.conf example: advanced-tools/lnd.conf.md
+    - Fee settings: advanced-tools/fees.md
+    - Watchtower: advanced-tools/watchtower.md
+    - Balanced channels: advanced-tools/balancedchannelcreation.md
+    - Pool: advanced-tools/pool.md
+    - Bos Score: advanced-tools/bosscore.md
+  - Technicals:
+    - Remote connection: technicals/lightning.connect.md
+    - High onchain fees: technicals/highonchainfees.md
+    - LND database compaction: technicals/lnddatabasecompaction.md
+    - LND funds in Electrum: technicals/restorelndonchainfundsinelectrum.md
+    - VPN tunnels: technicals/networking.md
+  - Recovery:
+    - LND recovery: lndrecovery.md
+    - Core Lightning recovery: clrecovery.md
+  - Privacy:
+    - Resources: privacy/resources.md
+  - Hardware deployment:
+    - Recommendations: hardware/recommendations.md
+    - RaspiBolt: hardware/raspibolt.md
+    - RaspiBlitz:
+      - Overview: hardware/raspiblitz.md
+      - charge-lnd: hardware/raspiblitz/charge-lnd.md
+      - Balance of Satoshis: hardware/raspiblitz/bos.md
+      - LND updates: hardware/raspiblitz/lnd.updates.md
+      - LNDg: hardware/raspiblitz/lndg.md
+      - Zeus: hardware/raspiblitz/zeus.md
+      - Stream LND HTLCs: hardware/raspiblitz/stream-lnd-htlcs.md
+    - TrueNAS:
+      - Overview: hardware/truenas.md
+      - Aliases: hardware/truenas/aliases.md
+      - Balance of Satoshis: hardware/truenas/bos.md
+      - Lightning Terminal: hardware/truenas/lit.md
+      - Circuitbreaker: hardware/truenas/circuitbreaker.md
+      - LNtop: hardware/truenas/lntop.md
+      - LND notes: hardware/truenas/lnd.md
+      - LNDg: hardware/truenas/lndg.md
+      - Stream LND HTLCs: hardware/truenas/stream-lnd-htlcs.md
+      - Suez: hardware/truenas/suez.md
+      - Tailscale: hardware/truenas/tailscale.md
+      - OpenVPN: hardware/truenas/openvpn.md
+      - Zeus: hardware/truenas/zeus.md
+  - Contact and support:
+    - Contact and support: donate/donations.md
