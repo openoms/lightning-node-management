@@ -300,8 +300,5 @@ Spark es una billetera minimalista para c-lightning. Es accesible a través de l
 
 ## Aprende
 
-* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
-* [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars) [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
-* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)  
-* [https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars)
+* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)
 * [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)

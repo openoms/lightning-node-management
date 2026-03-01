@@ -305,5 +305,5 @@ A Spark egy minimalista tárca-felület a Core Lightning (CLN)-hoz, elérhető w
 
 ## Tanulás
 
-[https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)
-[https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars](https://chaincode.applytojob.com/apply/LpQl1a0cvd/Chaincode-Labs-Online-Seminars) [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
+* [https://github.com/lnbook/lnbook](https://github.com/lnbook/lnbook)
+* [https://github.com/chaincodelabs/lightning-curriculum](https://github.com/chaincodelabs/lightning-curriculum)
