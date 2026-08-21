@@ -129,6 +129,10 @@ See the a list of recommendations [CreateOutboundLiquidity.md](createoutboundliq
 
 The channels are best to be balanced with funds on each side to maximize the ability to route payments \(allows bidirectional traffic\).
 
+### [LND routing-profit audit](https://github.com/Validragon4/ln-routing-profit-audit)
+
+A dependency-free, offline, and read-only analyzer for LND `ForwardingHistory` exports. It ranks settled outgoing-channel and channel-pair traffic, accounts for stated period costs, and calculates evidence-gated rebalance-fee ceilings without requiring a macaroon or network access.
+
 ### [Balance of Satoshis](https://github.com/alexbosworth/balanceofsatoshis)
 
 A feature rich tool to work with LND balances. Has an experimental feature to connect to a personal Telegram bot and notify about the node activity.
