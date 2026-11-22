@@ -18,6 +18,7 @@ To pay for various gift cards with lightning check out [Bitrefill \(referral lin
   - [Coincept.com](#coinceptcom)
   - [Yalls.org](#yallsorg)
   - [lnd-routing](#lnd-routing)
+  - [Megalith LSP](#megalith-lsp)
 - [Ask for incoming channels](#ask-for-incoming-channels)
   - [lightningnetwork.plus](#lightningnetworkplus)
   - [LightningTo.me](#lightningtome)
@@ -84,6 +85,9 @@ can also works through Bitfinex, video [here](https://twitter.com/Synonym_to/sta
 ### [Yalls.org](https://yalls.org/about/)
 
 ### [lnd-routing](https://github.com/lnd-routing/lnd-routing/)
+
+### [Megalith LSP](https://megalithic.me/get_a_channel)
+* Pay a Lightning invoice and Megalith opens a channel to your node.
 
 ## Ask for incoming channels
 
